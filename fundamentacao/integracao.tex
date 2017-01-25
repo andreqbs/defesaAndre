@@ -1,14 +1,12 @@
 \label{Cap_2_3}
 
-Neste capítulo são apresentados alguns conceitos fundamentais para o desenvolvimento desta proposta...
-
 \section{Sistemas Híbridos}
 
-O cérebro humano possui a notável capacidade de compreender, interpretar e produzir a linguagem humana. A Inteligência Artificial Conexionista se desenvolveu ao ponto de atingir algo parecido com o cérebro humano. As redes neurais artificiais e a lógica não possuem uma ligação tão próxima. Os mecanismos de inferência simbólicos e a aprendizagem estatística de máquina constituem dois dos principais paradigmas da inteligência artificial, mas são muito diferentes. Ambos possuem  pontos fortes e fracos: Os métodos estatísticos oferecem ferramentas flexíveis e altamente eficazes, ideais para dados possivelmente corrompidos ou ruidosos. Essess tipos de informações estão presentes na vida cotidiana, tais como: sensores em robótica, medições em medicina como EEG e EKG, índices de mercados financeiros, etc. 
+O cérebro humano possui a notável capacidade de compreender, interpretar e produzir a linguagem humana. A Inteligência Artificial Conexionista se desenvolveu ao ponto de atingir algo parecido com o cérebro humano. As redes neurais artificiais e a lógica não possuem uma ligação tão próxima. Os mecanismos de inferência simbólicos e a aprendizagem estatística de máquina constituem dois dos principais paradigmas da inteligência artificial, mas são muito diferentes. Ambos possuem  pontos fortes e fracos: Os métodos estatísticos oferecem ferramentas flexíveis e altamente eficazes, ideais para dados possivelmente corrompidos ou ruidosos. Esses tipos de informações estão presentes na vida cotidiana, tais como: sensores em robótica, medições em medicina como EEG e EKG, índices de mercados financeiros, etc. 
 
 Esses modelos, no entanto, são frequentemente reduzidos a mecanismos de caixa preta que complicam a integração de conhecimentos de nível superior ou entendimento humano. Modelos simbólicos, por outro lado, são perfeitamente intuitivos e facilmente aplicados para a interação homem-máquina. No entanto, sua capacidade de lidar com a incerteza, o ruído e com conjuntos de dados corrompidos de grande escala no mundo real é bastante limitada. Assim, as forças e fraquezas inerentes destes dois métodos complementam-se idealmente entre si.
 
-Diversos pesquisadores desses dois paradigmas tentam combinar as forças das duas direções e ao mesmo tempo livrar-se de suas fraquezas eventualmente visando sistemas artificiais que poderiam ser competitivos às capacidades humanas de processamento de dados e inferência. Existem diferentes graus de integração neuro-simbólica: (1) Os pesquisadores incorporam aspectos de estruturas simbólicas em aprendizes estatísticos ou enriquecem o raciocínio estrutural por aspectos estatísticos para estender a aplicabilidade do respectivo paradigma. Como exemplo, os mecanismos de inferência lógica podem ser ampliados pelo raciocínio estatístico, baseando-se principalmente nas estatísticas bayesianas. Os sistemas resultantes são capazes de resolver problemas complexos do mundo real, como demonstrado de forma impressionante nos recentes avanços da aprendizagem estatística-relacional. (2) Os pesquisadores tentam exatamente mapear os mecanismos de inferência de um paradigma para o outro, de modo que uma relação direta pode ser estabelecida e o paradigma que é idealmente adequado para a tarefa em questão pode ser escolhido sem quaisquer limitações no cenário. Esse trabalho se concentra na segunda forma de integração desses modelos.
+Diversos pesquisadores desses dois paradigmas tentam combinar as forças das duas direções e ao mesmo tempo livrar-se de suas fraquezas eventualmente visando sistemas artificiais que poderiam ser competitivos às capacidades humanas de processamento de dados e inferência. Existem diferentes graus de integração neuro-simbólica: (1) Os pesquisadores incorporam aspectos de estruturas simbólicas em aprendizes estatísticos ou enriquecem o raciocínio estrutural por aspectos estatísticos para estender a aplicabilidade do respectivo paradigma. Como exemplo, os mecanismos de inferência lógica podem ser ampliados pelo raciocínio estatístico, baseando-se principalmente nas estatísticas \emph{bayesianas}. Os sistemas resultantes são capazes de resolver problemas complexos do mundo real, como demonstrado de forma impressionante nos recentes avanços da aprendizagem estatística-relacional. (2) Os pesquisadores tentam exatamente mapear os mecanismos de inferência de um paradigma para o outro, de modo que uma relação direta pode ser estabelecida e o paradigma que é idealmente adequado para a tarefa em questão pode ser escolhido sem quaisquer limitações no cenário. Esse trabalho se concentra na segunda forma de integração desses modelos.
 
 \section{Knowledge-based Artificial Neural Networks (KBANN)}
 
@@ -19,7 +17,7 @@ A próxima subseção apresenta uma breve visão geral do tipo de redes neurais que 
 
 \subsection{Inserção de Conhecimento em uma RNA}
 
-O primeiro passo do KBANN é traduzir um conjunto de regras aproximadamente corretas em uma rede neural baseada no conhecimento (doravante, uma KBANN-net). As regras a serem traduzidas em redes KBANN são expressas como cláusulas Horn. Existem duas restrições no conjunto de regras. Primeiro, as regras devem ser proposicionais. Esta restrição resulta do uso de algoritmos de aprendizado neural que, no momento, são incapazes de manipular variáveis ??de cálculo de predicado. Em segundo lugar, as regras devem ser acíclicas. Esta restrição "sem ciclos" simplifica o treinamento das redes resultantes. No entanto, ele não representa uma limitação fundamental no KBANN, pois existem algoritmos baseados em \emph{backpropagation} que podem ser usados ??para treinar redes com ciclos [Referencia]. Além disso, outros têm estendido KBANN para lidar gramáticas recursivas de estado finito [Refenrecia].
+O primeiro passo do KBANN é traduzir um conjunto de regras aproximadamente corretas em uma rede neural baseada no conhecimento (doravante, uma KBANN-net). As regras a serem traduzidas em redes KBANN são expressas como cláusulas Horn. Existem duas restrições no conjunto de regras. Primeiro, as regras devem ser proposicionais. Esta restrição resulta do uso de algoritmos de aprendizado neural que, no momento, são incapazes de manipular variáveis de cálculo de predicado. Em segundo lugar, as regras devem ser acíclicas. Esta restrição "sem ciclos" simplifica o treinamento das redes resultantes. No entanto, ele não representa uma limitação fundamental no KBANN, pois existem algoritmos baseados em \emph{backpropagation} que podem ser usados para treinar redes com ciclos [Referencia]. Além disso, outros têm estendido KBANN para lidar gramáticas recursivas de estado finito [Refenrecia].
 Além dessas restrições, os conjuntos de regras fornecidos ao KBANN geralmente são hierarquicamente estruturados. Ou seja, as regras geralmente não mapeiam diretamente as entradas para as saídas. Em vez disso, pelo menos algumas das regras fornecem conclusões intermediárias que descrevem conjunções úteis dos recursos de entrada. Essas conclusões intermediárias podem ser utilizadas por outras regras para determinar a conclusão final ou outras conclusões intermediárias. É a estrutura hierárquica de um conjunto de regras que cria características derivadas para uso pelo sistema de aprendizagem baseado em exemplo. Assim, se o conhecimento de domínio não é hierarquicamente estruturado, então as redes criadas pelo KBANN não terão recursos que indicam dependências contextuais ou outras conjunções úteis dentro das descrições do exemplo. Além disso, a uma rede KBANN que resulta da tradução de um conjunto de regras sem conclusões intermediárias não teria unidades ocultas. Como resultado, seria capaz de utilizar apenas o \emph{Perceptron} como aprendizagem [Referencia]. A Tabela \ref{tab:tabelaKBANN}, mostra um resumo de como é mapeado a teoria de domínio em uma rede neural, por KBANN.
 
 \begin{table}[h]
@@ -67,6 +65,7 @@ A Figura \ref{fig:algoritmoKbann} mostra uma tradução passo-a-passo de um conjun
 		\caption{Demonstração do algoritmo de KBANN.}
 		\includegraphics[scale=0.5]{imagens/algoritmoKbann.png}
 		\label{fig:algoritmoKbann}
+		Fonte :
 	\end{center} 
 \end{figure}
 
@@ -96,7 +95,7 @@ Primeiramente o algoritmo deve encontrar "nós" na rede com altas taxas de erros.
 
 \subsection{Como novos Neurônios são Adicionados}
 
-A Figura \ref{fig:topGenNos} mostra as maneiras possíveis do TopGen para adicionar novos nós a rede neural inicial.
+Uma vez estimado onde se deve adicionar novos "nós", é necessário saber como adicionar esses "nós". TopGen faz a suposição de que ao treinar uma de suas redes, o significado de um "nó" não muda significativamente. Fazer esta suposição permite alterar a rede de uma forma semelhante ao de refinar regras simbólicas. (Towell \& Shavlik, 1993; Towell, 1992) mostrou que era válido fazer uma suposição semelhante sobre as redes de KBANN. A Figura \ref{fig:topGenNos} mostra as possíveis formas de como o TopGen adiciona "nós" a uma rede. Em uma base de regra simbólica que possui muitos falsos negativos, é possível diminui-los descartando antecedentes de regras existentes ou adicionando novas regras para a base de regra.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -106,8 +105,34 @@ A Figura \ref{fig:topGenNos} mostra as maneiras possíveis do TopGen para adicion
 	\end{center} 
 \end{figure}
 
+ Como o KBANN é eficiente em remover antecedentes das regras existentes, o TopGen adiciona nós, destinados a diminuir falsos negativos, de uma forma que é análoga à adição de uma nova regra à base de regra. Se o nó existente for um "nó" do tipo \emph{OR}, o TopGen adicionará um novo nó como seu filho (consulte a Figura \ref{fig:topGenNos}a) e conectará totalmente esse novo "nó" com as unidades de entrada. Se o nó existente for um "nó" do tipo \emph{AND}, o TopGen cria um novo nó \emph{OR} que é o pai do nó \emph{AND} original e outro novo "nó" que é conectado totalmente às entradas (Figura \ref{fig:topGenNos}c); TopGen move as conexões de saída do nó original (A na Figura \ref{fig:topGenNos}c) para se tornar as conexões de saída do novo "nó" \emph{OR}. Em uma base de regra simbólica, podemos diminuir falsos positivos adicionando antecedentes a regras existentes ou removendo regras da base de regra. Enquanto KBANN pode efetivamente remover regras (Towell, 1992), é menos eficaz adicionar antecedentes a regras e é incapaz de acrescentar (por indução) novos antecedentes. As Figuras \ref{fig:topGenNos}b e \ref{fig:topGenNos}d mostram os modos (analogamente às Figuras \ref{fig:topGenNos}a e \ref{fig:topGenNos}c explicadas acima) de adicionar antecedentes. Ao permitir essas adições, TopGen é capaz de adicionar regras cujos consequentes não foram previamente definidos na base de regra. TopGen manipula "nós" que não são \emph{AND} nem \emph{OR}, decidindo se esse "nó" está mais próximo de um nó \emph{AND} ou de um nó \emph{OR} (observando o bias do nó e os pesos de entrada).
+
+Depois que os novos "nós" são adicionados, TopGen realiza o treinamento da rede pelo algoritmo do \emph{backpropagation}. Embora é desejado que os novos pesos representem a maior parte do erro, também queremos que os pesos antigos sejam alterados, se necessário. Ou seja, é necessário que os pesos antigos retenham o que aprenderam anteriormente, enquanto ao mesmo tempo se movem de acordo com a mudança de erro causada pela adição do novo "nó". Para resolver este problema, TopGen multiplica as taxas de aprendizagem de pesos existentes por uma quantidade constante (<= 1) cada vez que novos "nós" são adicionados, produzindo um declínio exponencial das taxas de aprendizagem. Não é desejável mudar a teoria do domínio, a menos que haja considerável evidência de que ela está incorreta. Ou seja, há um termo entre a mudança da teoria do domínio e desconsiderando os exemplos de treinamento não classificados com ruído. Para ajudar a resolver isso, TopGen usa um regulador de decaimento do peso (Hinton, 1986). Pesos que fazem parte do domínio original da teoria, tem uma decadência em direção ao seu valor inicial, enquanto outros pesos decaem em direção a zero. O termo de decaimento foi proposto por Rumelhart em 1987 (Weigand et al., 1990). A ideia do decréscimo de peso é adicionar, à função de custo usual, um termo que mede a distância de cada peso de seu valor inicial:
+
+\begin{align}
+Custo = \sum_{k \in T}{(SaídaDesejada_k - SaídaRede_k)}^2 + \lambda \sum_{i \in C} \frac{{(w_i - w_{inicial})}^2}{1 + {(w_i - w_{inicial})}^2}
+\end{align}
+
+O primeiro termo soma todos os exemplos de treino \emph{T}, enquanto o segundo termo soma todas as conexões \emph{C} . O regulador entre o desempenho ea distância dos valores iniciais é ponderado por $\lambda$.
 
 \subsection{Exemplo do TopGen}
+
+Suponha que a teoria do domínio da Figura \ref{fig:topGenEx} também deveria incluir a seguinte regra:
+%$B: -: \no F, G, H$.
+Embora se tenha treinado a rede KBANN mostrada na Figura \ref{fig:topGenNos}c com todos os exemplos possíveis, foi incapaz de aprender o conceito correto.
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Tradução das regras em uma rede KBANN}
+		\includegraphics[scale=0.5]{imagens/topGenExemplo.png}
+		\label{fig:topGenEx}
+	\end{center} 
+\end{figure}
+
+TopGen começa treinando a rede na \ref{fig:topGenNos}c, obtendo nenhuma melhora na base de regra original. Em seguida, prossegue tomando exemplos mal classificados do conjunto de validação-1 para encontrar lugares onde pode ser benéfico adicionar "nós". O exemplo a seguir da categoria A é classificado incorretamente pela teoria de domínio:
+%$\no F G  H \no I \no J \no  K L M$.
+Enquanto o "nó" \emph{C} (da Figura \ref{fig:topGenNos}c está corretamente falso nesse exemplo, o "nó" \emph{B} é incorretamente falso, \emph{B} é falso, uma vez que \emph{B1} e \emph{B2} são falsos. Se \emph{B} tivesse sido verdadeiro, este exemplo teria sido classificado corretamente (já que \emph{C} é correto ), Então TopGen incrementa o contador corrigível-falso-negativo para B. TopGen também incrementa os contadores de \emph{B1}, \emph{B2} e \emph{A}, usando argumentos semelhantes.
+Os "nós" \emph{B1}, \emph{B2}, \emph{B} e \emph{A} terão todos os contadores de correção-falso-negativo com alta taxas de erro após todos os exemplos serem processados. Dadas essas contagens elevadas, o TopGen considera a adição de "nós" \emph{OR} aos nós \emph{A}, \emph{B1} e \emph{B2}, como feito na Figura \ref{fig:topGenNos}, e também considera a adição de outra disjunção, análogo à Figura \ref{fig:topGenNos}a, ao "nó" B. Qualquer um destes para correções permite que a rede aprenda o conceito desejado. Como o TopGen prefere os nós mais distantes do nó de saída, então será adicionado em \emph{B1} ou \emph{B2}.
 
 
 %%\subsection{Sensores tolerantes a falhas} 

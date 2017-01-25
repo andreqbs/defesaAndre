@@ -1,14 +1,13 @@
 %\mychapter{Inteligência Artificial Conexionista }
 \label{Cap_2_2}
 
-O conexionismo é um movimento da ciência cognitiva que espera explicar habilidades intelectuais usando RNAs. As redes neurais são modelos simplificados do cérebro humano compostas por um grande número de unidades (neurônios), juntamente com pesos que medem a força das conexões entre as unidades. Esses pesos modelam os efeitos das sinapses que ligam um neurônio a outro.  Diferentemente do paradigma simbólico, no modelo conexionista o estado dos neurônios representam um conceito ou um objeto e a dinâmica que leva à representação do conceito ou objeto é que estabelece as regras sobre tais objetos e conceitos. Experimentos em modelos desse tipo demonstraram habilidades para aprender tarefas como: reconhecimento facial, leitura de textos, detecção de estrutura gramatical simples, entre tantas outras.
-Este capítulo foi dividido em quatro seções: A Seção X.1 introduz teoricamente o que é uma RNA e os seus componentes; a Seção X.2 menciona as formas de aprendizados que normalmente são empregados em uma RNA; a Seção X.3 descreve, de forma genérica, alguns conceitos sobre RNAs de múltiplas camadas e Seção X.4 descreve o algoritmo backpropagation.
-
 %Os pesquisadores se interessaram pelo conexionismo porque essa abordagem promete fornecer uma alternativa à teoria clássica da mente: a visão amplamente difundida de que a mente é algo parecido com um computador digital que processa uma linguagem simbólica. Exatamente como e até que ponto o paradigma conexionista constitui um desafio ao classicismo tem sido motivo de intenso debate nos últimos anos.
 
 %A Inteligência Artificial Conexionista (IAC), ou simplesmente Conexionismo, utiliza Redes Neurais Artificiais para simular, em uma proporção menor, o funcionamento do cérebro humano. Algumas vantagens desse paradigma são a fácil aprendizagem e a capacidade de generalização, tornando-o útil para sistemas de classificação. A principal desvantagem é a formação de resultados com difícil interpretação pelo homem. O paradigma conexionista tem como premissa a suposição de que o comportamento inteligente esta relacionado com a dinâmica das conexões entre pequenos nós denominados neurônios onde tal dinâmica é capaz de representar o conhecimento. Na pratica, os dois paradigmas podem se juntar para formar um terceiro paradigma, uma mistura do sistema simbólico com um sistema Conexionista [COSTA, 2009]. 
 
 \section{Redes Neurais Artificiais (RNA)}
+
+O conexionismo é um movimento da ciência cognitiva que espera explicar habilidades intelectuais usando RNAs. As redes neurais são modelos simplificados do cérebro humano compostas por um grande número de unidades (neurônios), juntamente com pesos que medem a força das conexões entre as unidades. Esses pesos modelam os efeitos das sinapses que ligam um neurônio a outro.  Diferentemente do paradigma simbólico, no modelo conexionista o estado dos neurônios representam um conceito ou um objeto e a dinâmica que leva à representação do conceito ou objeto é que estabelece as regras sobre tais objetos e conceitos. Experimentos em modelos desse tipo demonstraram habilidades para aprender tarefas como: reconhecimento facial, leitura de textos, detecção de estrutura gramatical simples, entre tantas outras. Este capítulo foi dividido em quatro seções: A Seção 2.2.1 introduz teoricamente o que é uma RNA e os seus componentes; a Seção 2.2.2 menciona as formas de aprendizados que normalmente são empregados em uma RNA; a Seção 2.2.3 descreve, de forma genérica, alguns conceitos sobre RNAs de múltiplas camadas e Seção 2.2.4 descreve o algoritmo \emph{backpropagation}.
 
 Uma rede neural consiste em grande número de unidades separadas por camadas e unidas através de conexões. As camadas em uma rede são normalmente segregadas em três classes: camada de entrada, que recebem informações a serem processadas, camada de saída onde os resultados do processamento são encontrados e as camadas ocultas que interligam a camada de entrada à saída da rede. Se uma rede neural fosse modelar todo o sistema nervoso humano, as unidades de entrada seriam análogas aos neurônios sensoriais, às unidades de saída os neurônios motores e às unidades ocultas todos os demais neurônios.
 
@@ -18,11 +17,14 @@ A Figura \ref{fig:MLP_cap2} ilustra de maneira simples uma rede neural:
 	\begin{center}
 		\caption{Representação de uma RNA.}
 		\includegraphics[scale=0.5]{imagens/MLP.png}
+		Fonte :
 		\label{fig:MLP_cap2}
 	\end{center} 
 \end{figure}
 
-A função que uma RNA irá desempenhar depende da soma do conjunto de funções de cada neurônio. Os neurônios podem estar agrupados em RNAs do tipo \emph{Multi-Layer Perceptron} (MLP), que é a mais conhecida no meio acadêmico, devido a sua simplicidade.  Resumidamente, as "n" entradas $X_i(t)$ do neurônio (sendo que, $1 < i < n$) são somadas, o resultado é processado no corpo do neurônio para produzir a saída $Y(t)$, onde as saídas todas são dependentes do tempo ("t").
+A função que uma RNA irá desempenhar depende da soma do conjunto de funções de cada neurônio. Os neurônios podem estar agrupados em RNAs do tipo \emph{Multi-Layer Perceptron} (MLP), que é a mais conhecida no meio acadêmico, devido a sua simplicidade.  
+
+Resumidamente, as "n" entradas $X_i(t)$ do neurônio (sendo que, $1 < i < n$) são somadas, o resultado é processado no corpo do neurônio para produzir a saída $Y(t)$, onde as saídas todas são dependentes do tempo ("t").
 
 Cada unidade de entrada tem um valor de ativação que representa alguma característica externa à rede. Uma unidade de entrada envia o seu valor de ativação para cada uma das unidades ocultas às quais está ligado. Cada uma dessas unidades ocultas calcula seu próprio valor de ativação dependendo dos valores de saída que recebe das unidades de entrada. Esse sinal é então passado para a camada de saída ou para uma outra camada oculta. Essas unidades ocultas calculam seus valores de ativação da mesma maneira, e enviá-los ao longo de seus vizinhos. Eventualmente, o sinal das unidades de entrada se propaga completamente pela rede para determinar os valores de ativação em todas as unidades de saída da rede. Um exemplo de como um neurônio é representado nas redes neurais, pode ser visto na Figura \ref{fig:neuronio_cap2}.
 
@@ -30,6 +32,7 @@ Cada unidade de entrada tem um valor de ativação que representa alguma caracterí
 	\begin{center}
 		\caption{Representação de um neurônio.}
 		\includegraphics[scale=0.5]{imagens/neuronioArtificial.png}
+		Fonte :
 		\label{fig:neuronio_cap2}
 	\end{center} 
 \end{figure}
@@ -40,7 +43,7 @@ A maioria das RNAs são projetadas para aprender as informações que são passadas 
 
 %Os conexionistas presumem que o funcionamento cognitivo pode ser explicado por coleções de unidades que operam dessa maneira. Uma vez que se supõe que todas as unidades calculam praticamente a mesma função de ativação simples, as realizações intelectuais humanas devem depender principalmente das configurações dos pesos entre as unidades.
 
-Uma arquitetura ou topologia básica empregada nas RNAs é a do tipo MLP, na qual existem no mínimo três camadas. Em uma RNA com três camadas e um conjunto variável de neurônios é representado por $(N_i x N_j x N_k)^2$. Acrescentam-se outras camadas à camada interna ou oculta da RNA, quando se trabalha com RNAs de múltiplas camadas com número superior a três. A Figura \ref{fig:MLP_cap2} representa uma RNA, na qual existe a separação entre a camada de entrada, a de saída e o conjunto interno de camadas ocultas. 
+Uma arquitetura ou topologia básica empregada nas RNAs é a do tipo MLP, na qual existem no mínimo três camadas. Em uma RNA com três camadas e um conjunto variável de neurônios é representado por $(N_i$ $x N_j$ $x N_k)^2$. Acrescentam-se outras camadas à camada interna ou oculta da RNA, quando se trabalha com RNAs de múltiplas camadas com número superior a três. A Figura \ref{fig:MLP_cap2} representa uma RNA, na qual existe a separação entre a camada de entrada, a de saída e o conjunto interno de camadas ocultas. 
 
 %Conexionistas tendem a evitar conexões recorrentes porque pouco se entende sobre o problema geral do treinamento de redes recorrentes. No entanto, Elman (1991) e outros têm feito algum progresso com redes recorrentes simples, onde a recorrência é fortemente limitada.
 
@@ -82,10 +85,10 @@ O número de unidades na camada de entrada da rede é determinado pela dimensional
 	\item A especificação dos pesos sinápticos que interconectam os neurônios nas diferentes camadas da rede.
 \end{itemize}
 
-Os dois primeiros itens acima determinam a complexidade do modelo de RNA escolhido e, não há regras determinadas para tal especificação. A função das camadas escondidas em uma RNA é a de influir na relação entrada-saída da rede de uma forma ampla. Uma RNA com uma ou mais camadas escondidas é apta a extrair as estatísticas de ordem superior de algum desconhecido processo aleatório subjacente, responsável pelo "comportamento" dos dados de entrada, processo sobre o qual a rede está tentando adquirir conhecimento. A RNA adquire uma perspectiva global do processo aleatório, apesar de sua conectividade local, em virtude do conjunto adicional de pesos sinápticos e da dimensão adicional de interações neurais proporcionada pelas camadas escondidas.
-O último item envolve a utilização de algoritmos de treinamento supervisionados. As MLPs têm sido aplicadas na solução de diversos e difíceis problemas através da utilização de tais algoritmos. O algoritmo de treinamento quase universalmente utilizado para tanto é o algoritmo de retropropagação do erro, conhecido na literatura como \emph{Backpropagation Algorithm} e que será discutido mais adiante. 
+Os dois primeiros itens acima determinam a complexidade do modelo de RNA escolhido e, não há regras determinadas para tal especificação. A função das camadas escondidas em uma RNA é a de influir na relação entrada-saída da rede de uma forma ampla. Uma rede com uma ou mais camadas escondidas é apta a extrair as estatísticas de ordem superior de algum desconhecido processo aleatório subjacente, responsável pelo "comportamento" dos dados de entrada, processo sobre o qual a rede está tentando adquirir conhecimento. A RNA adquire uma perspectiva global do processo aleatório, apesar de sua conectividade local, em virtude do conjunto adicional de pesos sinápticos e da dimensão adicional de interações neurais proporcionada pelas camadas escondidas.
+O último item envolve a utilização de algoritmos de treinamento supervisionados. As MLPs têm sido aplicadas na solução de diversos e difíceis problemas através da utilização de tais algoritmos. O algoritmo de treinamento quase universalmente utilizado para tanto é o algoritmo de retro-propagação do erro, conhecido na literatura como \emph{Backpropagation Algorithm} e que será discutido mais adiante. 
 
-\subsection{Estrutura de uma MLP}
+\subsection{Características de uma MLP}
 
 %Na estrutura de uma MLP, os neurônios são agrupados em camadas. A primeira e última camada são chamadas de camada de entrada e saída, respectivamente, porque representam entradas e saídas da rede global. As camadas restantes são chamadas camadas ocultas. Tipicamente, uma rede neural MLP consiste em uma camada de entrada, uma ou mais camadas ocultas e uma camada de saída, como mostrado na Figura \ref{fig:MLP_cap2}.
 
@@ -114,18 +117,20 @@ Dois tipos de sinais são identificados nessa rede:
 
 \begin{figure}[H] 
 	\begin{center}
-		\caption{Ilustração da propagação direta dos sinais e retropropagação dos sinais de erro.}
+		\caption{Ilustração da propagação direta dos sinais e retro-propagação dos sinais de erro.}
 		\includegraphics[scale=0.5]{imagens/rede_Sinal.png}
+		Fonte :
 		\label{fig:rede_Sinal_cap2}
 	\end{center} 
 \end{figure}
 
-Cada neurônio de cada camada escondida ou da camada de saída de uma rede MLP desempenha duas operações computacionais:
+%Cada neurônio de cada camada escondida ou da camada de saída de uma rede MLP desempenha duas operações computacionais:
 
-1. A computação do sinal funcional na saída de cada neurônio, o qual é expresso como uma função contínua não-linear do sinal funcional de entrada e dos pesos sinápticos associados com aquele neurônio.
-2. A computação de uma estimativa do vetor gradiente (isto é, os gradientes da superfície de erro com respeito aos pesos conectados às entradas de um neurônio), cálculo esse que é necessário para o passo reverso através da rede MLP.
+%1. A computação do sinal funcional na saída de cada neurônio, o qual é expresso como uma função contínua não-linear do sinal funcional de entrada e dos pesos sinápticos associados com aquele neurônio.
 
-\subsection{Informação processada por um Neurônio}
+%2. A computação de uma estimativa do vetor gradiente (isto é, os gradientes da superfície de erro com respeito aos pesos conectados às entradas de um neurônio), cálculo esse que é necessário para o passo reverso através da rede MLP.
+
+%\subsection{Informação processada por um Neurônio}
 
 %O funcionamento das unidades neurais pode ser descrito da seguinte forma: eles se interligam através de conexões (sinapses), que possuem, num primeiro momento, parâmetros ajustáveis, os pesos sinápticos ($w_i(t)$). Na entrada de cada neurônio, é feita a soma (conforme equação 2.1) dos valores das saídas dos neurônios anteriores, os quais são ponderados pelos pesos sinápticos correspondentes. Os pesos controlam a intensidade das conexões e, ao término do aprendizado da RNA, são responsáveis pelo armazenamento do conhecimento adquirido pela rede. A Figura X.X ilustra a maneira pela qual cada neurônio de uma MLP processa a informação. Como por exemplo, um neurônio de uma camada recebe estímulos dos neurónios da camada $l-1$, isto é, $z_1^{l-1}, z_2^{l-1}, \ldots, z^{l-1}_{N_{l-1}}$. Cada entrada multiplica primeiramente o peso correspondente de cada conexão existente e os produtos resultantes são adicionados para produzir uma soma $\gamma$. 
 
@@ -143,43 +148,86 @@ Cada neurônio de cada camada escondida ou da camada de saída de uma rede MLP des
 
 \subsection{Funções de ativação}
 
-Em uma rede neural, cada neurônio - com exceção dos neurônios na camada de entrada - recebe e processa estímulos (\emph{inputs}) de outros neurônios. As informações processadas estão disponíveis na extremidade de saída do neurônio. Como pode ser visto na Figura X.X, a cada sáida de um nerônio, é aplicado uma função de ativação. A função de ativação mais comumente utilizada é a função sigmóide dada por:
+Em uma rede neural, cada neurônio - com exceção dos neurônios na camada de entrada - recebe e processa estímulos (\emph{inputs}) de outros neurônios. As informações processadas estão disponíveis na extremidade de saída do neurônio. Como pode ser visto na Figura \ref{fig:neuronio_cap2}, a cada saída de um nerônio, é aplicado uma função de ativação. A função de ativação mais comumente utilizada é a função sigmoide dada por:
 
 \begin{align}
 \sigma(\gamma)  = \frac{1}{(1 + e^{- \gamma})}
 \end{align}
 
-Conforme mostrado na Figura \ref{fig:neuronio_cap2}, a função sigmóide é uma função de comutação suave que tem as seguintes propriedades:
+Conforme mostrado na Figura \ref{fig:neuronio_cap2}, a função sigmoide é uma função de comutação suave que tem as seguintes propriedades:
 
 \begin{tikzpicture}
 \begin{tikzpicture}
-\begin{axis}[ylabel=$\delta$,xlabel=$p$,
-x filter/.code={\pgfmathdivide{#1}{5.0}},
-y filter/.code={\pgfmathdivide{#1}{29.593800}},
-legend pos=south east]
-\addplot[no marks,dotted] coordinates {(0.000000,27.213000) (0.050000,27.271800) (0.100000,27.403200) (0.150000,27.286800) (0.200000,27.270000) (0.250000,27.396600) (0.300000,27.445200) (0.350000,27.395400) (0.400000,27.491400) (0.450000,27.558600) (0.500000,27.593400) (0.550000,27.642600) (0.600000,27.593400) (0.650000,27.645600) (0.700000,27.601800) (0.750000,27.756000) (0.800000,27.772200) (0.850000,27.815400) (0.900000,27.832200) (0.950000,27.785400) (1.000000,27.897600) (1.050000,28.033200) (1.100000,28.022400) (1.150000,27.937800) (1.200000,28.015200) (1.250000,28.065000) (1.300000,28.057200) (1.350000,28.114800) (1.400000,28.057200) (1.450000,28.150800) (1.500000,28.200000) (1.550000,28.152000) (1.600000,28.206600) (1.650000,28.246200) (1.700000,28.246200) (1.750000,28.264200) (1.800000,28.393800) (1.850000,28.347600) (1.900000,28.317000) (1.950000,28.417200) (2.000000,28.447200) (2.050000,28.464600) (2.100000,28.440000) (2.150000,28.483800) (2.200000,28.481400) (2.250000,28.524000)
-	(2.300000,28.584600) (2.350000,28.576200) (2.400000,28.572600) (2.450000,28.646400) (2.500000,28.604400) (2.550000,28.718400) (2.600000,28.684200) (2.650000,28.727400) (2.700000,28.774200) (2.750000,28.805400) (2.800000,28.812600) (2.850000,28.783800) (2.900000,28.809600) (2.950000,28.875600) (3.000000,28.821600) (3.050000,28.910400) (3.100000,28.905600) (3.150000,28.886400) (3.200000,28.953600) (3.250000,29.024400) (3.300000,29.046600) (3.350000,29.072400) (3.400000,29.064600) (3.450000,29.053800) (3.500000,29.062200) (3.550000,29.098800) (3.600000,29.151000) (3.650000,29.130000) (3.700000,29.157600) (3.750000,29.173200) (3.800000,29.223600) (3.850000,29.190000) (3.900000,29.168400) (3.950000,29.278200) (4.000000,29.243400) (4.050000,29.319600) (4.100000,29.318400) (4.150000,29.319000) (4.200000,29.350200) (4.250000,29.377800) (4.300000,29.402400) (4.350000,29.380800) (4.400000,29.385600) (4.450000,29.393400) (4.500000,29.410800) (4.550000,29.469000) (4.600000,
-	29.451600) (4.650000,29.487000) (4.700000,29.490600) (4.750000,29.547600) (4.800000,29.556000) (4.850000,29.553000) (4.900000,29.567400) (4.950000,29.586000) (5.000000,29.558400)};
-
-\addplot[no marks] coordinates {(0.000000,27.258600) (0.050000,27.285000) (0.100000,27.309600) (0.150000,27.370800) (0.200000,27.468600) (0.250000,27.417600) (0.300000,27.533400) (0.350000,27.564000) (0.400000,27.643800) (0.450000,27.719400) (0.500000,27.699000) (0.550000,27.803400) (0.600000,27.756600) (0.650000,27.845400) (0.700000,27.796200) (0.750000,27.867600) (0.800000,27.967800) (0.850000,27.989400) (0.900000,28.036200) (0.950000,28.023000) (1.000000,28.137000) (1.050000,28.153800) (1.100000,28.159200) (1.150000,28.160400) (1.200000,28.254000) (1.250000,28.348800) (1.300000,28.344000) (1.350000,28.408200) (1.400000,28.384800) (1.450000,28.336800) (1.500000,28.423800) (1.550000,28.405200) (1.600000,28.572000) (1.650000,28.556400) (1.700000,28.540800) (1.750000,28.571400) (1.800000,28.649400) (1.850000,28.629000) (1.900000,28.648800) (1.950000,28.671600) (2.000000,28.682400) (2.050000,28.703400) (2.100000,28.755000) (2.150000,28.761000) (2.200000,28.789800) (2.250000,28.803600) 
-	(2.300000,28.798200) (2.350000,28.861800) (2.400000,28.911000) (2.450000,28.933800) (2.500000,28.946400) (2.550000,28.995000) (2.600000,28.963800) (2.650000,28.984200) (2.700000,29.019000) (2.750000,28.983000) (2.800000,29.048400) (2.850000,29.046000) (2.900000,29.091000) (2.950000,29.081400) (3.000000,29.128800) (3.050000,29.142000) (3.100000,29.175600) (3.150000,29.137200) (3.200000,29.160000) (3.250000,29.180400) (3.300000,29.222400) (3.350000,29.279400) (3.400000,29.225400) (3.450000,29.253000) (3.500000,29.287800) (3.550000,29.290200) (3.600000,29.309400) (3.650000,29.324400) (3.700000,29.359200) (3.750000,29.334600) (3.800000,29.349000) (3.850000,29.379000) (3.900000,29.381400) (3.950000,29.367000) (4.000000,29.375400) (4.050000,29.434200) (4.100000,29.407800) (4.150000,29.446800) (4.200000,29.400000) (4.250000,29.436000) (4.300000,29.485800) (4.350000,29.457600) (4.400000,29.544000) (4.450000,29.488800) (4.500000,29.521800) (4.550000,29.532000) (4.600000,
-	29.498400) (4.650000,29.520000) (4.700000,29.560200) (4.750000,29.545200) (4.800000,29.543400) (4.850000,29.589600) (4.900000,29.593800) (4.950000,29.587800) (5.000000,29.572800)};
-\addlegendentry{Style 1}
-\addlegendentry{Style 2}
+ \begin{axis}[
+legend pos=north west,
+axis x line=middle,
+axis y line=middle,
+x tick label style={/pgf/number format/fixed,
+	/pgf/number format/fixed zerofill,
+	/pgf/number format/precision=1},
+y tick label style={/pgf/number format/fixed,
+	/pgf/number format/fixed zerofill,
+	/pgf/number format/precision=1},
+grid = major,
+width=16cm,
+height=8cm,
+grid style={dashed, gray!30},
+xmin=-1,     % start the diagram at this x-coordinate
+xmax= 1,    % end   the diagram at this x-coordinate
+ymin= 0,     % start the diagram at this y-coordinate
+ymax= 1,   % end   the diagram at this y-coordinate
+%axis background/.style={fill=white},
+xlabel=x,
+ylabel=y,
+tick align=outside,
+enlargelimits=false]
+% plot the stirling-formulae
+\addplot[domain=-1:1, red, ultra thick,samples=500] {1 / (1 + exp(-10*x))};
+\addlegendentry{$f(x)=\frac{1}{1+e^{-v}}$}
 \end{axis}
 \end{tikzpicture}
 \end{tikzpicture}
 
-\begin{align}
-\sigma(\gamma)  = \frac{1}{(1 + e^{- \gamma}) ERRO}
-\end{align}
 
-Outras possíveis funções de ativação de neurônios ocultos são a arco-tangente
-Exibida na Figura 3.5 e dada por:
+Outras possíveis funções de ativação de neurônios é o arco-tangente.
+Exibida na Figura \ref{fig:grafArcoTan} e dada por:
 
 \begin{align}
 \sigma(\gamma)  = (\frac{1}{\pi})arctan(\gamma)
 \end{align}
+
+\begin{tikzpicture}
+\begin{tikzpicture}
+\begin{axis}[
+legend pos=north west,
+axis x line=middle,
+axis y line=middle,
+x tick label style={/pgf/number format/fixed,
+	/pgf/number format/fixed zerofill,
+	/pgf/number format/precision=1},
+y tick label style={/pgf/number format/fixed,
+	/pgf/number format/fixed zerofill,
+	/pgf/number format/precision=1},
+grid = major,
+width=16cm,
+height=8cm,
+grid style={dashed, gray!30},
+xmin=-1,     % start the diagram at this x-coordinate
+xmax= 1,    % end   the diagram at this x-coordinate
+ymin= -1,     % start the diagram at this y-coordinate
+ymax= 1,   % end   the diagram at this y-coordinate
+%axis background/.style={fill=white},
+xlabel=x,
+ylabel=y,
+tick align=outside,
+enlargelimits=false]
+% plot the stirling-formulae
+\addplot[domain=-1:1, red, ultra thick,samples=500] {(exp(2*x) - exp(-2*x)) / (exp(2*x) + exp(-2*x))};
+\addlegendentry{$\sigma(\gamma)  = \frac{(e^\gamma - e^{-\gamma})}{(e^\gamma + e^{-\gamma})}$}
+\end{axis}
+\label{fig:grafArcoTan}
+\end{tikzpicture}
+\end{tikzpicture}
 
 e a função tangente-hiperbólica mostrada na Figura X.X e dada por:
 
@@ -187,10 +235,43 @@ e a função tangente-hiperbólica mostrada na Figura X.X e dada por:
 \sigma(\gamma)  = \frac{(e^\gamma - e^{-\gamma})}{(e^\gamma + e^{-\gamma})}
 \end{align}
 
+\begin{tikzpicture}
+\begin{tikzpicture}
+\begin{axis}[
+legend pos=north west,
+axis x line=middle,
+axis y line=middle,
+x tick label style={/pgf/number format/fixed,
+	/pgf/number format/fixed zerofill,
+	/pgf/number format/precision=1},
+y tick label style={/pgf/number format/fixed,
+	/pgf/number format/fixed zerofill,
+	/pgf/number format/precision=1},
+grid = major,
+width=16cm,
+height=8cm,
+grid style={dashed, gray!30},
+xmin=-1,     % start the diagram at this x-coordinate
+xmax= 1,    % end   the diagram at this x-coordinate
+ymin= -1,     % start the diagram at this y-coordinate
+ymax= 1,   % end   the diagram at this y-coordinate
+%axis background/.style={fill=white},
+xlabel=x,
+ylabel=y,
+tick align=outside,
+enlargelimits=false]
+% plot the stirling-formulae
+\addplot[domain=-1:1, red, ultra thick,samples=500] {(exp(2*x) - exp(-2*x)) / (exp(2*x) + exp(-2*x))};
+\addlegendentry{$\sigma(\gamma)  = \frac{(e^\gamma - e^{-\gamma})}{(e^\gamma + e^{-\gamma})}$}
+\end{axis}
+\end{tikzpicture}
+\end{tikzpicture}
+
+
 Todas essas funções logísticas são delimitadas, contínuas, monotônicas e
 continuamente diferenciáveis.
 
-Nesse trabalho, utilizou-se uma convenção, em que os neurônios da camada de entrada também são considerados como parte da estrutura geral e utilizou-se $S_i(t)$ como função logística, ou seja:  
+Nesse trabalho, utilizou-se uma convenção, em que os neurônios da camada de entrada também são considerados como parte da estrutura geral e utilizou-se a função sigmoide.  
 
 %\subsection{Efeito do Bias}
 
@@ -227,11 +308,11 @@ O símbolo $d_j(n)$ se refere à resposta desejada para o neurônio $j$ e é usado p
 
 O símbolo $y_j(n)$ se refere ao sinal funcional encontrado na saída do neurônio $j$, na iteração $n$. 
 
-O símbolo $w_ji(n)$ denota o peso sináptico que conecta a saída do neurônio $i$ à entrada do neurônio $j$, na iteração $n$. A correção aplicada a esse peso na iteração $n$ é denotada por $\Delta w_ji(n)$. 
+O símbolo $w_{ji}(n)$ denota o peso sináptico que conecta a saída do neurônio $i$ à entrada do neurônio $j$, na iteração $n$. A correção aplicada a esse peso na iteração $n$ é denotada por $\Delta w_{ji}(n)$. 
 
 O potencial de ativação (isto é, a soma ponderada de todas as entradas sinápticas mais o bias) do neurônio $j$ na iteração $n$ é denotado por $v_j(n)$ e constitui o sinal aplicado à função de ativação associada ao neurônio $j$. 
 
-A função de ativação que descreve a relação funcional entrada-saída da não-linearidade associada ao neurônio $j$ é denotada por ERRADO$\Phi_j$. 
+A função de ativação que descreve a relação funcional entrada-saída da não-linearidade associada ao neurônio $j$ é denotada por $\varphi_j(.)$. 
 
 O bias aplicado ao neurônio $j$ é denotada por $b_j$ ; seu efeito é representado por uma sinapse de peso $w_{j0}(n) = b_j$ conectada a uma entrada fixa igual a (+1). Alternativamente, o bias pode ser gerada por uma sinapse de peso $w_{j0}(n) = b_j$ conectada a uma entrada de valor fixo e igual a (-1), quando recebe o nome de \emph{threshold}. A nível de operação do MLP, para todos os fins práticos as duas alternativas apresentam os mesmos resultados. 
 
@@ -250,7 +331,7 @@ e_j  = d_j(n) - y_j(n)
 \end{align}
 
 Define-se o valor instantâneo do erro quadrático para o neurônio $j$ como $\frac{1}{2}e_j^2(n)$.  
-Correspondentemente, o valor instantâneo da soma dos erros quadráticos $\frac{1}{2}e_j^2(n)$ é obtido somando  sobre todos os neurônios da camada de saída. Estes são os únicos neurônios ?visíveis? para os quais os sinais de erro podem ser calculados de forma direta. A soma instantânea dos erros quadráticos na camada de saída do MLP é então escrita como: 
+Correspondentemente, o valor instantâneo da soma dos erros quadráticos $\frac{1}{2}e_j^2(n)$ é obtido somando  sobre todos os neurônios da camada de saída. Estes são os únicos neurônios visíveis para os quais os sinais de erro podem ser calculados de forma direta. A soma instantânea dos erros quadráticos na camada de saída do MLP é então escrita como: 
 
 \begin{align}
 \epsilon(n) = \frac{1}{2} \sum_{j \in C}e_{j}^2(n)
@@ -264,28 +345,92 @@ onde o conjunto $C$ inclui todos os neurônios na camada de saída. Seja N o númer
 
 O valor instantâneo da soma dos erros quadráticos $\epsilon(n)$, e portanto o MSE denotado por $\epsilon_{av}$ , é função de todos os parâmetros livres (isto é, pesos sinápticos e bias) da MLP. Para um dado conjunto de treino, $\epsilon_{av}$  representa a Função de Custo do processo de minimização do erro de aprendizado, constituindo uma medida inversa do desempenho do processo de aprendizado a partir do conjunto de treino. Para minimizar $\epsilon_{av}$  os pesos sinápticos são atualizados a cada apresentação$n$ de um novo padrão ao MLP através do vetor de entrada até o término de uma época. Uma época consiste no intervalo correspondente à apresentação de todos os N vetores-exemplo do conjunto de treino à camada de entrada do MLP. O ajuste dos pesos é feito de acordo com os respectivos erros computados para cada padrão apresentado ao MLP. A média aritmética dessas alterações individuais nos pesos sobre o conjunto de treino é, portanto, uma estimativa da verdadeira alteração que resultaria a partir da alteração de pesos baseada na minimização da função custo $\epsilon_{av}$  sobre todo conjunto de treino.
 
-Considere a Figura X.3, a qual descreve o neurônio j sendo alimentado por um conjunto de sinais produzidos na saída dos neurônios da camada à sua esquerda. 
+Considere a Figura \ref{fig:sinalNeuronio}, a qual descreve o neurônio $j$ sendo alimentado por um conjunto de sinais produzidos na saída dos neurônios da camada à sua esquerda. 
 
 \begin{figure}[H] 
 	\begin{center}
 		\caption{Grafo de fluxo de sinal no neurônio $j$.}
-		\includegraphics[scale=0.5]{imagens/noImage.png}
-		\label{fig:noImage}
+		\includegraphics[scale=0.5]{imagens/sinalNeuronio.png}
+		Fonte :
+		\label{fig:sinalNeuronio}
 	\end{center} 
 \end{figure}
 
+O potencial de ativação $v_j(n)$ aplicado na entrada da não-linearidade associada ao neurônio $j$ é, portanto
 
-Os pesos da rede a ser treinada são inicialmente definidos para valores aleatórios e, em seguida, membros do conjunto de treinamento são expostos repetidamente à rede. Os valores para a entrada de um membro são colocados nas unidades de entrada ea saída da rede é comparada com a saída desejada para este membro. Então, todos os pesos na rede são ajustados ligeiramente na direção que traria os valores de saída da rede mais próximos aos valores para a saída desejada. Por exemplo, quando a face do homem é apresentada às unidades de entrada, os pesos são ajustados de modo que o valor da unidade de saída de homem é aumentado e o valor da unidade de saída da mulher é diminuído. Após muitas repetições deste processo, a rede pode aprender a produzir a saída desejada para cada entrada no conjunto de treinamento. Se o treinamento for bem, a rede também pode ter aprendido a generalizar o comportamento desejado para entradas e saídas que não estavam no conjunto de treinamento. Por exemplo, pode fazer um bom trabalho de distinguir homens de mulheres em imagens que nunca foram apresentadas a ele antes.
+\begin{align}
+v_j(n) = \sum_{i = 0}^{m}w_{ji}(n)y_i(n) 
+\end{align}
 
-Treinar redes para modelar aspectos da inteligência humana é uma arte. Sucesso com \emph{backpropagation} e outros métodos de aprendizagem conexionista pode depender de ajuste bastante sutil do algoritmo e o conjunto de treinamento. Treinamento normalmente envolve centenas de milhares de rodadas de ajuste de peso. Dadas as limitações dos computadores atualmente disponíveis para os pesquisadores conexionistas, a formação de uma rede para realizar uma tarefa interessante pode levar dias ou mesmo semanas. Algumas das dificuldades podem ser resolvidas quando circuitos paralelos especificamente projetados para executar modelos de rede neural estão amplamente disponíveis. Mas, mesmo aqui, algumas limitações às teorias conexionistas da aprendizagem permanecerão para ser enfrentadas. Os seres humanos (e muitos animais menos inteligentes) exibem a capacidade de aprender com eventos isolados, por exemplo, um animal que come um alimento que mais tarde provoca desconforto gástrico nunca tentará novamente esse alimento. As técnicas de aprendizagem conexionista, como a retropropagação, estão longe de explicar esse tipo de aprendizagem "de um só golpe".
+onde $m$ é o número total de entradas (excluindo o bias) aplicado ao neurônio $j$. O peso sináptico $w_{j0}$ é o peso sináptico conetando a saída do neurônio $i$ ao neurônio $j$ e $y_i(n)$ é o sinal no $i$-ésimo nó de entrada do neurônio $j$, ou equivalentemente, o sinal na saída do neurônio $i$. Portanto o sinal $y_j(n)$ resultante na saída do neurônio $j$ na iteração $n$ é:
 
-O objetivo principal no desenvolvimento de modelos neurais é encontrar um conjunto ótimo de pesos $w$, de tal forma que $y = y (x, w)$ represente de perto o comportamento original do problema. Isto é conseguido através de um processo chamado treinamento. Um conjunto de dados de treinamento é apresentado à rede neural. Os dados de treinamento são pares de $(xk, dk)$, $k$ = 1, 2,. . . , $P$, onde $dk$ é as saídas desejadas do modelo neural para entradas $xk$, e P é o número total de amostras de treinamento.
-Durante o treinamento, o desempenho da rede neural é avaliado computando-se a diferença entre as saídas reais da rede neural e as saídas desejadas para todas as amostras de treinamento. A diferença, também conhecida como erro, é quantificada por
+\begin{align}
+y_j(n) = \varphi_j(v_j(n)) 
+\end{align}
 
-FOMRULA
+De maneira similar ao algoritmo LMS, o algoritmo \emph{backpropagation} aplica a correção $\Delta w_{ji}(n)$ ao peso sináptico $w_{ji}(n)$, tendo como base a direção contrária do gradiente local da superfície de erro $\epsilon$ relativo ao peso sináptico.
 
-onde $djk$ é o jth elemento de dk, yj (xk, w) é a j-ésima saída de rede neural para a entrada xk, e Tr é um conjunto de índices de dados de treinamento. Os parâmetros de peso w são ajustados durante o treino, de modo que este erro é minimizado. 
+Se, para uma dada variação no peso sináptico, o algoritmo movimenta-se em uma trajetória ascendente na superfície $\epsilon$, então significa que esta variação deve ser aplicada com o sinal invertido sobre o peso sináptico, já que houve um aumento do erro, e objetiva-se uma diminuição do erro.
 
-O algoritmo foi inicialmente desenvolvido por Bernard Widrow. O termo \emph{backpropagation} surgiu após 1985. No entanto, a ideia básica foi primeiramente descrita por Werbos em sua tese de doutorado em 1974. Em 1986, foi redescoberto por Rumelhart, Hinton e Williams e popularizado através da publicação do livro \emph{Parallel Distributed Processing} de Rumelhart e McClelland em 1986.
-O desenvolvimento do \emph{backpropagation} representa um marco fundamental em redes neurais, pois é um método computacionalmente eficiente para o treinamento de redes MLPs e por ter resolvido o problema de realizar a propagação reversa do erro em RNAs com múltiplas camadas, problema este que atrasou por muitos anos o desenvolvimento da área de redes neurais artificiais.
-Na medida em que o conjunto de dados usado para treinar uma RNA MLP seja grande o suficiente para ser representativo do ambiente no qual a rede está inserida, a rede MLP treinada através do algoritmo backpropagation desenvolverá a capacidade de generalizar. Especificamente, essa capacidade permite à rede MLP apresentar um desempenho satisfatório quando é alimentada com dados de teste retirados do mesmo espaço de entrada que os dados de treino, mas não previamente apresentados ao MLP. 
+Por outro lado, se para uma dada variação no peso sináptico o algoritmo movimenta-se em uma trajetória descendente na superfície $\epsilon$, então significa que esta variação deve ser aplicada com o sinal positivo sobre o peso sináptico, já que houve uma
+diminuição do erro e, portanto, o movimento deve ser encorajado naquela direção. Este método de correção dos pesos sinápticos é denominado de Regra Delta. No algoritmo LMS, estudado em capítulo anterior, a Regra Delta é definida pela já conhecida
+expressão $\Delta w(n) = -\eta \Delta J(w(n))$, onde $\Delta J(w(n)) = \frac{J(w(n))}{w(n)} = \frac{\frac{1}{2}e^2(n)}{w(n)}$ é o gradiente local da superfície de erro gerada pela função de custo $J = J(w(n)) = \frac{1}{2}e^2(n)$ a ser minimizada no instante $n$.
+
+No caso do MLP, o gradiente local da superfície de erro $\epsilon$ relativo ao peso sináptico $w_{ji}$ representa, portanto, um fator de sensibilidade, determinando a direção de movimento no espaço de pesos sinápticos para o valor do peso sináptico  $w_{ji}$ que minimiza $\epsilon$.
+
+A correção $\Delta w_{ji}$ aplicada a $w_{ji}$, ditada pela Regra Delta, é definida por
+
+\begin{align}
+y_j(n) = \varphi_j(v_j(n)) 
+\end{align}
+
+onde $\eta$ é a constante que determina a razão de aprendizado do algoritmo \emph{backpropagation}. O uso do sinal negativo em (X.X) impõe a movimentação contrária à direção apontada pelo gradiente na superfície de erro definida no espaço de pesos sinápticos. O algoritmo \emph{backpropagation} estabelece o aprendizado de um MLP através da Regra Delta como sendo a
+correção efetuada em suas sinapses através de
+
+\begin{align}
+\Delta w_{ji}(n) = \eta \delta_j(n)y_i(n)
+\end{align}
+
+onde $\Delta w_{ji}(n)$ é a correção aplicada à $i$-ésima sinapse do neurônio $j$, $y_i(n)$ é o sinal de entrada no $i$-ésimo nó de entrada do neurônio $j$ (= sinal na saída do neurônio $i$, pertencente à camada à esquerda da que pertence o neurônio $j$, se este não estiver na primeira camada escondida ? se o neurônio $j$ estiver na primeira camada escondida então $y_i(n)$ corresponde ao $i$-ésimo nó de entrada $x_i(n)$ do MLP) e $\delta_j(n)$ é o gradiente local do neurônio $j$, definido por
+
+De acordo com (4.9a) o gradiente local $?_j(n)$ para o neurônio de saída $j$ é igual ao produto do correspondente sinal de erro $e_j(n)$ pela derivada (v (n)) j j ? ? da função de ativação associada. Neste caso o fator chave necessário envolvido no cálculo do ajuste dos pesos $\Delta w_{ji}(n)$ é o sinal de erro $e_j(n)$ na saída do neurônio $j$.
+
+Quando o neurônio $j$ está localizado em uma camada escondida, conforme mostra a Figura \ref{fig:sinalForward}, mesmo não sendo diretamente acessíveis, tais neurônios dividem a responsabilidade pelo erro resultante na camada de saída. A questão, no entanto, é saber como penalizar ou recompensar os pesos sinápticos de tais neurônios pela sua parcela de responsabilidade, já que não existe resposta desejada especificada neste local do MLP e, portanto, não há como calcular o sinal de erro.
+
+A solução, dada pela equação (4.9b), é computar o sinal de erro recursivamente para o neurônio escondido $j$ retro-propagando os sinais de erro de todos os neurônios à direita do neurônio $j$ aos quais a saída deste encontra-se conectado.
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Grafo de fluxo de sinal no neurônio $j$.}
+		\includegraphics[scale=0.5]{imagens/sinalForward.png}
+		Fonte :
+		\label{fig:sinalForward}
+	\end{center} 
+\end{figure}
+
+O fator $\varphi_j(v_j(n))$ envolvido na computação do gradiente local $\delta_j(n)$ na equação (4.9b) depende somente da função de ativação associada com o neurônio escondido $j$. Os demais fatores envolvidos no somatório sobre $k$ em (4.9b) dependem de dois conjuntos de termos. O primeiro, $\delta_k(n)$, requer conhecimento dos sinais de erro $e_k(n)$ recursivamente retro-propagados, conforme veremos adiante, a partir de todos aqueles neurônios localizados na camada imediatamente à direita do neurônio escondido $j$ e que estão diretamente conectados a ele (ver Figura \ref{fig:sinalRetro}). O segundo conjunto de termos, $w_{kj}(n)$, consiste dos pesos sinápticos dos neurônios à direita do neurônio $j$ e que com ele estabelecem conexão.
+
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Grafo de fluxo de sinal no neurônio $j$.}
+		\includegraphics[scale=0.5]{imagens/sinalRetropropagacao.png}
+		Fonte :
+		\label{fig:sinalRetro}
+	\end{center} 
+\end{figure}
+
+%Os pesos da rede a ser treinada são inicialmente definidos para valores aleatórios e, em seguida, membros do conjunto de treinamento são expostos repetidamente à rede. Os valores para a entrada de um membro são colocados nas unidades de entrada ea saída da rede é comparada com a saída desejada para este membro. Então, todos os pesos na rede são ajustados ligeiramente na direção que traria os valores de saída da rede mais próximos aos valores para a saída desejada. Por exemplo, quando a face do homem é apresentada às unidades de entrada, os pesos são ajustados de modo que o valor da unidade de saída de homem é aumentado e o valor da unidade de saída da mulher é diminuído. Após muitas repetições deste processo, a rede pode aprender a produzir a saída desejada para cada entrada no conjunto de treinamento. Se o treinamento for bem, a rede também pode ter aprendido a generalizar o comportamento desejado para entradas e saídas que não estavam no conjunto de treinamento. Por exemplo, pode fazer um bom trabalho de distinguir homens de mulheres em imagens que nunca foram apresentadas a ele antes.
+
+%Treinar redes para modelar aspectos da inteligência humana é uma arte. Sucesso com \emph{backpropagation} e outros métodos de aprendizagem conexionista pode depender de ajuste bastante sutil do algoritmo e o conjunto de treinamento. Treinamento normalmente envolve centenas de milhares de rodadas de ajuste de peso. Dadas as limitações dos computadores atualmente disponíveis para os pesquisadores conexionistas, a formação de uma rede para realizar uma tarefa interessante pode levar dias ou mesmo semanas. Algumas das dificuldades podem ser resolvidas quando circuitos paralelos especificamente projetados para executar modelos de rede neural estão amplamente disponíveis. Mas, mesmo aqui, algumas limitações às teorias conexionistas da aprendizagem permanecerão para ser enfrentadas. Os seres humanos (e muitos animais menos inteligentes) exibem a capacidade de aprender com eventos isolados, por exemplo, um animal que come um alimento que mais tarde provoca desconforto gástrico nunca tentará novamente esse alimento. As técnicas de aprendizagem conexionista, como a retro-propagação, estão longe de explicar esse tipo de aprendizagem "de um só golpe".
+
+%O objetivo principal no desenvolvimento de modelos neurais é encontrar um conjunto ótimo de pesos $w$, de tal forma que $y = y (x, w)$ represente de perto o comportamento original do problema. Isto é conseguido através de um processo chamado treinamento. Um conjunto de dados de treinamento é apresentado à rede neural. Os dados de treinamento são pares de $(xk, dk)$, $k$ = 1, 2,. . . , $P$, onde $dk$ é as saídas desejadas do modelo neural para entradas $xk$, e P é o número total de amostras de treinamento.
+%Durante o treinamento, o desempenho da rede neural é avaliado computando-se a diferença entre as saídas reais da rede neural e as saídas desejadas para todas as amostras de treinamento. A diferença, também conhecida como erro, é quantificada por
+
+%FOMRULA
+
+%onde $djk$ é o jth elemento de dk, yj (xk, w) é a j-ésima saída de rede neural para a entrada xk, e Tr é um conjunto de índices de dados de treinamento. Os parâmetros de peso w são ajustados durante o treino, de modo que este erro é minimizado. 
+
+%O algoritmo foi inicialmente desenvolvido por Bernard Widrow. O termo \emph{backpropagation} surgiu após 1985. No entanto, a ideia básica foi primeiramente descrita por Werbos em sua tese de doutorado em 1974. Em 1986, foi redescoberto por Rumelhart, Hinton e Williams e popularizado através da publicação do livro \emph{Parallel Distributed Processing} de Rumelhart e McClelland em 1986.
+%O desenvolvimento do \emph{backpropagation} representa um marco fundamental em redes neurais, pois é um método computacionalmente eficiente para o treinamento de redes MLPs e por ter resolvido o problema de realizar a propagação reversa do erro em RNAs com múltiplas camadas, problema este que atrasou por muitos anos o desenvolvimento da área de redes neurais artificiais.
+%Na medida em que o conjunto de dados usado para treinar uma RNA MLP seja grande o suficiente para ser representativo do ambiente no qual a rede está inserida, a rede MLP treinada através do algoritmo backpropagation desenvolverá a capacidade de generalizar. Especificamente, essa capacidade permite à rede MLP apresentar um desempenho satisfatório quando é alimentada com dados de teste retirados do mesmo espaço de entrada que os dados de treino, mas não previamente apresentados ao MLP. 

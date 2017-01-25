@@ -10,7 +10,7 @@ Sistemas artificiais que simulam o conhecimento humano estão surgindo em uma var
 %Idealmente, o raciocínio pode ser explicado, e a maioria das ferramentas de desenvolvimento de sistemas especialistas permitem a criação de sistemas de explicação para ajudar o usuário a entender as perguntas que estão sendo feitas ou conclusões. Assim, o sistema pode funcionar mais como especialistas humanos que explicam os processos de raciocínio por trás de suas reconcomendações.
 %
 
-Um dos problemas encontrados pelos pioneiros da IA Simbólica veio a ser conhecido como o problema do conhecimento do senso comum. Além disso, as áreas que dependem de conhecimentos processuais ou implícitos, tais como os processos sensoriais / motores, são muito mais difíceis de lidar dentro da estrutura da IA Simbólica. Nesses campos, essa abordagem teve um sucesso limitado e, em geral, deixou o campo para arquiteturas de redes neurais (discutidas posteriormente), que são mais adequadas para tais tarefas. Nas seções a seguir, serão abordadas as sub-áreas importantes da IA simbólica, bem como as dificuldades encontradas por essa abordagem. O presente capítulo apresenta uma introdução aos sistemas simbólcios abordando de forma geral as formas de representação simbólica na Seção X.1, e na Seção X.2 mostra os problemas encontrados pelos pesquisadores nesse tipo de abordagem.
+Um dos problemas encontrados pelos pioneiros da IA Simbólica veio a ser conhecido como o problema do conhecimento do senso comum. Além disso, as áreas que dependem de conhecimentos processuais ou implícitos, tais como os processos sensoriais / motores, são muito mais difíceis de lidar dentro da estrutura da IA Simbólica. Nesses campos, essa abordagem teve um sucesso limitado e, em geral, deixou o campo para arquiteturas de redes neurais (discutidas posteriormente), que são mais adequadas para tais tarefas. Nas seções a seguir, serão abordadas as sub-áreas importantes da IA simbólica, bem como as dificuldades encontradas por essa abordagem. O presente capítulo apresenta uma introdução aos sistemas simbólicos abordando de forma geral as formas de representação simbólica na Seção X.1, e na Seção X.2 mostra os problemas encontrados pelos pesquisadores nesse tipo de abordagem.
 
 %A Inteligência Artificial Simbólica consiste de um conjunto de símbolos que permitem a sua representação na forma de regras e processos. Quando as regras e processos são aplicados em um conjunto de símbolos, o sistema pode produzir novas estruturas. Os símbolos têm significados semânticos e podem representar conceitos ou objetos. Para lidar com estes conceitos usa-se a lógica proposicional e a lógica de predicados o que permite a solução de problema usando um sistema baseado em regras. Assim um sistema simbólico é capaz de resolver problemas que envolvem dados e as regras sobre estes dados. Esse tipo de sistema possibilita o desenvolvimento de estruturas passíveis do tratamento computacional, nas quais um dos objetivos é a representação do conhecimento no computador para fins de sua manipulação.  Um outro ponto positivo é que esse paradigma tem alta potencialidade na explicação dos resultados obtidos. 
 
@@ -36,6 +36,7 @@ Essa representação canônica é definida com a ajuda de grafos de dependência. Os 
 		\caption{Representação de um Script}
 		\includegraphics[scale=0.5]{imagens/Script.png}
 		\label{fig:Script}
+		Fonte :
 	\end{center} 
 \end{figure}
 
@@ -48,6 +49,7 @@ As redes semânticas, introduzidas por Collins e Quillian, são um dos primeiros m
 	\begin{center}
 		\caption{Representação de uma Rede Semântica.}
 		\includegraphics[scale=0.5]{imagens/redeSemantica.png}
+		Fonte :
 		\label{fig:redeSemantica}
 	\end{center} 
 \end{figure}
@@ -58,6 +60,7 @@ Quadros (sistemas baseados em \emph{frames}), introduzidos por Minsky, podem ser
 	\begin{center}
 		\caption{Representação de um Frame}
 		\includegraphics[scale=0.5]{imagens/Frame.png}
+		Fonte :
 		\label{fig:Frame}
 	\end{center} 
 \end{figure}
@@ -74,9 +77,9 @@ Programar um conjunto de critérios para abranger os membros de uma categoria é u
 	
 \end{itemize}
 
-Um sistema inteligente é alimentado com representações de fatos e regras, mas as regras do senso comum são muito difíceis de estabelecer. Sabe-se que quando vamos deixar o filho na escola, ele não está mais em casa; se alguém está dentro do cinema deve ter entrado por alguma porta; se há uma sacola em seu carro e um litro de leite na sacola então há um litro de leite em seu carro. Note pore?m que de saber que ha? uma pessoa em seu carro e saber que ha? um litro de sangue em uma pessoa seria estranho concluir que ha? um litro de sangue em seu carro.
-O problema de saber distinguir as implicações relevantes entre um conjunto potencialmente infinito de implicações é denominado frame problem (problema de enquadramento), e dificulta principalmente a formalização de raciocínios sobre ações. 
-A manipulac?a?o de si?mbolos discretos e? muito eficiente, permitindo uma interac?a?o muito fa?cil com o usua?rio. Por outro lado, existe o problema primordial da definic?a?o dos si?mbolos (sema?ntica, ?grounding?), que deve ser feita a priori. Por ser uma abordagem top-down, onde o conhecimento e? introduzido explicitamente no sistema, essa tem a necessidade faz com que os sistemas simbo?licos encontrem dificuldade para lidar de forma auto?noma, em ambientes reais (conti?nuos) desconhecidos.
+Um sistema inteligente é alimentado com representações de fatos e regras, mas as regras do senso comum são muito difíceis de estabelecer. Sabe-se que quando vamos deixar o filho na escola, ele não está mais em casa; se alguém está dentro do cinema deve ter entrado por alguma porta; se há uma sacola em seu carro e um litro de leite na sacola então há um litro de leite em seu carro. Note porém que de saber que há uma pessoa em seu carro e saber que há um litro de sangue em uma pessoa seria estranho concluir que há um litro de sangue em seu carro.
+O problema de saber distinguir as implicações relevantes entre um conjunto potencialmente infinito de implicações é denominado \emph{frame problem} (problema de enquadramento), e dificulta principalmente a formalização de raciocínios sobre ações. 
+A manipulação de símbolos discretos é bastante eficiente, permitindo uma interação muito fácil com o usuário. Por outro lado, existe o problema primordial da definição dos símbolos (semântica), que deve ser feita a priori. Por ser uma abordagem \emph{top-down}, onde o conhecimento é introduzido explicitamente no sistema e essa necessidade faz com que os sistemas simbólicos encontrem dificuldade para lidar de forma autônoma, em ambientes reais (contínuos) desconhecidos.
 
 %\section{Conclusão}
 
