@@ -1,0 +1,32 @@
+\select@language {brazil}
+\contentsline {chapter}{Sum\'ario}{i}
+\contentsline {chapter}{Lista de Figuras}{iii}
+\contentsline {chapter}{Lista de Tabelas}{iv}
+\contentsline {chapter}{\numberline {1}Introdu\c c\~ao}{1}
+\contentsline {section}{\numberline {1.1}Motiva\c c\~ao}{3}
+\contentsline {section}{\numberline {1.2}Proposta, contribui\c c\~oes e objetivos}{3}
+\contentsline {section}{\numberline {1.3}Organiza\c c\~ao do trabalho}{3}
+\contentsline {chapter}{Lista de S\IeC {\'\i }mbolos e Abreviaturas}{1}
+\contentsline {chapter}{\numberline {2}Fundamenta\c c\~ao Te\'orica}{5}
+\contentsline {section}{\numberline {2.1}Intelig\^encia Artificial Simb\'olica}{5}
+\contentsline {subsection}{\numberline {2.1.1}Representa\c c\~ao simb\'olica do conhecimento}{6}
+\contentsline {subsection}{\numberline {2.1.2}Problemas da Intelig\^encia Artificial Simb\'olica}{9}
+\contentsline {section}{\numberline {2.2}Redes Neurais Artificiais (RNA)}{10}
+\contentsline {subsection}{\numberline {2.2.1}Redes MLP}{13}
+\contentsline {subsection}{\numberline {2.2.2}Estrutura de uma MLP}{14}
+\contentsline {subsection}{\numberline {2.2.3}Informa\c c\~ao processada por um Neur\^onio}{16}
+\contentsline {subsection}{\numberline {2.2.4}Fun\c c\~oes de ativa\c c\~ao}{16}
+\contentsline {subsection}{\numberline {2.2.5}Algoritmo \emph {Backpropagation}}{17}
+\contentsline {subsection}{\numberline {2.2.6}Processo de Treinamento}{18}
+\contentsline {section}{\numberline {2.3}Sistemas H\IeC {\'\i }bridos}{23}
+\contentsline {section}{\numberline {2.4}Knowledge-based Artificial Neural Networks (KBANN)}{24}
+\contentsline {subsection}{\numberline {2.4.1}Inser\c c\~ao de Conhecimento em uma RNA}{24}
+\contentsline {subsection}{\numberline {2.4.2}Algoritmo de Tradu\c c\~ao de Regras}{25}
+\contentsline {subsection}{\numberline {2.4.3}Exemplo do algoritmo}{27}
+\contentsline {section}{\numberline {2.5}Top-Gen}{28}
+\contentsline {subsection}{\numberline {2.5.1}Localiza\c c\~ao de novos Neur\^onios}{28}
+\contentsline {subsection}{\numberline {2.5.2}Como novos Neur\^onios s\~ao Adicionados}{29}
+\contentsline {subsection}{\numberline {2.5.3}Exemplo do TopGen}{30}
+\contentsline {chapter}{\numberline {3}Metodologia}{31}
+\contentsline {chapter}{\numberline {4}Resultados e discuss\~ao}{32}
+\contentsline {chapter}{\numberline {5}Conclus\~ao}{33}

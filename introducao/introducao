@@ -1,0 +1,89 @@
+\relax 
+\citation{Fontana:2009}
+\citation{Sneath:1973}
+\citation{Frei:2006}
+\citation{Romesburg:2004}
+\citation{Hartigan:1975}
+\citation{Everitt:2011}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}An\'alise de Agrupamentos de Dados (\textit  {Clustering})}{24}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{Cap_3}{{2}{24}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}An\'alise de Agrupamentos (\textit  {Cluster Analysis})}{24}}
+\citation{Bussab:1990}
+\citation{Miguel:2012}
+\citation{Hair:2009}
+\citation{Cormack:1971}
+\citation{Butenko:2009}
+\citation{Hair:2009}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Medidas de similaridade ou dissimilaridade}{25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}M\'etodos de Agrupamentos (\textit  {Clustering})}{25}}
+\citation{Han:2006}
+\citation{Chattopadhyay:2014}
+\citation{Timm:2002}
+\citation{Wu:2012}
+\citation{Macqueen:1967}
+\citation{Sangita:2011}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Algoritmos de Parti\c c\~ao}{26}}
+\citation{Bussab:1990}
+\citation{Bussab:1990}
+\citation{Mingoti:2005}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Algoritmo do \textit  {K-means}}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces An\'alise de agrupamento com o algoritmo do K-m\'edias.}}{27}}
+\newlabel{fig:res5.3}{{2.1}{27}}
+\citation{Kandylas:2001}
+\citation{Elhamifar:2009}
+\citation{Vidal:2011}
+\citation{Pearson:1901}
+\citation{Hotteling:1933}
+\citation{Mingoti:2013}
+\citation{Ding:2004}
+\citation{Andriotti:1997}
+\citation{Kitani:2007}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Algoritmo \textit  {K q-flat} (K-Subespa\c cos Afins)}{28}}
+\@writefile{toc}{\contentsline {subsubsection}{An\'alise de Componentes Principais}{28}}
+\citation{Kendall:1980}
+\citation{Shlens:2003}
+\citation{Zhang:2009}
+\citation{Lu:2006}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces An\'alise de Componentes Principais}}{29}}
+\@writefile{toc}{\contentsline {subsubsection}{Algoritmo Iterativo}{29}}
+\citation{Vidal:2011}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Considera\c c\~oes Finais}{30}}
+\@setckpt{clusters/clusters}{
+\setcounter{page}{31}
+\setcounter{equation}{2}
+\setcounter{enumi}{3}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{0}
+\setcounter{mpfootnote}{0}
+\setcounter{part}{0}
+\setcounter{chapter}{2}
+\setcounter{section}{3}
+\setcounter{subsection}{0}
+\setcounter{subsubsection}{0}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{figure}{1}
+\setcounter{table}{0}
+\setcounter{float@type}{16}
+\setcounter{parentequation}{0}
+\setcounter{LT@tables}{0}
+\setcounter{LT@chunks}{0}
+\setcounter{lstnumber}{1}
+\setcounter{subfigure}{0}
+\setcounter{lofdepth}{1}
+\setcounter{subtable}{0}
+\setcounter{lotdepth}{1}
+\setcounter{algorithm}{1}
+\setcounter{ALG@line}{10}
+\setcounter{ALG@rem}{0}
+\setcounter{ALG@nested}{0}
+\setcounter{ALG@Lnr}{2}
+\setcounter{ALG@blocknr}{10}
+\setcounter{ALG@storecount}{0}
+\setcounter{ALG@tmpcounter}{0}
+\setcounter{lstlisting}{0}
+}

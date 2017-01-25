@@ -1,0 +1,138 @@
+\relax 
+\citation{Kwong:2013}
+\citation{Roffel:2007}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Controle de Sistemas Sujeitos a Restri\c c\~oes}{8}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{Cap_2}{{2}{8}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Sistemas Sujeitos a Restri\c c\~oes}{8}}
+\citation{Longhi:2001}
+\citation{Nise:2002}
+\citation{Longhi:2001}
+\citation{Lin:2007}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Sistemas Lineares Discretos em Equa\c c\~oes de Estados}{9}}
+\citation{Ogata:2010}
+\citation{Dorf:2009}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Controle por Realimenta\c c\~ao de Estados}{10}}
+\citation{Marques:1994}
+\citation{Dorea:2009}
+\citation{Araujo:2011}
+\citation{Nogueira:2009}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Poliedros Positivamente Invariantes em Sistemas Lineares}{11}}
+\citation{Rocha:1994}
+\citation{Blanchini:2008}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Conjunto Invariante Controlado}{12}}
+\citation{Dorea:1999}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Caracter\IeC {\'\i }sticas do Conjunto Invariante Controlado}{13}}
+\citation{Dorea:1999}
+\citation{Pimenta:2005}
+\citation{Alessio:2009}
+\citation{Araujo:2010}
+\citation{Araujo:2011}
+\@writefile{toc}{\contentsline {subsubsection}{Invari\^ancia Controlada de Poliedros Convexos para Sistemas Lineares}{14}}
+\citation{Kirk:2004}
+\citation{Kerrigan:2000}
+\citation{Dorea:1999}
+\@writefile{toc}{\contentsline {subsubsection}{Conjunto Invariante Controlado $\lambda $-Contrativo}{15}}
+\@writefile{toc}{\contentsline {subsubsection}{O M\'aximo Conjunto Invariante Controlado}{15}}
+\citation{Dorea:1999}
+\citation{Dorea:1999}
+\citation{Dorea:1999}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Conjunto Poli\'edrico Invariante Controlado $C^{\infty }(R[G_{f},\rho _{f}],\lambda )$}}{17}}
+\newlabel{fig:resp1}{{2.1}{17}}
+\citation{Karloff:2008}
+\citation{Carvalho:2014}
+\citation{Dantzig:2003}
+\citation{Gass:2003}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Projetos de Controlador Para Sistemas Lineares Sob Restri\c c\~oes}{18}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.1}Controle de Sistemas Sujeitos a Restri\c c\~oes Usando Programa\c c\~ao Linear}{18}}
+\@writefile{toc}{\contentsline {subsubsection}{Programa\c c\~ao Linear}{18}}
+\@writefile{toc}{\contentsline {subsubsection}{C\'alculo da A\c c\~ao de Controle \textit  {On-line}}{19}}
+\@writefile{toc}{\contentsline {subsubsection}{Exemplo Num\'erico 2.2}{20}}
+\citation{Zeilinger:2011}
+\citation{Filippi:2004}
+\citation{Borrelli:2003}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Trajet\'oria do vetor de estados}}{21}}
+\newlabel{fig:resp2}{{2.2}{21}}
+\citation{Sakizlis:2007}
+\citation{Bemporad:2002}
+\citation{Pistikopoulos:1997}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.2}Controle de Sistemas Sujeitos a Restri\c c\~oes Usando Programa\c c\~ao Multiparam\'etrica}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Regi\~oes caracter\IeC {\'\i }sticas.}}{22}}
+\newlabel{fig:res1}{{2.3}{22}}
+\citation{Gal:1972}
+\citation{Fiacco:1976}
+\citation{McBride:1980}
+\citation{Geoffrion:1977}
+\citation{Pistikopoulos:2012a}
+\citation{Borrelli:2003}
+\citation{Neves:2013}
+\@writefile{toc}{\contentsline {subsubsection}{Solu\c c\~ao do Problema de Programa\c c\~ao Linear Multiparam\'etrica}{23}}
+\@writefile{toc}{\contentsline {subsubsection}{Algoritmo de Programa\c c\~ao Linear Multiparam\'etrica }{23}}
+\citation{Bemporad:2006}
+\citation{Borrelli:2003}
+\citation{Weinkeller:2012}
+\citation{Pistikopoulos:2012b}
+\citation{Pistikopoulos:2012a}
+\citation{Johansen:2007}
+\citation{Neves:2013}
+\citation{Bemporad:2002}
+\@writefile{toc}{\contentsline {subsubsection}{Programa\c c\~ao Linear Multiparam\'etrica em Controle de Sistemas}{25}}
+\citation{Rohal:2013}
+\citation{Kvasnica:2004}
+\@writefile{toc}{\contentsline {subsubsection}{Exemplo Num\'erico 2.3}{26}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Regi\~oes Poli\'edricas e uma trajet\'oria do vetor de estados (Solu\c c\~ao \textit  {Off-line}).}}{27}}
+\newlabel{fig:resp3}{{2.4}{27}}
+\citation{Camacho:2007}
+\citation{Kouvaritakis:2001}
+\citation{Pistikopoulos:2012b}
+\citation{Pistikopoulos:2012a}
+\citation{Weinkeller:2008}
+\citation{Sakizlis:2007}
+\citation{Kouramas:2011}
+\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Solu\c c\~ao do problema de programa\c c\~ao linear multiparam\'etrica}}{28}}
+\newlabel{tab1}{{2.1}{28}}
+\@writefile{toc}{\contentsline {subsubsection}{Programa\c c\~ao Multiparam\'etrica em Controle Preditivo}{28}}
+\citation{Bemporad:2002}
+\citation{Pistikopoulos:2012b}
+\citation{Pistikopoulos:2012a}
+\citation{Dorea:1999}
+\@writefile{toc}{\contentsline {section}{\numberline {2.6}Considera\c c\~oes Finais}{29}}
+\citation{Zeilinger:2011}
+\@setckpt{conceitos/conceitos}{
+\setcounter{page}{31}
+\setcounter{equation}{26}
+\setcounter{enumi}{3}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{0}
+\setcounter{mpfootnote}{0}
+\setcounter{part}{0}
+\setcounter{chapter}{2}
+\setcounter{section}{6}
+\setcounter{subsection}{0}
+\setcounter{subsubsection}{0}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{figure}{4}
+\setcounter{table}{1}
+\setcounter{float@type}{16}
+\setcounter{parentequation}{0}
+\setcounter{LT@tables}{0}
+\setcounter{LT@chunks}{0}
+\setcounter{lstnumber}{1}
+\setcounter{subfigure}{0}
+\setcounter{lofdepth}{1}
+\setcounter{subtable}{0}
+\setcounter{lotdepth}{1}
+\setcounter{algorithm}{1}
+\setcounter{ALG@line}{10}
+\setcounter{ALG@rem}{0}
+\setcounter{ALG@nested}{0}
+\setcounter{ALG@Lnr}{2}
+\setcounter{ALG@blocknr}{10}
+\setcounter{ALG@storecount}{0}
+\setcounter{ALG@tmpcounter}{0}
+\setcounter{lstlisting}{0}
+}

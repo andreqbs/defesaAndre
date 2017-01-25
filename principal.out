@@ -1,0 +1,65 @@
+\BOOKMARK [0][-]{chapter*.3}{Sum\341rio}{}% 1
+\BOOKMARK [0][-]{chapter*.4}{Lista de Figuras}{}% 2
+\BOOKMARK [0][-]{chapter*.5}{Lista de Tabelas}{}% 3
+\BOOKMARK [0][-]{chapter*.6}{Lista de S\355mbolos e Abreviaturas}{}% 4
+\BOOKMARK [0][-]{chapter.1}{Introdu\347\343o}{}% 5
+\BOOKMARK [1][-]{section.1.1}{Objetivos Gerais}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.2}{Objetivos Espec\355ficos}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.3}{Principais Contribui\347\365es}{chapter.1}% 8
+\BOOKMARK [1][-]{section.1.4}{Organiza\347\343o do Texto}{chapter.1}% 9
+\BOOKMARK [0][-]{chapter.2}{Controle de Sistemas Sujeitos a Restri\347\365es}{}% 10
+\BOOKMARK [1][-]{section.2.1}{Sistemas Sujeitos a Restri\347\365es}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.2}{Sistemas Lineares Discretos em Equa\347\365es de Estados}{chapter.2}% 12
+\BOOKMARK [2][-]{subsection.2.2.1}{Controle por Realimenta\347\343o de Estados}{section.2.2}% 13
+\BOOKMARK [1][-]{section.2.3}{Poliedros Positivamente Invariantes em Sistemas Lineares}{chapter.2}% 14
+\BOOKMARK [1][-]{section.2.4}{Conjunto Invariante Controlado}{chapter.2}% 15
+\BOOKMARK [2][-]{subsection.2.4.1}{Caracter\355sticas do Conjunto Invariante Controlado}{section.2.4}% 16
+\BOOKMARK [1][-]{section.2.5}{Projetos de Controlador Para Sistemas Lineares Sob Restri\347\365es}{chapter.2}% 17
+\BOOKMARK [2][-]{subsection.2.5.1}{Controle de Sistemas Sujeitos a Restri\347\365es Usando Programa\347\343o Linear}{section.2.5}% 18
+\BOOKMARK [2][-]{subsection.2.5.2}{Controle de Sistemas Sujeitos a Restri\347\365es Usando Programa\347\343o Multiparam\351trica}{section.2.5}% 19
+\BOOKMARK [1][-]{section.2.6}{Considera\347\365es Finais}{chapter.2}% 20
+\BOOKMARK [0][-]{chapter.3}{An\341lise de Agrupamentos de Dados \(Clustering\)}{}% 21
+\BOOKMARK [1][-]{section.3.1}{An\341lise de Agrupamentos \(Cluster Analysis\)}{chapter.3}% 22
+\BOOKMARK [2][-]{subsection.3.1.1}{Medidas de similaridade ou dissimilaridade}{section.3.1}% 23
+\BOOKMARK [2][-]{subsection.3.1.2}{M\351todos de Agrupamentos \(Clustering\)}{section.3.1}% 24
+\BOOKMARK [1][-]{section.3.2}{Algoritmos de Parti\347\343o}{chapter.3}% 25
+\BOOKMARK [2][-]{subsection.3.2.1}{Algoritmo do K-means}{section.3.2}% 26
+\BOOKMARK [2][-]{subsection.3.2.2}{Algoritmo K q-flat \(K-Subespa\347os Afins\)}{section.3.2}% 27
+\BOOKMARK [1][-]{section.3.3}{Considera\347\365es Finais}{chapter.3}% 28
+\BOOKMARK [0][-]{chapter.4}{Metodologia Proposta}{}% 29
+\BOOKMARK [1][-]{section.4.1}{Algoritmo K q-flat em Controle por Realimenta\347\343o de Estados}{chapter.4}% 30
+\BOOKMARK [2][-]{subsection.4.1.1}{Implementa\347\343o do Algoritmo K q-flat}{section.4.1}% 31
+\BOOKMARK [2][-]{subsection.4.1.2}{Aplica\347\343o da Metodologia Proposta}{section.4.1}% 32
+\BOOKMARK [1][-]{section.4.2}{Considera\347\365es Finais}{chapter.4}% 33
+\BOOKMARK [0][-]{chapter.5}{Resultados Preliminares}{}% 34
+\BOOKMARK [1][-]{section.5.1}{Exemplo Num\351rico 5.1}{chapter.5}% 35
+\BOOKMARK [1][-]{section.5.2}{Exemplo Num\351rico 5.2}{chapter.5}% 36
+\BOOKMARK [1][-]{section.5.3}{Dificuldades Encontradas}{chapter.5}% 37
+\BOOKMARK [1][-]{section.5.4}{Considera\347\365es Finais}{chapter.5}% 38
+\BOOKMARK [0][-]{chapter.6}{Controle Sob Restri\347\365es por Realimenta\347\343o de Sa\355da}{}% 39
+\BOOKMARK [1][-]{section.6.1}{Controle por Realimenta\347\343o de Sa\355da Din\342mica}{chapter.6}% 40
+\BOOKMARK [1][-]{section.6.2}{Controle por Realimenta\347\343o de Sa\355da Est\341tica}{chapter.6}% 41
+\BOOKMARK [1][-]{section.6.3}{Considera\347\365es Finais}{chapter.6}% 42
+\BOOKMARK [0][-]{chapter.7}{Conclus\365es}{}% 43
+\BOOKMARK [1][-]{section.7.1}{Cronograma}{chapter.7}% 44
+\BOOKMARK [1][-]{section.7.2}{Sistema de 2\252 Ordem}{chapter.7}% 45
+\BOOKMARK [1][-]{section.7.3}{Sistema de 3\252 Ordem}{chapter.7}% 46
+\BOOKMARK [1][-]{section.7.4}{Lei de Observa\347\343o }{chapter.7}% 47
+\BOOKMARK [2][-]{subsection.7.4.1}{Exemplo Num\351rico 1}{section.7.4}% 48
+\BOOKMARK [1][-]{section.7.5}{Projeto do Observador Sub-\363timo Com Redu\347\343o da Complexidade}{chapter.7}% 49
+\BOOKMARK [2][-]{subsection.7.5.1}{Exemplo Num\351rico 2}{section.7.5}% 50
+\BOOKMARK [1][-]{section.7.6}{Controle por Realimenta\347\343o de Sa\355da Est\341tica}{chapter.7}% 51
+\BOOKMARK [2][-]{subsection.7.6.1}{Valida\347\343o}{section.7.6}% 52
+\BOOKMARK [2][-]{subsection.7.6.2}{Exemplo Num\351rico}{section.7.6}% 53
+\BOOKMARK [1][-]{section.7.7}{Controle por Realimenta\347\343o de Estados}{chapter.7}% 54
+\BOOKMARK [2][-]{subsection.7.7.1}{C\341lculo do Sinal de Controle}{section.7.7}% 55
+\BOOKMARK [2][-]{subsection.7.7.2}{Programa\347\343o Linear}{section.7.7}% 56
+\BOOKMARK [2][-]{subsection.7.7.3}{Programa\347\343o Linear Multiparam\351trica}{section.7.7}% 57
+\BOOKMARK [2][-]{subsection.7.7.4}{An\341lise de Agrupamentos de Dados K q-flat}{section.7.7}% 58
+\BOOKMARK [2][-]{subsection.7.7.5}{Controlador Sub-\363timo com Redu\347\343o da Complexidade}{section.7.7}% 59
+\BOOKMARK [1][-]{section.7.8}{Exemplo Num\351rico}{chapter.7}% 60
+\BOOKMARK [2][-]{subsection.7.8.1}{Resultados obtidos pela t\351cnica multiparam\351trica}{section.7.8}% 61
+\BOOKMARK [2][-]{subsection.7.8.2}{Resultados obtidos pelo algoritmo K q-flat}{section.7.8}% 62
+\BOOKMARK [1][-]{section.7.9}{Teste de Valida\347\343o}{chapter.7}% 63
+\BOOKMARK [2][-]{subsection.7.9.1}{Procedimentos realizados para o projeto do observador utilizando an\341lise de clustering}{section.7.9}% 64
+\BOOKMARK [0][-]{figure.7.60}{Refer\352ncias}{}% 65

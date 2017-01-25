@@ -1,0 +1,26 @@
+
+ \begin{theglossary} 
+ \glossgroup{A}
+  \item [AD]\emph  {\'Arvore de Decis\~ao}\glosspage{5}
+  \item [ass]\emph  {Assinatura da falha}\glosspage{5}
+  \item [CART]\emph  {Classification and Regression Tree}\glosspage{5}
+  \item [CCM]\emph  {Cross Channel Monitoring}\glosspage{5}
+  \item [CLP]\emph  {Controlador L\'ogico Program\'avel}\glosspage{5}
+  \item [DC]\emph  {Direct Current}\glosspage{5}
+  \item [FDD]\emph  {Fault Detection and Diagnosis}\glosspage{5}
+  \item [FDI]\emph  {Fault Detection and Identification}\glosspage{5}
+  \item [FDI]\emph  {Fault Detection and Isolation}\glosspage{5}
+  \item [IEEE]\emph  {Instituto de Engenheiros Eletricistas e Eletr\^onicos}
+		\glosspage{5}
+  \item [MIMO]\emph  {Multiple-Input and Multiple-Output}\glosspage{5}
+  \item [MQR]\emph  {M\IeC {\'\i }nimos Quadrados Recursivos}
+		\glosspage{5}
+  \item [PCA]\emph  {Principal Component Analysis}\glosspage{5}
+  \item [PID]\emph  {Proporcional, Integral e Derivativo}\glosspage{5}
+  \item [r]\emph  {Res\IeC {\'\i }duo}\glosspage{5}
+  \item [RNA]\emph  {Redes Neurais Artificiais}\glosspage{5}
+  \item [SISO]\emph  {Single-Input and Single-Output}\glosspage{5}
+  \item [u]\emph  {Entrada}\glosspage{5}
+  \item [y]\emph  {Sa\IeC {\'\i }da}\glosspage{5}
+
+ \end{theglossary}
