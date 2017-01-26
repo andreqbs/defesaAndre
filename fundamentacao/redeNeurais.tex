@@ -111,9 +111,9 @@ Observe, na Figura \ref{fig:MLP_cap2} que o sinal flui através da rede MLP no se
 
 Dois tipos de sinais são identificados nessa rede:
 
-1. Sinais funcionais: São estímulos que chegam as unidades de entrada da rede, se propagam de forma direta (neurônio a neurônio) através da rede e emergem da camada de saída da rede como sinais de saída. Cada neurônio de um MLP tem aplicado às suas entradas um conjunto de sinais funcionais que gera um sinal funcional na saída do respectivo neurônio. Na camada de entrada de um MLP o conjunto de sinais funcionais aplicado a cada neurônio é o próprio conjunto de sinais de entrada (vetor de entrada). A denominação sinal funcional decorre do fato de que esses sinais são obtidos na saída de cada neurônio como uma função dos sinais de entrada do respectivo neurônio.
+1. Sinal funcional: São estímulos que chegam as unidades de entrada da rede, se propagam de forma direta (neurônio a neurônio) através da rede e emergem da camada de saída da rede como sinais de saída. Cada neurônio de um MLP tem aplicado às suas entradas um conjunto de sinais funcionais que gera um sinal funcional na saída do respectivo neurônio. Na camada de entrada de um MLP o conjunto de sinais funcionais aplicado a cada neurônio é o próprio conjunto de sinais de entrada (vetor de entrada). A denominação sinal funcional decorre do fato de que esses sinais são obtidos na saída de cada neurônio como uma função dos sinais de entrada do respectivo neurônio.
 
-2. Sinais de Erro: Um sinal de erro se origina em um neurônio de saída da rede MLP e se propaga de volta (camada a camada) através da rede. Esse sinal é referido como sinal de erro porque seu cálculo, a cada neurônio da rede, envolve algum tipo de função de erro.
+2. Sinal de Erro: Um sinal de erro se origina em um neurônio de saída da rede MLP e se propaga de volta (camada a camada) através da rede. Esse sinal é referido como sinal de erro porque seu cálculo, a cada neurônio da rede, envolve algum tipo de função de erro.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -268,7 +268,7 @@ enlargelimits=false]
 \end{tikzpicture}
 
 
-Todas essas funções logísticas são delimitadas, contínuas, monotônicas e
+Todas essas funções logísticas são delimitadas, contínuas, monotônicas (VERIFICAR) e
 continuamente diferenciáveis.
 
 Nesse trabalho, utilizou-se uma convenção, em que os neurônios da camada de entrada também são considerados como parte da estrutura geral e utilizou-se a função sigmoide.  
@@ -290,17 +290,17 @@ Nesse trabalho, utilizou-se uma convenção, em que os neurônios da camada de entr
 
 \subsection{Algoritmo \emph{Backpropagation}}
 
-Encontrar o conjunto certo de pesos para realizar uma determinada tarefa é o objetivo central na pesquisa conexionista. Felizmente, algoritmos de aprendizagem foram concebidos que podem calcular os pesos certos para a realização de muitas tarefas. (Ver Hinton 1992 para uma revisão acessível.) Estes se dividem em duas grandes categorias: aprendizagem supervisionada e não supervisionada. A aprendizagem de Hebbian é a melhor forma não supervisionada conhecida. À medida que cada entrada é apresentada à rede, os pesos entre as unidades que estão ativas juntas são aumentadas, enquanto os pesos que conectam unidades que não estão ativas juntas são diminuídas. Essata forma de treinamento é especialmente útil para construir redes que podem classificar a entrada em categorias úteis. O algoritmo supervisionado mais amplamente utilizado é chamado \emph{backpropagation}. Para usar esse método, é necessário um conjunto de treinamento composto por muitos exemplos de entradas e suas saídas desejadas para uma determinada tarefa. Esse conjunto externo de exemplos "supervisiona" o processo de treinamento. Para usar esse método é necessário um conjunto de treinamento composto por muitos exemplos de entradas e suas saídas desejadas para uma determinada tarefa. Se, por exemplo, a tarefa for distinguir rostos masculinos e femininos, o conjunto de treinamento pode conter quadros de rostos, juntamente com uma indicação do sexo da pessoa representada em cada um. Uma rede que pode aprender esta tarefa pode ter duas unidades de saída (indicando as categorias masculino e feminino) e muitas unidades de entrada, uma delas seria dedicada ao brilho de cada pixel da imagem. 
+Encontrar o conjunto certo de pesos para realizar uma determinada tarefa é o objetivo central na pesquisa conexionista. Felizmente, algoritmos de aprendizagem foram concebidos que podem calcular os pesos certos para a realização de muitas tarefas. (Ver Hinton 1992 para uma revisão acessível.) Estes se dividem em duas grandes categorias: aprendizagem supervisionada e não supervisionada. A aprendizagem de Hebbian é a melhor forma não supervisionada conhecida. À medida que cada entrada é apresentada à rede, os pesos entre as unidades que estão ativas juntas são aumentadas, enquanto os pesos que conectam unidades que não estão ativas juntas são diminuídas. Essa forma de treinamento é especialmente útil para construir redes que podem classificar a entrada em categorias úteis. O algoritmo supervisionado mais amplamente utilizado é chamado \emph{backpropagation}. Para usar esse método, é necessário um conjunto de treinamento composto por muitos exemplos de entradas e suas saídas desejadas para uma determinada tarefa. Esse conjunto externo de exemplos "supervisiona" o processo de treinamento. Para usar esse método é necessário um conjunto de treinamento composto por muitos exemplos de entradas e suas saídas desejadas para uma determinada tarefa. Se, por exemplo, a tarefa for distinguir rostos masculinos e femininos, o conjunto de treinamento pode conter quadros de rostos, juntamente com uma indicação do sexo da pessoa representada em cada um. Uma rede que pode aprender esta tarefa pode ter duas unidades de saída (indicando as categorias masculino e feminino) e muitas unidades de entrada, uma delas seria dedicada ao brilho de cada pixel da imagem. 
 
 \subsection{Processo de Treinamento}
 
-Antes de descrever o passo a passo do algoritmo \emph{backpropagation}, é conveniente fazer algumas considerações quanto à notação que será utilizada: 
+Antes de demonstrar o passo a passo do algoritmo de treinamento \emph{backpropagation}, serão feitas algumas considerações quanto à notação utilizada: 
 
-Os índices $i$, $j$ e $k$ se referem a diferentes neurônios no MLP. Os sinais funcionais se propagam através da rede, da esquerda para a direita, sendo que o neurônio $j$ está na camada à direita do neurônio $i$, e o neurônio $k$ está na camada à direita do neurônio $j$, quando o neurônio $j$ é uma unidade escondida. 
+Os neurônios na rede MLP serão referenciados pelos índices $i$, $j$ e $k$. Os sinais funcionais se propagam através da rede, da esquerda para a direita, sendo que o neurônio $j$ está na camada à direita do neurônio $i$, e o neurônio $k$ está na camada à direita do neurônio $j$, quando o neurônio $j$ é uma unidade escondida. 
 
-Na iteração $n$, o $n$-ésimo padrão de treino (vetor-exemplo) é apresentado ao MLP. 
+Na iteração $n$, o $n$-ésimo padrão de treino é apresentado a rede MLP. 
 
-O símbolo $\epsilon(n)$ se refere à soma instantânea dos erros quadráticos nas unidades de saída do MLP (ou energia do erro) na iteração $n$. A média de $\epsilon(n)$ sobre todos os valores de $n$ (isto é, o conjunto de treino inteiro) representa a energia média do erro $\epsilon_{av}$. 
+O símbolo $\epsilon(n)$ se refere à soma instantânea dos erros quadráticos nas unidades de saída do MLP na iteração $n$. A média de $\epsilon(n)$ sobre todos os valores de $n$ (isto é, o conjunto de treino inteiro) representa a energia média do erro $\epsilon_{me}$. 
 
 O símbolo $e_j(n)$ se refere ao sinal de erro na saída do neurônio $j$ para a iteração $n$. 
 
@@ -314,7 +314,7 @@ O potencial de ativação (isto é, a soma ponderada de todas as entradas sináptica
 
 A função de ativação que descreve a relação funcional entrada-saída da não-linearidade associada ao neurônio $j$ é denotada por $\varphi_j(.)$. 
 
-O bias aplicado ao neurônio $j$ é denotada por $b_j$ ; seu efeito é representado por uma sinapse de peso $w_{j0}(n) = b_j$ conectada a uma entrada fixa igual a (+1). Alternativamente, o bias pode ser gerada por uma sinapse de peso $w_{j0}(n) = b_j$ conectada a uma entrada de valor fixo e igual a (-1), quando recebe o nome de \emph{threshold}. A nível de operação do MLP, para todos os fins práticos as duas alternativas apresentam os mesmos resultados. 
+O bias aplicado ao neurônio $j$ é denotada por $b_j$ ; seu efeito é representado por uma sinapse de peso $w_{j0}(n) = b_j$ conectada a uma entrada fixa igual a (+1). Alternativamente, o bias pode ser gerada por uma sinapse de peso $w_{j0}(n) = b_j$ conectada a uma entrada de valor fixo e igual a (-1), quando recebe o nome de \emph{threshold}.
 
 O $i$-ésimo componente do vetor de entrada do MLP é denotado por $x_i(n)$. 
 
@@ -330,20 +330,20 @@ Seja o sinal de erro na saída do neurônio $j$ da camada de saída na iteração \em
 e_j  = d_j(n) - y_j(n)
 \end{align}
 
-Define-se o valor instantâneo do erro quadrático para o neurônio $j$ como $\frac{1}{2}e_j^2(n)$.  
-Correspondentemente, o valor instantâneo da soma dos erros quadráticos $\frac{1}{2}e_j^2(n)$ é obtido somando  sobre todos os neurônios da camada de saída. Estes são os únicos neurônios visíveis para os quais os sinais de erro podem ser calculados de forma direta. A soma instantânea dos erros quadráticos na camada de saída do MLP é então escrita como: 
+Define-se o valor instantâneo do erro quadrático para o neurônio $j$ como $\dfrac{1}{2}e_j^2(n)$.  
+Correspondentemente, o valor instantâneo da soma dos erros quadráticos $\dfrac{1}{2}e_j^2(n)$ é obtido somando  sobre todos os neurônios da camada de saída. Estes são os únicos neurônios visíveis para os quais os sinais de erro podem ser calculados de forma direta. A soma instantânea dos erros quadráticos na camada de saída do MLP é então escrita como: 
 
 \begin{align}
-\epsilon(n) = \frac{1}{2} \sum_{j \in C}e_{j}^2(n)
+\epsilon(n) = \dfrac{1}{2} \sum_{j \in C}e_{j}^2(n)
 \end{align}
 
 onde o conjunto $C$ inclui todos os neurônios na camada de saída. Seja N o número total de padrões (vetores-exemplo) contidos no conjunto de treino. O erro médio quadrático (MSE) é obtido somando $\epsilon(n)$ sobre todo n e então normalizando com respeito ao tamanho N do conjunto de treino, conforme: 
 
 \begin{align}
-\epsilon_{av} = \frac{1}{N - 1} \sum_{n = 0}^{N - 1}\epsilon(n)
+\epsilon_{me} = \dfrac{1}{N - 1} \sum_{n = 0}^{N - 1}\epsilon(n)
 \end{align}
 
-O valor instantâneo da soma dos erros quadráticos $\epsilon(n)$, e portanto o MSE denotado por $\epsilon_{av}$ , é função de todos os parâmetros livres (isto é, pesos sinápticos e bias) da MLP. Para um dado conjunto de treino, $\epsilon_{av}$  representa a Função de Custo do processo de minimização do erro de aprendizado, constituindo uma medida inversa do desempenho do processo de aprendizado a partir do conjunto de treino. Para minimizar $\epsilon_{av}$  os pesos sinápticos são atualizados a cada apresentação$n$ de um novo padrão ao MLP através do vetor de entrada até o término de uma época. Uma época consiste no intervalo correspondente à apresentação de todos os N vetores-exemplo do conjunto de treino à camada de entrada do MLP. O ajuste dos pesos é feito de acordo com os respectivos erros computados para cada padrão apresentado ao MLP. A média aritmética dessas alterações individuais nos pesos sobre o conjunto de treino é, portanto, uma estimativa da verdadeira alteração que resultaria a partir da alteração de pesos baseada na minimização da função custo $\epsilon_{av}$  sobre todo conjunto de treino.
+O valor instantâneo da soma dos erros quadráticos $\epsilon(n)$, e portanto o MSE denotado por $\epsilon_{me}$ , é função de todos os parâmetros livres (isto é, pesos sinápticos e bias) da MLP. Para um dado conjunto de treino, $\epsilon_{me}$  representa a função de custo do processo de minimização do erro de aprendizado, constituindo uma medida inversa do desempenho do processo de aprendizado a partir do conjunto de treino. Para minimizar $\epsilon_{me}$  os pesos sinápticos são atualizados a cada apresentação$n$ de um novo padrão ao MLP através do vetor de entrada até o término de uma época. Uma época consiste no intervalo correspondente à apresentação de todos os N vetores-exemplo do conjunto de treino à camada de entrada do MLP. O ajuste dos pesos é feito de acordo com os respectivos erros computados para cada padrão apresentado ao MLP. A média aritmética dessas alterações individuais nos pesos sobre o conjunto de treino é, portanto, uma estimativa da verdadeira alteração que resultaria a partir da alteração de pesos baseada na minimização da função custo $\epsilon_{me}$  sobre todo conjunto de treino.
 
 Considere a Figura \ref{fig:sinalNeuronio}, a qual descreve o neurônio $j$ sendo alimentado por um conjunto de sinais produzidos na saída dos neurônios da camada à sua esquerda. 
 
@@ -351,7 +351,6 @@ Considere a Figura \ref{fig:sinalNeuronio}, a qual descreve o neurônio $j$ sendo
 	\begin{center}
 		\caption{Grafo de fluxo de sinal no neurônio $j$.}
 		\includegraphics[scale=0.5]{imagens/sinalNeuronio.png}
-		Fonte :
 		\label{fig:sinalNeuronio}
 	\end{center} 
 \end{figure}
@@ -373,42 +372,48 @@ De maneira similar ao algoritmo LMS, o algoritmo \emph{backpropagation} aplica a
 Se, para uma dada variação no peso sináptico, o algoritmo movimenta-se em uma trajetória ascendente na superfície $\epsilon$, então significa que esta variação deve ser aplicada com o sinal invertido sobre o peso sináptico, já que houve um aumento do erro, e objetiva-se uma diminuição do erro.
 
 Por outro lado, se para uma dada variação no peso sináptico o algoritmo movimenta-se em uma trajetória descendente na superfície $\epsilon$, então significa que esta variação deve ser aplicada com o sinal positivo sobre o peso sináptico, já que houve uma
-diminuição do erro e, portanto, o movimento deve ser encorajado naquela direção. Este método de correção dos pesos sinápticos é denominado de Regra Delta. No algoritmo LMS, estudado em capítulo anterior, a Regra Delta é definida pela já conhecida
-expressão $\Delta w(n) = -\eta \Delta J(w(n))$, onde $\Delta J(w(n)) = \frac{J(w(n))}{w(n)} = \frac{\frac{1}{2}e^2(n)}{w(n)}$ é o gradiente local da superfície de erro gerada pela função de custo $J = J(w(n)) = \frac{1}{2}e^2(n)$ a ser minimizada no instante $n$.
+diminuição do erro e, portanto, o movimento deve ser encorajado naquela direção. Este método de correção dos pesos sinápticos é denominado de Regra Delta. Ela é definida pela
+expressão $\Delta \underline{w}(n) = -\eta \Delta J(w(n))$, onde $\Delta J(\underline{w}(n)) = \dfrac{J(\underline{w}(n))}{\underline{w}(n)} = \dfrac{\dfrac{1}{2}e^2(n)}{\underline{w}(n)}$ é o gradiente local da superfície de erro gerada pela função de custo $J = J(\underline{w}(n)) = \dfrac{1}{2}e^2(n)$ a ser minimizada no instante $n$.
 
 No caso do MLP, o gradiente local da superfície de erro $\epsilon$ relativo ao peso sináptico $w_{ji}$ representa, portanto, um fator de sensibilidade, determinando a direção de movimento no espaço de pesos sinápticos para o valor do peso sináptico  $w_{ji}$ que minimiza $\epsilon$.
 
-A correção $\Delta w_{ji}$ aplicada a $w_{ji}$, ditada pela Regra Delta, é definida por
+A correção $\Delta w_{ji}(n)$ aplicada a $w_{ji}(n)$, ditada pela Regra Delta, é definida por
 
 \begin{align}
-y_j(n) = \varphi_j(v_j(n)) 
+\Delta w_{ji}(n) = w_{ji}(n + 1) - w_{ji}(n) = - \eta \frac{X\epsilon(n)}{X w_{ji}(n)}
 \end{align}
 
-onde $\eta$ é a constante que determina a razão de aprendizado do algoritmo \emph{backpropagation}. O uso do sinal negativo em (X.X) impõe a movimentação contrária à direção apontada pelo gradiente na superfície de erro definida no espaço de pesos sinápticos. O algoritmo \emph{backpropagation} estabelece o aprendizado de um MLP através da Regra Delta como sendo a
-correção efetuada em suas sinapses através de
+onde $\eta$ é a constante que determina a razão de aprendizado do algoritmo \emph{backpropagation}. O uso do sinal negativo em (X.X) impõe a movimentação contrária à direção apontada pelo gradiente na superfície de erro definida no espaço de pesos sinápticos. 
+
+O algoritmo \emph{backpropagation} estabelece o aprendizado de um MLP através da Regra Delta como sendo a
+correção efetuada em suas sinapses através de:
 
 \begin{align}
 \Delta w_{ji}(n) = \eta \delta_j(n)y_i(n)
 \end{align}
 
-onde $\Delta w_{ji}(n)$ é a correção aplicada à $i$-ésima sinapse do neurônio $j$, $y_i(n)$ é o sinal de entrada no $i$-ésimo nó de entrada do neurônio $j$ (= sinal na saída do neurônio $i$, pertencente à camada à esquerda da que pertence o neurônio $j$, se este não estiver na primeira camada escondida ? se o neurônio $j$ estiver na primeira camada escondida então $y_i(n)$ corresponde ao $i$-ésimo nó de entrada $x_i(n)$ do MLP) e $\delta_j(n)$ é o gradiente local do neurônio $j$, definido por
+onde $\Delta w_{ji}(n)$ é a correção aplicada à $i$-ésima sinapse do neurônio $j$, $y_i(n)$ é o sinal de entrada no $i$-ésimo nó de entrada do neurônio $j$ (= sinal na saída do neurônio $i$, pertencente à camada à esquerda da que pertence o neurônio $j$, se este não estiver na primeira camada escondida, se o neurônio $j$ estiver na primeira camada escondida então $y_i(n)$ corresponde ao $i$-ésimo nó de entrada $x_i(n)$ do MLP) e $\delta_j(n)$ é o gradiente local do neurônio $j$, definido por:
 
-De acordo com (4.9a) o gradiente local $?_j(n)$ para o neurônio de saída $j$ é igual ao produto do correspondente sinal de erro $e_j(n)$ pela derivada (v (n)) j j ? ? da função de ativação associada. Neste caso o fator chave necessário envolvido no cálculo do ajuste dos pesos $\Delta w_{ji}(n)$ é o sinal de erro $e_j(n)$ na saída do neurônio $j$.
+FORMULA
+
+
+
+De acordo com (X.9a) o gradiente local $\delta_j(n)$ para o neurônio de saída $j$ é igual ao produto do correspondente sinal de erro $e_j(n)$ pela derivada $\varphi_j'(v_j(n))$ da função de ativação associada. Neste caso o fator chave necessário envolvido no cálculo do ajuste dos pesos $\Delta w_{ji}(n)$ é o sinal de erro $e_j(n)$ na saída do neurônio $j$.
 
 Quando o neurônio $j$ está localizado em uma camada escondida, conforme mostra a Figura \ref{fig:sinalForward}, mesmo não sendo diretamente acessíveis, tais neurônios dividem a responsabilidade pelo erro resultante na camada de saída. A questão, no entanto, é saber como penalizar ou recompensar os pesos sinápticos de tais neurônios pela sua parcela de responsabilidade, já que não existe resposta desejada especificada neste local do MLP e, portanto, não há como calcular o sinal de erro.
 
-A solução, dada pela equação (4.9b), é computar o sinal de erro recursivamente para o neurônio escondido $j$ retro-propagando os sinais de erro de todos os neurônios à direita do neurônio $j$ aos quais a saída deste encontra-se conectado.
+A solução, dada pela equação (X), é computar o sinal de erro recursivamente para o neurônio escondido $j$ retro-propagando os sinais de erro de todos os neurônios à direita do neurônio $j$ aos quais a saída deste encontra-se conectado.
 
 \begin{figure}[H] 
 	\begin{center}
 		\caption{Grafo de fluxo de sinal no neurônio $j$.}
 		\includegraphics[scale=0.5]{imagens/sinalForward.png}
-		Fonte :
+
 		\label{fig:sinalForward}
 	\end{center} 
 \end{figure}
 
-O fator $\varphi_j(v_j(n))$ envolvido na computação do gradiente local $\delta_j(n)$ na equação (4.9b) depende somente da função de ativação associada com o neurônio escondido $j$. Os demais fatores envolvidos no somatório sobre $k$ em (4.9b) dependem de dois conjuntos de termos. O primeiro, $\delta_k(n)$, requer conhecimento dos sinais de erro $e_k(n)$ recursivamente retro-propagados, conforme veremos adiante, a partir de todos aqueles neurônios localizados na camada imediatamente à direita do neurônio escondido $j$ e que estão diretamente conectados a ele (ver Figura \ref{fig:sinalRetro}). O segundo conjunto de termos, $w_{kj}(n)$, consiste dos pesos sinápticos dos neurônios à direita do neurônio $j$ e que com ele estabelecem conexão.
+O fator $\varphi_j'(v_j(n))$ envolvido na computação do gradiente local $\delta_j(n)$ na equação (X) depende somente da função de ativação associada com o neurônio escondido $j$. Os demais fatores envolvidos no somatório sobre $k$ em (X) dependem de dois conjuntos de termos. O primeiro, $\delta_k(n)$, requer conhecimento dos sinais de erro $e_k(n)$ recursivamente retro-propagados, conforme veremos adiante, a partir de todos aqueles neurônios localizados na camada imediatamente à direita do neurônio escondido $j$ e que estão diretamente conectados a ele (ver Figura \ref{fig:sinalRetro}). O segundo conjunto de termos, $w_{kj}(n)$, consiste dos pesos sinápticos dos neurônios à direita do neurônio $j$ e que com ele estabelecem conexão. Todas as equações foram retiradas do livro (HAYKIN).
 
 
 \begin{figure}[H] 
