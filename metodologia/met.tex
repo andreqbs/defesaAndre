@@ -9,21 +9,22 @@ Este capítulo apresenta os materiais, métodos utilizados e desenvolvidos nessa p
 
 O sistema  Windows foi adotado como sistema operacional para o desenvolvimento do aplicativo, por ser um sistema bastante difundido e familiar, no entanto, nada impede que haja portabilidade do \emph{software} para outros sistemas operacionais, pois foi utilizado a plataforma Java (versão 8) para desenvolver a parte de negócios enquanto a interface gráfica foi utilizado o moderno Java FX. A IDE de desenvolvimento do software foi o NetBeans 8.2 da Oracle. A linguagem de programação Java foi a escolhida para esse tipo de sistema, devido à facilidade na orientação a objeto, à capacidade de re-uso do código, e a experiência de desenvolvimento nessa linguagem. 
 
-Para o desenvolvimento do software foi adotado uma metodologia ágil e quadro de desenvolvimento pode ser visualizado no GitHub. A implementação se deu através em testes, primeiramente focando problemas menores e específicos, para, então, desenvolver soluções que satisfaçam os requisitos das novas \emph{sprints} em questão. O último passo foi a ampliação do programa para o atendimento de outras classes de problemas, tornando-o mais genérico.
+Para o desenvolvimento do software foi adotado uma metodologia ágil e o quadro de desenvolvimento pode ser visualizado no GitHub. A implementação se deu através em testes, primeiramente focando em problemas menores e específicos, para, então, desenvolver soluções que satisfaçam os requisitos das novas \emph{sprints} em questão. O último passo foi extender o sistema para o atender outros tipos de problemas.
 
 \subsection{Etapas do desenvolvimento}
 
-Inicialmente, objetivou-se a implementação do algoritmo empregado pelo sistema desenvolvido por Towell e Shavlik, dividindo-a em duas sub-etapas distintas: A implementação relativa ao programa em linguagem lógica e a implementação da tradução em uma Rede Neural Artificial correspondente à linguagem lógica.
+Inicialmente, objetivou-se a implementação do algoritmo empregado pelo sistema desenvolvido por \cite{towell90} dividindo-a em duas sub-etapas distintas: A implementação relativa ao programa em linguagem lógica e a implementação da tradução em uma Rede Neural Artificial correspondente à teoria de domínio inicial.
 
-Os testes se iniciaram com RNAs aplicadas a problemas simples e específicos, para, logo em seguida generalizá-los. Na sequência, ocorreu o desenvolvimento de programas para a conversão de Linguagens Lógicas, apresentadas sob a forma de clásulas Horn. Após a integração entre as duas partes, o sistema foi a aplicado a um problema mais extenso e específico do que os anteriores.
+Os testes se iniciaram com o desenvolvimento de métodos para a conversão de Linguagens Lógicas, apresentadas sob a forma de clásulas Horn. Em seguida, a construção da RNAs e aplicação em problemas simples e específicos, para, logo em seguida generalizá-los. Na sequência, ocorreu a integração entre as duas partes, o sistema foi a aplicado a um problema mais extenso e geral do que os anteriores.
 
 Na fase final do desenvolvimento, foi criado um sistema genérico de para gerar padrões de entradas e saídas de acordo com o as necessidades do usuário.
 
-O desenvolvimento do trabalho pode ser acompanhado pelo enfoque existente nas etapas que o dividiram. Foram relacionadas 12 etapas pela sua ordem cronológica no desenvolvimento, nas quais se destacaram os respectivos enfoques e descrição, conforme segue:
+
+Para o desenvolvimento do projeto baseado em sistemas híbridos para predic?a?o da doenças, foram necessárias 12 etapas. Elas estão listadas pela sua ordem cronológica no desenvolvimento, nas quais se destacaram os respectivos enfoques e descrição, conforme segue:
 
 \begin{itemize}
 	
-	\item \textbf{Etapa 1 (Padrões):} - Estudo de Padrões de Projetos de software para serem aplicados ao sistema.
+	\item \textbf{Etapa 1 (Padrões):} - Estudo de Padrões de Projetos de software para serem aplicados a sistema esse tipo de desenvolvimento.
 	
 	\item \textbf{Etapa 2 (RNA específica):} - Implementações de RNAs simples, permitindo a primeira definição das técnicas de implementação de RNA a serem empregadas;  
 	
@@ -50,7 +51,7 @@ O desenvolvimento do trabalho pode ser acompanhado pelo enfoque existente nas et
 	
 \end{itemize}
 
-As etapas 1 e 5 foram importantes para a fundamentação dos seus conceitos. A partir delas, podemos destacar duas implementações preliminares importantes para a continuidade dos trabalhos, vistas na subseção X. Nas etapas 2 e 4 foram realizados estudos que definiram a função matemática mais apropriada e como a interface deveria ser implementada. As etapas 3, 6 e 9 relacionam as implementações aplicadas a exemplos especí cos. As etapas 7, 8, 10 e 11 focam o algoritmo KBANN e suas aplicações. 
+As etapas inicias (1 a 5) tiveram fundametal importância no trabalho, pois serviu para a fundamentação dos seus conceitos e a base para um bom desenvolvimento. A partir delas, podemos destacar duas implementações preliminares importantes para a continuidade dos trabalhos, vistas na subseção X. Nas etapas 2 e 4 foram realizados estudos que definiu a forma mais apropriada de como a interface deveria ser implementada. As etapas 3, 6 e 9 relacionam as implementações aplicadas a exemplos específicos. As etapas 7, 8, 10, 11 e 12 focam o algoritmo KBANN e suas aplicações. 
 
 \subsection{Implementações preliminares}	
 
@@ -64,9 +65,9 @@ Algumas implementações básicas foram necessárias para se adquirir experiência, s
 
 Os primeiros programas desenvolvidos neste trabalho utilizavam a topologia básica da RNA com três camadas e com poucos neurônios por camada (por exemplo: 5x3x1 ou 2x2x1). Nesse caso, pretendia-se fazer somente o treinamento da RNA, verificação de cálculos e teste estrutural da arquitetura e do algoritmo de treinamento.
 
-Alguns exemplos simples foram utilizados, como o de reconhecimento e classificação de formas (padrões sensíveis à RNA). Na classificação de formas, um  string , ou conjunto de caracteres, é passado como entrada aos neurônios da primeira camada da RNA. Um padrão sensível à RNA po?de ser definido a partir de uma imagem básica proveniente de uma matriz de caracteres. Como exemplo do reconhecimento de imagens formadas por  strings , temos a assinatura (ou modelo) de um peixe apresentado na Figura XX, definido pelo carácter \@.
+Alguns exemplos simples foram utilizados, como o de reconhecimento e classificação de dados (padrões sensíveis à RNA). Na classificação de dados, como por exemplo,  foi utilizado na Figura X para os testes inicias. Além disso, os mesmos testes foram validados no \emph{Matlab}, tanto usando o ToolBox inteligente que é disponbilizado no software, como programando as equações matemáticas dentro dele.
 
-A Figura é composta por uma matriz contendo 11 linhas com 25 caracteres em cada linha, constituindo um modelo de peixe para a RNA. Variações desse modelo poderiam servir de exemplo para o treinamento da RNA. Um exemplo positivo decorre de uma forma que não é muito diferente da assinatura do peixe, como um peixe mais magro ou menor. Por outro lado, se um outro formato fosse lido pela RNA, tal como uma esfera, essa seria classificada como um exemplo negativo pelo modelo.
+A Figura é composta por cinco regras que descrevem inicialmente o modelo daquele problema em específico. Assim como foi feito no TopGen, foram retirado algumas regras desse domínio, realizado o treinamento da rede e em seguida validada. Foi possível notar que o KBANN ainda consegue classificar boa parte dos dados, mesmo não tendo um domínio completo do problema. Esse teste foi feito justamente para provar que Towell comentou em seu trabalho, que não é necessário saber a fundo sobre problema. Apesar da sua boa classifaç  contendo 11 linhas com 25 caracteres em cada linha, constituindo um modelo de peixe para a RNA. Variações desse modelo poderiam servir de exemplo para o treinamento da RNA. Um exemplo positivo decorre de uma forma que não é muito diferente da assinatura do peixe, como um peixe mais magro ou menor. Por outro lado, se um outro formato fosse lido pela RNA, tal como uma esfera, essa seria classificada como um exemplo negativo pelo modelo.
 
 As estruturas matriciais foram construídas somente no sentido direto da RNA. As matrizes da RNA continham os valores dos neurônios e das conexões entre eles. Os valores matriciais de retro-propagação que existem nos demais programas, nesse caso, devido à simplicidade, foram calculados através de variáveis contendo valores originados pela aplicação direta da Regra Delta (equação 2.5).
 
