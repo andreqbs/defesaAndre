@@ -154,40 +154,16 @@ Em uma rede neural, cada neurônio - com exceção dos neurônios na camada de entra
 \sigma(\gamma)  = \frac{1}{(1 + e^{- \gamma})}
 \end{align}
 
-Conforme mostrado na Figura \ref{fig:neuronio_cap2}, a função sigmoide é uma função de comutação suave que tem as seguintes propriedades:
+Conforme mostrado na Figura \ref{fig:funcaoSigmoide}, a função sigmoide é uma função de comutação suave que tem as seguintes propriedades:
 
-\begin{tikzpicture}
-\begin{tikzpicture}
- \begin{axis}[
-legend pos=north west,
-axis x line=middle,
-axis y line=middle,
-x tick label style={/pgf/number format/fixed,
-	/pgf/number format/fixed zerofill,
-	/pgf/number format/precision=1},
-y tick label style={/pgf/number format/fixed,
-	/pgf/number format/fixed zerofill,
-	/pgf/number format/precision=1},
-grid = major,
-width=16cm,
-height=8cm,
-grid style={dashed, gray!30},
-xmin=-1,     % start the diagram at this x-coordinate
-xmax= 1,    % end   the diagram at this x-coordinate
-ymin= 0,     % start the diagram at this y-coordinate
-ymax= 1,   % end   the diagram at this y-coordinate
-%axis background/.style={fill=white},
-xlabel=x,
-ylabel=y,
-tick align=outside,
-enlargelimits=false]
-% plot the stirling-formulae
-\addplot[domain=-1:1, red, ultra thick,samples=500] {1 / (1 + exp(-10*x))};
-\addlegendentry{$f(x)=\frac{1}{1+e^{-v}}$}
-\end{axis}
-\end{tikzpicture}
-\end{tikzpicture}
-
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Função de ativação - Sigmóide}
+		\includegraphics[scale=0.5]{imagens/funcaoSigmoide.png}
+		Fonte :
+		\label{fig:funcaoSigmoide}
+	\end{center} 
+\end{figure}
 
 Outras possíveis funções de ativação de neurônios é o arco-tangente.
 Exibida na Figura \ref{fig:grafArcoTan} e dada por:
@@ -222,50 +198,27 @@ ylabel=y,
 tick align=outside,
 enlargelimits=false]
 % plot the stirling-formulae
-\addplot[domain=-1:1, red, ultra thick,samples=500] {(exp(2*x) - exp(-2*x)) / (exp(2*x) + exp(-2*x))};
+\addplot[domain=-1:1, red, ultra thick,samples=500] {(1/3.145564) / (atan(x))};
 \addlegendentry{$\sigma(\gamma)  = \frac{(e^\gamma - e^{-\gamma})}{(e^\gamma + e^{-\gamma})}$}
 \end{axis}
 \label{fig:grafArcoTan}
 \end{tikzpicture}
 \end{tikzpicture}
 
-e a função tangente-hiperbólica mostrada na Figura X.X e dada por:
+e a função tangente-hiperbólica mostrada na Figura \ref{fig:funcaoTanHip} e dada por:
 
 \begin{align}
 \sigma(\gamma)  = \frac{(e^\gamma - e^{-\gamma})}{(e^\gamma + e^{-\gamma})}
 \end{align}
 
-\begin{tikzpicture}
-\begin{tikzpicture}
-\begin{axis}[
-legend pos=north west,
-axis x line=middle,
-axis y line=middle,
-x tick label style={/pgf/number format/fixed,
-	/pgf/number format/fixed zerofill,
-	/pgf/number format/precision=1},
-y tick label style={/pgf/number format/fixed,
-	/pgf/number format/fixed zerofill,
-	/pgf/number format/precision=1},
-grid = major,
-width=16cm,
-height=8cm,
-grid style={dashed, gray!30},
-xmin=-1,     % start the diagram at this x-coordinate
-xmax= 1,    % end   the diagram at this x-coordinate
-ymin= -1,     % start the diagram at this y-coordinate
-ymax= 1,   % end   the diagram at this y-coordinate
-%axis background/.style={fill=white},
-xlabel=x,
-ylabel=y,
-tick align=outside,
-enlargelimits=false]
-% plot the stirling-formulae
-\addplot[domain=-1:1, red, ultra thick,samples=500] {(exp(2*x) - exp(-2*x)) / (exp(2*x) + exp(-2*x))};
-\addlegendentry{$\sigma(\gamma)  = \frac{(e^\gamma - e^{-\gamma})}{(e^\gamma + e^{-\gamma})}$}
-\end{axis}
-\end{tikzpicture}
-\end{tikzpicture}
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Função de ativação - Tangente Hiperbólica}
+		\includegraphics[scale=0.5]{imagens/funcaoTanHip.png}
+		Fonte :
+		\label{fig:funcaoTanHip}
+	\end{center} 
+\end{figure}
 
 
 Todas essas funções logísticas são delimitadas, contínuas, monotônicas (VERIFICAR) e
@@ -372,8 +325,24 @@ De maneira similar ao algoritmo LMS, o algoritmo \emph{backpropagation} aplica a
 Se, para uma dada variação no peso sináptico, o algoritmo movimenta-se em uma trajetória ascendente na superfície $\epsilon$, então significa que esta variação deve ser aplicada com o sinal invertido sobre o peso sináptico, já que houve um aumento do erro, e objetiva-se uma diminuição do erro.
 
 Por outro lado, se para uma dada variação no peso sináptico o algoritmo movimenta-se em uma trajetória descendente na superfície $\epsilon$, então significa que esta variação deve ser aplicada com o sinal positivo sobre o peso sináptico, já que houve uma
-diminuição do erro e, portanto, o movimento deve ser encorajado naquela direção. Este método de correção dos pesos sinápticos é denominado de Regra Delta. Ela é definida pela
-expressão $\Delta \underline{w}(n) = -\eta \Delta J(w(n))$, onde $\Delta J(\underline{w}(n)) = \dfrac{J(\underline{w}(n))}{\underline{w}(n)} = \dfrac{\dfrac{1}{2}e^2(n)}{\underline{w}(n)}$ é o gradiente local da superfície de erro gerada pela função de custo $J = J(\underline{w}(n)) = \dfrac{1}{2}e^2(n)$ a ser minimizada no instante $n$.
+diminuição do erro e, portanto, o movimento deve ser encorajado naquela direção. Este método de correção dos pesos sinápticos é denominado de Regra Delta, e é definida pela expressão :
+
+\begin{align}
+ \Delta \underline{w}(n) = -\eta \Delta J(w(n)) 
+\end{align}
+
+onde,
+\begin{align}
+\Delta J(\underline{w}(n)) = \dfrac{J(\underline{w}(n))}{\underline{w}(n)} = \dfrac{\dfrac{1}{2}e^2(n)}{\underline{w}(n)}
+\end{align}
+ 
+ é o gradiente local da superfície de erro gerada pela função de custo 
+ 
+ \begin{align}
+J = J(\underline{w}(n)) = \dfrac{1}{2}e^2(n)
+ \end{align}
+ 
+ a ser minimizada no instante $n$.
 
 No caso do MLP, o gradiente local da superfície de erro $\epsilon$ relativo ao peso sináptico $w_{ji}$ representa, portanto, um fator de sensibilidade, determinando a direção de movimento no espaço de pesos sinápticos para o valor do peso sináptico  $w_{ji}$ que minimiza $\epsilon$.
 
@@ -406,19 +375,18 @@ A solução, dada pela equação (X), é computar o sinal de erro recursivamente para
 
 \begin{figure}[H] 
 	\begin{center}
-		\caption{Grafo de fluxo de sinal no neurônio $j$.}
+		\caption{Grafo de fluxo de sinal mostrando os detalhes do neurônio de saída $k$ comectado ao neurônio escondido $j$.}
 		\includegraphics[scale=0.5]{imagens/sinalForward.png}
-
 		\label{fig:sinalForward}
 	\end{center} 
 \end{figure}
 
-O fator $\varphi_j'(v_j(n))$ envolvido na computação do gradiente local $\delta_j(n)$ na equação (X) depende somente da função de ativação associada com o neurônio escondido $j$. Os demais fatores envolvidos no somatório sobre $k$ em (X) dependem de dois conjuntos de termos. O primeiro, $\delta_k(n)$, requer conhecimento dos sinais de erro $e_k(n)$ recursivamente retro-propagados, conforme veremos adiante, a partir de todos aqueles neurônios localizados na camada imediatamente à direita do neurônio escondido $j$ e que estão diretamente conectados a ele (ver Figura \ref{fig:sinalRetro}). O segundo conjunto de termos, $w_{kj}(n)$, consiste dos pesos sinápticos dos neurônios à direita do neurônio $j$ e que com ele estabelecem conexão. Todas as equações foram retiradas do livro (HAYKIN).
+O fator $\varphi_j'(v_j(n))$ envolvido na computação do gradiente local $\delta_j(n)$ na equação (X) depende somente da função de ativação associada com o neurônio escondido $j$. Os demais fatores envolvidos no somatório sobre $k$ em (X) dependem de dois conjuntos de termos. O primeiro, $\delta_k(n)$, requer conhecimento dos sinais de erro $e_k(n)$ recursivamente retro-propagados, conforme veremos adiante, a partir de todos aqueles neurônios localizados na camada imediatamente à direita do neurônio escondido $j$ e que estão diretamente conectados a ele (ver Figura \ref{fig:sinalRetro}). O segundo conjunto de termos, $w_{kj}(n)$, consiste dos pesos sinápticos dos neurônios à direita do neurônio $j$ e que com ele estabelecem conexão. As equações foram baseadas do livro \cite{haykin2000} e \cite{castro2009}.
 
 
 \begin{figure}[H] 
 	\begin{center}
-		\caption{Grafo de fluxo de sinal no neurônio $j$.}
+		\caption{Grafo de fluxo de sinal mostrando o processo de retro-propagação dos sinais de erro na camada de saída para um neuro?nio $j$ da camada escondida imediatamente a? esquerda. $m_L$ e é o número de neurônios da camada de saída.}
 		\includegraphics[scale=0.5]{imagens/sinalRetropropagacao.png}
 		Fonte :
 		\label{fig:sinalRetro}

@@ -65,9 +65,16 @@ Algumas implementações básicas foram necessárias para se adquirir experiência, s
 
 Os primeiros programas desenvolvidos neste trabalho utilizavam a topologia básica da RNA com três camadas e com poucos neurônios por camada (por exemplo: 5x3x1 ou 2x2x1). Nesse caso, pretendia-se fazer somente o treinamento da RNA, verificação de cálculos e teste estrutural da arquitetura e do algoritmo de treinamento.
 
-Alguns exemplos simples foram utilizados, como o de reconhecimento e classificação de dados (padrões sensíveis à RNA). Na classificação de dados, como por exemplo,  foi utilizado na Figura X para os testes inicias. Além disso, os mesmos testes foram validados no \emph{Matlab}, tanto usando o ToolBox inteligente que é disponbilizado no software, como programando as equações matemáticas dentro dele.
+Alguns exemplos simples foram utilizados, como o de reconhecimento e classificação de dados (padrões sensíveis à RNA). Na classificação de dados, como por exemplo, foi utilizado na Figura \ref{fig:XXX} para os testes inicias. Além disso, os mesmos testes foram validados no \emph{Matlab}, tanto usando o ToolBox inteligente que é disponbilizado no software, como programando as equações matemáticas dentro dele.
 
-A Figura é composta por cinco regras que descrevem inicialmente o modelo daquele problema em específico. Assim como foi feito no TopGen, foram retirado algumas regras desse domínio, realizado o treinamento da rede e em seguida validada. Foi possível notar que o KBANN ainda consegue classificar boa parte dos dados, mesmo não tendo um domínio completo do problema. Esse teste foi feito justamente para provar que Towell comentou em seu trabalho, que não é necessário saber a fundo sobre problema. Apesar da sua boa classifaç  contendo 11 linhas com 25 caracteres em cada linha, constituindo um modelo de peixe para a RNA. Variações desse modelo poderiam servir de exemplo para o treinamento da RNA. Um exemplo positivo decorre de uma forma que não é muito diferente da assinatura do peixe, como um peixe mais magro ou menor. Por outro lado, se um outro formato fosse lido pela RNA, tal como uma esfera, essa seria classificada como um exemplo negativo pelo modelo.
+ \begin{align}
+A :- B, \not C \\
+B :- D, F, G \\
+B :- D, \not F, I \\
+C :- H, J, K 
+\end{align}
+
+A Figura X é composta por cinco regras que descrevem inicialmente o modelo daquele problema em específico. Assim como foi feito no TopGen, foram retirado algumas regras desse domínio, realizado o treinamento da rede e em seguida validada. Foi possível notar que o KBANN ainda consegue classificar boa parte dos dados, mesmo não tendo um domínio completo do problema. Esse teste foi feito justamente para provar que Towell comentou em seu trabalho, que não é necessário saber a fundo sobre problema. Apesar da sua boa classifaç  contendo 11 linhas com 25 caracteres em cada linha, constituindo um modelo de peixe para a RNA. Variações desse modelo poderiam servir de exemplo para o treinamento da RNA. Um exemplo positivo decorre de uma forma que não é muito diferente da assinatura do peixe, como um peixe mais magro ou menor. Por outro lado, se um outro formato fosse lido pela RNA, tal como uma esfera, essa seria classificada como um exemplo negativo pelo modelo.
 
 As estruturas matriciais foram construídas somente no sentido direto da RNA. As matrizes da RNA continham os valores dos neurônios e das conexões entre eles. Os valores matriciais de retro-propagação que existem nos demais programas, nesse caso, devido à simplicidade, foram calculados através de variáveis contendo valores originados pela aplicação direta da Regra Delta (equação 2.5).
 
@@ -76,11 +83,18 @@ A criação de uma interface para entrada de dados fez-se necessária com a migraçã
 \subsubsection{Leitura de programas lógicos}
 
 A leitura de programas lógicos foi útil para o estudo inicial da implementação do algoritmo de conversão KBANN. A execução, o acompanhamento e os testes dessa implementação permitiram verificar a tradução de um programa em linguagem lógica (Programa Lógico) em valores calculados segundo o KBANN e também verificar a estabilidade do Programa Lógico.
-A Figura X.X representa duas regras lógicas (regras 5.1 e 5.2). A partir dessas duas regras lógicas, foram obtidas as estruturas das RNAs similares às da Figura 5.2, aplicando-se a elas os cálculos requeridos pelo algoritmo, tais como a determinação do limiar de ativação mínimo e do valor mínimo de peso de rede aceitável. Durante a convergência, as saídas das regras ("e"  e  "j") atingiram a estabilidade em poucas iterações. As entradas da RNA, nesse caso, eram valores binários atribuídos a  "a, b, c, d, f, g, h e i . Os valores de convergência foram apresentados em ponto flutuante, resultado dos cálculos do algoritmo.
+A Figura \ref{fig:visualizacaoGrafo} representa as regras lógicas contidas na \ref{fig:entradaKANN}. A partir dessas duas regras lógicas, foram obtidas as estruturas das RNAs similares às da Figura 5.2, aplicando-se a elas os cálculos requeridos pelo algoritmo, tais como a determinação do limiar de ativação mínimo e do valor mínimo de peso de rede aceitável. Durante a convergência, as saídas das regras ("e"  e  "j") atingiram a estabilidade em poucas iterações. As entradas da RNA, nesse caso, eram valores binários atribuídos a  "a, b, c, d, f, g, h e i . Os valores de convergência foram apresentados em ponto flutuante, resultado dos cálculos do algoritmo.
 
 O arquivo-texto utilizado continha as cláusulas lógicas descritas abaixo:
 
-FORMULAS
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Representação de uma RNA a partir da base de regras.}
+		\includegraphics[scale=0.5]{imagens/visualizacaoGrafo.png}
+		\label{fig:visualizacaoGrafo}
+	\end{center} 
+\end{figure}
+
 
 As duas cláusulas contêm cinco átomos cada uma, quatro dos quais estão distribuídos em dois literais, nos seus antecedentes. O consequente de cada cláusula possui apenas um literal contendo um átomo. Durante a execução dessa implementação, foi possível alterar os números de átomos, de literais e também suas posições, quando se adicionou recursividade entre os átomos, por exemplo, o consequente  e  substituiu o antecedente  f .
 
@@ -92,18 +106,44 @@ O enfoque principal do sistema desenvolvido foi a implementação do algoritmo de 
 
 \subsubsection{Classes que compõem o programa}
 
-A Figura 5.3 apresenta um esquema das classes nas quais o ambiente computacional teve o seu desenvolvido baseado. Utilizamos uma classe-suporte para o trabalho com a plataforma  Windows , com atributos e métodos padronizados. A classe  ControllerRegras  instancia a classe para tratamento da programação em linguagem lógica (Classe da Programação Lógica), conforme as opções que lhe são passadas.
+A Figura \ref{fig:diagramaClasses} apresenta um esquema das classes nas quais o ambiente computacional teve o seu desenvolvido baseado. Utilizamos uma classe-suporte para o trabalho com a plataforma  Windows , com atributos e métodos padronizados. A classe  ControllerRegras  instancia a classe para tratamento da programação em linguagem lógica (Classe da Programação Lógica), conforme as opções que lhe são passadas.
 A classe da Programação Lógica tem como dependentes as classes de instanciação das Redes Neurais Artificiais e da Aprendizagem dessa. Por sua vez, a classe que trata da RNA pode ser derivada em RNAs menores, ou sub-RNAs, que possuem seus métodos agregados aos de aprendizagem.
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Representação parcial do diagrama de classes do sistema.}
+		\includegraphics[scale=0.5]{imagens/diagramaClasses.png}
+		\label{fig:diagramaClasses}
+	\end{center} 
+\end{figure}
+
 
 \subsubsection{Casos de Uso previstos}
 
-A Figura 5.4 contém alguns casos mais comuns de uso do ambiente computacional. Um especialista do conhecimento pode valer-se desse ambiente para aplicá-lo a um problema específico. O objetivo de aplicação pode ser: o aumento na abrangência de regras associadas ao conhecimento inicial do especialista. Cada um dos casos de uso se refere a uma etapa existente neste ciclo, proposto para o aprimoramento das regras provenientes do conhecimento.
+A Figura \ref{fig:diagramaCasosUso} contém alguns casos mais comuns de uso do ambiente computacional. Um especialista do conhecimento pode valer-se desse ambiente para aplicá-lo a um problema específico. O objetivo de aplicação pode ser: o aumento na abrangência de regras associadas ao conhecimento inicial do especialista. Cada um dos casos de uso se refere a uma etapa existente neste ciclo, proposto para o aprimoramento das regras provenientes do conhecimento.
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Diagrama de Casos de Uso.}
+		\includegraphics[scale=0.5]{imagens/diagramaCasoUso.png}
+		\label{fig:diagramaCasosUso}
+	\end{center} 
+\end{figure}
+
 
 \subsubsection{Sequência de eventos}
 
-O diagrama da Figura 5.5 aponta para a sequência de operações iniciadas pelo usuário, que basicamente, interage através da configuração contida nos arquivos e na interface. O software realiza uma varredura do arquivo que contém as informações necessárias ao desenvolvimento de seus processos.
+O diagrama de classes da Figura \ref{fig:diagramaSequencia} aponta para a sequência de operações iniciadas pelo usuário, que basicamente, interage através da configuração contida nos arquivos e na interface. O software realiza uma varredura do arquivo que contém as informações necessárias ao desenvolvimento de seus processos.
 
-Como ilustra a Figura 5.5, o software interno atua na modificação da estrutura da RNA geral, quer seja pelo estabelecimento da sua topologia, quer na alteração dessa em consequência da aprendizagem. Uma vez que as operações estejam encerradas, o usuário pode consultar os arquivos produzidos e verificar os resultados.
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Diagrama de Sequência.}
+		\includegraphics[scale=0.5]{imagens/diagramaSequencia.png}
+		\label{fig:diagramaSequencia}
+	\end{center} 
+\end{figure}
+
+Como ilustra a Figura \ref{fig:diagramaSequencia}, o software interno atua na modificação da estrutura da RNA geral, quer seja pelo estabelecimento da sua topologia, quer na alteração dessa em consequência da aprendizagem. Uma vez que as operações estejam encerradas, o usuário pode consultar os arquivos produzidos e verificar os resultados.
 
 Os passos à execução do programa podem ser resumidos desta forma:
 
@@ -119,13 +159,25 @@ Os passos à execução do programa podem ser resumidos desta forma:
 
 \subsubsection{Processos do sistema}
 
-Na Figura 5.6, podemos acompanhar, de outra forma, as etapas apresentadas nos casos de uso do sistema (Figura 5.4). Também temos a visão interna da sequência de processos e a atividade de inter-relação entre as classes (Figura 5.3). Primeiramente, um programa em linguagem lógica será inserido e, conforme a configuração, ocorre o seu processamento inicial.
+Na Figura XX, podemos acompanhar, de outra forma, as etapas apresentadas nos casos de uso do sistema (Figura \ref{fig:diagramaCasosUso}). Também temos a visão interna da sequência de processos e a atividade de inter-relação entre as classes (Figura XX). Primeiramente, um programa em linguagem lógica será inserido e, conforme a configuração, ocorre o seu processamento inicial.
+
 Existem dois processos relativos à estrutura que entram em operação após a leitura dos dados iniciais: as RNAs são instanciadas e as suas topologias iniciais são fixadas. Logo após, iniciam-se os processos de aprendizagem das RNAs, que podem alterar a forma original da estrutura da rede geral.
+
+
 Após o processamento da programação, instanciam-se as RNAs correspondentes, assim como os cálculos relativos ao algoritmo em operação. A etapa de aprendizagem das RNAs é executada logo em seguida, finalizando pela obtenção de resultados. Os resultados gerados pelo programa são as RNAs após o processos de aprendizagem e o percentual de acerto obtido individualmente pelas RNAs.
 
 \subsection{Descrição da interface}
 
-A interface também contém um menu para seleção do algoritmo a ser usado, assim como as suas opções de operação dos algoritmos. A aparência da interface está ilustrada pela Figura X.7. A descrição da interface segue nesta seção.
+A interface também contém um menu para seleção do algoritmo a ser usado, assim como as suas opções de operação dos algoritmos. A aparência da interface está ilustrada pela Figura \ref{fig:telaPrincipal}. A descrição da interface segue nesta seção.
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Tela principal do sistema.}
+		\includegraphics[scale=0.5]{imagens/telaPrincipal.png}
+		\label{fig:telaPrincipal}
+	\end{center} 
+\end{figure}
+
 
 \subsubsection{Painel de edição}
 
@@ -141,17 +193,44 @@ Esses três arquivos são abertos e acessados diretamente no painel interno da int
 
 \subsubsection{Barra do menu}
 
-Na barra de menu, temos as opções descritas na Tabela X.1. As sub-opções relacionadas ao tipo de algoritmo escolhido funcionam como pontos de checagem durante a execução do programa.
+Na barra de menu, temos as opções descritas na Tabela \ref{tbl:barraMenu}. As sub-opções relacionadas ao tipo de algoritmo escolhido funcionam como pontos de checagem durante a execução do programa.
+
+\begin{table}[]
+	\centering
+	\caption{Lista de ações do sistema}
+	\label{tbl:barraMenu}
+	\begin{tabular}{|l|l|l|}
+		\hline
+	Operação	& Sub-operações & Descrição \\ \hline
+	Backpropagation  &  \\ \hline
+	TopGen	&  &  \\ \hline
+	 Regras	&  & . \\
+                          \\ \hline
+	\end{tabular}
+\end{table}
 
 Haverá a execução da rotina correspondente no programa sempre que a sub-opção for selecionada e os processos de aprendizagem forem acionados.
 
 \subsubsection{Barra de botões}
 
-A barra de botões da interface facilita algumas operações de edição e execução dos programas. Os espaços (botões ou janela) da barra de botões foram descritos na Tabela X.2.
+A barra de botões da interface facilita algumas operações de edição e execução dos programas. Os espaços (botões ou janela) da barra de botões foram descritos na Tabela \ref{tbl:BarraBotoes}.
 
-\subsubsection{Barra status}
+\begin{table}[]
+	\centering
+	\caption{Lista de ações do sistema}
+	\label{tbl:BarraBotoes}
+	\begin{tabular}{|l|l|l|}
+		\hline
+		Operação	& Sub-operações & Descrição \\ \hline
+		&  &  \\ \hline
+		&  &  \\ \hline
+		&  &  \\ \hline
+	\end{tabular}
+\end{table}
 
-A interface também conta com uma barra localizada abaixo da janela principal que serve para o acompanhamento do andamento das operações. A chamada barra de status foi dividida em três regiões: a primeira contém os arquivos que foram carregados e estão sendo trabalhados, a segunda, o algoritmo em execução, e a terceira salienta as etapas do processamento.
+\subsubsection{Menu lateral}
+
+A interface também conta com menu \emph{according} localizada nas laterias da janela principal que serve para o acompanhamento do andamento das operações. Esse menu extra possibilita ao usuário identificar o que foi lido do arquivo que contém as regras, saber o resultado final após o treinamento e o TopGen e identificar os níveis (camadas) por cor, as quais os neurônios fazem parte.
 
 \subsection{Considerações sobre as implementações}	
 
@@ -170,9 +249,17 @@ Os arquivos que normalmente são utilizados pelos programas dividem-se em cinco g
 
 2. Arquivos contendo os dados de entrada para a RNA (treinamento, validação e teste).
 
-3. Arquivos com as informações sobre a arquitetura da RNA, normalmente os valores dos pesos e as conexo?es ativas.
+3. Arquivos com as informações sobre a arquitetura da RNA, normalmente os valores dos pesos e as conexões ativas.
 
 4. Os arquivos com o programa lógico.
 
 5. Outros arquivos gerados durante a execução dos programas, e.g., arquivos de avaliação de resultados e de registro ( .log ).
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Arquivo inicial contendo a base de regras}
+		\includegraphics[scale=0.5]{imagens/entradaKANN.png}
+		\label{fig:entradaKANN}
+	\end{center} 
+\end{figure}
 
