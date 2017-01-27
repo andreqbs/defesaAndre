@@ -363,15 +363,15 @@ correção efetuada em suas sinapses através de:
 
 onde $\Delta w_{ji}(n)$ é a correção aplicada à $i$-ésima sinapse do neurônio $j$, $y_i(n)$ é o sinal de entrada no $i$-ésimo nó de entrada do neurônio $j$ (= sinal na saída do neurônio $i$, pertencente à camada à esquerda da que pertence o neurônio $j$, se este não estiver na primeira camada escondida, se o neurônio $j$ estiver na primeira camada escondida então $y_i(n)$ corresponde ao $i$-ésimo nó de entrada $x_i(n)$ do MLP) e $\delta_j(n)$ é o gradiente local do neurônio $j$, definido por:
 
-FORMULA
+\begin{align}
+\delta_j(n) = \left \{ \begin{matrix} \varphi_j'(v_j(n)e_j(n), & \mbox{neurônio }j\mbox{ é de saída} \\ \varphi_j'(v_j(n))\sum_k\delta_k(n)w_{kj}(n), & \mbox{neurônio }j\mbox{ é de escondido} \end{matrix} \right.
+\end{align}
 
-
-
-De acordo com (X.9a) o gradiente local $\delta_j(n)$ para o neurônio de saída $j$ é igual ao produto do correspondente sinal de erro $e_j(n)$ pela derivada $\varphi_j'(v_j(n))$ da função de ativação associada. Neste caso o fator chave necessário envolvido no cálculo do ajuste dos pesos $\Delta w_{ji}(n)$ é o sinal de erro $e_j(n)$ na saída do neurônio $j$.
+De acordo com (2.14a) o gradiente local $\delta_j(n)$ para o neurônio de saída $j$ é igual ao produto do correspondente sinal de erro $e_j(n)$ pela derivada $\varphi_j'(v_j(n))$ da função de ativação associada. Neste caso o fator chave necessário envolvido no cálculo do ajuste dos pesos $\Delta w_{ji}(n)$ é o sinal de erro $e_j(n)$ na saída do neurônio $j$.
 
 Quando o neurônio $j$ está localizado em uma camada escondida, conforme mostra a Figura \ref{fig:sinalForward}, mesmo não sendo diretamente acessíveis, tais neurônios dividem a responsabilidade pelo erro resultante na camada de saída. A questão, no entanto, é saber como penalizar ou recompensar os pesos sinápticos de tais neurônios pela sua parcela de responsabilidade, já que não existe resposta desejada especificada neste local do MLP e, portanto, não há como calcular o sinal de erro.
 
-A solução, dada pela equação (X), é computar o sinal de erro recursivamente para o neurônio escondido $j$ retro-propagando os sinais de erro de todos os neurônios à direita do neurônio $j$ aos quais a saída deste encontra-se conectado.
+A solução, dada pela equação (2.14b), é computar o sinal de erro recursivamente para o neurônio escondido $j$ retro-propagando os sinais de erro de todos os neurônios à direita do neurônio $j$ aos quais a saída deste encontra-se conectado.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -381,7 +381,7 @@ A solução, dada pela equação (X), é computar o sinal de erro recursivamente para
 	\end{center} 
 \end{figure}
 
-O fator $\varphi_j'(v_j(n))$ envolvido na computação do gradiente local $\delta_j(n)$ na equação (X) depende somente da função de ativação associada com o neurônio escondido $j$. Os demais fatores envolvidos no somatório sobre $k$ em (X) dependem de dois conjuntos de termos. O primeiro, $\delta_k(n)$, requer conhecimento dos sinais de erro $e_k(n)$ recursivamente retro-propagados, conforme veremos adiante, a partir de todos aqueles neurônios localizados na camada imediatamente à direita do neurônio escondido $j$ e que estão diretamente conectados a ele (ver Figura \ref{fig:sinalRetro}). O segundo conjunto de termos, $w_{kj}(n)$, consiste dos pesos sinápticos dos neurônios à direita do neurônio $j$ e que com ele estabelecem conexão. As equações foram baseadas do livro \cite{haykin2000} e \cite{castro2009}.
+O fator $\varphi_j'(v_j(n))$ envolvido na computação do gradiente local $\delta_j(n)$ na equação (2.14b) depende somente da função de ativação associada com o neurônio escondido $j$. Os demais fatores envolvidos no somatório sobre $k$ em (2.14b) dependem de dois conjuntos de termos. O primeiro, $\delta_k(n)$, requer conhecimento dos sinais de erro $e_k(n)$ recursivamente retro-propagados, conforme veremos adiante, a partir de todos aqueles neurônios localizados na camada imediatamente à direita do neurônio escondido $j$ e que estão diretamente conectados a ele (ver Figura \ref{fig:sinalRetro}). O segundo conjunto de termos, $w_{kj}(n)$, consiste dos pesos sinápticos dos neurônios à direita do neurônio $j$ e que com ele estabelecem conexão. As equações foram baseadas do livro \cite{haykin2000} e \cite{castro2009}.
 
 
 \begin{figure}[H] 
