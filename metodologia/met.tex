@@ -263,3 +263,57 @@ Os arquivos que normalmente são utilizados pelos programas dividem-se em cinco g
 	\end{center} 
 \end{figure}
 
+\subsection{Testes do Sistema}
+
+Para validação do sistema desenvolvido, foi utilizado o software \emph{Matlab} como referência, devido a sua presença no mercado a mais de 45 anos. Para realização do teste, foi necessário montar uma rede de acordo com o que podia ser feito no Matlab. Na Figura \ref{fig:RedeMatlabEstrutura} a sua estrutura pode ser vista. Esse teste teve como intenção apenas que os resultados encontrados no programa fossem parecidos ou próximos do que o Matlab gerava. 
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Tela principal do sistema.}
+		\includegraphics[scale=0.5]{imagens/RedeMatlabEstrutura.png}
+		\label{fig:RedeMatlabEstrutura}
+	\end{center} 
+\end{figure}
+
+Como pode ser vista na Figura \ref{fig:RedeMatlabEstrutura}, a rede a ser treinada é uma MLP que possui 4 neurônios na sua entrada, 2 na camada oculta e um na camada de saída. O problema aqui apresentado é de um padrão lógico, ou seja, dados binários. Os dados contidos nesse padrão respondem ao domínio completo, ou seja, como funciona o sistema realmente. Nesse teste foi considerado que a MLP não iria possuir em suas regras todo o conteúdo, sendo assim, foram retiradas 2 regras do domínio apresentado, o que de fato, iria gerar alguns erros na rede ou até mesmo não convergir.
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Estrutura da Rede MLP no Matlab.}
+		\includegraphics[scale=0.5]{imagens/RedeMatlabTreinada.png}
+		\label{fig:RedeMatlabTreinada}
+	\end{center} 
+\end{figure}
+
+Pelo o que foi apresentado na Figura \ref{fig:RedeMatlabTreinada}, pode-se observar que o \emph{toolBox} neural do \emph{Matlab} levou 10.000 épocas para finalizar o problema, ou seja, o erro de treinamento ou o erro de validação aceitável não foi obtido, sendo necessário utilizar a quantidade de épocas totais para finalizar o treinamento. Nesse exemplo, foi utilizado o algoritmo de \emph{backpropagation} e a função de ativação dos neurônios escolhida, foi a sigmoide. Outros parâmetros como taxa de aprendizagem, erro aceitável (goal) e o tempo para simulação podem ser verificados na \ref{fig:redeMatlabParametros}.
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Parâmetros da rede MLP treinada.}
+		\includegraphics[scale=0.5]{imagens/redeMatlabParametros.png}
+		\label{fig:redeMatlabParametros}
+	\end{center} 
+\end{figure}
+
+As duas últimas figuras (Figura \ref{fig:GraficoErroMatlab} e \ref{fig:errosMatlab}) servem para afirmar o baixo aprendizado para o exemplo fornecido. O erro aceitável ficou longe de ser alcançado e as saídas finais da rede tiveram valores sempre mantidos acima de 0.5, o que demonstra um erro bastante grande. Vale lembrar que os dados passados para treinamento e validação, é a combinação possível para 4 entradas lógicas. Também vale ressaltar que a rede foi treinada com uma teoria de domínio completa. 
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Gráfico do erro de treinamento, validação e teste.}
+		\includegraphics[scale=0.5]{imagens/GraficoErroMatlab.png}
+			\includegraphics[scale=0.5]{imagens/GraficoErroMatlab.png}
+		\label{fig:GraficoErroMatlab}
+	\end{center} 
+\end{figure}
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Resultados gerados na saída da rede.}
+		\includegraphics[scale=0.5]{imagens/errosMatlab.png}
+		\label{fig:errosMatlab}
+	\end{center} 
+\end{figure}
+
+
+
+
