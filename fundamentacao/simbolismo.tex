@@ -67,6 +67,8 @@ Quadros (sistemas baseados em \emph{frames}), introduzidos por Minsky, podem ser
 
 \subsection{Clássulas Horn e PROLOG}
 
+\subsubsection{Clássulas Horn}
+
 Esta subsecão é importante, pois as regras que serão representadas como entradas no programa seguirão esse modelo. Abaixo uma breve explicação sobre elas.
 
 Na lógica, uma cláusula de Horn é uma cláusula (disjunção de literais) com no máximo um literal positivo.
@@ -82,6 +84,41 @@ Uma cláusula de Horn pode ser de quatro tipos diferentes:
 3 - um objetivo negado não tem nenhum literal positivo, e pelo menos um literal negativo. Em programação, a base de dados consiste de regras e fatos, e um objetivo negado corresponde à negação do fato que se deseja provar, por exemplo, para se encontrar um descendente masculino de Isabel, o objetivo a ser provado é X é homem e Isabel é ancestral de X, então o objetivo negado será X não é homem ou Isabel não é ancestral de X
 
 4 - a cláusula nula não tem nenhum literal positivo e nenhum literal negativo. Na programação, ela aparece no final de uma demonstração.
+
+\subsection{PROLOG}
+
+Prolog é uma linguagem de programação lógica de uso geral associada à inteligência artificial e à linguística computacional \cite{covington94}.
+
+Prolog tem suas raízes na lógica de primeira ordem, uma lógica formal, e ao contrário de muitas outras linguagens de programação, Prolog é declarativa: a lógica do programa é expressa em termos de relações, representadas como fatos e regras. Uma computação é iniciada pela execução de uma consulta sobre estas relações.
+
+A língua foi concebida primeiramente por um grupo em torno de Alain Colmerauer em Marselha, France, nos 1970s adiantados eo primeiro sistema de Prolog foi desenvolvido em 1972 por Colmerauer com Philippe Roussel.
+
+Prolog foi uma das primeiras linguagens de programação lógica, e continua a ser o mais popular entre esses idiomas hoje, com várias implementações livres e comerciais disponíveis. A linguagem tem sido usada para provas de teorema, sistemas especialistas, \cite{merrit89} e planejamento automatizado, \cite{schmid03} assim como seu campo de uso original pretendido, processamento de linguagem natural. Os ambientes Prolog modernos suportam a criação de interfaces gráficas de usuário, bem como aplicativos administrativos e de rede.
+
+O Prolog é adequado para tarefas específicas que se beneficiam de consultas lógicas baseadas em regras, como bancos de dados de busca, sistemas de controle de voz e modelos de preenchimento.
+
+\subsubsection{Tipos de Dados}
+
+O tipo de dados único do Prolog é o termo. Os termos são átomos, números, variáveis ou termos compostos.
+
+\subsubsection{Regras e Fatos}
+
+\begin{itemize}
+	\item Um \textbf{átomo} é um nome de propósito geral sem significado inerente. Exemplos de átomos incluem : y, azul, 'João' e 'algum átomo';
+	
+	\item Os \textbf{números} podem ser flutuantes ou inteiros;
+	
+	\item As \textbf{variáveis} são denotadas por uma string composta por letras, números e caracteres de sublinhado, e começando com uma letra maiúscula ou sublinhado. As variáveis se assemelham bastante às variáveis na lógica, na medida em que são espaços reservados para termos arbitrários;
+	
+	\item Um \textbf{termo composto} é composto de um átomo chamado "functor" e um número de "argumentos", que são novamente termos. Os termos compostos são normalmente escritos como um functor seguido de uma lista de termos de argumentos separados por vírgulas, que está contida entre parênteses. O número de argumentos é chamado aridade do termo. Um átomo pode ser considerado como um termo composto com aridade zero.
+	
+\end{itemize}
+
+Os programas Prolog descrevem relações, definidas por meio de cláusulas. O Prolog puro está restrito às cláusulas de Horn. Existem dois tipos de cláusulas: fatos e regras. Uma regra é da forma:
+
+$Mestrado: - Aluno_Mestrando$.
+
+E é lido como "O mestrado é verdadeiro se o aluno é verdadeiro". O corpo de uma regra consiste de chamadas para predicados, que são chamados de metas da regra. 
 
 \subsection{Problemas da Inteligência Artificial Simbólica}
 
