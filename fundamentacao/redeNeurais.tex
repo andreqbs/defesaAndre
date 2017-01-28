@@ -333,7 +333,7 @@ diminuição do erro e, portanto, o movimento deve ser encorajado naquela direção.
 
 onde,
 \begin{align}
-\Delta J(\underline{w}(n)) = \dfrac{J(\underline{w}(n))}{\underline{w}(n)} = \dfrac{\dfrac{1}{2}e^2(n)}{\underline{w}(n)}
+\Delta J(\underline{w}(n)) = \dfrac{\partial J(\underline{w}(n))}{\underline{w}(n)} = \dfrac{\partial \dfrac{1}{2}e^2(n)}{\partial \underline{w}(n)}
 \end{align}
  
  é o gradiente local da superfície de erro gerada pela função de custo 
@@ -349,7 +349,7 @@ No caso do MLP, o gradiente local da superfície de erro $\epsilon$ relativo ao p
 A correção $\Delta w_{ji}(n)$ aplicada a $w_{ji}(n)$, ditada pela Regra Delta, é definida por:
 
 \begin{align}
-\Delta w_{ji}(n) = w_{ji}(n + 1) - w_{ji}(n) = - \eta \frac{X\epsilon(n)}{X w_{ji}(n)}
+\Delta w_{ji}(n) = w_{ji}(n + 1) - w_{ji}(n) = - \eta \frac{\partial \epsilon(n)}{\partial  w_{ji}(n)}
 \end{align}
 
 onde $\eta$ é a constante que determina a razão de aprendizado do algoritmo \emph{backpropagation}. O uso do sinal negativo em (X.X) impõe a movimentação contrária à direção apontada pelo gradiente na superfície de erro definida no espaço de pesos sinápticos. 

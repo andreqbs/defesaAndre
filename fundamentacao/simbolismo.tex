@@ -65,6 +65,23 @@ Quadros (sistemas baseados em \emph{frames}), introduzidos por Minsky, podem ser
 	\end{center} 
 \end{figure}
 
+\subsection{Clássulas Horn e PROLOG}
+
+Esta subsecão é importante, pois as regras que serão representadas como entradas no programa seguirão esse modelo. Abaixo uma breve explicação sobre elas.
+
+Na lógica, uma cláusula de Horn é uma cláusula (disjunção de literais) com no máximo um literal positivo.
+
+O nome "Cláusula de Horn" é uma homenagem ao lógico Alfred Horn, que foi quem primeiro chamou a atenção para o valor destas cláusulas, em 1951.
+
+Uma cláusula de Horn pode ser de quatro tipos diferentes:
+
+1 - uma regra tem um literal positivo, e pelo menos um literal negativo. Sua forma é  $\neg P_{1}\lor \neg P_{2}\lor \cdots \neg P_{k}\lor Q$, que é logicamente equivalente a  $(P_{1}\land P_{2}\land \cdots P_{k})\rightarrow Q$. Exemplo: todo homem é mortal, ou seja, X não é um homem ou X é mortal;
+
+2 - um fato ou unidade é um literal positivo sem nenhum literal negativo. Por exemplo, Sócrates é um homem, todo mundo é parente de si mesmo;
+
+3 - um objetivo negado não tem nenhum literal positivo, e pelo menos um literal negativo. Em programação, a base de dados consiste de regras e fatos, e um objetivo negado corresponde à negação do fato que se deseja provar, por exemplo, para se encontrar um descendente masculino de Isabel, o objetivo a ser provado é X é homem e Isabel é ancestral de X, então o objetivo negado será X não é homem ou Isabel não é ancestral de X
+
+4 - a cláusula nula não tem nenhum literal positivo e nenhum literal negativo. Na programação, ela aparece no final de uma demonstração.
 
 \subsection{Problemas da Inteligência Artificial Simbólica}
 

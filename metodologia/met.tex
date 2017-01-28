@@ -7,20 +7,19 @@ Este capítulo apresenta os materiais, métodos utilizados e desenvolvidos nessa p
 	
 \subsection{Recursos e estratégias utilizadas no desenvolvimento}
 
-O sistema  Windows foi adotado como sistema operacional para o desenvolvimento do aplicativo, por ser um sistema bastante difundido e familiar, no entanto, nada impede que haja portabilidade do \emph{software} para outros sistemas operacionais, pois foi utilizado a plataforma Java (versão 8) para desenvolver a parte de negócios enquanto a interface gráfica foi utilizado o moderno Java FX. A IDE de desenvolvimento do software foi o NetBeans 8.2 da Oracle. A linguagem de programação Java foi a escolhida para esse tipo de sistema, devido à facilidade na orientação a objeto, à capacidade de re-uso do código, e a experiência de desenvolvimento nessa linguagem. 
+A plataforma adotada para a implementação do \emph{software} foi o Java, por ser um sistema bastante difundido e familiar, no entanto, nada impede que haja portabilidade do \emph{software} para outros sistemas operacionais, pois o Java consegue ser instalado rapidamente em todos os sistemas operacionais que estão no mercado. A versão utilizada foi a 8.21 para desenvolver a parte de negócios enquanto a interface gráfica foi utilizada o Java FX. A IDE de desenvolvimento do software foi o NetBeans 8.2 da \emph{Oracle}. A linguagem de programação Java foi a escolhida para esse tipo de sistema, devido à facilidade na orientação a objeto, à capacidade de re-uso do código, e a experiência de desenvolvimento nessa linguagem. 
 
-Para o desenvolvimento do software foi adotado uma metodologia ágil e o quadro de desenvolvimento pode ser visualizado no GitHub. A implementação se deu através em testes, primeiramente focando em problemas menores e específicos, para, então, desenvolver soluções que satisfaçam os requisitos das novas \emph{sprints} em questão. O último passo foi estender o sistema para o atender outros tipos de problemas.
+Para o desenvolvimento do software foi adotada uma metodologia ágil e o quadro de acompanhamento do desenvolvimento pode ser visualizado no GitHub. A implementação se deu através em testes, primeiramente focando em problemas menores e específicos, para, então, desenvolver soluções que satisfaçam os requisitos das novas \emph{sprints} em questão. O último passo foi estender o sistema para o atender outros tipos de problemas.
 
 \subsection{Etapas do desenvolvimento}
 
-Inicialmente, objetivou-se a implementação do algoritmo empregado pelo sistema desenvolvido por \cite{towell90} dividindo-a em duas sub-etapas distintas: A implementação relativa ao programa em linguagem lógica e a implementação da tradução em uma Rede Neural Artificial correspondente à teoria de domínio inicial.
+Inicialmente, objetivou-se a implementação do algoritmo empregado pelo sistema desenvolvido por \cite{towell90} dividindo-a em duas sub-etapas distintas: A implementação relativa ao programa de extração de dados lógicos e a implementação da tradução em uma Rede Neural Artificial correspondente à teoria de domínio inicial.
 
 Os testes se iniciaram com o desenvolvimento de métodos para a conversão de Linguagens Lógicas, apresentadas sob a forma de clásulas Horn. Em seguida, a construção da RNAs e aplicação em problemas simples e específicos, para, logo em seguida generalizá-los. Na sequência, ocorreu a integração entre as duas partes, o sistema foi a aplicado a um problema mais extenso e geral do que os anteriores.
 
 Na fase final do desenvolvimento, foi criado um sistema genérico de para gerar padrões de entradas e saídas de acordo com o as necessidades do usuário.
 
-
-Para o desenvolvimento do projeto baseado em sistemas híbridos para predic?a?o da doenças, foram necessárias 12 etapas. Elas estão listadas pela sua ordem cronológica no desenvolvimento, nas quais se destacaram os respectivos enfoques e descrição, conforme segue:
+Os estudos realizados juntamente com a implementação desse projeto se deram ao longo de um ano e meio. Todo o processo que o sistema passou pode ser listado em 12 etapas que facilitaram o entedimento de todo o desenvolvimento. As etapas estão listadas pela sua ordem cronológica, nas quais se destacaram os respectivos enfoques e descrição, conforme segue:
 
 \begin{itemize}
 	
@@ -51,41 +50,27 @@ Para o desenvolvimento do projeto baseado em sistemas híbridos para predic?a?o d
 	
 \end{itemize}
 
-As etapas inicias (1 a 5) tiveram fundamental importância no trabalho, pois serviu para a fundamentação dos seus conceitos e a base para um bom desenvolvimento. A partir delas, podemos destacar duas implementações preliminares importantes para a continuidade dos trabalhos, vistas na subseção X. Nas etapas 2 e 4 foram realizados estudos que definiu a forma mais apropriada de como a interface deveria ser implementada. As etapas 3, 6 e 9 relacionam as implementações aplicadas a exemplos específicos. As etapas 7, 8, 10, 11 e 12 focam o algoritmo KBANN e suas aplicações. 
+As etapas iniciais (1 a 5) tiveram fundamental importância no trabalho, pois serviram para a fundamentação dos conceitos básicos de um sistema híbrido e a base para um bom desenvolvimento. A partir delas, podemos destacar duas implementações preliminares importantes para a continuidade dos trabalhos, vistas na subseção X. Nas etapas 2 e 4 foram realizados estudos que definiu a forma mais apropriada de como a interface deveria ser implementada. As etapas 3, 6 e 9 relacionam as implementações aplicadas a exemplos específicos. As etapas 7, 8, 10, 11 e 12 focam o algoritmo KBANN, TopGen e suas aplicações. 
 
 \subsection{Implementações preliminares}	
 
-Algumas implementações básicas foram necessárias para se adquirir experiência, servem como exemplo da aplicação distinta dos paradigmas IAC e IAS. O conhecimento adquirido com essas implementações ajudou a composição dos blocos das implementações subsequentes. Podemos destacar abaixo as duas implementações iniciais importantes:
+Algumas implementações básicas foram necessárias para se adquirir experiência. O conhecimento adquirido com essas implementações ajudou a composição dos blocos das implementações subsequentes. Pode-se destacar abaixo as duas principais implementações iniciais:
 
-(a) Utilização de exemplos variados para o treinamento das RNAs. 
+(a) Extração de regras lógicas.
 
-(b) Emprego de regras lógicas simplificadas.
+(b) Utilização de exemplos variados para o treinamento das RNAs. 
 
-\subsubsection{Redes Neurais Artificiais simples}	
+\subsubsection{Leitura de dados simbólicos}
 
-Os primeiros programas desenvolvidos neste trabalho utilizavam a topologia básica da RNA com três camadas e com poucos neurônios por camada (por exemplo: 5x3x1 ou 2x2x1). Nesse caso, pretendia-se fazer somente o treinamento da RNA, verificação de cálculos e teste estrutural da arquitetura e do algoritmo de treinamento.
+A leitura de dados simbólicos serviu de base para a implementação do algoritmo de conversão KBANN. A execução, o acompanhamento e os testes dessa implementação permitiram verificar a tradução de uma base de regras inciais em uma rede neural de  KBANN.
+A Figura \ref{fig:visualizacaoGrafo} é a representação final das regras lógicas contidas nas clásulas lógicas mostradas abaixo na forma de clásulas de Horn. A partir desse conjunto de símbolos, foram obtidas as estruturas das RNAs similares às da Figura \ref{fig:visualizacaoGrafo}, aplicando-se a elas os cálculos requeridos pelo algoritmo, tais como a determinação dos pesos inciais, bias, taxa de aprendizado da rede e o erro aceitável.
 
-Alguns exemplos simples foram utilizados, como o de reconhecimento e classificação de dados (padrões sensíveis à RNA). Na classificação de dados, como por exemplo, foi utilizado na Figura \ref{fig:XXX} para os testes inicias. Além disso, os mesmos testes foram validados no \emph{Matlab}, tanto usando o ToolBox inteligente que é disponbilizado no software, como programando as equações matemáticas dentro dele.
+\centerline{$A$ :- $B$,  $-C$}
+\centerline{$B$ :- $D$, $-F$, $G$}
+\centerline{$B$ :- $D$, $F$, $I$}
+\centerline{$C$ :- $H$, $J$, $K$}
 
- \begin{align}
-A :- B, \not C \\
-B :- D, F, G \\
-B :- D, \not F, I \\
-C :- H, J, K 
-\end{align}
-
-A Figura X é composta por cinco regras que descrevem inicialmente o modelo daquele problema em específico. Assim como foi feito no TopGen, foram retirado algumas regras desse domínio, realizado o treinamento da rede e em seguida validada. Foi possível notar que o KBANN ainda consegue classificar boa parte dos dados, mesmo não tendo um domínio completo do problema. Esse teste foi feito justamente para provar que Towell comentou em seu trabalho, que não é necessário saber a fundo sobre problema. Apesar da sua boa classifaç  contendo 11 linhas com 25 caracteres em cada linha, constituindo um modelo de peixe para a RNA. Variações desse modelo poderiam servir de exemplo para o treinamento da RNA. Um exemplo positivo decorre de uma forma que não é muito diferente da assinatura do peixe, como um peixe mais magro ou menor. Por outro lado, se um outro formato fosse lido pela RNA, tal como uma esfera, essa seria classificada como um exemplo negativo pelo modelo.
-
-As estruturas matriciais foram construídas somente no sentido direto da RNA. As matrizes da RNA continham os valores dos neurônios e das conexões entre eles. Os valores matriciais de retro-propagação que existem nos demais programas, nesse caso, devido à simplicidade, foram calculados através de variáveis contendo valores originados pela aplicação direta da Regra Delta (equação 2.5).
-
-A criação de uma interface para entrada de dados fez-se necessária com a migração para programas mais genéricos. A solução mais imediata foi a adoção de arquivos formatados contendo um conjunto de definições, que são alteráveis no programa antes da sua execução.
-
-\subsubsection{Leitura de programas lógicos}
-
-A leitura de programas lógicos foi útil para o estudo inicial da implementação do algoritmo de conversão KBANN. A execução, o acompanhamento e os testes dessa implementação permitiram verificar a tradução de um programa em linguagem lógica (Programa Lógico) em valores calculados segundo o KBANN e também verificar a estabilidade do Programa Lógico.
-A Figura \ref{fig:visualizacaoGrafo} representa as regras lógicas contidas na \ref{fig:entradaKANN}. A partir dessas duas regras lógicas, foram obtidas as estruturas das RNAs similares às da Figura 5.2, aplicando-se a elas os cálculos requeridos pelo algoritmo, tais como a determinação do limiar de ativação mínimo e do valor mínimo de peso de rede aceitável. Durante a convergência, as saídas das regras ("e"  e  "j") atingiram a estabilidade em poucas iterações. As entradas da RNA, nesse caso, eram valores binários atribuídos a  "a, b, c, d, f, g, h e i . Os valores de convergência foram apresentados em ponto flutuante, resultado dos cálculos do algoritmo.
-
-O arquivo-texto utilizado continha as cláusulas lógicas descritas abaixo:
+Cada instrução acima, representa uma regra do dominio da teoria, a união delas implica nas regras que definem por total um determiando problema. Para um melhor entendimento, as clásulas no formato de PROLOG podem ser lidas da seguinte maneira : ao lado esquerdo ficam os consequentes, ou seja, as implicações que são geradas pelos seus antecedentes (lado direito). Os antecedentes são as condições necessárias para ativar um consequente, esses, são separados por vírgulas (,) quando se quer definir que ambos os consequentes precisam ser ativados para sair uma determinada resposta do seu respectivo consequente da regra.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -96,7 +81,15 @@ O arquivo-texto utilizado continha as cláusulas lógicas descritas abaixo:
 \end{figure}
 
 
-As duas cláusulas contêm cinco átomos cada uma, quatro dos quais estão distribuídos em dois literais, nos seus antecedentes. O consequente de cada cláusula possui apenas um literal contendo um átomo. Durante a execução dessa implementação, foi possível alterar os números de átomos, de literais e também suas posições, quando se adicionou recursividade entre os átomos, por exemplo, o consequente  e  substituiu o antecedente  f .
+\subsubsection{Redes Neurais Artificiais simples}	
+
+Os primeiros programas desenvolvidos neste trabalho utilizavam a topologia básica da RNA com três camadas e com poucos neurônios por camada (por exemplo: 5x3x1 ou 2x2x1). Nesse caso, pretendia-se fazer somente o treinamento da RNA, verificação de cálculos e teste estrutural da arquitetura e do algoritmo de treinamento.
+
+Alguns exemplos simples foram utilizados, como o de reconhecimento e classificação de dados (padrões sensíveis à RNA). Na classificação de dados, como por exemplo, foi utilizado as regras deteminadas logo acima para os testes inicias. Além disso, os mesmos testes foram validados no \emph{Matlab}, tanto usando o \emph{Neural Network ToolBox} de redes neurais que é disponbilizado no software, como também, realizando passo a passo as operações matemátias.
+
+As cincos regras acima descrevem inicialmente o modelo daquele problema em específico. Assim como foi feito no TopGen, foram retiradas algumas regras do domínio teórico incial, e em seguida realizando o treinamento e a validação. Foi possível notar que o KBANN ainda consegue classificar boa parte dos dados, mesmo não tendo um domínio completo do problema. Esse teste foi feito justamente para provar que \cite{towell90} comentou em seu trabalho, que não é necessário saber a fundo sobre problema. Apesar da sua boa classifação contendo 3 regras das 5 origianis. Variações desse modelo poderiam servir de exemplo para o treinamento da RNA.
+
+A criação de uma interface para entrada de dados fez-se necessária com a migração para programas mais genéricos. A solução mais imediata foi a adoção de arquivos formatados contendo um conjunto de definições, que são alteráveis no programa antes da sua execução.
 
 \subsection{O sistema desenvolvido}	
 
@@ -106,8 +99,8 @@ O enfoque principal do sistema desenvolvido foi a implementação do algoritmo de 
 
 \subsubsection{Classes que compõem o programa}
 
-A Figura \ref{fig:diagramaClasses} apresenta um esquema das classes nas quais o ambiente computacional teve o seu desenvolvido baseado. Utilizamos uma classe-suporte para o trabalho com a plataforma  Windows , com atributos e métodos padronizados. A classe  ControllerRegras  instancia a classe para tratamento da programação em linguagem lógica (Classe da Programação Lógica), conforme as opções que lhe são passadas.
-A classe da Programação Lógica tem como dependentes as classes de instanciação das Redes Neurais Artificiais e da Aprendizagem dessa. Por sua vez, a classe que trata da RNA pode ser derivada em RNAs menores, ou sub-RNAs, que possuem seus métodos agregados aos de aprendizagem.
+A Figura \ref{fig:diagramaClasses} apresenta um esquema das classes nas quais o ambiente computacional teve o seu desenvolvido baseado. A classe que controla todas a aplicação é a, ControllerGrafo. Ela recebe todas as requisições oriundas da interface gráfica e delega para outras classes algumas ações necessárias. Por exemplo, a classe  ControllerRegras realiza o tratamento da programação em linguagem lógica, conforme as opções que lhe são passadas.
+Pensando em futuras expansões do projeto, foram criadas classes e móldulos que poderão se acoplar facialmente a novas classes. A classe ModelGrafo que representa a rede neural, por exemplo pode receber novos tipos de neurônios ou conexões de forma bastante simples.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -159,10 +152,9 @@ Os passos à execução do programa podem ser resumidos desta forma:
 
 \subsubsection{Processos do sistema}
 
-Na Figura XX, podemos acompanhar, de outra forma, as etapas apresentadas nos casos de uso do sistema (Figura \ref{fig:diagramaCasosUso}). Também temos a visão interna da sequência de processos e a atividade de inter-relação entre as classes (Figura XX). Primeiramente, um programa em linguagem lógica será inserido e, conforme a configuração, ocorre o seu processamento inicial.
+Na Figura XX, podemos acompanhar, de outra forma, as etapas apresentadas nos casos de uso do sistema (Figura \ref{fig:diagramaCasosUso}). Também temos a visão interna da sequência de processos e a atividade de inter-relação entre as classes (Figura \ref{fig:diagramaClasses}). Primeiramente, um programa em linguagem lógica será inserido e, conforme a configuração, ocorre o seu processamento inicial.
 
 Existem dois processos relativos à estrutura que entram em operação após a leitura dos dados iniciais: as RNAs são instanciadas e as suas topologias iniciais são fixadas. Logo após, iniciam-se os processos de aprendizagem das RNAs, que podem alterar a forma original da estrutura da rede geral.
-
 
 Após o processamento da programação, instanciam-se as RNAs correspondentes, assim como os cálculos relativos ao algoritmo em operação. A etapa de aprendizagem das RNAs é executada logo em seguida, finalizando pela obtenção de resultados. Os resultados gerados pelo programa são as RNAs após o processos de aprendizagem e o percentual de acerto obtido individualmente pelas RNAs.
 
@@ -181,15 +173,21 @@ A interface também contém um menu para seleção do algoritmo a ser usado, assim c
 
 \subsubsection{Painel de edição}
 
-Os três principais arquivos, conforme círculos na Figura X.7, editáveis pela interface são:
+Os arquivos carregados no programa pode ser visualizados na tela de edição, conforme a Figura \ref{fig:editorRegras}
 
-1. O arquivo que contém os nomes dos arquivos de trabalho do ambiente computacional (pacote de arquivos).
+1. A planta inicial, que informa a teoria de domínio que deseja-se representar incialmente para um possível refinamento.
 
-2. O arquivo que contém o program lógico a ser trabalhado.
+2. A planta final, que possui o domínio completo e correto do problema
 
-3. O arquivo de configuração, que contém as informações sobre como a RNA deve se comportar
-durante o aprendizado.
-Esses três arquivos são abertos e acessados diretamente no painel interno da interface. Não existe restrição quanto ao tipo de arquivo a ser editado. Arquivos como os de dados a serem utilizados pela RNA também podem ser trabalhados.
+Esses dois arquivos são abertos e acessados diretamente no painel interno da interface. Não existe restrição quanto ao tipo de arquivo a ser editado. 
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Tela de edição de regras.}
+		\includegraphics[scale=0.5]{imagens/editorRegras.png}
+		\label{fig:editorRegras}
+	\end{center} 
+\end{figure}
 
 \subsubsection{Barra do menu}
 
@@ -218,7 +216,7 @@ A barra de botões da interface facilita algumas operações de edição e execução d
 \begin{table}[]
 	\centering
 	\caption{Lista de ações do sistema}
-	\label{tbl:BarraBotoes}
+
 	\begin{tabular}{|l|l|l|}
 		\hline
 		Operação	& Sub-operações & Descrição \\ \hline
@@ -237,31 +235,7 @@ A interface também conta com menu \emph{according} localizada nas laterias da ja
 \subsubsection{RNAs}
 
 A maioria dos programas desenvolvidos empregaram as RNAs com o seu aprendizado executado por meio do algoritmo de retro-propagação. A escolha desse algoritmo deveu-se à sua utilização no sistema KBANN [Referencia], possibilitando a comparação de resultados. Os algoritmos que definiram as topologias de RNAs empregadas foram consequência da evolução natural das técnicas de programação.
-Os valores de saída e as sinapses da RNA foram implementados por variáveis contidas nas classes Neurônio e Arestas. Quando desejamos acessar o valor contido em um neurônio específico, é utilizado um \emph{HashMap} que possui todos os objetos do tipo neurônio. Dentro de cada neurônio existe uma outra variável que identifica se ele é da camada de entrada, oculta ou saída. Na Figura X.8, é possível ver a representação dessas estruturas com as quais pode-se acessar quaisquer valor desejado no grafo neural construído.
-
-\subsection{Entradas do Sistema}
-
-\subsubsection{Arquivos}
-
-Os arquivos que normalmente são utilizados pelos programas dividem-se em cinco grupos:
-
-1. Arquivos contendo a configuração da RNA e informações de controle do programa.
-
-2. Arquivos contendo os dados de entrada para a RNA (treinamento, validação e teste).
-
-3. Arquivos com as informações sobre a arquitetura da RNA, normalmente os valores dos pesos e as conexões ativas.
-
-4. Os arquivos com o programa lógico.
-
-5. Outros arquivos gerados durante a execução dos programas, e.g., arquivos de avaliação de resultados e de registro ( .log ).
-
-\begin{figure}[H] 
-	\begin{center}
-		\caption{Arquivo inicial contendo a base de regras}
-		\includegraphics[scale=0.5]{imagens/entradaKANN.png}
-		\label{fig:entradaKANN}
-	\end{center} 
-\end{figure}
+Os valores de saída e as sinapses da RNA foram implementados por variáveis contidas nas classes Neurônio e Arestas. Quando desejamos acessar o valor contido em um neurônio específico, é utilizado um \emph{HashMap} que possui todos os objetos do tipo neurônio. Dentro de cada neurônio existe uma outra variável que identifica se ele é da camada de entrada, oculta ou saída. Na Figura \ref{fig:diagramaClasses}, é possível ver a representação dessas estruturas com as quais pode-se acessar quaisquer valor desejado no grafo neural construído.
 
 \subsection{Testes do Sistema}
 
@@ -285,7 +259,7 @@ Como pode ser vista na Figura \ref{fig:RedeMatlabEstrutura}, a rede a ser treina
 	\end{center} 
 \end{figure}
 
-Pelo o que foi apresentado na Figura \ref{fig:RedeMatlabTreinada}, pode-se observar que o \emph{toolBox} neural do \emph{Matlab} levou 10.000 épocas para finalizar o problema, ou seja, o erro de treinamento ou o erro de validação aceitável não foi obtido, sendo necessário utilizar a quantidade de épocas totais para finalizar o treinamento. Nesse exemplo, foi utilizado o algoritmo de \emph{backpropagation} e a função de ativação dos neurônios escolhida, foi a sigmoide. Outros parâmetros como taxa de aprendizagem, erro aceitável (goal) e o tempo para simulação podem ser verificados na \ref{fig:redeMatlabParametros}.
+Pelo o que foi apresentado na Figura \ref{fig:RedeMatlabTreinada}, pode-se observar que o \emph{Neural Network ToolBox}  do \emph{Matlab} levou 10.000 épocas para finalizar o problema, ou seja, o erro de treinamento ou o erro de validação aceitável não foi obtido, sendo necessário utilizar a quantidade de épocas totais para finalizar o treinamento. Nesse exemplo, foi utilizado o algoritmo de \emph{backpropagation} e a função de ativação dos neurônios escolhida foi a sigmoide. Outros parâmetros como taxa de aprendizagem, erro aceitável (goal) e o tempo para simulação podem ser verificados na \ref{fig:redeMatlabParametros}.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -295,7 +269,7 @@ Pelo o que foi apresentado na Figura \ref{fig:RedeMatlabTreinada}, pode-se obser
 	\end{center} 
 \end{figure}
 
-As duas últimas figuras (Figura \ref{fig:GraficoErroMatlab} e \ref{fig:errosMatlab}) servem para afirmar o baixo aprendizado para o exemplo fornecido. O erro aceitável ficou longe de ser alcançado e as saídas finais da rede tiveram valores sempre mantidos acima de 0.5, o que demonstra um erro bastante grande. Vale lembrar que os dados passados para treinamento e validação, é a combinação possível para 4 entradas lógicas. Também vale ressaltar que a rede foi treinada com uma teoria de domínio completa. 
+As duas últimas figuras (Figura \ref{fig:GraficoErroMatlab} e \ref{fig:errosMatlab}) servem para afirmar o baixo aprendizado pela rede MLP para o exemplo fornecido. O erro aceitável ficou longe de ser alcançado e as saídas finais da rede tiveram valores sempre mantidos acima de 0.5, o que é um erro bastante grande. Os dados apresentados para treinamento e validação, podem ser vistos na \ref{fig:resultado1SemTopgen}. Também vale ressaltar que a rede foi treinada com uma teoria de domínio completa. 
 
 \begin{figure}[H] 
 	\begin{center}
@@ -313,6 +287,32 @@ As duas últimas figuras (Figura \ref{fig:GraficoErroMatlab} e \ref{fig:errosMatl
 	\end{center} 
 \end{figure}
 
+O mesmo teste considerando as mesmas configurações da rede (taxa de aprendizado, função de ativação) e o conjunto de dados foram realizados pelo sistema desenvolvido utilizando apenas o KBANN e em seguinda o KBANN com o TopGen. Na Figura (\ref{fig:resultado1SemTopgen} a rede KBANN conseguiu classificar corretamente todos os dados apresentados em sua saída (A), mas obteve dois erros em uma saída intermediária (B), onde obteve dois falsos negativos. Esses erros já eram esperados devido a retirada de duas regras do domínio que rege esse problema.
 
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Resultados gerados na saída da rede apenas com KBANN.}
+		\includegraphics[scale=0.5]{imagens/resultado1_semTopGen.png}
+		\label{fig:resultado1SemTopgen}
+	\end{center} 
+\end{figure}
+
+Na Figura \ref{fig:resultado1ComTopgen} pode-se observar que o erro em todas as saídas intermediárias (B e C), assim como a saída principal da rede (A) tiveram erro zero, ou seja, para todos os dados apresentados, foram classificados corretamente sem nenhuma execção, mostrando assim, uma boa eficácia do sistema. Para se conseguir esse feito, foram necessários adicionar a rede original de KBANN, dois neurônios, o TG1B e TG2B (ver Figura \ref{fig:resultado1RedeComTopgen}),  o motivo dessa adição pode ser vista na seção (2.X). Esse neurônios fizeram com que os erros da saída intermediária (B) fossem zerados sem modificar o aprendizado obtido em outros pontos da rede.
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Resultados gerados na saída da rede com KBANN e TopGen.}
+		\includegraphics[scale=0.5]{imagens/resultado1_comTopGen.png}
+		\label{fig:resultado1ComTopgen}
+	\end{center} 
+\end{figure}
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Rede gerada com os novos neurônios a partir do TopGen.}
+		\includegraphics[scale=0.5]{imagens/resultado1_RedeComToGen.png}
+		\label{fig:resultado1RedeComTopgen}
+	\end{center} 
+\end{figure}
 
 
