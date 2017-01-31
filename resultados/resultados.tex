@@ -40,7 +40,7 @@ Os antecedentes da regra representam o primeiro nível da rede, onde estão a posi
 
 FIGURA
 
-Alguns dos testes aplicados utilizaram a RNA contendo três camadas (53xXXx1) (ver Figura X), mas essa distribuição dos neurônios variou durante os testes. O número de conexões entre a primeira e a segunda camada totalizou XX sinapses . O número de neurônios internos ??  equivale ao número de regras constituídas diretamente por peças, conforme a Tabela XX. As conexões entre a camada interna e a camada de saída são 18, visto que o resultado  nal é representado apenas por um neurônio na última camada (ilegal ou não).
+Alguns dos testes aplicados utilizaram a RNA contendo três camadas (53xXXx1) (ver Figura X), mas essa distribuição dos neurônios variou durante os testes. O número de conexões entre a primeira e a segunda camada totalizou XX sinapses . O número de neurônios internos XX  equivale ao número de regras constituídas diretamente por peças, conforme a Tabela XX. As conexões entre a camada interna e a camada de saída são 18, visto que o resultado  nal é representado apenas por um neurônio na última camada (ilegal ou não).
 A Tabela XX descreve os parâmetros mais importantes utilizados durante os testes.
 
 \begin{table}[h]
@@ -122,13 +122,13 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 
 \subsubsection{Antecedentes Adicionadas ao Domínio Teórico}
 
-\textbf{Objetivo :}  aaaa
+\textbf{Objetivo :}  Na segunda forma de avaliação do programa desenvolvido, foi atribuidos de forma aletória antecedentes a regras já estabelecidas no domínio completo, verificando se a rede KBANN precisa de algum tipo de ajuste e compará-lo com o domínio teórico.
 \newline 
 \newline
-\textbf{Descrição:} aaa
+\textbf{Descrição:} Para esse teste as entradas já conhecidas foram conectadas a outras conlusões intemediárias de forma proporcional. Exemplificando, 5\% das entradas ou, 3 entradas já existentes foram conectadas a outras conclusões intermediárias de forma a pertubar o domínio original. As outros testes com, 15\% e 25\% também foram realizados.
 \newline 
 \newline
-\textbf{Resultados:} asddsdasdas
+\textbf{Resultados:}  A Tabela X resume os resultados obtidos no segundo teste.
 
 \begin{table}[h]
 	\centering
@@ -143,6 +143,14 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 		~       & ~                    & ~                & ~             \\ \hline
 	\end{tabular}
 \end{table}
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Porcetagem de acerto x }
+		\includegraphics[scale=0.5]{imagens/antecentesRetirados.png}
+		\label{fig:retiradaAntecedentes}
+	\end{center} 
+\end{figure}
 
 \begin{table}[h]
 	\centering
@@ -178,13 +186,22 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 
 \subsubsection{Regras Deletadas do Domínio Teórico}
 
-\textbf{Objetivo :}  sadsadasd
+\textbf{Objetivo :}  Realizar uma comparação entre uma rede neural padrão, a rede KBANN e o TopGen quando o domínio teórico sofre a pertubação de perda de regras.
 \newline 
 \newline
-\textbf{Descrição:}  sdsadsadas
+\textbf{Descrição:}  Esse teste foi realizado 3 vezes utilizando cada técnica para gerar o gráfico da taxa de acerto x quantidade de regras deletadas.
 \newline 
 \newline
-\textbf{Resultados:} sdsadsadas
+\textbf{Resultados:} A Tabela \ref{tab:parametros3} e a Figura \ref{fig:regrasDeletadas} resume os resultados obtidos no terceiro teste.
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Porcetagem de acerto x }
+		\includegraphics[scale=0.5]{imagens/regrasDeletadas.png}
+		\label{fig:regrasDeletadas}
+	\end{center} 
+\end{figure}
+
 
 \begin{table}[h]
 	\centering
@@ -214,7 +231,7 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 	\end{tabular}
 \end{table}
 
-\textbf{Avaliação:}dasdsadadsadas
+\textbf{Avaliação:} Pode-se observar que a rede KBANN já não consegue desempenhar um bom papel quando são retiradas regras do seu domínio. Em todos seus neurônios de conclusões intermediárias e conclusão final tiveram erros de falsos positivos e negativos, sendo assim, teve que ser necessário utilizar o TopGen para realizar um possivel aprendizado e adicioná-lo a rede neural. Como pode ser visto, o TopGen, gerou resultados bastante interessantes diminuindo consideravelmente o erro. Enquanto isso, a rede MLP gerou erros bem altos, na média de 17%.
 
 \subsubsection{Antecedentes Deletados do Domínio Teórico}
 
@@ -225,7 +242,15 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 \textbf{Parâmetros:} sdsadasdasdsa
 
 
-\textbf{Resultados:}
+\textbf{Resultados:} A Tabela X resume os resultados obtidos no último teste.
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Porcetagem de acerto x }
+		\includegraphics[scale=0.5]{imagens/antecedenteDeletados.png}
+		\label{fig:antecedenteDeletados}
+	\end{center} 
+\end{figure}
 
 \begin{table}[h]
 	\centering
@@ -260,32 +285,7 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 
 A RNA treinada por retropropagac?a?o e validada obteve, em me?dia, um percentual de acertos de 83,33%. Enquanto que a RNA, gerada a partir do
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Para investigar os tipos de correções em que o KBANN é eficaz, foram realizadas experiências onde pertubações foram inseridas na teoria do domínio, esse novo domínio incorreto foi apresentado a rede de KBANN para testes. As pertubações na teoria do domínio foram feitas de quatro maneiras diferentes: (a) adicionando um antecedente a uma regra, (b) removendo um antecedente de uma regra, (c) adicionando umaa regra, ou (d) removendo uma regra. Essas pertubações foram feitas de forma aleatória, desde que não implicasse na retirada de alguma conclusão final.
-Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o conseguente dessa regra é o consequente da regra procurada. Em seguida, são acrescentados de dois a quatro antecedentes, uma vez que o número de antecedentes de cada regra da base original e correta também variou de dois a quatro. Adicionamos antecedentes a regras recém-criadas e existentes selecionando aleatoriamente os conseqüentes abaixo da regra, bem como os recursos de entrada. Ao excluir regras, consideramos apenas regras cujo conseqüente não era o da conclusão final. Finalmente, quando eliminamos antecedentes, se o consequente de uma regra não aparecer na lista de antecedentes de outra regra (e não é a conclusão final), então esta regra também foi excluída. Fazemos isso porque é improvável que um especialista em domínio forneça conslusões intermediárias indefinidas em uma teoria de domínio.
-
-
-A Figura 3 mostra o erro de conjunto de teste (o erro é medido em um conjunto de exemplos não visto pelo algoritmo de aprendizagem) que resulta na perturbação do domínio de xadrez em cada uma das quatro formas apresentadas. Esse erro é a média de cinco execuções de validação cruzada. Cada validação cruzada é executada pela primeira divisão dos dados em cinco conjuntos iguais. Nas cinco iterações realizadas, um dos conjuntos é mantido de fora, enquanto os outros são utilizados para treinamento do sistema. O conjunto conjunto não utilizado inicialmente é usado para medir a performance de teste do conceito final da KBANN, dando assim uma estimativa de seu desempenho de generalização. A Figura 3a e a Figura 3b mostram que KBANN é eficaz na correcção de adições espúrias à teoria do domínio; Entretanto, as Figuras 3c e 3d que a generalização de KBANN degrada rapidamente quando regras e antecedentes são deletados da teoria do domínio. A alta taxa de erro do KBANN na Figura 3d é parcialmente devido ao fato de que quando excluímos antecedentes, também deletamos regras cujo consequente não mais apareça na lista de antecedentes das regras de anotria (a menos que fosse a conclusão final ilegal). Como ponto de comparação, 26\% das regras foram suprimidas quando 50\% dos antecedentes foram removidos. 
-
-%%%%%%%%
-
-Na Seção 2, mostramos que a generalização de KBANN sofreu quando foi dada uma teoria de domínio onde regras ou antecedentes foram excluídos da teoria correta. Nesta seção, testaremos o desempenho do TopGen nesses dois casos para ver como ele aborda essas limitações do KBANN. Para ajudar a testar a eficiência da abordagem TopGen para escolher onde adicionar nós ocultos.
-
-Nossa experiência inicial aborda a capacidade de generalização de TopGen quando dada domínio teorias que estão faltando regras ou antecedentes. A Figura 6 relata o erro do teste quando eliminamos aleatoriamente regras e antecedentes da teoria do domínio de xadrez (veja a Seção 2 para detalhes sobre como geramos essas teorias de domínio). Os resultados traçados são as médias de cinco execuções de cinco vezes a validação cruzada.
-A linha horizontal superior em cada gráfico resulta de uma rede neural totalmente conectada, de camada única, de feed-forward. Para cada dobra, treinamos várias redes contendo até 100 nós escondidos e usamos um conjunto de validação para escolher a melhor rede. Essa linha é horizontal porque as redes não usam nenhuma das teorias de domínio. A representação gráfica desta linha dá um ponto de referência para o desempenho de
-Rede neural padrão; Assim, comparações com redes neurais baseadas no conhecimento mostram a utilidade de ser capaz de explorar a teoria do domínio.
-As duas curvas seguintes em cada gráfico relatam o desempenho de Kbann e Strawman;
-Aviso Strawman produzido quase nenhuma melhoria sobre Kbann em qualquer caso. Finalmente,
-TopGen, a curva inferior em cada gráfico, teve um aumento significativo na precisão, tendo uma taxa de erro de cerca de metade da de ambos Kbann e Strawman. Como Strawman, TopGen considerou 50 redes durante sua busca.
-
-Quando 50% das regras ou antecedentes foram excluídos, os testes t de uma cola e duas amostras
-Indicam que a diferença entre TopGen e KBANN (t = 11,14 ao excluir regra,
-T = 13,54 ao eliminar antecedentes) ea diferença entre TopGen e Strawman (t = 10,93 ao eliminar regras, t = 14,78 ao eliminar antecedentes) são significativas ao nível de confiança de 99,5\%. Como ponto de comparação, quando 50\% das regras foram excluídas, TopGen adicionou 22,4 nós, em média, enquanto Strawman adicionou 22,2 nós; Quando 50\% dos antecedentes foram excluídos, TopGen adicionou 21,2 nós, enquanto Strawman adicionou 5.1 nós.
-
-Como afirmado anteriormente, é importante classificar corretamente os exemplos ao se desviar da teoria de domínio inicial o mínimo possível. Como a teoria do domínio pode ter sido indutivamente gerada a partir de experiências passadas, estamos preocupados com a distância semântica, ao invés da distância sintática, ao decidir até que ponto um algoritmo de aprendizagem se desviou da teoria do domínio inicial. Além disso, a distância sintática é difícil de medir, especialmente se o algoritmo de aprendizagem gera regras em uma forma diferente da teoria do domínio inicial. No entanto, podemos estimar a distância semântica considerando apenas os exemplos no conjunto de teste que a teoria do domínio original classifica corretamente. Erro nesses exemplos indica o quanto o algoritmo de aprendizado corrompido partes corretas da teoria do domínio.
-
-A Figura 7 mostra a precisão na porção do conjunto de teste onde a teoria do domínio original está correta. Quando a teoria de domínio inicial tem poucas regras em falta ou antecedentes (menos de 15\%), nem TopGen, Kbann, nem Strawman corromper excessivamente esta teoria de domínio, a fim de compensar essas regras em falta; No entanto, como mais regras ou antecedentes são excluídos, tanto Kbann e Strawman corromper sua teoria do domínio muito mais do que TopGen faz. Os testes-t de duas amostras, com uma cauda, indicam que o TopGen difere dos dois.
 
 
 
