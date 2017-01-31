@@ -1,10 +1,291 @@
 \mychapter{Resultados e discussão}
 \label{Cap_5}
 
-\subsection{Regras Adicionadas ao Domínio Teórico}
+\subsection{Contextualização  do Problema}
 
-\subsection{Antecedentes Adicionadas ao Domínio Teórico}
+Para a realização desse trabalho, um dos grande objetivos foi ter um problema onde houvesse um especialista no assunto que pudesse conceber um conjunto inicial de regras para servir de base de aprendizado para a rede neural KBANN. Devido a dificuldade em encontrar um especialista que solucionasse essa condição inicial e essencial do trabalho, a forma encontrada para contornar esse problema, foi utilizado um jogo de tabuleiro onde se sabe como esse modelo é regido. 
 
-\subsection{Regras Deletadas do Domínio Teórico}
+O xadrez é um jogo de tabuleiro com 64 casas brancas e pretas intercaladas e com diversas peças que representavam tropas do exército: infantaria, cavalaria, bispos, torres, rainha, e o principal de todos, o Rei. O problema em questão foi tratado da seguinte maneira : dado um tabuleiro 5x4 (ver Figura \ref{fig:xadrez}) considerando que o Rei (branco) está sempre na posição ($c1$), acompanhando de outras peças (Rainha, Bispo, Cavalo e Torre), tanto da cor oposta ao Rei, como da mesma cor e espalhadas aleatóriamente no tabuleiro. A rede neural construída tenta resolver o seguinte questionamento: é possível realizar o movimento do Rei para a casa $c2$.? O movimento será considerado legal, se ao fim dele, o Rei permanecer vivo e assim esperar um nova rodada, e é considerado ilegal caso exista alguma peça que possa finalizar com o jogo se o Rei tentar ir para a posição desejada. Utilizando como base o problema acima, serão feitos alguns testes com um domínio teórico possuindo erros para investigar os tipos de correções em que o KBANN é eficaz.
 
-\subsection{Antecedentes Deletados do Domínio Teórico}
+As pertubações na teoria do domínio foram feitas de quatro maneiras diferentes: (a) adicionando um antecedente a uma regra, (b) removendo um antecedente de uma regra, (c) adicionando umaa regra, ou (d) removendo uma regra. Essas pertubações foram feitas de forma aleatória, desde que não implicasse na retirada de alguma conclusão final. 
+
+O objetivo desses testes é mostrar que a rede com conhecimento incompleto pode sofrer modificações na sua topologia para se ajustar aos novos aprendizados adquiridos no seu domínio inicial.
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Sub-conjunto 4x5 de um tabuleiro de xadrez considerado para o domínio. O Rei está atualmente em posicão $c1$, e será movido para a posição $c2$ se este for um movimento legal. Esse movimento é ilegal se o Rei estaria em cheque na posição $c2$.}
+		\includegraphics[scale=0.5]{imagens/xadrez.png}
+		\label{fig:xadrez}
+	\end{center} 
+\end{figure}
+
+\subsection{Formatação dos dados}
+
+As seguintes regras formatadas (\ref{fig:xadrezRegras} ) definem as configurações do tabuleiro de xadrez, para um tabuleiro 4x5 (veja a Figura \ref{fig:xadrez}), onde mover um Rei para uma "casa" a a frente é ilegal (isto é, o Rei estaria sob cheque). A formatação das regras facilita a aplicação do algoritmo de conversão por terem sua reestruturação segundo a arquitetura de uma RNA, com uma camada de entrada, duas internas e uma de saída. 
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Conjunto de regras do Xadrez.}
+		\includegraphics[scale=0.5]{imagens/regrasXadrez.png}
+		\label{fig:xadrezRegras}
+	\end{center} 
+\end{figure}
+
+As entradas necessária para cada posição no tabuleiro são: um para os quatro tipos de peças (uma rainha, uma torre, um bispo e um cavaleiro), e um que indica a cor da peça. As réguas são divididas em três partes: (1) na verificação de cheque diagonal pela rainha ou do bispo, (2) na verificação cheque horizontal ou vertical por uma rainha ou pela torre, e (3) na verificação cheque por um cavalo. Algumas regras exigem um espaço vazio entre a posição de uma peça e a posição $c2$ (onde o jogador quer mover o Rei). Por exemplo, se uma rainha da cor oposta estiver na posição $c4$, então o espaço $c3$ deve estar vazio para poder pôr o Rei sob cheque.
+
+
+TABELA
+
+Os antecedentes da regra representam o primeiro nível da rede, onde estão a posição das peças e suas respectiva cor. Nele cada agrupamento pode ser visto como uma única entrada, contendo todos os dados necessários. As entradas de cada exemplo do arquivo foram guaradas em grupos de quatro entradas binárias, correspondendo as peças "Rainha,  Bispo, Cavalo e Torre" e outras 2 entradas correspondentes a cor e a espaços vazios. As seguintes quantidades de entradas foram: 12 para a Rainha, 6 para o Bispo, 6 para o Cavalo, 6 para a Torre, 18 para cor oposta e 5 para casas vazias, totalizando 53 entradas binárias. A multiplicação do conjunto de exemplos (100 exemplos) pelo número de entradas binárias gerou matriz de entrada de dados para a RNA.
+
+FIGURA
+
+Alguns dos testes aplicados utilizaram a RNA contendo três camadas (53xXXx1) (ver Figura X), mas essa distribuição dos neurônios variou durante os testes. O número de conexões entre a primeira e a segunda camada totalizou XX sinapses . O número de neurônios internos ??  equivale ao número de regras constituídas diretamente por peças, conforme a Tabela XX. As conexões entre a camada interna e a camada de saída são 18, visto que o resultado  nal é representado apenas por um neurônio na última camada (ilegal ou não).
+A Tabela XX descreve os parâmetros mais importantes utilizados durante os testes.
+
+\begin{table}[h]
+	\centering
+	\caption{Regras que regem o domínio do jogo.}
+	\vspace{0.5cm}
+	\label{tab:regras}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		Consequente & Antecedentes 		 \\ \hline
+		Movimento Ilegal       & Cheque diagonal      \\ \hline
+		Movimento Ilegal        & Cheque paralelo       \\ \hline
+		Movimento Ilegal        & Cheque cavalo       \\ \hline
+		Cheque diagonal       & Cheque cavalo       \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\caption{Nomeclatura dos neurônios e sua representação na rede neural.}
+	\vspace{0.5cm}
+	\label{tab:nomeclatura}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		Neurônio & Descrição 		 \\ \hline
+		MI       & Movimento ilegal       \\ \hline
+		CD       & Cheque diagonal       \\ \hline
+    	CP       & Cheque paralelo       \\ \hline
+		CC       & Cheque cavalo       \\ \hline
+	\end{tabular}
+\end{table}
+
+\subsection{Testes realizados para o reconhecimento de movimentos ilegais}
+
+Os quatros testes executados no trabalho inicial e detalhados no texto desta Subseção são: (1) Teste de Regras Adicionadas ao Domínio Teórico. (2) Antecedentes Adicionadas ao Domínio Teórico. (3) Regras Deletadas do Domínio Teórico. (4) Antecedentes Deletados do Domínio Teórico. Conforme essa sequência de testes, serão informados o objetivo, a descrição, os parâmetros utilizados, os resultados obtidos, assim como a avaliação, referente a cada teste.
+
+\subsubsection{Regras Adicionadas ao Domínio Teórico}
+
+Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o conseguente dessa regra é o consequente da uma outra regra já existen no domínio teórico. Em seguida, são acrescentados de dois a quatro antecedentes, uma vez que o número de antecedentes de cada regra da base original e correta também variou de dois a quatro.
+\newline
+\newline
+\textbf{Objetivo :}  Verificar a frequência de acerto considerando que o domínio teórico apresentado à rede teve regras adicionadas (erradas) ao KBANN e compará-lo com o domínio teórico.
+\newline
+\newline
+\textbf{Descrição:}  Iniciou-se pela definição de novas regras e devido a isso há uma mudança na toptologia da RNA. As novas regras adicionadas a base inicial foram : a Rainha da mesma cor do Rei dependendo da sua posicão é considerado um cheque paralelo, um bispo pode atacar o Rei mesmo tendo outra peça a sua frente e por último, Torre da mesma cor do Rei e com peça a sua frente podendo realizar um ataque.  Devido as adições de regras, a rede ficou com um quatidade de nerônios (53 x XX x 1) por camada. 
+\newline
+\newline
+\textbf{Resultados:} A Tabela X resume os resultados obtidos no primeiro teste.
+
+\begin{table}[h]
+	\centering
+	\caption{Correspondências entre bases de conhecimento e redes neurais.}
+	\vspace{0.5cm}
+	\label{tab:parametros1}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		Técnica & Quantidade de testes & Média de acertos & Desvio padrão \\ \hline
+		Domínio teórico       & 3                   & 85\%                & ~             \\ \hline
+		KBANN       & 3                    & 99,9\%                & ~             \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\caption{Teste 1 : Falsos positivos e negativos dos neurônios.}
+	\vspace{0.5cm}
+	\label{tab:teste1Falsos}
+	\begin{tabular}{|l|l|l|}
+		\hline
+	Neurônio & Falsos positivos & Falsos negativos \\ \hline
+	MI       	& 0                 		   	& 0                          \\ \hline
+	CD      	& 1                    			& 0                            \\ \hline
+	CP       	& 0                    			& 0                           \\ \hline
+	CC       	& 0                    			& 0                           \\ \hline
+	\end{tabular}
+\end{table}
+
+\textbf{Avaliação:} Nesse teste, pode-ser observar que a rede KBANN já possui uma excelente habilidade de classificação de dados, mesmo acrescentando regras iniciais incorretas ao seu domínio teórico. Por outro lado, pode-se um já esperado aumento no erro na classificação dos dados pelo domínio teórico.
+
+\subsubsection{Antecedentes Adicionadas ao Domínio Teórico}
+
+\textbf{Objetivo :}  aaaa
+\newline 
+\newline
+\textbf{Descrição:} aaa
+\newline 
+\newline
+\textbf{Resultados:} asddsdasdas
+
+\begin{table}[h]
+	\centering
+	\caption{Correspondências entre bases de conhecimento e redes neurais.}
+	\vspace{0.5cm}
+	\label{tab:parametros2}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		Técnica & Quantidade de testes & Média de acertos & Desvio padrão \\ \hline
+		~       & ~                    & ~                & ~             \\ \hline
+		~       & ~                    & ~                & ~             \\ \hline
+		~       & ~                    & ~                & ~             \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\caption{Teste 2 : Falsos positivos e negativos dos neurônios na rede KBANN.}
+	\vspace{0.5cm}
+	\label{tab:teste2Falsos}
+	\begin{tabular}{|l|l|l|}
+		\hline
+		Neurônio & Falsos positivos & Falsos negativos \\ \hline
+		MI       	& 0                 		   	& 1                          \\ \hline
+		CD      	& 1                    			& 1                            \\ \hline
+		CP       	& 1                    			& 1                           \\ \hline
+		CC       	& 1                    			& 2                           \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\caption{Teste 2 : Falsos positivos e negativos dos neurônios na nova rede.}
+	\vspace{0.5cm}
+	\label{tab:teste2_1Falsos}
+	\begin{tabular}{|l|l|l|}
+		\hline
+		Neurônio & Falsos positivos & Falsos negativos \\ \hline
+		MI       	& ~                 		   	& ~                          \\ \hline
+		CD      	& ~                    			& ~                            \\ \hline
+		CP       	& ~                    			& ~                           \\ \hline
+		CC       	& ~                    			& ~                           \\ \hline
+	\end{tabular}
+\end{table}
+
+\textbf{Avaliação:} sdadsada
+
+\subsubsection{Regras Deletadas do Domínio Teórico}
+
+\textbf{Objetivo :}  sadsadasd
+\newline 
+\newline
+\textbf{Descrição:}  sdsadsadas
+\newline 
+\newline
+\textbf{Resultados:} sdsadsadas
+
+\begin{table}[h]
+	\centering
+	\caption{Correspondências entre bases de conhecimento e redes neurais.}
+	\vspace{0.5cm}
+	\label{tab:parametros3}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		Técnica & Quantidade de testes & Média de acertos & Desvio padrão \\ \hline
+		~       & ~                    & ~                & ~             \\ \hline
+		~       & ~                    & ~                & ~             \\ \hline
+		~       & ~                    & ~                & ~             \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\caption{Teste 3 : Falsos positivos e negativos dos neurônios.}
+	\vspace{0.5cm}
+	\label{tab:teste3Falsos}
+	\begin{tabular}{|l|l|l|}
+		\hline
+		Neurônio & Falsos positivos & Falsos negativos \\ \hline
+		~       	& ~                 		   	& ~                          \\ \hline
+		~       	& ~                    			& ~                            \\ \hline
+		~       	& ~                    			& ~                           \\ \hline
+	\end{tabular}
+\end{table}
+
+\textbf{Avaliação:}dasdsadadsadas
+
+\subsubsection{Antecedentes Deletados do Domínio Teórico}
+
+\textbf{Objetivo :} asddada
+\newline \newline
+\textbf{Descrição:} dfsdfsdfsdds
+\newline \newline
+\textbf{Parâmetros:} sdsadasdasdsa
+
+
+\textbf{Resultados:}
+
+\begin{table}[h]
+	\centering
+	\caption{Correspondências entre bases de conhecimento e redes neurais.}
+	\vspace{0.5cm}
+	\label{tab:parametros4}
+    \begin{tabular}{|l|l|l|l|}
+	\hline
+	Técnica & Quantidade de testes & Média de acertos & Desvio padrão \\ \hline
+	~       & ~                    & ~                & ~             \\ \hline
+	~       & ~                    & ~                & ~             \\ \hline
+	~       & ~                    & ~                & ~             \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\caption{Teste 4 : Falsos positivos e negativos dos neurônios.}
+	\vspace{0.5cm}
+	\label{tab:teste4Falsos}
+	\begin{tabular}{|l|l|l|}
+		\hline
+		Neurônio & Falsos positivos & Falsos negativos \\ \hline
+		~       	& ~                 		   	& ~                          \\ \hline
+		~       	& ~                    			& ~                            \\ \hline
+		~       	& ~                    			& ~                           \\ \hline
+	\end{tabular}
+\end{table}
+
+
+\textbf{Avaliação:}
+
+A RNA treinada por retropropagac?a?o e validada obteve, em me?dia, um percentual de acertos de 83,33%. Enquanto que a RNA, gerada a partir do
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Para investigar os tipos de correções em que o KBANN é eficaz, foram realizadas experiências onde pertubações foram inseridas na teoria do domínio, esse novo domínio incorreto foi apresentado a rede de KBANN para testes. As pertubações na teoria do domínio foram feitas de quatro maneiras diferentes: (a) adicionando um antecedente a uma regra, (b) removendo um antecedente de uma regra, (c) adicionando umaa regra, ou (d) removendo uma regra. Essas pertubações foram feitas de forma aleatória, desde que não implicasse na retirada de alguma conclusão final.
+Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o conseguente dessa regra é o consequente da regra procurada. Em seguida, são acrescentados de dois a quatro antecedentes, uma vez que o número de antecedentes de cada regra da base original e correta também variou de dois a quatro. Adicionamos antecedentes a regras recém-criadas e existentes selecionando aleatoriamente os conseqüentes abaixo da regra, bem como os recursos de entrada. Ao excluir regras, consideramos apenas regras cujo conseqüente não era o da conclusão final. Finalmente, quando eliminamos antecedentes, se o consequente de uma regra não aparecer na lista de antecedentes de outra regra (e não é a conclusão final), então esta regra também foi excluída. Fazemos isso porque é improvável que um especialista em domínio forneça conslusões intermediárias indefinidas em uma teoria de domínio.
+
+
+A Figura 3 mostra o erro de conjunto de teste (o erro é medido em um conjunto de exemplos não visto pelo algoritmo de aprendizagem) que resulta na perturbação do domínio de xadrez em cada uma das quatro formas apresentadas. Esse erro é a média de cinco execuções de validação cruzada. Cada validação cruzada é executada pela primeira divisão dos dados em cinco conjuntos iguais. Nas cinco iterações realizadas, um dos conjuntos é mantido de fora, enquanto os outros são utilizados para treinamento do sistema. O conjunto conjunto não utilizado inicialmente é usado para medir a performance de teste do conceito final da KBANN, dando assim uma estimativa de seu desempenho de generalização. A Figura 3a e a Figura 3b mostram que KBANN é eficaz na correcção de adições espúrias à teoria do domínio; Entretanto, as Figuras 3c e 3d que a generalização de KBANN degrada rapidamente quando regras e antecedentes são deletados da teoria do domínio. A alta taxa de erro do KBANN na Figura 3d é parcialmente devido ao fato de que quando excluímos antecedentes, também deletamos regras cujo consequente não mais apareça na lista de antecedentes das regras de anotria (a menos que fosse a conclusão final ilegal). Como ponto de comparação, 26\% das regras foram suprimidas quando 50\% dos antecedentes foram removidos. 
+
+%%%%%%%%
+
+Na Seção 2, mostramos que a generalização de KBANN sofreu quando foi dada uma teoria de domínio onde regras ou antecedentes foram excluídos da teoria correta. Nesta seção, testaremos o desempenho do TopGen nesses dois casos para ver como ele aborda essas limitações do KBANN. Para ajudar a testar a eficiência da abordagem TopGen para escolher onde adicionar nós ocultos.
+
+Nossa experiência inicial aborda a capacidade de generalização de TopGen quando dada domínio teorias que estão faltando regras ou antecedentes. A Figura 6 relata o erro do teste quando eliminamos aleatoriamente regras e antecedentes da teoria do domínio de xadrez (veja a Seção 2 para detalhes sobre como geramos essas teorias de domínio). Os resultados traçados são as médias de cinco execuções de cinco vezes a validação cruzada.
+A linha horizontal superior em cada gráfico resulta de uma rede neural totalmente conectada, de camada única, de feed-forward. Para cada dobra, treinamos várias redes contendo até 100 nós escondidos e usamos um conjunto de validação para escolher a melhor rede. Essa linha é horizontal porque as redes não usam nenhuma das teorias de domínio. A representação gráfica desta linha dá um ponto de referência para o desempenho de
+Rede neural padrão; Assim, comparações com redes neurais baseadas no conhecimento mostram a utilidade de ser capaz de explorar a teoria do domínio.
+As duas curvas seguintes em cada gráfico relatam o desempenho de Kbann e Strawman;
+Aviso Strawman produzido quase nenhuma melhoria sobre Kbann em qualquer caso. Finalmente,
+TopGen, a curva inferior em cada gráfico, teve um aumento significativo na precisão, tendo uma taxa de erro de cerca de metade da de ambos Kbann e Strawman. Como Strawman, TopGen considerou 50 redes durante sua busca.
+
+Quando 50% das regras ou antecedentes foram excluídos, os testes t de uma cola e duas amostras
+Indicam que a diferença entre TopGen e KBANN (t = 11,14 ao excluir regra,
+T = 13,54 ao eliminar antecedentes) ea diferença entre TopGen e Strawman (t = 10,93 ao eliminar regras, t = 14,78 ao eliminar antecedentes) são significativas ao nível de confiança de 99,5\%. Como ponto de comparação, quando 50\% das regras foram excluídas, TopGen adicionou 22,4 nós, em média, enquanto Strawman adicionou 22,2 nós; Quando 50\% dos antecedentes foram excluídos, TopGen adicionou 21,2 nós, enquanto Strawman adicionou 5.1 nós.
+
+Como afirmado anteriormente, é importante classificar corretamente os exemplos ao se desviar da teoria de domínio inicial o mínimo possível. Como a teoria do domínio pode ter sido indutivamente gerada a partir de experiências passadas, estamos preocupados com a distância semântica, ao invés da distância sintática, ao decidir até que ponto um algoritmo de aprendizagem se desviou da teoria do domínio inicial. Além disso, a distância sintática é difícil de medir, especialmente se o algoritmo de aprendizagem gera regras em uma forma diferente da teoria do domínio inicial. No entanto, podemos estimar a distância semântica considerando apenas os exemplos no conjunto de teste que a teoria do domínio original classifica corretamente. Erro nesses exemplos indica o quanto o algoritmo de aprendizado corrompido partes corretas da teoria do domínio.
+
+A Figura 7 mostra a precisão na porção do conjunto de teste onde a teoria do domínio original está correta. Quando a teoria de domínio inicial tem poucas regras em falta ou antecedentes (menos de 15\%), nem TopGen, Kbann, nem Strawman corromper excessivamente esta teoria de domínio, a fim de compensar essas regras em falta; No entanto, como mais regras ou antecedentes são excluídos, tanto Kbann e Strawman corromper sua teoria do domínio muito mais do que TopGen faz. Os testes-t de duas amostras, com uma cauda, indicam que o TopGen difere dos dois.
+
+
+
