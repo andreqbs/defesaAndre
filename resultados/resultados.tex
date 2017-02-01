@@ -1,13 +1,13 @@
 \mychapter{Resultados e discussão}
 \label{Cap_5}
 
-\subsection{Contextualização  do Problema}
+\section{Contextualização  do Problema}
 
-Para a realização desse trabalho, um dos grande objetivos foi ter um problema onde houvesse um especialista no assunto que pudesse conceber um conjunto inicial de regras para servir de base de aprendizado para a rede neural KBANN. Devido a dificuldade em encontrar um especialista que solucionasse essa condição inicial e essencial do trabalho, a forma encontrada para contornar esse problema, foi utilizado um jogo de tabuleiro onde se sabe como esse modelo é regido. 
+Para a realização desse trabalho, um dos grande objetivos foi ter um problema onde houvesse um especialista no assunto que pudesse conceber um conjunto inicial de regras para servir de base de aprendizado para a rede neural KBANN. Devido a dificuldade em encontrar um especialista que solucionasse essa condição inicial e essencial do trabalho, a forma encontrada para contornar esse problema, foi utilizar um jogo de tabuleiro, pois sabe-se como as regras dele são definidas.
 
-O xadrez é um jogo de tabuleiro com 64 casas brancas e pretas intercaladas e com diversas peças que representavam tropas do exército: infantaria, cavalaria, bispos, torres, rainha, e o principal de todos, o Rei. O problema em questão foi tratado da seguinte maneira : dado um tabuleiro 5x4 (ver Figura \ref{fig:xadrez}) considerando que o Rei (branco) está sempre na posição ($c1$), acompanhando de outras peças (Rainha, Bispo, Cavalo e Torre), tanto da cor oposta ao Rei, como da mesma cor e espalhadas aleatóriamente no tabuleiro. A rede neural construída tenta resolver o seguinte questionamento: é possível realizar o movimento do Rei para a casa $c2$.? O movimento será considerado legal, se ao fim dele, o Rei permanecer vivo e assim esperar um nova rodada, e é considerado ilegal caso exista alguma peça que possa finalizar com o jogo se o Rei tentar ir para a posição desejada. Utilizando como base o problema acima, serão feitos alguns testes com um domínio teórico possuindo erros para investigar os tipos de correções em que o KBANN é eficaz.
+O xadrez é um jogo de tabuleiro com 64 casas brancas e pretas intercaladas e com diversas peças que representavam tropas do exército: infantaria, cavalaria, bispos, torres, rainha, e o principal de todos, o Rei. O problema em questão foi tratado da seguinte maneira : dado um tabuleiro 5x4 ( Figura \ref{fig:xadrez}) considerando que o Rei (branco) está sempre na posição ($c1$), acompanhando de outras peças (Rainha, Bispo, Cavalo e Torre), tanto da cor oposta ao Rei, como da mesma cor e espalhadas aleatoriamente no tabuleiro. A rede neural construída tenta resolver o seguinte questionamento: é possível realizar o movimento do Rei para a casa $c2$.? O movimento será considerado legal, se ao fim dele, o Rei permanecer vivo e assim esperar um nova rodada, e é considerado ilegal caso exista alguma peça que possa finalizar o jogo, se o Rei tentar ir para a posição desejada. Utilizando como base o problema acima, serão feitos alguns testes com um domínio teórico possuindo erros para investigar os tipos de correções em que o KBANN é eficaz.
 
-As pertubações na teoria do domínio foram feitas de quatro maneiras diferentes: (a) adicionando um antecedente a uma regra, (b) removendo um antecedente de uma regra, (c) adicionando umaa regra, ou (d) removendo uma regra. Essas pertubações foram feitas de forma aleatória, desde que não implicasse na retirada de alguma conclusão final. 
+As pertubações na teoria do domínio foram feitas de quatro maneiras diferentes: (a) adicionando um antecedente a uma regra, (b) removendo um antecedente de uma regra, (c) adicionando uma regra, ou (d) removendo uma regra. Essas pertubações foram feitas de forma aleatória, desde que não implicasse na retirada de alguma conclusão final. 
 
 O objetivo desses testes é mostrar que a rede com conhecimento incompleto pode sofrer modificações na sua topologia para se ajustar aos novos aprendizados adquiridos no seu domínio inicial.
 
@@ -21,7 +21,7 @@ O objetivo desses testes é mostrar que a rede com conhecimento incompleto pode s
 
 \subsection{Formatação dos dados}
 
-As seguintes regras formatadas (\ref{fig:xadrezRegras} ) definem as configurações do tabuleiro de xadrez, para um tabuleiro 4x5 (veja a Figura \ref{fig:xadrez}), onde mover um Rei para uma "casa" a a frente é ilegal (isto é, o Rei estaria sob cheque). A formatação das regras facilita a aplicação do algoritmo de conversão por terem sua reestruturação segundo a arquitetura de uma RNA, com uma camada de entrada, duas internas e uma de saída. 
+As seguintes regras formatadas na Figura (\ref{fig:xadrezRegras}) definem as configurações do tabuleiro de xadrez, para um tabuleiro 4x5 (Figura \ref{fig:xadrez}), onde mover um Rei para uma "casa" à frente é ilegal (isto é, o Rei estaria sob cheque). A formatação das regras facilita a aplicação do algoritmo de conversão por terem sua reestruturação segundo a arquitetura de uma RNA, com uma camada de entrada, XX internas e uma de saída. 
 
 \begin{figure}[H] 
 	\begin{center}
@@ -31,32 +31,14 @@ As seguintes regras formatadas (\ref{fig:xadrezRegras} ) definem as configuraçõe
 	\end{center} 
 \end{figure}
 
-As entradas necessária para cada posição no tabuleiro são: um para os quatro tipos de peças (uma rainha, uma torre, um bispo e um cavaleiro), e um que indica a cor da peça. As réguas são divididas em três partes: (1) na verificação de cheque diagonal pela rainha ou do bispo, (2) na verificação cheque horizontal ou vertical por uma rainha ou pela torre, e (3) na verificação cheque por um cavalo. Algumas regras exigem um espaço vazio entre a posição de uma peça e a posição $c2$ (onde o jogador quer mover o Rei). Por exemplo, se uma rainha da cor oposta estiver na posição $c4$, então o espaço $c3$ deve estar vazio para poder pôr o Rei sob cheque.
-
-
-TABELA
+As entradas necessárias para cada posição no tabuleiro são: um para os quatro tipos de peças (uma rainha, uma torre, um bispo e um cavaleiro), e um que indica a cor da peça. As réguas são divididas em três partes: (1) na verificação de cheque diagonal pela rainha ou do bispo, (2) na verificação cheque horizontal ou vertical por uma rainha ou pela torre, e (3) na verificação cheque por um cavalo. Algumas regras exigem um espaço vazio entre a posição de uma peça e a posição $c2$ (onde o jogador quer mover o Rei). Por exemplo, se uma rainha da cor oposta estiver na posição $c4$, então o espaço $c3$ deve estar vazio para poder colocar o Rei sob cheque.
 
 Os antecedentes da regra representam o primeiro nível da rede, onde estão a posição das peças e suas respectiva cor. Nele cada agrupamento pode ser visto como uma única entrada, contendo todos os dados necessários. As entradas de cada exemplo do arquivo foram guaradas em grupos de quatro entradas binárias, correspondendo as peças "Rainha,  Bispo, Cavalo e Torre" e outras 2 entradas correspondentes a cor e a espaços vazios. As seguintes quantidades de entradas foram: 12 para a Rainha, 6 para o Bispo, 6 para o Cavalo, 6 para a Torre, 18 para cor oposta e 5 para casas vazias, totalizando 53 entradas binárias. A multiplicação do conjunto de exemplos (100 exemplos) pelo número de entradas binárias gerou matriz de entrada de dados para a RNA.
 
 FIGURA
 
-Alguns dos testes aplicados utilizaram a RNA contendo três camadas (53xXXx1) (ver Figura X), mas essa distribuição dos neurônios variou durante os testes. O número de conexões entre a primeira e a segunda camada totalizou XX sinapses . O número de neurônios internos XX  equivale ao número de regras constituídas diretamente por peças, conforme a Tabela XX. As conexões entre a camada interna e a camada de saída são 18, visto que o resultado  nal é representado apenas por um neurônio na última camada (ilegal ou não).
-A Tabela XX descreve os parâmetros mais importantes utilizados durante os testes.
-
-\begin{table}[h]
-	\centering
-	\caption{Regras que regem o domínio do jogo.}
-	\vspace{0.5cm}
-	\label{tab:regras}
-	\begin{tabular}{|l|l|l|l|}
-		\hline
-		Consequente & Antecedentes 		 \\ \hline
-		Movimento Ilegal       & Cheque diagonal      \\ \hline
-		Movimento Ilegal        & Cheque paralelo       \\ \hline
-		Movimento Ilegal        & Cheque cavalo       \\ \hline
-		Cheque diagonal       & Cheque cavalo       \\ \hline
-	\end{tabular}
-\end{table}
+Alguns dos testes aplicados utilizaram uma RNA contendo três camadas (53xXXx1) (Figura X), mas essa distribuição dos neurônios sofreu variações durante os testes. O número de conexões entre a primeira e a segunda camada totalizou XX sinapses . O número de neurônios internos XX  equivale ao número de regras constituídas diretamente por peças, conforme a Figura \ref{fig:xadrezRegras}. As conexões entre a camada interna e a camada de saída são XX, visto que o resultado final é representado apenas por um neurônio na última camada (ilegal ou não).
+A Tabela \ref{tab:nomeclatura} descreve os neurônios que serão monitarados durante os testes.
 
 \begin{table}[h]
 	\centering
@@ -68,24 +50,24 @@ A Tabela XX descreve os parâmetros mais importantes utilizados durante os testes
 		Neurônio & Descrição 		 \\ \hline
 		MI       & Movimento ilegal       \\ \hline
 		CD       & Cheque diagonal       \\ \hline
-    	CP       & Cheque paralelo       \\ \hline
+		CP       & Cheque paralelo       \\ \hline
 		CC       & Cheque cavalo       \\ \hline
 	\end{tabular}
 \end{table}
 
 \subsection{Testes realizados para o reconhecimento de movimentos ilegais}
 
-Os quatros testes executados no trabalho inicial e detalhados no texto desta Subseção são: (1) Teste de Regras Adicionadas ao Domínio Teórico. (2) Antecedentes Adicionadas ao Domínio Teórico. (3) Regras Deletadas do Domínio Teórico. (4) Antecedentes Deletados do Domínio Teórico. Conforme essa sequência de testes, serão informados o objetivo, a descrição, os parâmetros utilizados, os resultados obtidos, assim como a avaliação, referente a cada teste.
+Os quatros testes executados no trabalho inicial e detalhados no texto desta Subseção são: (1) Teste de Regras Adicionadas ao Domínio Teórico. (2) Antecedentes Adicionadas ao Domínio Teórico. (3) Regras Deletadas do Domínio Teórico. (4) Antecedentes Deletados do Domínio Teórico. Conforme essa sequência de testes, serão informados o objetivo, a descrição, os parâmetros utilizados, os resultados obtidos, assim como a avaliação, referente a cada teste. Na Tabela \ref{tab:nomeclatura} estão os principais neurônios que terão suas saídas monitoradas para os tests realizados acima.
 
-\subsubsection{Regras Adicionadas ao Domínio Teórico}
+\subsection{Regras Adicionadas ao Domínio Teórico}
 
-Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o conseguente dessa regra é o consequente da uma outra regra já existen no domínio teórico. Em seguida, são acrescentados de dois a quatro antecedentes, uma vez que o número de antecedentes de cada regra da base original e correta também variou de dois a quatro.
+Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o consequente dessa regra é o consequente da uma outra regra já existen no domínio teórico. Em seguida, são acrescentados de dois a quatro antecedentes, uma vez que o número de antecedentes de cada regra da base original e correta também variou de dois a quatro.
 \newline
 \newline
-\textbf{Objetivo :}  Verificar a frequência de acerto considerando que o domínio teórico apresentado à rede teve regras adicionadas (erradas) ao KBANN e compará-lo com o domínio teórico.
+\textbf{Objetivo:}  Verificar a frequência de acerto considerando que o domínio teórico apresentado à rede teve regras adicionadas (erradas) ao KBANN e compará-lo com o domínio teórico.
 \newline
 \newline
-\textbf{Descrição:}  Iniciou-se pela definição de novas regras e devido a isso há uma mudança na toptologia da RNA. As novas regras adicionadas a base inicial foram : a Rainha da mesma cor do Rei dependendo da sua posicão é considerado um cheque paralelo, um bispo pode atacar o Rei mesmo tendo outra peça a sua frente e por último, Torre da mesma cor do Rei e com peça a sua frente podendo realizar um ataque.  Devido as adições de regras, a rede ficou com um quatidade de nerônios (53 x XX x 1) por camada. 
+\textbf{Descrição:}  Iniciou-se pela definição de novas regras e devido a isso há uma mudança na toptologia da RNA. As novas regras adicionadas a base inicial foram : a Rainha da mesma cor do Rei dependendo da sua posicão é considerado um cheque paralelo, um bispo pode atacar o Rei mesmo tendo outra peça a sua frente e por último, Torre da mesma cor do Rei e com peça a sua frente podendo realizar um ataque.  Devido as adições de regras, a rede ficou com um quantidade de nerônios (53 x XX x 1) por camada. 
 \newline
 \newline
 \textbf{Resultados:} A Tabela X resume os resultados obtidos no primeiro teste.
@@ -120,29 +102,15 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 
 \textbf{Avaliação:} Nesse teste, pode-ser observar que a rede KBANN já possui uma excelente habilidade de classificação de dados, mesmo acrescentando regras iniciais incorretas ao seu domínio teórico. Por outro lado, pode-se um já esperado aumento no erro na classificação dos dados pelo domínio teórico.
 
-\subsubsection{Antecedentes Adicionadas ao Domínio Teórico}
+\subsection{Antecedentes Adicionadas ao Domínio Teórico}
 
-\textbf{Objetivo :}  Na segunda forma de avaliação do programa desenvolvido, foi atribuidos de forma aletória antecedentes a regras já estabelecidas no domínio completo, verificando se a rede KBANN precisa de algum tipo de ajuste e compará-lo com o domínio teórico.
+\textbf{Objetivo :}  Na segunda forma de avaliação do programa desenvolvido, foram atribuidos de forma aletória antecedentes a regras já estabelecidas no domínio completo, verificando se a rede KBANN precisa de algum tipo de ajuste e compará-lo com o domínio teórico.
 \newline 
 \newline
-\textbf{Descrição:} Para esse teste as entradas já conhecidas foram conectadas a outras conlusões intemediárias de forma proporcional. Exemplificando, 5\% das entradas ou, 3 entradas já existentes foram conectadas a outras conclusões intermediárias de forma a pertubar o domínio original. As outros testes com, 15\% e 25\% também foram realizados.
+\textbf{Descrição:} Para esse teste as entradas já conhecidas foram conectadas a outras conclusões intemediárias de forma proporcional. Exemplificando, 5\% das entradas ou, 3 entradas já existentes foram conectadas a outras conclusões intermediárias de forma a pertubar o domínio original. As outros testes com, 15\% e 25\% também foram realizados.
 \newline 
 \newline
-\textbf{Resultados:}  A Tabela X resume os resultados obtidos no segundo teste.
-
-\begin{table}[h]
-	\centering
-	\caption{Correspondências entre bases de conhecimento e redes neurais.}
-	\vspace{0.5cm}
-	\label{tab:parametros2}
-	\begin{tabular}{|l|l|l|l|}
-		\hline
-		Técnica & Quantidade de testes & Média de acertos & Desvio padrão \\ \hline
-		~       & ~                    & ~                & ~             \\ \hline
-		~       & ~                    & ~                & ~             \\ \hline
-		~       & ~                    & ~                & ~             \\ \hline
-	\end{tabular}
-\end{table}
+\textbf{Resultados:}  A Tabela \ref{tab:parametros2} resume os resultados obtidos no segundo teste.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -175,117 +143,200 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 	\begin{tabular}{|l|l|l|}
 		\hline
 		Neurônio & Falsos positivos & Falsos negativos \\ \hline
-		MI       	& ~                 		   	& ~                          \\ \hline
-		CD      	& ~                    			& ~                            \\ \hline
-		CP       	& ~                    			& ~                           \\ \hline
-		CC       	& ~                    			& ~                           \\ \hline
+	MI       	& 0                 		   	& 1                          \\ \hline
+	CD      	& 1                    			& 1                            \\ \hline
+	CP       	& 1                    			& 1                           \\ \hline
+	CC       	& 1                    			& 2                           \\ \hline
 	\end{tabular}
 \end{table}
 
 \textbf{Avaliação:} sdadsada
 
-\subsubsection{Regras Deletadas do Domínio Teórico}
+\subsection{Regras Deletadas do Domínio Teórico}
 
 \textbf{Objetivo :}  Realizar uma comparação entre uma rede neural padrão, a rede KBANN e o TopGen quando o domínio teórico sofre a pertubação de perda de regras.
 \newline 
 \newline
-\textbf{Descrição:}  Esse teste foi realizado 3 vezes utilizando cada técnica para gerar o gráfico da taxa de acerto x quantidade de regras deletadas.
+\textbf{Descrição:}  A retirada das regras para esse teste, foi feita de forma aleatória, obedecendo apenas a condição de não remover uma conclusão intermediária ou final do problema. Sendo assim, pelo menos uma regra deve existir para os neurônios CD, CP, CC e MI. O terceiro teste foi executado apenas uma vez.
 \newline 
 \newline
-\textbf{Resultados:} A Tabela \ref{tab:parametros3} e a Figura \ref{fig:regrasDeletadas} resume os resultados obtidos no terceiro teste.
+\textbf{Resultados:} As tabelas abaixo e a Figura \ref{fig:regrasDeletadas} resumem os resultados obtidos no terceiro teste.
+
+\begin{table}[h]
+	\centering
+	\caption{Teste 3 : Falsos positivos e negativos dos neurônios, quando retirado 10\% da regras.}
+	\vspace{0.5cm}
+	\label{tab:teste3Falsos10}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Neurônios\\ / Técnica\end{tabular}} & \multicolumn{2}{c|}{MI} & \multicolumn{2}{c|}{CD} & \multicolumn{2}{c|}{CP} & \multicolumn{2}{c|}{CC} \\ \cline{2-9} 
+		& \multicolumn{8}{c|}{10\%}                                                                             \\ \hline
+		& FP         & FN         & FP         & FN         & FP         & FN         & FP         & FN         \\ \hline
+		KBANN                                                                          & 8          & 9          & 9          & 9          & 9          & 9          & 9          & 9          \\ \hline
+		TopGen                                                                         & 9          & 9          & 9          & 9          & 9          & 9          & 9          & 9          \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\caption{Teste 3 : Falsos positivos e negativos dos neurônios, quando retirado 20\% da regras.}
+	\vspace{0.5cm}
+	\label{tab:teste3Falsos20}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Neurônios\\ / Técnica\end{tabular}} & \multicolumn{2}{c|}{MI} & \multicolumn{2}{c|}{CD} & \multicolumn{2}{c|}{CP} & \multicolumn{2}{c|}{CC} \\ \cline{2-9} 
+		& \multicolumn{8}{c|}{20\%}                                                                             \\ \hline
+		& FP         & FN         & FP         & FN         & FP         & FN         & FP         & FN         \\ \hline
+		KBANN                                                                          & 8          & 9          & 9          & 9          & 9          & 9          & 9          & 9          \\ \hline
+		TopGen                                                                         & 9          & 9          & 9          & 9          & 9          & 9          & 9          & 9          \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\caption{Teste 3 : Falsos positivos e negativos dos neurônios, quando retirado 30\% da regras.}
+	\vspace{0.5cm}
+	\label{tab:teste3Falsos30}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Neurônios\\ / Técnica\end{tabular}} & \multicolumn{2}{c|}{MI} & \multicolumn{2}{c|}{CD} & \multicolumn{2}{c|}{CP} & \multicolumn{2}{c|}{CC} \\ \cline{2-9} 
+		& \multicolumn{8}{c|}{30\%}                                                                             \\ \hline
+		& FP         & FN         & FP         & FN         & FP         & FN         & FP         & FN         \\ \hline
+		KBANN                                                                          & 8          & 9          & 9          & 9          & 9          & 9          & 9          & 9          \\ \hline
+		TopGen                                                                         & 9          & 9          & 9          & 9          & 9          & 9          & 9          & 9          \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\caption{Teste 3 : Falsos positivos e negativos dos neurônios, quando retirado 40\% da regras.}
+	\vspace{0.5cm}
+	\label{tab:teste3Falsos40}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Neurônios\\ / Técnica\end{tabular}} & \multicolumn{2}{c|}{MI} & \multicolumn{2}{c|}{CD} & \multicolumn{2}{c|}{CP} & \multicolumn{2}{c|}{CC} \\ \cline{2-9} 
+		& \multicolumn{8}{c|}{40\%}                                                                             \\ \hline
+		& FP         & FN         & FP         & FN         & FP         & FN         & FP         & FN         \\ \hline
+		KBANN                                                                          & 8          & 9          & 9          & 9          & 9          & 9          & 9          & 9          \\ \hline
+		TopGen                                                                         & 9          & 9          & 9          & 9          & 9          & 9          & 9          & 9          \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\caption{Teste 3 : Falsos positivos e negativos dos neurônios, quando retirado 50\% da regras.}
+	\vspace{0.5cm}
+	\label{tab:teste3Falsos50}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Neurônios\\ / Técnica\end{tabular}} & \multicolumn{2}{c|}{MI} & \multicolumn{2}{c|}{CD} & \multicolumn{2}{c|}{CP} & \multicolumn{2}{c|}{CC} \\ \cline{2-9} 
+		& \multicolumn{8}{c|}{50\%}                                                                             \\ \hline
+		& FP         & FN         & FP         & FN         & FP         & FN         & FP         & FN         \\ \hline
+		KBANN                                                                          & 8          & 9          & 9          & 9          & 9          & 9          & 9          & 9          \\ \hline
+		TopGen                                                                         & 9          & 9          & 9          & 9          & 9          & 9          & 9          & 9          \\ \hline
+	\end{tabular}
+\end{table}
 
 \begin{figure}[H] 
 	\begin{center}
-		\caption{Porcetagem de acerto x }
+		\caption{Porcetagem de erros x retirada de regras}
 		\includegraphics[scale=0.5]{imagens/regrasDeletadas.png}
 		\label{fig:regrasDeletadas}
 	\end{center} 
 \end{figure}
 
+\textbf{Avaliação:} Pode-se observar que a rede KBANN já não consegue desempenhar um bom papel quando são retiradas regras do seu domínio. Em todos seus neurônios de conclusões intermediárias e conclusão final tiveram erros de falsos positivos e negativos, sendo assim, teve que ser necessário utilizar o TopGen para realizar um possivel aprendizado e adicioná-lo a rede neural. Como pode ser visto, o TopGen, gerou resultados bastante interessantes diminuindo consideravelmente o erro. Enquanto isso, a rede MLP gerou erros bem altos, com uma na média de 17\% de erro.
 
-\begin{table}[h]
-	\centering
-	\caption{Correspondências entre bases de conhecimento e redes neurais.}
-	\vspace{0.5cm}
-	\label{tab:parametros3}
-	\begin{tabular}{|l|l|l|l|}
-		\hline
-		Técnica & Quantidade de testes & Média de acertos & Desvio padrão \\ \hline
-		~       & ~                    & ~                & ~             \\ \hline
-		~       & ~                    & ~                & ~             \\ \hline
-		~       & ~                    & ~                & ~             \\ \hline
-	\end{tabular}
-\end{table}
+\subsection{Antecedentes Deletados do Domínio Teórico}
 
-\begin{table}[h]
-	\centering
-	\caption{Teste 3 : Falsos positivos e negativos dos neurônios.}
-	\vspace{0.5cm}
-	\label{tab:teste3Falsos}
-	\begin{tabular}{|l|l|l|}
-		\hline
-		Neurônio & Falsos positivos & Falsos negativos \\ \hline
-		~       	& ~                 		   	& ~                          \\ \hline
-		~       	& ~                    			& ~                            \\ \hline
-		~       	& ~                    			& ~                           \\ \hline
-	\end{tabular}
-\end{table}
-
-\textbf{Avaliação:} Pode-se observar que a rede KBANN já não consegue desempenhar um bom papel quando são retiradas regras do seu domínio. Em todos seus neurônios de conclusões intermediárias e conclusão final tiveram erros de falsos positivos e negativos, sendo assim, teve que ser necessário utilizar o TopGen para realizar um possivel aprendizado e adicioná-lo a rede neural. Como pode ser visto, o TopGen, gerou resultados bastante interessantes diminuindo consideravelmente o erro. Enquanto isso, a rede MLP gerou erros bem altos, na média de 17%.
-
-\subsubsection{Antecedentes Deletados do Domínio Teórico}
-
-\textbf{Objetivo :} asddada
+\textbf{Objetivo :} Realizar uma comparação entre uma rede neural padrão, a rede KBANN e o TopGen quando o domínio teórico sofre a pertubação de perda de antecedentes nas regras.
 \newline \newline
-\textbf{Descrição:} dfsdfsdfsdds
-\newline \newline
-\textbf{Parâmetros:} sdsadasdasdsa
-
-
-\textbf{Resultados:} A Tabela X resume os resultados obtidos no último teste.
-
-\begin{figure}[H] 
-	\begin{center}
-		\caption{Porcetagem de acerto x }
-		\includegraphics[scale=0.5]{imagens/antecedenteDeletados.png}
-		\label{fig:antecedenteDeletados}
-	\end{center} 
-\end{figure}
+\textbf{Descrição:} A retirada dos antecedentes para esse teste, foi feita de forma aleatória, mas obedecendo a condição que um nerônio intermediário não pode ficar sem nenhuma ligação ativa com neurônios da camada anterior. Como as regras normalmente tinham entre 2 a 4 antecedentes, foi mantido pelo menos metade dos antecedentes que a aquela regra possuía originalmente.
+\newline 
+\newline
+\textbf{Resultados:} As tabelas abaixo e Figura \ref{fig:antecedenteDeletados} resumem os resultados obtidos no último teste.
 
 \begin{table}[h]
 	\centering
-	\caption{Correspondências entre bases de conhecimento e redes neurais.}
+	\caption{Teste 4 : Falsos positivos e negativos dos neurônios, quando retirado 10\% dos antecendetes das regras.}
 	\vspace{0.5cm}
-	\label{tab:parametros4}
-    \begin{tabular}{|l|l|l|l|}
+	\label{tab:teste4Falsos10}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 	\hline
-	Técnica & Quantidade de testes & Média de acertos & Desvio padrão \\ \hline
-	~       & ~                    & ~                & ~             \\ \hline
-	~       & ~                    & ~                & ~             \\ \hline
-	~       & ~                    & ~                & ~             \\ \hline
+	\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Neurônios\\ / Técnica\end{tabular}} & \multicolumn{2}{c|}{MI} & \multicolumn{2}{c|}{CD} & \multicolumn{2}{c|}{CP} & \multicolumn{2}{c|}{CC} \\ \cline{2-9} 
+	& \multicolumn{8}{c|}{10\%}                                                                             \\ \hline
+	& FP         & FN         & FP         & FN         & FP         & FN         & FP         & FN         \\ \hline
+	KBANN                                                                          & 8          & 9          & 9          & 9          & 9          & 9          & 9          & 9          \\ \hline
+	TopGen                                                                         & 9          & 9          & 9          & 9          & 9          & 9          & 9          & 9          \\ \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[h]
 	\centering
-	\caption{Teste 4 : Falsos positivos e negativos dos neurônios.}
+	\caption{Teste 4 : Falsos positivos e negativos dos neurônios, quando retirado 20\% dos antecendetes das regras.}
 	\vspace{0.5cm}
-	\label{tab:teste4Falsos}
-	\begin{tabular}{|l|l|l|}
+	\label{tab:teste4Falsos20}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 		\hline
-		Neurônio & Falsos positivos & Falsos negativos \\ \hline
-		~       	& ~                 		   	& ~                          \\ \hline
-		~       	& ~                    			& ~                            \\ \hline
-		~       	& ~                    			& ~                           \\ \hline
+		\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Neurônios\\ / Técnica\end{tabular}} & \multicolumn{2}{c|}{MI} & \multicolumn{2}{c|}{CD} & \multicolumn{2}{c|}{CP} & \multicolumn{2}{c|}{CC} \\ \cline{2-9} 
+		& \multicolumn{8}{c|}{20\%}                                                                             \\ \hline
+		& FP         & FN         & FP         & FN         & FP         & FN         & FP         & FN         \\ \hline
+		KBANN                                                                          & 8          & 9          & 9          & 9          & 9          & 9          & 9          & 9          \\ \hline
+		TopGen                                                                         & 9          & 9          & 9          & 9          & 9          & 9          & 9          & 9          \\ \hline
 	\end{tabular}
 \end{table}
 
+\begin{table}[h]
+	\centering
+	\caption{Teste 4 : Falsos positivos e negativos dos neurônios, quando retirado 30\% dos antecendetes das regras.}
+	\vspace{0.5cm}
+	\label{tab:teste4Falsos30}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Neurônios\\ / Técnica\end{tabular}} & \multicolumn{2}{c|}{MI} & \multicolumn{2}{c|}{CD} & \multicolumn{2}{c|}{CP} & \multicolumn{2}{c|}{CC} \\ \cline{2-9} 
+		& \multicolumn{8}{c|}{30\%}                                                                             \\ \hline
+		& FP         & FN         & FP         & FN         & FP         & FN         & FP         & FN         \\ \hline
+		KBANN                                                                          & 8          & 9          & 9          & 9          & 9          & 9          & 9          & 9          \\ \hline
+		TopGen                                                                         & 9          & 9          & 9          & 9          & 9          & 9          & 9          & 9          \\ \hline
+	\end{tabular}
+\end{table}
 
-\textbf{Avaliação:}
+\begin{table}[h]
+	\centering
+	\caption{Teste 4 : Falsos positivos e negativos dos neurônios, quando retirado 40\% dos antecendetes das regras.}
+	\vspace{0.5cm}
+	\label{tab:teste4Falsos40}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Neurônios\\ / Técnica\end{tabular}} & \multicolumn{2}{c|}{MI} & \multicolumn{2}{c|}{CD} & \multicolumn{2}{c|}{CP} & \multicolumn{2}{c|}{CC} \\ \cline{2-9} 
+		& \multicolumn{8}{c|}{40\%}                                                                             \\ \hline
+		& FP         & FN         & FP         & FN         & FP         & FN         & FP         & FN         \\ \hline
+		KBANN                                                                          & 8          & 9          & 9          & 9          & 9          & 9          & 9          & 9          \\ \hline
+		TopGen                                                                         & 9          & 9          & 9          & 9          & 9          & 9          & 9          & 9          \\ \hline
+	\end{tabular}
+\end{table}
 
-A RNA treinada por retropropagac?a?o e validada obteve, em me?dia, um percentual de acertos de 83,33%. Enquanto que a RNA, gerada a partir do
+\begin{table}[h]
+	\centering
+	\caption{Teste 4 : Falsos positivos e negativos dos neurônios, quando retirado 50\% dos antecendetes das regras.}
+	\vspace{0.5cm}
+	\label{tab:teste4Falsos50}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Neurônios\\ / Técnica\end{tabular}} & \multicolumn{2}{c|}{MI} & \multicolumn{2}{c|}{CD} & \multicolumn{2}{c|}{CP} & \multicolumn{2}{c|}{CC} \\ \cline{2-9} 
+		& \multicolumn{8}{c|}{50\%}                                                                             \\ \hline
+		& FP         & FN         & FP         & FN         & FP         & FN         & FP         & FN         \\ \hline
+		KBANN                                                                          & 8          & 9          & 9          & 9          & 9          & 9          & 9          & 9          \\ \hline
+		TopGen                                                                         & 9          & 9          & 9          & 9          & 9          & 9          & 9          & 9          \\ \hline
+	\end{tabular}
+\end{table}
 
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Porcetagem de erros x retirada de antecedentes}
+		\includegraphics[scale=0.5]{imagens/antecedenteDeletados.png}
+		\label{fig:antecedenteDeletados}
+	\end{center} 
+\end{figure}
 
-
-
-
+\textbf{Avaliação:}  Dá mesma forma que aconteceu no caso anterior, a rede MLP obteve um erro médio de 17\% nas classificações dos dados de entrada. Para o KBANN a remoção de antecedentes se mostrou pior do que a remoção de uma regra completa, isso se dar porque, no caso anterior as demais regras conseguem ajustar os pesos de uma forma que a falta de uma ou mais ainda não gera tantos erros em saídas intermediárias ou finais. De acordo com o gráfico gerado, o KBANN em seu pior caso teve 14\% de erro, enquanto o TopGen se mostrou novamente mais eficaz e gerou uma rede capaz de classificar melhor os dados do que seus concorrentes.
