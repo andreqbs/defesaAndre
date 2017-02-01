@@ -1,32 +1,64 @@
 \select@language {brazil}
 \contentsline {chapter}{Sum\'ario}{i}
 \contentsline {chapter}{Lista de Figuras}{iii}
-\contentsline {chapter}{Lista de Tabelas}{iv}
+\contentsline {chapter}{Lista de Tabelas}{v}
 \contentsline {chapter}{\numberline {1}Introdu\c c\~ao}{1}
-\contentsline {section}{\numberline {1.1}Motiva\c c\~ao}{3}
-\contentsline {section}{\numberline {1.2}Proposta, contribui\c c\~oes e objetivos}{3}
+\contentsline {section}{\numberline {1.1}Motiva\c c\~ao}{2}
+\contentsline {section}{\numberline {1.2}Objetivos}{3}
 \contentsline {section}{\numberline {1.3}Organiza\c c\~ao do trabalho}{3}
 \contentsline {chapter}{Lista de S\IeC {\'\i }mbolos e Abreviaturas}{1}
 \contentsline {chapter}{\numberline {2}Fundamenta\c c\~ao Te\'orica}{5}
 \contentsline {section}{\numberline {2.1}Intelig\^encia Artificial Simb\'olica}{5}
-\contentsline {subsection}{\numberline {2.1.1}Representa\c c\~ao simb\'olica do conhecimento}{6}
-\contentsline {subsection}{\numberline {2.1.2}Problemas da Intelig\^encia Artificial Simb\'olica}{9}
-\contentsline {section}{\numberline {2.2}Redes Neurais Artificiais (RNA)}{10}
-\contentsline {subsection}{\numberline {2.2.1}Redes MLP}{13}
-\contentsline {subsection}{\numberline {2.2.2}Estrutura de uma MLP}{14}
-\contentsline {subsection}{\numberline {2.2.3}Informa\c c\~ao processada por um Neur\^onio}{16}
-\contentsline {subsection}{\numberline {2.2.4}Fun\c c\~oes de ativa\c c\~ao}{16}
-\contentsline {subsection}{\numberline {2.2.5}Algoritmo \emph {Backpropagation}}{17}
-\contentsline {subsection}{\numberline {2.2.6}Processo de Treinamento}{18}
-\contentsline {section}{\numberline {2.3}Sistemas H\IeC {\'\i }bridos}{23}
-\contentsline {section}{\numberline {2.4}Knowledge-based Artificial Neural Networks (KBANN)}{24}
-\contentsline {subsection}{\numberline {2.4.1}Inser\c c\~ao de Conhecimento em uma RNA}{24}
-\contentsline {subsection}{\numberline {2.4.2}Algoritmo de Tradu\c c\~ao de Regras}{25}
-\contentsline {subsection}{\numberline {2.4.3}Exemplo do algoritmo}{27}
-\contentsline {section}{\numberline {2.5}Top-Gen}{28}
-\contentsline {subsection}{\numberline {2.5.1}Localiza\c c\~ao de novos Neur\^onios}{28}
-\contentsline {subsection}{\numberline {2.5.2}Como novos Neur\^onios s\~ao Adicionados}{29}
-\contentsline {subsection}{\numberline {2.5.3}Exemplo do TopGen}{30}
-\contentsline {chapter}{\numberline {3}Metodologia}{31}
-\contentsline {chapter}{\numberline {4}Resultados e discuss\~ao}{32}
-\contentsline {chapter}{\numberline {5}Conclus\~ao}{33}
+\contentsline {subsection}{\numberline {2.1.1}Representa\c c\~ao Simb\'olica do Conhecimento}{6}
+\contentsline {subsection}{\numberline {2.1.2}Formata\c c\~ao dos dados}{9}
+\contentsline {subsection}{\numberline {2.1.3}Cl\'assulas Horn}{9}
+\contentsline {subsection}{\numberline {2.1.4}Prolog}{10}
+\contentsline {subsubsection}{Tipos de Dados}{10}
+\contentsline {subsubsection}{Regras e Fatos}{10}
+\contentsline {subsection}{\numberline {2.1.5}Problemas da Intelig\^encia Artificial Simb\'olica}{11}
+\contentsline {section}{\numberline {2.2}Redes Neurais Artificiais (RNA)}{13}
+\contentsline {subsection}{\numberline {2.2.1}Redes MLP}{16}
+\contentsline {subsection}{\numberline {2.2.2}Caracter\IeC {\'\i }sticas de uma MLP}{17}
+\contentsline {subsection}{\numberline {2.2.3}Fun\c c\~oes de ativa\c c\~ao}{19}
+\contentsline {subsection}{\numberline {2.2.4}Algoritmo \emph {Backpropagation}}{21}
+\contentsline {subsection}{\numberline {2.2.5}Processo de Treinamento}{22}
+\contentsline {section}{\numberline {2.3}Sistemas H\IeC {\'\i }bridos}{28}
+\contentsline {section}{\numberline {2.4}Knowledge-based Artificial Neural Networks (KBANN)}{29}
+\contentsline {subsection}{\numberline {2.4.1}Inser\c c\~ao de Conhecimento em uma RNA}{29}
+\contentsline {subsection}{\numberline {2.4.2}Algoritmo de Tradu\c c\~ao de Regras}{30}
+\contentsline {subsection}{\numberline {2.4.3}Exemplo do algoritmo}{32}
+\contentsline {section}{\numberline {2.5}Top-Gen}{34}
+\contentsline {subsection}{\numberline {2.5.1}Localiza\c c\~ao de Novos Neur\^onios}{34}
+\contentsline {subsection}{\numberline {2.5.2}Como Novos Neur\^onios s\~ao Adicionados}{35}
+\contentsline {subsection}{\numberline {2.5.3}Exemplo do TopGen}{37}
+\contentsline {chapter}{\numberline {3}Metodologia}{39}
+\contentsline {section}{\numberline {3.1}Estudo e Desenvolvimento Inicial}{39}
+\contentsline {subsection}{\numberline {3.1.1}Recursos e Estrat\'egias Utilizadas no Desenvolvimento}{39}
+\contentsline {subsection}{\numberline {3.1.2}Etapas do Desenvolvimento}{40}
+\contentsline {subsection}{\numberline {3.1.3}Implementa\c c\~oes Preliminares}{41}
+\contentsline {subsubsection}{Leitura de Dados Simb\'olicos}{41}
+\contentsline {subsubsection}{Redes Neurais Artificiais simples}{43}
+\contentsline {subsection}{\numberline {3.1.4}O Sistema Desenvolvido}{43}
+\contentsline {subsection}{\numberline {3.1.5}Aspectos Internos do Sistema}{44}
+\contentsline {subsubsection}{Classes que Comp\~oem o Programa}{44}
+\contentsline {subsubsection}{Casos de Uso Previstos}{45}
+\contentsline {subsubsection}{Sequ\^encia de Eventos}{45}
+\contentsline {subsubsection}{Processos do Sistema}{46}
+\contentsline {subsection}{\numberline {3.1.6}Descri\c c\~ao da Interface}{47}
+\contentsline {subsubsection}{Painel de Edi\c c\~ao}{48}
+\contentsline {subsubsection}{Barra do Menu}{48}
+\contentsline {subsubsection}{Menu Lateral}{48}
+\contentsline {subsection}{\numberline {3.1.7}Considera\c c\~oes sobre as implementa\c c\~oes}{49}
+\contentsline {subsection}{\numberline {3.1.8}Testes do Sistema}{49}
+\contentsline {chapter}{\numberline {4}Resultados e discuss\~ao}{55}
+\contentsline {section}{\numberline {4.1}Contextualiza\c c\~ao do Problema}{55}
+\contentsline {subsection}{\numberline {4.1.1}Formata\c c\~ao dos dados}{56}
+\contentsline {subsection}{\numberline {4.1.2}Testes realizados para o reconhecimento de movimentos ilegais}{58}
+\contentsline {subsection}{\numberline {4.1.3}Regras Adicionadas ao Dom\IeC {\'\i }nio Te\'orico}{58}
+\contentsline {subsection}{\numberline {4.1.4}Antecedentes Adicionadas ao Dom\IeC {\'\i }nio Te\'orico}{60}
+\contentsline {subsection}{\numberline {4.1.5}Regras Deletadas do Dom\IeC {\'\i }nio Te\'orico}{62}
+\contentsline {subsection}{\numberline {4.1.6}Antecedentes Deletados do Dom\IeC {\'\i }nio Te\'orico}{64}
+\contentsline {chapter}{\numberline {5}Introdu\c c\~ao}{68}
+\contentsline {section}{\numberline {5.1}Motiva\c c\~ao}{69}
+\contentsline {section}{\numberline {5.2}Objetivos}{70}
+\contentsline {section}{\numberline {5.3}Organiza\c c\~ao do trabalho}{70}

@@ -45,7 +45,6 @@
 % Use a segunda opção se quiser incluir na definição do símbolo a
 % página e/ou a equação onde ela foi definida
 %\usepackage[portuguese,noprefix]{nomencl}
-\usepackage{nomencl}
 % Glossário --------------------------------------------------------------------
 \usepackage{makeglo}
 %\usepackage[portuguese,noprefix,refeq,refpage]{nomencl}
@@ -172,23 +171,6 @@
 %\Glossary{FDI}{\emph{Fault Detection and Identification}}
 
 
-% Lista de arquivos a serem processados. Estes comandos "includeonly" são
-% dispensáveis e devem obrigatoriamente ser comentados na hora de gerar o
-% documento definitivo. Eles servem para compilar apenas parte do documento.
-% É útil, durante a redação, para que não se tenha de compilar todo o
-% documento a cada vez que se faz uma alteração. Por exemplo, se eu estou
-% fazendo alterações na dedicatória e as outras partes não têm interesse no
-% momento, posso incluir (descomentar) a linha "\includeonly{preambulo}"
-%\includeonly{rosto}
-%\includeonly{catalograficos}
-%\includeonly{preambulo}
-%\includeonly{resumos}
-%\includeonly{introducao/introducao}
-%\includeonly{estilo/estilo}
-%\includeonly{matematica/matematica}
-%\includeonly{figuras/figuras}
-%\includeonly{conclusao/conclusao}
-%\includeonly{apendice/apendice}
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{longtable}
@@ -267,10 +249,6 @@
 \mainmatter
 \pagestyle{headings}
 
-% Para facilitar a organização, foi criado um diretório para cada
-% capítulo do documento, pois assim os arquivos das figuras ficam
-% classificados por capítulos
-%\include{listas/siglas}
 % Cap. 1 - Introdução
 \include{introducao/introducao}
 % Cap. 2- Conceitos e Definições Preliminares
@@ -279,28 +257,14 @@
 \include{fundamentacao/integracao}
 % Cap. 3 - Metodologia (Clustering)
 \include{metodologia/met}
-
-% Cap. 5 - Resultados
+% Cap. 4 - Resultados
 \include{resultados/resultados}
-
-%Cap. 6 - Conclusões
+%Cap. 5 - Conclusões
 \include{conclusao/conclusao}
-
-%\include{observ/observ}
-
-
 
 % Referências bibliogáficas (geradas automaticamente)
 
-%\addcontentsline{toc}{chapter}{Referências}
 \bibliography{bibliografia}
 
-%Cap. 9 - Cronograma
-%\include{Cronograma/Cronograma}
-
-\appendix
-
-%Apêndice A
-%\include{apendice/apendice}
 
 \end{document}

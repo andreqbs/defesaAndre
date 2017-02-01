@@ -3,14 +3,16 @@
 
 \section{Inteligência Artificial Simbólica}
 
-A Inteligência Artificial Simbólica (ou IA clássica) é o ramo da pesquisa de inteligência artificial que se preocupa com a tentativa de representar explicitamente o conhecimento humano em uma forma declarativa (isto é, fatos e regras). Se tal abordagem for bem-sucedida na produção de inteligência humana, então é necessário traduzir o conhecimento implícito ou processual (ou seja, conhecimentos e habilidades que não são facilmente acessíveis à consciência) possuídos por humanos em uma forma explícita utilizando símbolos e regras para sua manipulação. A Inteligência Artificial Simbólica teve alguns sucessos impressionantes. Os sistemas que utilizam regras são especialmente bons para aplicações cujas entradas são literais e precisas, levando a saídas lógicas. Para aplicações estáveis com regras bem definidas, os sistemas especialistas podem ser facilmente desenvolvidos para proporcionar um bom desempenho. Tais sistemas podem tirar vantagem da riqueza de técnicas desenvolvidas na pesquisa de sistemas especialistas para realizar diferentes tipos de raciocínio utilizando técnicas eficientes e sistemáticas. Assim, as pessoas são capazes de inspecionar e entender esses sistemas, porque eles têm estruturas familiares semelhantes aos \emph{frameworks} lógicos humanos.
+A Inteligência Artificial Simbólica (ou IA clássica) é o ramo da pesquisa de inteligência artificial que se preocupa com a tentativa de representar explicitamente o conhecimento humano em uma forma declarativa (isto é, fatos e regras). Se tal abordagem for bem-sucedida na produção de inteligência humana, então é necessário traduzir o conhecimento implícito ou processual (ou seja, conhecimentos e habilidades que não são facilmente acessíveis à consciência) possuídos por humanos em uma forma explícita utilizando símbolos e regras para sua manipulação. A Inteligência Artificial Simbólica teve alguns sucessos impressionantes. 
+
+Os sistemas que utilizam regras são especialmente bons para aplicações cujas entradas são literais e precisas, levando a saídas lógicas. Para aplicações estáveis com regras bem definidas, os sistemas especialistas podem ser facilmente desenvolvidos para proporcionar um bom desempenho. Tais sistemas podem tirar vantagem da riqueza de técnicas desenvolvidas na pesquisa de sistemas especialistas para realizar diferentes tipos de raciocínio utilizando técnicas eficientes e sistemáticas. Assim, as pessoas são capazes de inspecionar e entender esses sistemas, porque eles têm estruturas familiares semelhantes aos \emph{frameworks} lógicos humanos.
 
 Sistemas artificiais que simulam o conhecimento humano estão surgindo em uma variedade de campos que constituem domínios de conhecimento estreitos mais profundos. As dificuldades encontradas pela IA simbólica têm sido, no entanto, profundas, possivelmente insolúveis. 
 
 %Idealmente, o raciocínio pode ser explicado, e a maioria das ferramentas de desenvolvimento de sistemas especialistas permitem a criação de sistemas de explicação para ajudar o usuário a entender as perguntas que estão sendo feitas ou conclusões. Assim, o sistema pode funcionar mais como especialistas humanos que explicam os processos de raciocínio por trás de suas reconcomendações.
 %
 
-Um dos problemas encontrados pelos pioneiros da IA Simbólica veio a ser conhecido como o problema do conhecimento do senso comum. Além disso, as áreas que dependem de conhecimentos processuais ou implícitos, tais como os processos sensoriais / motores, são muito mais difíceis de lidar dentro da estrutura da IA Simbólica. Nesses campos, essa abordagem teve um sucesso limitado e, em geral, deixou o campo para arquiteturas de redes neurais (discutidas posteriormente), que são mais adequadas para tais tarefas. Nas seções a seguir, serão abordadas as sub-áreas importantes da IA simbólica, bem como as dificuldades encontradas por essa abordagem. O presente capítulo apresenta uma introdução aos sistemas simbólicos abordando de forma geral as formas de representação simbólica na Seção X.1, e na Seção X.2 mostra os problemas encontrados pelos pesquisadores nesse tipo de abordagem.
+Um dos problemas encontrados pelos pioneiros da IA Simbólica veio a ser conhecido como o problema do conhecimento do senso comum. Além disso, as áreas que dependem de conhecimentos processuais ou implícitos, tais como os processos sensoriais / motores, são muito mais difíceis de lidar dentro da estrutura da IA Simbólica. Nesses campos, essa abordagem teve um sucesso limitado e, em geral, deixou o campo para arquiteturas de redes neurais (discutidas posteriormente), que são mais adequadas para tais tarefas. Nas seções a seguir, serão abordadas as sub-áreas importantes da IA simbólica, bem como as dificuldades encontradas por essa abordagem. O presente capítulo apresenta uma introdução aos sistemas simbólicos abordando de forma geral as formas de representação simbólica na Seção 2.1.1, na Seção 2.1.2 exemplifica as formas e tipo de dados que podem ser utilizados na aprensentação de regras ao sistema, e na última Seção 2.1.3, mostra os problemas encontrados pelos pesquisadores nesse tipo de abordagem.
 
 %A Inteligência Artificial Simbólica consiste de um conjunto de símbolos que permitem a sua representação na forma de regras e processos. Quando as regras e processos são aplicados em um conjunto de símbolos, o sistema pode produzir novas estruturas. Os símbolos têm significados semânticos e podem representar conceitos ou objetos. Para lidar com estes conceitos usa-se a lógica proposicional e a lógica de predicados o que permite a solução de problema usando um sistema baseado em regras. Assim um sistema simbólico é capaz de resolver problemas que envolvem dados e as regras sobre estes dados. Esse tipo de sistema possibilita o desenvolvimento de estruturas passíveis do tratamento computacional, nas quais um dos objetivos é a representação do conhecimento no computador para fins de sua manipulação.  Um outro ponto positivo é que esse paradigma tem alta potencialidade na explicação dos resultados obtidos. 
 
@@ -22,8 +24,7 @@ Um dos problemas encontrados pelos pioneiros da IA Simbólica veio a ser conhecid
 
 \subsection{Representação Simbólica do Conhecimento}
 
-De acordo com a teoria de Gilbert Ryle, a taxonomia do conhecimento inclui o conhecimento declarativo, que é um conhecimento estático sobre fatos ("saber o que") e conhecimento processual, que é o conhecimento sobre a realização de tarefas ("saber como"). Por exemplo, uma árvore genealógica é uma representação do conhecimento declarativo, e um algoritmo heurístico, que simula a resolução de problemas por um ser humano, corresponde ao conhecimento procedural.
-Modelos estruturais de representação do conhecimento são utilizados para definir o conhecimento declarativo. Eles geralmente são na forma de estruturas hierárquicas do tipo grafo.
+De acordo com a teoria de Gilbert Ryle, a taxonomia do conhecimento inclui o conhecimento declarativo, que é um conhecimento estático sobre fatos ("saber o que") e conhecimento processual, que é o conhecimento sobre a realização de tarefas ("saber como"). Por exemplo, uma árvore genealógica é uma representação do conhecimento declarativo, e um algoritmo heurístico, que simula a resolução de problemas por um ser humano, corresponde ao conhecimento procedural. Modelos estruturais de representação do conhecimento são utilizados para definir o conhecimento declarativo. Eles geralmente são na forma de estruturas hierárquicas do tipo grafo.
 
 Embora originalmente eles foram utilizados para Processamento de Linguagem Natural (PLN), descobriu-se que eles poderiam ser utilizados em outras áreas da IA. A teoria da dependência conceitual, desenvolvida por Schank no final dos anos 1960, foi um dos primeiros modelos desse tipo. Schank alegou, ao contrário da teoria da gramática generativa de Chomsky, que uma sintaxe de linguagem era mais um conjunto de ponteiros para informações semânticas que poderiam ser utilizadas como ponto de partida para uma análise semântica direta. A teoria da dependência conceitual foi formulada apenas para fornecer formalismos convenientes (estruturais) para realizar uma análise semântica automaticamente. Como as frases de uma linguagem (natural) não podiam ser utilizadas para realizar uma análise semântica (automática) de maneira direta, Schank introduziu uma representação canônica e normalizada de dependências semânticas entre construções de linguagem (frases, sentenças).
 
@@ -39,7 +40,6 @@ Os \emph{Scripts} foram propostos por Schank e Abelson como um método para proce
 		Fonte :
 	\end{center} 
 \end{figure}
-
 
 No passado, os modelos estruturais de representação do conhecimento eram por vezes criticados por não serem suficientemente formais. Essa situação mudou na década de 1980, quando uma família dedicada de sistemas formais baseados na lógica matemática chamada lógica de descrição foi definida para esse propósito. 
 
@@ -119,9 +119,9 @@ O tipo de dados único do Prolog é o termo. Os termos são átomos, números, variáv
 
 Os programas Prolog descrevem relações, definidas por meio de cláusulas. O Prolog puro está restrito às cláusulas de Horn. Existem dois tipos de cláusulas: fatos e regras. Uma regra é da forma:
 
-$Mestrado: - Aluno_Mestrando$.
+$Mestre: - AlunoMestrando$.
 
-E é lido como "O mestrado é verdadeiro se o aluno é verdadeiro". O corpo de uma regra consiste de chamadas para predicados, que são chamados de metas da regra. 
+E é lido como "O Mestre é verdadeiro se o AlunoMestrado for verdadeiro". 
 
 \subsection{Problemas da Inteligência Artificial Simbólica}
 
@@ -135,7 +135,9 @@ Programar um conjunto de critérios para abranger os membros de uma categoria é u
 \end{itemize}
 
 Segundo \cite{osorio2000}, um sistema inteligente é alimentado com representações de fatos e regras, mas as regras do senso comum são muito difíceis de estabelecer. Sabe-se que quando vamos deixar o filho na escola, ele não está mais em casa; se alguém está dentro do cinema deve ter entrado por alguma porta; se há uma sacola em seu carro e um litro de leite na sacola, então há um litro de leite em seu carro. Note porém, que saber que há uma pessoa em seu carro, e saber que há um litro de sangue em uma pessoa, seria estranho concluir que há um litro de sangue em seu carro.
+
 O problema de saber distinguir as implicações relevantes entre um conjunto potencialmente infinito de implicações é denominado \emph{frame problem} (problema de enquadramento), e dificulta principalmente a formalização de raciocínios sobre ações. 
+
 A manipulação de símbolos discretos é bastante eficiente, permitindo uma interação muito fácil com o usuário. Por outro lado, existe o problema primordial da definição dos símbolos (semântica), que deve ser feita a priori. Por ser uma abordagem \emph{top-down}, onde o conhecimento é introduzido explicitamente no sistema e essa necessidade faz com que os sistemas simbólicos encontrem dificuldade para lidar de forma autônoma, em ambientes reais (contínuos) desconhecidos.
 
 %\section{Conclusão}
