@@ -11,7 +11,7 @@ Diversos pesquisadores desses dois paradigmas tentam combinar as forças das duas
 \section{Knowledge-based Artificial Neural Networks (KBANN)}
 
 Esta sub-seção descreve a metodologia KBANN, que a Figura 1 descreve como um par de algoritmos (nos arcos) que formam um sistema para aprender tanto da teoria quanto dos exemplos. O primeiro algoritmo, rotulado "Regras para Rede", está detalhado na Seção 2.4.2 O algoritmo insere regras simbólicas aproximadamente corretas em uma rede neural. As redes criadas nesse passo fazem as mesmas classificações que as regras em que se baseiam.
-O segundo algoritmo do KBANN, denominado "\emph{Neural Learning}", refina as redes utilizando o algoritmo de aprendizagem \emph{backpropagation}. (Segundo o autor, apesar de todos testes utilizarem retropropagação, qualquer método aprendizado supervisionado - por exemplo, gradiente conjugado [Referencia] - funcionaria.) Embora o mecanismo de aprendizagem seja essencialmente uma retropropagação padrão, a rede que está sendo treinada não é padrão. Em vez disso, o primeiro algoritmo do KBANN constrói e inicializa a rede. Isso tem implicações para o treinamento. Ao concluir esta etapa, a rede treinada pode ser utilizada como um classificador muito preciso.
+O segundo algoritmo do KBANN, denominado "\emph{Neural Learning}", refina as redes utilizando o algoritmo de aprendizagem \emph{backpropagation}. (Segundo o autor, apesar de todos testes utilizarem retro-propagação, qualquer método aprendizado supervisionado - por exemplo, gradiente conjugado [Referencia] - funcionaria.) Embora o mecanismo de aprendizagem seja essencialmente uma retro-propagação padrão, a rede que está sendo treinada não é padrão. Em vez disso, o primeiro algoritmo do KBANN constrói e inicializa a rede. Isso tem implicações para o treinamento. Ao concluir esta etapa, a rede treinada pode ser utilizada como um classificador muito preciso.
 
 A próxima subseção apresenta uma breve visão geral do tipo de redes neurais que foram utilizadas para o estudo. Subsequentemente, é uma visão geral de alto nível do KBANN. As duas subseções seguintes contêm descrições detalhadas de cada uma das etapas algorítmicas do KBANN.
 
@@ -67,7 +67,7 @@ Nessa subseção, é descrito, em detalhes, cada uma das sete etapas desse algoritm
 
 \subsection{Exemplo do algoritmo}
 
-A Figura \ref{fig:algoritmoKbann} mostra uma tradução passo a passo de um conjunto simples de regras para uma rede KBANN. O painel a mostra um conjunto de regras na notação PROLOG. O painel \emph{b} é o mesmo conjunto de regras depois de terem sido reescritos na etapa 1 do algoritmo de tradução. As únicas regras afetadas pela reescrita são duas que, juntas, formam uma definição disjuntiva do consequente B.
+A Figura \ref{fig:algoritmoKbann} mostra uma tradução passo a passo de um conjunto simples de regras para uma rede KBANN. O painel a mostra um conjunto de regras na notação prolog. O painel \emph{b} é o mesmo conjunto de regras depois de terem sido reescritos na etapa 1 do algoritmo de tradução. As únicas regras afetadas pela reescrita são duas que, juntas, formam uma definição disjuntiva do consequente B.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -79,7 +79,7 @@ A Figura \ref{fig:algoritmoKbann} mostra uma tradução passo a passo de um conjun
 \end{figure}
 
 
-O painel \emph{c} é uma representação gráfica das regras no painel \emph{b} que mostra a estrutura hierárquica das regras. Na Figura X, as linhas pontilhadas representam antecedentes negados, enquanto as linhas contínuas e sólidas representam antecedentes não negados. 
+O painel \emph{c} é uma representação gráfica das regras no painel \emph{b} que mostra a estrutura hierárquica das regras. Na Figura \ref{fig:algoritmoKbann}, as linhas pontilhadas representam antecedentes negados, enquanto as linhas contínuas e sólidas representam antecedentes não negados. 
 A próxima etapa do algoritmo de tradução é criar uma rede neural mapeando a estrutura hierárquica das regras em uma rede. Como resultado, há pouca diferença visual entre as representações da inicial rede KBANN no painel \emph{d} e a estrutura hierárquica das regras no painel \emph{c}.
 Os painéis \emph{e} e \emph{f} ilustram o processo pelo qual as ligações, unidades de entrada e unidades ocultas não especificadas no conjunto de regras são adicionadas à rede. O painel \emph{e} mostra unidades na rede numeradas pelo seu "nível". Além disso, o painel \emph{e} mostra uma unidade oculta (sombreada) adicionada à rede no nível um. 
 O painel \emph{f} mostra a rede depois de links com peso zero foram adicionados para conectar todas as unidades que estão separados por um nível. Observe que, além de fornecer às unidades existentes acesso a informações não especificadas pelo conhecimento do domínio, os \emph{links} ponderados ligam as unidades ocultas adicionadas ao restante da rede.

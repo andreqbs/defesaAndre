@@ -15,11 +15,11 @@ Para o desenvolvimento do \emph{software} foi adotada uma metodologia ágil e o q
 
 Inicialmente, objetivou-se a implementação do algoritmo empregado pelo sistema desenvolvido por \cite{towell90} dividindo-a em duas sub-etapas distintas: A implementação relativa ao programa de extração de dados lógicos e a implementação da tradução em uma Rede Neural Artificial correspondente à teoria de domínio inicial.
 
-Os testes se iniciaram com o desenvolvimento de métodos para a conversão de Linguagens Lógicas, apresentadas sob a forma de clásulas Horn. Em seguida, a construção da RNAs e aplicação em problemas simples e específicos, para, logo em seguida generalizá-los. Na sequência, ocorreu a integração entre as duas partes, o sistema foi a aplicado a um problema mais extenso e geral do que os anteriores.
+Os testes se iniciaram com o desenvolvimento de métodos para a conversão de Linguagens Lógicas, apresentadas sob a forma de cláusulas Horn. Em seguida, a construção da RNAs e aplicação em problemas simples e específicos, para, logo em seguida generalizá-los. Na sequência, ocorreu a integração entre as duas partes, o sistema foi a aplicado a um problema mais extenso e geral do que os anteriores.
 
 Na fase final do desenvolvimento, foi criado um sistema genérico de para gerar padrões de entradas e saídas de acordo com o as necessidades do usuário.
 
-Os estudos realizados juntamente com a implementação desse projeto se deram ao longo de um ano e meio. Todo o processo que o sistema passou pode ser listado em 12 etapas que facilitaram o entedimento de todo o desenvolvimento. As etapas estão listadas pela sua ordem cronológica, nas quais se destacaram os respectivos enfoques e descrição, conforme segue:
+Os estudos realizados juntamente com a implementação desse projeto se deram ao longo de um ano e meio. Todo o processo que o sistema passou pode ser listado em 12 etapas que facilitaram o entendimento de todo o desenvolvimento. As etapas estão listadas pela sua ordem cronológica, nas quais se destacaram os respectivos enfoques e descrição, conforme segue:
 
 \begin{itemize}
 	
@@ -62,15 +62,15 @@ Algumas implementações básicas foram necessárias para se adquirir experiência. O
 
 \subsubsection{Leitura de Dados Simbólicos}
 
-A leitura de dados simbólicos serviu de base para a implementação do algoritmo de conversão KBANN. A execução, o acompanhamento e os testes dessa implementação permitiram verificar a tradução de uma base de regras inciais em uma rede neural de  KBANN.
-A Figura \ref{fig:visualizacaoGrafo} é a representação final das regras lógicas contidas nas clásulas lógicas mostradas abaixo na forma de clásulas de Horn. A partir desse conjunto de símbolos, foram obtidas as estruturas das RNAs similares às da Figura \ref{fig:visualizacaoGrafo}, aplicando-se a elas os cálculos requeridos pelo algoritmo, tais como a determinação dos pesos inciais, bias, taxa de aprendizado da rede e o erro aceitável.
+A leitura de dados simbólicos serviu de base para a implementação do algoritmo de conversão KBANN. A execução, o acompanhamento e os testes dessa implementação permitiram verificar a tradução de uma base de regras iniciais em uma rede neural de KBANN.
+A Figura \ref{fig:visualizacaoGrafo} é a representação final das regras lógicas contidas nas cláusulas lógicas mostradas abaixo na forma de cláusulas de Horn. A partir desse conjunto de símbolos, foram obtidas as estruturas das RNAs similares às da Figura \ref{fig:visualizacaoGrafo}, aplicando-se a elas os cálculos requeridos pelo algoritmo, tais como a determinação dos pesos inciais, bias, taxa de aprendizado da rede e o erro aceitável.
 
-\centerline{$A$ :- $B$,  $-C$}
-\centerline{$B$ :- $D$, $-F$, $G$}
-\centerline{$B$ :- $D$, $F$, $I$}
-\centerline{$C$ :- $H$, $J$, $K$}
+\centerline{$A$ :- $B$,  $¬C$} 
+\centerline{$B$ :- $D$, $¬F$, $G$} 
+\centerline{$B$ :- $D$, $F$, $I$} 
+\centerline{$C$ :- $H$, $J$, $K$} 
 
-Cada instrução acima, representa uma regra do dominio da teoria, a união delas implica nas regras que definem por total um determiando problema. Para um melhor entendimento, as clásulas no formato de PROLOG podem ser lidas da seguinte maneira: ao lado esquerdo ficam os consequentes, ou seja, as implicações que são geradas pelos seus antecedentes (lado direito). Os antecedentes são as condições necessárias para ativar um consequente, esses, são separados por vírgulas (,) quando se quer definir que ambos os consequentes precisam ser ativados para sair uma determinada resposta do seu respectivo consequente da regra.
+Cada instrução acima, representa uma regra do domínio da teoria, a união delas implica nas regras que definem um problema. Para melhor entendimento, as cláusulas no formato de Prolog podem ser lidas da seguinte maneira: ao lado esquerdo ficam os consequentes, ou seja, as implicações que são geradas pelos seus antecedentes (lado direito). Os antecedentes são as condições necessárias para ativar um consequente, esses, são separados por vírgulas (,) quando se quer definir que ambos os consequentes precisam ser ativados para sair uma determinada resposta do seu respectivo consequente da regra.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -83,11 +83,11 @@ Cada instrução acima, representa uma regra do dominio da teoria, a união delas i
 
 \subsubsection{Redes Neurais Artificiais simples}	
 
-Os primeiros programas desenvolvidos nesse trabalho utilizavam a topologia básica da RNA com três camadas e com poucos neurônios por camada (por exemplo: 5x3x1 ou 2x2x1). Nesse caso, pretendia-se fazer somente o treinamento da RNA, verificação de cálculos e teste estrutural da arquitetura e do algoritmo de treinamento.
+Os primeiros programas desenvolvidos nesse trabalho utilizavam a topologia básica da RNA com três camadas e com poucos neurônios por camada (por exemplo: 5 x 3 x 1 ou 2 x 2 x 1). Nesse caso, pretendia-se fazer somente o treinamento da RNA, verificação de cálculos e teste estrutural da arquitetura e do algoritmo de treinamento.
 
-Alguns exemplos simples foram utilizados, como o de reconhecimento e classificação de dados (padrões sensíveis à RNA). Na classificação de dados, como por exemplo, foi utilizado as regras determinadas logo acima para os testes inicias. Além disso, os mesmos testes foram validados no \emph{Matlab}, tanto usando o \emph{Neural Network ToolBox} de redes neurais que é disponbilizado no \emph{software}, como também, realizando passo a passo as operações matemátias.
+Alguns exemplos simples foram utilizados, como o de reconhecimento e classificação de dados (padrões sensíveis à RNA). Na classificação de dados, como por exemplo, foi utilizado as regras determinadas logo acima para os testes inicias. Além disso, os mesmos testes foram validados no \emph{Matlab}, tanto usando o \emph{Neural Network ToolBox} de redes neurais que é disponibilizado no \emph{software}, como também, realizando passo a passo as operações matemáticas
 
-As cincos regras acima descrevem inicialmente o modelo daquele problema em específico. Assim como foi feito no TopGen, foram retiradas algumas regras do domínio teórico incial, e em seguida realizando o treinamento e a validação. Foi possível notar que o KBANN ainda consegue classificar boa parte dos dados, mesmo não tendo um domínio completo do problema. Esse teste foi feito justamente para provar que \cite{towell90} comentou em seu trabalho, que não é necessário saber a fundo sobre problema. Apesar da sua boa classifação contendo 3 regras das 5 origianis. Variações desse modelo poderiam servir de exemplo para o treinamento da RNA.
+As cincos regras acima descrevem inicialmente o modelo daquele problema em específico. Assim como foi feito no TopGen, foram retiradas algumas regras do domínio teórico inicial, e em seguida realizando o treinamento e a validação. Foi possível notar que o KBANN ainda consegue classificar boa parte dos dados, mesmo não tendo um domínio completo do problema. Esse teste foi feito justamente para provar que \cite{towell90} comentou em seu trabalho, que não é necessário saber a fundo sobre problema. Apesar da sua boa classificação contendo 3 (três) regras das 5 (cinco) originais Variações desse modelo poderiam servir de exemplo para o treinamento da RNA.
 
 A criação de uma interface para entrada de dados fez-se necessária com a migração para programas mais genéricos. A solução mais imediata foi a adoção de arquivos formatados contendo um conjunto de definições, que são alteráveis no programa antes da sua execução.
 
@@ -100,7 +100,7 @@ O enfoque principal do sistema desenvolvido foi a implementação do algoritmo de 
 \subsubsection{Classes que Compõem o Programa}
 
 A Figura \ref{fig:diagramaClasses} apresenta um esquema das classes nas quais o ambiente computacional teve o seu desenvolvimento baseado. A classe que controla toda a aplicação é a ControllerGrafo. Ela recebe todas as requisições oriundas da interface gráfica e delega para outras classes algumas ações necessárias. Por exemplo, a classe  ControllerRegras realiza o tratamento da programação em linguagem lógica, conforme as opções que lhe são passadas.
-Pensando em futuras expansões do projeto, foram criadas classes e móldulos que poderão se acoplar facilmente a novas classes. A classe ModelGrafo que representa a rede neural, por exemplo pode receber novos tipos de neurônios ou conexões de forma bastante simples.
+Pensando em futuras expansões do projeto, foram criadas classes e módulos que poderão se acoplar facilmente a novas classes. A classe ModelGrafo que representa a rede neural, por exemplo pode receber novos tipos de neurônios ou conexões de forma bastante simples.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -197,8 +197,6 @@ A barra de menu da interface facilita algumas operações de edição e execução dos
 A interface também conta com menu \emph{according} localizada nas laterias da janela principal que serve para o acompanhamento do andamento das operações. Esse menu extra possibilita ao usuário identificar o que foi lido do arquivo que contém as regras, saber o resultado final após o treinamento e o TopGen e identificar os níveis (camadas) por cor, as quais os neurônios fazem parte.
 
 \subsection{Considerações sobre as implementações}	
-
-\subsubsection{RNAs}
 
 A maioria dos programas desenvolvidos empregaram as RNAs com o seu aprendizado executado por meio do algoritmo de retro-propagação. A escolha desse algoritmo deveu-se à sua utilização no sistema KBANN [Referencia], possibilitando a comparação de resultados. Os algoritmos que definiram as topologias de RNAs empregadas foram consequência da evolução natural das técnicas de programação.
 Os valores de saída e as sinapses da RNA foram implementados por variáveis contidas nas classes Neurônio e Arestas. Quando se deseja acessar o valor contido em um neurônio específico, é utilizado um \emph{HashMap} que possui todos os objetos neurônios. Dentro de cada neurônio existe os campos que identifica se ele é da camada de entrada, saída ou de qual camada intermediária ele faz parte. Na Figura \ref{fig:diagramaClasses}, é possível ver a representação dessas estruturas com as quais pode-se acessar quaisquer valor desejado no grafo neural construído.

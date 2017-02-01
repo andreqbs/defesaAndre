@@ -1,5 +1,5 @@
 \mychapter{Resultados e discussão}
-\label{Cap_5}
+\label{Cap_4}
 
 \section{Contextualização  do Problema}
 
@@ -33,16 +33,22 @@ As seguintes regras formatadas na Figura (\ref{fig:xadrezRegras}) definem as con
 
 As entradas necessárias para cada posição no tabuleiro são: um para os quatro tipos de peças (uma rainha, uma torre, um bispo e um cavaleiro), e um que indica a cor da peça. As réguas são divididas em três partes: (1) na verificação de cheque diagonal pela rainha ou do bispo, (2) na verificação cheque horizontal ou vertical por uma rainha ou pela torre, e (3) na verificação cheque por um cavalo. Algumas regras exigem um espaço vazio entre a posição de uma peça e a posição $c2$ (onde o jogador quer mover o Rei). Por exemplo, se uma rainha da cor oposta estiver na posição $c4$, então o espaço $c3$ deve estar vazio para poder colocar o Rei sob cheque.
 
-Os antecedentes da regra representam o primeiro nível da rede, onde estão a posição das peças e suas respectiva cor. Nele cada agrupamento pode ser visto como uma única entrada, contendo todos os dados necessários. As entradas de cada exemplo do arquivo foram guaradas em grupos de quatro entradas binárias, correspondendo as peças "Rainha,  Bispo, Cavalo e Torre" e outras 2 entradas correspondentes a cor e a espaços vazios. As seguintes quantidades de entradas foram: 12 para a Rainha, 6 para o Bispo, 6 para o Cavalo, 6 para a Torre, 18 para cor oposta e 5 para casas vazias, totalizando 53 entradas binárias. A multiplicação do conjunto de exemplos (100 exemplos) pelo número de entradas binárias gerou matriz de entrada de dados para a RNA.
+Os antecedentes da regra representam o primeiro nível da rede, onde estão a posição das peças e suas respectiva cor. Nele cada agrupamento pode ser visto como uma única entrada, contendo todos os dados necessários. As entradas de cada exemplo do arquivo foram guardadas em grupos de quatro entradas binárias, correspondendo as peças "Rainha,  Bispo, Cavalo e Torre" e outras 2 entradas correspondentes a cor e a espaços vazios. As seguintes quantidades de entradas foram: 12 para a Rainha, 6 para o Bispo, 6 para o Cavalo, 6 para a Torre, 18 para cor oposta e 5 para casas vazias, totalizando 53 entradas binárias. A multiplicação do conjunto de exemplos (100 exemplos) pelo número de entradas binárias gerou matriz de entrada de dados para a RNA.
 
-FIGURA
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Conjunto de regras do Xadrez.}
+		\includegraphics[scale=0.5]{imagens/redeKbann.png}
+		\label{fig:redeKbann}
+	\end{center} 
+\end{figure}
 
-Alguns dos testes aplicados utilizaram uma RNA contendo quatro camadas (53 x 30 x 3 x 1) (Figura X), mas essa distribuição dos neurônios sofreu variações durante os testes. O número de conexões entre a primeira e a segunda camada totalizou XX sinapses . O número de neurônios internos XX  equivale ao número de regras constituídas diretamente por peças, conforme a Figura \ref{fig:xadrezRegras}. As conexões entre a camada interna e a camada de saída são 180, visto que o resultado final é representado apenas por um neurônio na última camada (ilegal ou não).
-A Tabela \ref{tab:nomeclatura} descreve os neurônios que serão monitarados durante os testes.
+Alguns dos testes aplicados utilizaram uma RNA contendo quatro camadas (53 x 30 x 3 x 1) (Figura \ref{fig:redeKbann}), mas essa distribuição dos neurônios sofreu variações durante os testes. O número de conexões entre a primeira e a segunda camada totalizou 96 sinapses . O número de neurônios internos XX  equivale ao número de regras constituídas diretamente por peças, conforme a Figura \ref{fig:xadrezRegras}. As conexões entre a camada interna e a camada de saída são 35, visto que o resultado final é representado apenas por um neurônio na última camada (ilegal ou não).
+A Tabela \ref{tab:nomeclatura} descreve os neurônios que serão monitorados durante os testes.
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
-	\caption{Nomeclatura dos neurônios e sua representação na rede neural.}
+	\caption{Nomenclatura dos neurônios e sua representação na rede neural.}
 	\vspace{0.5cm}
 	\label{tab:nomeclatura}
 	\begin{tabular}{|l|l|l|l|}
@@ -57,22 +63,22 @@ A Tabela \ref{tab:nomeclatura} descreve os neurônios que serão monitarados duran
 
 \subsection{Testes realizados para o reconhecimento de movimentos ilegais}
 
-Os quatros testes executados no trabalho inicial e detalhados no texto desta Subseção são: (1) Teste de Regras Adicionadas ao Domínio Teórico. (2) Antecedentes Adicionadas ao Domínio Teórico. (3) Regras Deletadas do Domínio Teórico. (4) Antecedentes Deletados do Domínio Teórico. Conforme essa sequência de testes, serão informados o objetivo, a descrição, os parâmetros utilizados, os resultados obtidos, assim como a avaliação, referente a cada teste. Na Tabela \ref{tab:nomeclatura} estão os principais neurônios que terão suas saídas monitoradas para os tests realizados acima.
+Os quatros testes executados no trabalho inicial e detalhados no texto desta Subseção são: (1) Teste de Regras Adicionadas ao Domínio Teórico. (2) Antecedentes Adicionadas ao Domínio Teórico. (3) Regras Deletadas do Domínio Teórico. (4) Antecedentes Deletados do Domínio Teórico. Conforme essa sequência de testes, serão informados o objetivo, a descrição, os parâmetros utilizados, os resultados obtidos, assim como a avaliação, referente a cada teste. Na Tabela \ref{tab:nomeclatura} estão os principais neurônios que terão suas saídas monitoradas para os testes realizados acima.
 
 \subsection{Regras Adicionadas ao Domínio Teórico}
 
-Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o consequente dessa regra é o consequente da uma outra regra já existen no domínio teórico. Em seguida, são acrescentados de dois a quatro antecedentes, uma vez que o número de antecedentes de cada regra da base original e correta também variou de dois a quatro.
+Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o consequente dessa regra é o consequente da uma outra regra já existem no domínio teórico. Em seguida, são acrescentados de dois a quatro antecedentes, uma vez que o número de antecedentes de cada regra da base original e correta também variou de dois a quatro.
 \newline
 \newline
 \textbf{Objetivo:}  Verificar a frequência de acerto considerando que o domínio teórico apresentado à rede teve regras adicionadas (erradas) ao KBANN e compará-lo com o domínio teórico.
 \newline
 \newline
-\textbf{Descrição:}  Iniciou-se pela definição de novas regras e devido a isso há uma mudança na toptologia da RNA. As novas regras adicionadas a base inicial foram: a Rainha da mesma cor do Rei dependendo da sua posicão é considerado um cheque paralelo, um bispo pode atacar o Rei mesmo tendo outra peça a sua frente, e por último, Torre da mesma cor do Rei e com peça a sua frente podendo realizar um ataque.  Devido as adições de regras, a rede ficou com um quantidade de nerônios (53 x 30 x 3 x 1) por camada. 
+\textbf{Descrição:}  Iniciou-se pela definição de novas regras e devido a isso há uma mudança na topologia da RNA. As novas regras adicionadas a base inicial foram: a Rainha da mesma cor do Rei dependendo da sua posição é considerado um cheque paralelo, um bispo pode atacar o Rei mesmo tendo outra peça a sua frente, e por último, Torre da mesma cor do Rei e com peça a sua frente podendo realizar um ataque.  Devido as adições de regras, a rede ficou com um quantidade de nerônios (53 x 30 x 3 x 1) por camada. 
 \newline
 \newline
 \textbf{Resultados:} As tabelas e a Figura \ref{fig:regrasAdicionadas} XX resumem os resultados obtidos no primeiro teste.
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
 	\caption{Falsos positivos e negativos dos neurônios, ao se adicionar 10\% novas regras.}
 	\vspace{0.5cm}
@@ -87,7 +93,7 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 	\end{tabular}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
 	\caption{Falsos positivos e negativos dos neurônios, ao se adicionar 20\% novas regras.}
 	\vspace{0.5cm}
@@ -102,7 +108,7 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 	\end{tabular}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
 	\caption{Falsos positivos e negativos dos neurônios, ao se adicionar 30\% novas regras.}
 	\vspace{0.5cm}
@@ -117,7 +123,7 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 	\end{tabular}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
 	\caption{Falsos positivos e negativos dos neurônios, ao se adicionar 40\% novas regras.}
 	\vspace{0.5cm}
@@ -132,7 +138,7 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 	\end{tabular}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
 	\caption{Falsos positivos e negativos dos neurônios, ao se adicionar 50\% novas regras.}
 	\vspace{0.5cm}
@@ -147,7 +153,7 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 	\end{tabular}
 \end{table}
 
-\textbf{Avaliação:} Nesse teste, pode-ser observar que a rede KBANN já possui uma excelente habilidade de classificação de dados, mesmo acrescentando regras iniciais incorretas ao seu domínio teórico. Por outro lado, pode-se um já esperado aumento no erro na classificação dos dados pelo domínio teórico.
+\flushleft{\textbf{Avaliação:} Nesse teste, pode-ser observar que a rede KBANN já possui uma excelente habilidade de classificação de dados, mesmo acrescentando regras iniciais incorretas ao seu domínio teórico. Por outro lado, pode-se um já esperado aumento no erro na classificação dos dados pelo domínio teórico.}
 
 \begin{figure}[H] 
 	\begin{center}
@@ -159,17 +165,17 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 
 \subsection{Antecedentes Adicionadas ao Domínio Teórico}
 
-\textbf{Objetivo :}  Na segunda forma de avaliação do programa desenvolvido, foram atribuidos de forma aletória antecedentes a regras já estabelecidas no domínio completo, verificando se a rede KBANN precisa de algum tipo de ajuste e compará-lo com o domínio teórico.
-\newline 
+\flushleft{\textbf{Objetivo :}  Na segunda forma de avaliação do programa desenvolvido, foram atribuídos de forma aleatória antecedentes a regras já estabelecidas no domínio completo, verificando se a rede KBANN precisa de algum tipo de ajuste e compará-lo com o domínio teórico.}
 \newline
-\textbf{Descrição:} Para esse teste as entradas já conhecidas foram conectadas a outras conclusões intemediárias de forma proporcional. Exemplificando, 5\% das entradas ou, 3 entradas já existentes foram conectadas a outras conclusões intermediárias de forma a perturbar o domínio original. Os outros testes com, 15\% e 25\% também foram realizados.
+\newline
+\textbf{Descrição:} Para esse teste as entradas já conhecidas foram conectadas a outras conclusões intermediárias de forma proporcional. Exemplificando, 5\% das entradas ou, 3 entradas já existentes foram conectadas a outras conclusões intermediárias de forma a perturbar o domínio original. Os outros testes com, 15\% e 25\% também foram realizados.
 \newline 
 \newline
 \textbf{Resultados:}  As tabelas abaixo e a Figura \ref{fig:retiradaAntecedentes} resumem os resultados obtidos no segundo teste.
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
-	\caption{Teste 2 : Falsos positivos e negativos dos neurônios, quando adicionado 10\% novos antecendetes às regras.}
+	\caption{Falsos positivos e negativos dos neurônios, quando adicionado 10\% novos antecedentes às regras.}
 	\vspace{0.5cm}
 	\label{tab:teste2Falsos10}
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -182,9 +188,9 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 	\end{tabular}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
-	\caption{Teste 2 : Falsos positivos e negativos dos neurônios, quando adicionado 20\% novos antecendetes às regras.}
+	\caption{Falsos positivos e negativos dos neurônios, quando adicionado 20\% novos antecedentes às regras.}
 	\vspace{0.5cm}
 	\label{tab:teste2Falsos20}
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -197,9 +203,9 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 	\end{tabular}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
-	\caption{Teste 2 : Falsos positivos e negativos dos neurônios, quando adicionado 30\% novos antecendetes às regras.}
+	\caption{Falsos positivos e negativos dos neurônios, quando adicionado 30\% novos antecedentes às regras.}
 	\vspace{0.5cm}
 	\label{tab:teste2Falsos30}
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -212,9 +218,9 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 	\end{tabular}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
-	\caption{Teste 2 : Falsos positivos e negativos dos neurônios, quando adicionado 40\% novos antecendetes às regras.}
+	\caption{Falsos positivos e negativos dos neurônios, quando adicionado 40\% novos antecedentes às regras.}
 	\vspace{0.5cm}
 	\label{tab:teste2Falsos40}
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -227,9 +233,9 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 	\end{tabular}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
-	\caption{Teste 2 : Falsos positivos e negativos dos neurônios, quando adicionado 50\% novos antecendetes às regras.}
+	\caption{Falsos positivos e negativos dos neurônios, quando adicionado 50\% novos antecedentes às regras.}
 	\vspace{0.5cm}
 	\label{tab:teste2Falsos50}
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -262,9 +268,9 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 \newline
 \textbf{Resultados:} As tabelas abaixo e a Figura \ref{fig:regrasDeletadas} resumem os resultados obtidos no terceiro teste.
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
-	\caption{Teste 3 : Falsos positivos e negativos dos neurônios, quando retirado 10\% da regras.}
+	\caption{Falsos positivos e negativos dos neurônios, quando retirado 10\% da regras.}
 	\vspace{0.5cm}
 	\label{tab:teste3Falsos10}
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -277,9 +283,9 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 	\end{tabular}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
-	\caption{Teste 3 : Falsos positivos e negativos dos neurônios, quando retirado 20\% da regras.}
+	\caption{Falsos positivos e negativos dos neurônios, quando retirado 20\% da regras.}
 	\vspace{0.5cm}
 	\label{tab:teste3Falsos20}
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -292,9 +298,9 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 	\end{tabular}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
-	\caption{Teste 3 : Falsos positivos e negativos dos neurônios, quando retirado 30\% da regras.}
+	\caption{Falsos positivos e negativos dos neurônios, quando retirado 30\% da regras.}
 	\vspace{0.5cm}
 	\label{tab:teste3Falsos30}
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -307,9 +313,9 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 	\end{tabular}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
-	\caption{Teste 3 : Falsos positivos e negativos dos neurônios, quando retirado 40\% da regras.}
+	\caption{Falsos positivos e negativos dos neurônios, quando retirado 40\% da regras.}
 	\vspace{0.5cm}
 	\label{tab:teste3Falsos40}
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -322,9 +328,9 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 	\end{tabular}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
-	\caption{Teste 3 : Falsos positivos e negativos dos neurônios, quando retirado 50\% da regras.}
+	\caption{Falsos positivos e negativos dos neurônios, quando retirado 50\% da regras.}
 	\vspace{0.5cm}
 	\label{tab:teste3Falsos50}
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -337,7 +343,7 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 	\end{tabular}
 \end{table}
 
-\textbf{Avaliação:} Pode-se observar que a rede KBANN já não consegue desempenhar um bom papel quando são retiradas regras do seu domínio. Em todos seus neurônios de conclusões intermediárias e conclusão final tiveram erros de falsos positivos e negativos, sendo assim, teve que ser necessário utilizar o TopGen para realizar um possivel aprendizado e adicioná-lo a rede neural. Como pode ser visto, o TopGen, gerou resultados bastante interessantes diminuindo consideravelmente o erro. Enquanto isso, a rede MLP gerou erros bem altos, com uma na média de 17\% de erro.
+\textbf{Avaliação:} Pode-se observar que a rede KBANN já não consegue desempenhar um bom papel quando são retiradas regras do seu domínio. Em todos seus neurônios de conclusões intermediárias e conclusão final tiveram erros de falsos positivos e negativos, sendo assim, teve que ser necessário utilizar o TopGen para realizar um possível aprendizado e adicioná-lo a rede neural. Como pode ser visto, o TopGen, gerou resultados bastante interessantes diminuindo consideravelmente o erro. Enquanto isso, a rede MLP gerou erros bem altos, com uma na média de 17\% de erro.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -356,9 +362,9 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 \newline
 \textbf{Resultados:} As tabelas abaixo e Figura \ref{fig:antecedenteDeletados} resumem os resultados obtidos no último teste.
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
-	\caption{Teste 4 : Falsos positivos e negativos dos neurônios, quando retirado 10\% dos antecendetes das regras.}
+	\caption{Falsos positivos e negativos dos neurônios, quando retirado 10\% dos antecedentes das regras.}
 	\vspace{0.5cm}
 	\label{tab:teste4Falsos10}
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -371,9 +377,9 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 \end{tabular}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
-	\caption{Teste 4 : Falsos positivos e negativos dos neurônios, quando retirado 20\% dos antecendetes das regras.}
+	\caption{Falsos positivos e negativos dos neurônios, quando retirado 20\% dos antecedentes das regras.}
 	\vspace{0.5cm}
 	\label{tab:teste4Falsos20}
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -386,9 +392,9 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 	\end{tabular}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
-	\caption{Teste 4 : Falsos positivos e negativos dos neurônios, quando retirado 30\% dos antecendetes das regras.}
+	\caption{Falsos positivos e negativos dos neurônios, quando retirado 30\% dos antecedentes das regras.}
 	\vspace{0.5cm}
 	\label{tab:teste4Falsos30}
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -401,9 +407,9 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 	\end{tabular}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
-	\caption{Teste 4 : Falsos positivos e negativos dos neurônios, quando retirado 40\% dos antecendetes das regras.}
+	\caption{Falsos positivos e negativos dos neurônios, quando retirado 40\% dos antecedentes das regras.}
 	\vspace{0.5cm}
 	\label{tab:teste4Falsos40}
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -416,9 +422,9 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 	\end{tabular}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
-	\caption{Teste 4 : Falsos positivos e negativos dos neurônios, quando retirado 50\% dos antecendetes das regras.}
+	\caption{Falsos positivos e negativos dos neurônios, quando retirado 50\% dos antecedentes das regras.}
 	\vspace{0.5cm}
 	\label{tab:teste4Falsos50}
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -435,7 +441,7 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 
 \begin{figure}[H] 
 	\begin{center}
-		\caption{Porcetagem de erros x retirada de antecedentes}
+		\caption{Porcentagem de erros x retirada de antecedentes}
 		\includegraphics[scale=0.5]{imagens/antecedenteDeletados.png}
 		\label{fig:antecedenteDeletados}
 	\end{center} 
