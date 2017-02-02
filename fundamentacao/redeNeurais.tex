@@ -1,6 +1,8 @@
 %\mychapter{Inteligência Artificial Conexionista }
 \label{Cap_2_2}
 
+\setcounter{secnumdepth}{5}
+
 %Os pesquisadores se interessaram pelo conexionismo porque essa abordagem promete fornecer uma alternativa à teoria clássica da mente: a visão amplamente difundida de que a mente é algo parecido com um computador digital que processa uma linguagem simbólica. Exatamente como e até que ponto o paradigma conexionista constitui um desafio ao classicismo tem sido motivo de intenso debate nos últimos anos.
 
 %A Inteligência Artificial Conexionista (IAC), ou simplesmente Conexionismo, utiliza Redes Neurais Artificiais para simular, em uma proporção menor, o funcionamento do cérebro humano. Algumas vantagens desse paradigma são a fácil aprendizagem e a capacidade de generalização, tornando-o útil para sistemas de classificação. A principal desvantagem é a formação de resultados com difícil interpretação pelo homem. O paradigma conexionista tem como premissa a suposição de que o comportamento inteligente esta relacionado com a dinâmica das conexões entre pequenos nós denominados neurônios onde tal dinâmica é capaz de representar o conhecimento. Na pratica, os dois paradigmas podem se juntar para formar um terceiro paradigma, uma mistura do sistema simbólico com um sistema Conexionista [COSTA, 2009]. 
@@ -156,7 +158,7 @@ Dois tipos de sinais são identificados nessa rede:
 
 %O próximo passo é a execução da função de saída do neurônio $S_i(t)$, para a qual se pode aplicar um limiar de saída. 
 
-\subsection{Funções de ativação}
+\subsubsection{Funções de ativação}
 
 Em uma rede neural, cada neurônio - com exceção dos neurônios na camada de entrada - recebe e processa estímulos (\emph{inputs}) de outros neurônios. As informações processadas estão disponíveis na extremidade de saída do neurônio. Como pode ser visto na Figura \ref{fig:neuronio_cap2}, a cada saída de um nerônio, é aplicado uma função de ativação. A função de ativação mais comumente utilizada é a função sigmóide dada por:
 
@@ -228,11 +230,11 @@ Nesse trabalho, utilizou-se uma convenção, em que os neurônios da camada de entr
 
 \subsection{Algoritmo \emph{Backpropagation}}
 
-Encontrar o conjunto certo de pesos para realizar uma determinada tarefa é o objetivo central na pesquisa conexionista. Felizmente, algoritmos de aprendizagem foram concebidos que podem calcular os pesos certos para a realização de muitas tarefas (Rumelhart \emph{et al.,} 1986).  Estes se dividem em duas grandes categorias: aprendizagem supervisionada e não supervisionada. À medida que cada entrada é apresentada à rede, os pesos entre as unidades que estão ativas juntas são incrementadas, enquanto os pesos que conectam unidades que não estão ativas juntas são diminuídas. Essa forma de treinamento é especialmente útil para construir redes que podem classificar a entrada em categorias úteis. O algoritmo supervisionado mais amplamente utilizado é chamado \emph{backpropagation}. Para usar esse método, é necessário um conjunto de treinamento composto por muitos exemplos de entradas e suas saídas desejadas para uma determinada tarefa. Esse conjunto externo de exemplos "supervisiona" o processo de treinamento. Se, por exemplo, a tarefa for distinguir rostos masculinos e femininos, o conjunto de treinamento pode conter quadros de rostos, juntamente com uma indicação do sexo da pessoa representada em cada um. 
+Encontrar o conjunto certo de pesos para realizar uma determinada tarefa é o objetivo central na pesquisa conexionista. Felizmente, algoritmos de aprendizagem foram concebidos que podem calcular os pesos certos para a realização de muitas tarefas (Rumelhart \emph{et al.}, 1986).  Estes se dividem em duas grandes categorias: aprendizagem supervisionada e não supervisionada. À medida que cada entrada é apresentada à rede, os pesos entre as unidades que estão ativas juntas são incrementadas, enquanto os pesos que conectam unidades que não estão ativas juntas são diminuídas. Essa forma de treinamento é especialmente útil para construir redes que podem classificar a entrada em categorias úteis. O algoritmo supervisionado mais amplamente utilizado é chamado \emph{backpropagation}. Para usar esse método, é necessário um conjunto de treinamento composto por muitos exemplos de entradas e suas saídas desejadas para uma determinada tarefa. Esse conjunto externo de exemplos "supervisiona" o processo de treinamento. Se, por exemplo, a tarefa for distinguir rostos masculinos e femininos, o conjunto de treinamento pode conter quadros de rostos, juntamente com uma indicação do sexo da pessoa representada em cada um. 
 
 Uma rede que pode aprender essa tarefa pode ter duas unidades de saída (indicando as categorias masculino e feminino) e muitas unidades de entrada, uma delas, por exemplo, seria dedicada ao brilho de cada pixel da imagem. 
 
-\subsection{Processo de Treinamento}
+\subsubsection{Processo de Treinamento}
 
 Antes de demonstrar o passo a passo do algoritmo de treinamento \emph{backpropagation}, serão feitas algumas considerações quanto à notação utilizada.
 
@@ -302,7 +304,7 @@ O potencial de ativação $v_j(n)$ aplicado na entrada da não-linearidade associad
 v_j(n) = \sum_{i = 0}^{m}w_{ji}(n)y_i(n) 
 \end{align}
 
-onde $m$ é o número total de entradas (excluindo o bias) aplicado ao neurônio $j$. O peso sináptico $w_{j0}$ é o peso sináptico conetando a saída do neurônio $i$ ao neurônio $j$ e $y_i(n)$ é o sinal no $i$-ésimo "nó" de entrada do neurônio $j$, ou equivalentemente, o sinal na saída do neurônio $i$. Portanto o sinal $y_j(n)$ resultante na saída do neurônio $j$ na iteração $n$ é:
+Onde $m$ é o número total de entradas (excluindo o bias) aplicado ao neurônio $j$. O peso sináptico $w_{j0}$ é o peso sináptico conetando a saída do neurônio $i$ ao neurônio $j$ e $y_i(n)$ é o sinal no $i$-ésimo "nó" de entrada do neurônio $j$, ou equivalentemente, o sinal na saída do neurônio $i$. Portanto, o sinal $y_j(n)$ resultante na saída do neurônio $j$ na iteração $n$ é:
 
 \begin{align}
 y_j(n) = \varphi_j(v_j(n)) 
@@ -310,7 +312,7 @@ y_j(n) = \varphi_j(v_j(n))
 
 De maneira similar ao algoritmo LMS, o algoritmo \emph{backpropagation} aplica a correção $\Delta w_{ji}(n)$ ao peso sináptico $w_{ji}(n)$, tendo como base a direção contrária do gradiente local da superfície de erro $\epsilon$ relativo ao peso sináptico.
 
-Se, para uma dada variação no peso sináptico, o algoritmo movimenta-se em uma trajetória ascendente na superfície $\epsilon$, então significa que esta variação deve ser aplicada com o sinal invertido sobre o peso sináptico, já que houve um aumento do erro, e objetiva-se uma diminuição do erro.
+Se, para uma dada variação no peso sináptico, o algoritmo movimenta-se em uma trajetória ascendente na superfície $\epsilon$, então significa que essa variação deve ser aplicada com o sinal invertido sobre o peso sináptico, já que houve um aumento do erro, e objetiva-se uma diminuição do erro.
 
 Por outro lado, se para uma dada variação no peso sináptico o algoritmo movimenta-se em uma trajetória descendente na superfície $\epsilon$, então significa que esta variação deve ser aplicada com o sinal positivo sobre o peso sináptico, já que houve uma
 diminuição do erro e, portanto, o movimento deve ser encorajado naquela direção. Esse método de correção dos pesos sinápticos é denominado de Regra Delta, e é definida pela expressão:
@@ -340,7 +342,7 @@ A correção $\Delta w_{ji}(n)$ aplicada a $w_{ji}(n)$, ditada pela Regra Delta, é
 \Delta w_{ji}(n) = w_{ji}(n + 1) - w_{ji}(n) = - \eta \frac{\partial \epsilon(n)}{\partial  w_{ji}(n)}
 \end{align}
 
-onde $\eta$ é a constante que determina a razão de aprendizado do algoritmo \emph{backpropagation}. O uso do sinal negativo em (X.X) impõe a movimentação contrária à direção apontada pelo gradiente na superfície de erro definida no espaço de pesos sinápticos. 
+Onde $\eta$ é a constante que determina a razão de aprendizado do algoritmo \emph{backpropagation}. O uso do sinal negativo em (X.X) impõe a movimentação contrária à direção apontada pelo gradiente na superfície de erro definida no espaço de pesos sinápticos. 
 
 O algoritmo \emph{backpropagation} estabelece o aprendizado de um MLP através da Regra Delta como sendo a
 correção efetuada em suas sinapses através de:
@@ -370,7 +372,7 @@ A solução, dada pela equação (2.14b), é computar o sinal de erro recursivamente 
 	\end{center} 
 \end{figure}
 
-O fator $\varphi_j'(v_j(n))$ envolvido na computação do gradiente local $\delta_j(n)$ na equação (2.14b) depende somente da função de ativação associada com o neurônio escondido $j$. Os demais fatores envolvidos no somatório sobre $k$ em (2.14b) dependem de dois conjuntos de termos. O primeiro, $\delta_k(n)$, requer conhecimento dos sinais de erro $e_k(n)$ recursivamente retro-propagados, conforme apresentado adiante, a partir de todos aqueles neurônios localizados na camada imediatamente à direita do neurônio escondido $j$ e que estão diretamente conectados a ele (Figura \ref{fig:sinalRetro}). O segundo conjunto de termos, $w_{kj}(n)$, consiste dos pesos sinápticos dos neurônios à direita do neurônio $j$ e que com ele estabelecem conexão. As equações foram baseadas do livro (HAYKIN, 2000) e (CASTRO, 2009).
+O fator $\varphi_j'(v_j(n))$ envolvido na computação do gradiente local $\delta_j(n)$ na equação (2.14b) depende somente da função de ativação associada com o neurônio escondido $j$. Os demais fatores envolvidos no somatório sobre $k$ em (2.14b) dependem de dois conjuntos de termos. O primeiro, $\delta_k(n)$, requer conhecimento dos sinais de erro $e_k(n)$ recursivamente retro-propagados, conforme apresentado adiante, a partir de todos aqueles neurônios localizados na camada imediatamente à direita do neurônio escondido $j$ e que estão diretamente conectados a ele (Figura \ref{fig:sinalRetro}). O segundo conjunto de termos, $w_{kj}(n)$, consiste dos pesos sinápticos dos neurônios à direita do neurônio $j$ e que com ele estabelecem conexão. As equações foram baseadas do livro (HAYKIN, 2000) e (CASTRO e CASTRO, 2009).
 
 
 \begin{figure}[H] 
