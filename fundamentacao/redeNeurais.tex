@@ -352,7 +352,7 @@ correção efetuada em suas sinapses através de:
 onde $\Delta w_{ji}(n)$ é a correção aplicada à $i$-ésima sinapse do neurônio $j$, $y_i(n)$ é o sinal de entrada no $i$-ésimo nó de entrada do neurônio $j$ (= sinal na saída do neurônio $i$, pertencente à camada à esquerda da que pertence o neurônio $j$, se esse não estiver na primeira camada escondida, se o neurônio $j$ estiver na primeira camada escondida então $y_i(n)$ corresponde ao $i$-ésimo nó de entrada $x_i(n)$ do MLP) e $\delta_j(n)$ é o gradiente local do neurônio $j$, definido por:
 
 \begin{align}
-\delta_j(n) = \left \{ \begin{matrix} \varphi_j'(v_j(n)e_j(n), & \mbox{neurônio }j\mbox{ é de saída} \\ \varphi_j'(v_j(n))\sum_k\delta_k(n)w_{kj}(n), & \mbox{neurônio }j\mbox{ é de escondido} \end{matrix} \right.
+\delta_j(n) = \left \{ \begin{matrix} \varphi_j'(v_j(n))e_j(n), & \mbox{neurônio }j\mbox{ é de saída} \\ \varphi_j'(v_j(n))\sum_k\delta_k(n)w_{kj}(n), & \mbox{neurônio }j\mbox{ é de escondido} \end{matrix} \right.
 \end{align}
 
 De acordo com (2.14a) o gradiente local $\delta_j(n)$ para o neurônio de saída $j$ é igual ao produto do correspondente sinal de erro $e_j(n)$ pela derivada $\varphi_j'(v_j(n))$ da função de ativação associada. Nesse caso o fator chave necessário envolvido no cálculo do ajuste dos pesos $\Delta w_{ji}(n)$ é o sinal de erro $e_j(n)$ na saída do neurônio $j$.
