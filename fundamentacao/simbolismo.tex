@@ -12,7 +12,7 @@ Sistemas artificiais que simulam o conhecimento humano estão surgindo em uma var
 %Idealmente, o raciocínio pode ser explicado, e a maioria das ferramentas de desenvolvimento de sistemas especialistas permitem a criação de sistemas de explicação para ajudar o usuário a entender as perguntas que estão sendo feitas ou conclusões. Assim, o sistema pode funcionar mais como especialistas humanos que explicam os processos de raciocínio por trás de suas reconcomendações.
 %
 
-Um dos problemas encontrados pelos pioneiros da IA Simbólica veio a ser conhecido como o problema do conhecimento do senso comum. Além disso, as áreas que dependem de conhecimentos processuais ou implícitos, tais como os processos sensoriais / motores, são muito mais difíceis de lidar dentro da estrutura da IA Simbólica. Nesses campos, essa abordagem teve um sucesso limitado e, em geral, deixou o campo para arquiteturas de redes neurais (discutidas posteriormente), que são mais adequadas para tais tarefas. Nas seções a seguir, serão abordadas as sub-áreas importantes da IA simbólica, bem como as dificuldades encontradas por essa abordagem. O presente capítulo apresenta uma introdução aos sistemas simbólicos abordando de forma geral as formas de representação simbólica na Seção 2.1.1, na Seção 2.1.2 exemplifica as formas e tipo de dados que podem ser utilizados na aprensentação de regras ao sistema, e na última Seção 2.1.3, mostra os problemas encontrados pelos pesquisadores nesse tipo de abordagem.
+Um dos problemas encontrados pelos pioneiros da IA Simbólica veio a ser conhecido como o problema do conhecimento do senso comum. Além disso, as áreas que dependem de conhecimentos processuais ou implícitos, tais como os processos sensoriais / motores, são muito mais difíceis de lidar dentro da estrutura da IA Simbólica. Nesses campos, essa abordagem teve um sucesso limitado e, em geral, deixou o campo para arquiteturas de redes neurais (discutidas posteriormente), que são mais adequadas para tais tarefas. Nas seções a seguir, serão abordadas as sub-áreas importantes da IA simbólica, bem como as dificuldades encontradas por essa abordagem. O presente capítulo apresenta uma introdução aos sistemas simbólicos abordando de forma geral as formas de representação simbólica na Seção 2.1.1, na Seção 2.1.2 exemplifica as formas e tipo de dados que podem ser utilizados na apresentação de regras ao sistema, e na última Seção 2.1.3, mostra os problemas encontrados pelos pesquisadores nesse tipo de abordagem.
 
 %A Inteligência Artificial Simbólica consiste de um conjunto de símbolos que permitem a sua representação na forma de regras e processos. Quando as regras e processos são aplicados em um conjunto de símbolos, o sistema pode produzir novas estruturas. Os símbolos têm significados semânticos e podem representar conceitos ou objetos. Para lidar com estes conceitos usa-se a lógica proposicional e a lógica de predicados o que permite a solução de problema usando um sistema baseado em regras. Assim um sistema simbólico é capaz de resolver problemas que envolvem dados e as regras sobre estes dados. Esse tipo de sistema possibilita o desenvolvimento de estruturas passíveis do tratamento computacional, nas quais um dos objetivos é a representação do conhecimento no computador para fins de sua manipulação.  Um outro ponto positivo é que esse paradigma tem alta potencialidade na explicação dos resultados obtidos. 
 
@@ -24,52 +24,52 @@ Um dos problemas encontrados pelos pioneiros da IA Simbólica veio a ser conhecid
 
 \subsection{Representação Simbólica do Conhecimento}
 
-De acordo com a teoria de Gilbert Ryle, a taxonomia do conhecimento inclui o conhecimento declarativo, que é um conhecimento estático sobre fatos ("saber o que") e conhecimento processual, que é o conhecimento sobre a realização de tarefas ("saber como"). Por exemplo, uma árvore genealógica é uma representação do conhecimento declarativo, e um algoritmo heurístico, que simula a resolução de problemas por um ser humano, corresponde ao conhecimento procedural. Modelos estruturais de representação do conhecimento são utilizados para definir o conhecimento declarativo. Eles geralmente são na forma de estruturas hierárquicas do tipo grafo.
+De acordo com a teoria de \cite{ryle49}, a taxonomia do conhecimento inclui o conhecimento declarativo, que é um conhecimento estático sobre fatos ("saber o que") e conhecimento processual, que é o conhecimento sobre a realização de tarefas ("saber como"). Por exemplo, uma árvore genealógica é uma representação do conhecimento declarativo, e um algoritmo heurístico, que simula a resolução de problemas por um ser humano, corresponde ao conhecimento procedural. Modelos estruturais de representação do conhecimento são utilizados para definir o conhecimento declarativo. Eles geralmente são na forma de estruturas hierárquicas do tipo grafo.
 
-Embora originalmente eles foram utilizados para Processamento de Linguagem Natural (PLN), descobriu-se que eles poderiam ser utilizados em outras áreas da IA. A teoria da dependência conceitual, desenvolvida por Schank no final dos anos 1960, foi um dos primeiros modelos desse tipo. Schank alegou, ao contrário da teoria da gramática generativa de Chomsky, que uma sintaxe de linguagem era mais um conjunto de ponteiros para informações semânticas que poderiam ser utilizadas como ponto de partida para uma análise semântica direta. A teoria da dependência conceitual foi formulada apenas para fornecer formalismos convenientes (estruturais) para realizar uma análise semântica automaticamente. Como as frases de uma linguagem (natural) não podiam ser utilizadas para realizar uma análise semântica (automática) de maneira direta, Schank introduziu uma representação canônica e normalizada de dependências semânticas entre construções de linguagem (frases, sentenças).
+Embora originalmente eles foram utilizados para Processamento de Linguagem Natural (PLN), descobriu-se que eles poderiam ser utilizados em outras áreas da IA. A teoria da dependência conceitual, desenvolvida por Schank no final dos anos 1960, foi um dos primeiros modelos desse tipo. Schank alegou, ao contrário da teoria da gramática generativa de \cite{chomsky57}, que uma sintaxe de linguagem era mais um conjunto de ponteiros para informações semânticas que poderiam ser utilizadas como ponto de partida para uma análise semântica direta. A teoria da dependência conceitual foi formulada apenas para fornecer formalismos convenientes (estruturais) para realizar uma análise semântica automaticamente. Como as frases de uma linguagem (natural) não podiam ser utilizadas para realizar uma análise semântica (automática) de maneira direta, Schank introduziu uma representação canônica e normalizada de dependências semânticas entre construções de linguagem (frases, sentenças).
 
 Essa representação canônica é definida com a ajuda de grafos de dependência. Os "nós" rotulados de tais grafos correspondem as primitivas conceituais, que podem ser utilizadas para definir representações semânticas. Grafos de dependência são definidos de forma inequívoca de acordo com precisos princípios. Esses gráficos podem ser analisados de forma automática, o que permite ao sistema realizar uma análise semântica das construções correspondentes de uma linguagem natural. Em suma, Schank verificou uma hipótese afirmando que se pode tentar realizar a análise semântica automaticamente se forem definidas as representações de linguagem baseadas em conceitos de maneira explícita e precisa.
 
-Os \emph{Scripts} foram propostos por Schank e Abelson como um método para processamento de linguagem natural. Os \emph{scripts} podem ser definidos com a ajuda de grafos de dependência introduzidos acima. O modelo também é baseado em uma certa observação em psicologia. Se alguém quer entender uma mensagem sobre um determinado evento, então pode-se referir a um padrão generalizado relacionado ao tipo desse evento. O padrão é construído com base em eventos semelhantes que se conheceu anteriormente. Em seguida, ele é armazenado na memória. Pode-se facilmente notar que o conceito de \emph{scripts} é semelhante conceitualmente ao modelo de quadro.
+Os \emph{Scripts} foram propostos por Schank e Abelson como um método para processamento de linguagem natural. Os \emph{scripts} podem ser definidos com a ajuda de grafos de dependência introduzidos acima. O modelo também é baseado em uma certa observação em psicologia. Se alguém quer entender uma mensagem sobre um determinado evento, então pode-se referir a um padrão generalizado relacionado ao tipo desse evento. O padrão é construído com base em eventos semelhantes que se conheceu anteriormente. Em seguida, ele é armazenado na memória. Pode-se facilmente notar que o conceito de \emph{scripts} é semelhante conceitualmente ao modelo do quadro (\ref{fig:Script}).
 
 \begin{figure}[H] 
 	\begin{center}
 		\caption{Representação de um Script}
 		\includegraphics[scale=0.5]{imagens/Script.png}
 		\label{fig:Script}
-		\centerline{Fonte: (Sistemas Híbridos Inteligentes, 1999)}
+		\centerline{Fonte: Sistemas Híbridos Inteligentes, 1999}
 	\end{center} 
 \end{figure}
 
 No passado, os modelos estruturais de representação do conhecimento eram por vezes criticados por não serem suficientemente formais. Essa situação mudou na década de 1980, quando uma família dedicada de sistemas formais baseados na lógica matemática chamada lógica de descrição foi definida para esse propósito. 
 
-As redes semânticas, introduzidas por Collins e Quillian, são um dos primeiros modelos de gráficos definidos com base nos pressupostos apresentados acima. Seus "nós" representam objetos ou conceitos (classes de abstração, categorias) e suas arestas representam relações entre eles. 
+As redes semânticas, introduzidas por \cite{collins57}, são um dos primeiros modelos de gráficos definidos com base nos pressupostos apresentados acima. Seus "nós" representam objetos ou conceitos (classes de abstração, categorias) e suas arestas representam relações entre eles (Figura \ref{fig:redeSemantica}). 
 
 \begin{figure}[H] 
 	\begin{center}
 		\caption{Representação de uma Rede Semântica.}
 		\includegraphics[scale=0.5]{imagens/redeSemantica.png}
 		\label{fig:redeSemantica}
-			\centerline{Fonte: (Sistemas Híbridos Inteligentes, 1999)}
+			\centerline{Fonte: Sistemas Híbridos Inteligentes, 1999}
 	\end{center} 
 \end{figure}
 
-Os Quadros (sistemas baseados em \emph{frames}), introduzidos por Minsky, podem ser tratados como uma extensão substancial de redes semânticas. Um "nó" de tal rede é chamado quadro e tem uma estrutura interna complexa. Permite caracterizar objetos e classes de forma detalhada. A teoria do quadro tem a seguinte observação psicológica como uma suposição básica. Se alguém encontrar uma nova situação desconhecida, então ele / ela tenta obter uma estrutura chamada quadro fora de sua memória. Essa estrutura, que representa uma situação estereotipada semelhante à situação atual, pode então ser utilizada para gerar um comportamento adequado. Nos sistemas AI, uma estrutura gráfica de quadros é definida de acordo com princípios precisos que permitem ao sistema processá-lo e analisá-lo de forma automática.
+Os Quadros (sistemas baseados em \emph{frames}), introduzidos por \cite{minsky74}, podem ser tratados como uma extensão substancial de redes semânticas. Um "nó" de tal rede é chamado quadro e tem uma estrutura interna complexa. Permite caracterizar objetos e classes de forma detalhada. A teoria do quadro tem a seguinte observação psicológica como uma suposição básica: se alguém encontrar uma nova situação desconhecida, então ele / ela tenta obter uma estrutura chamada quadro fora de sua memória. Essa estrutura, que representa uma situação estereotipada semelhante à situação atual, pode então ser utilizada para gerar um comportamento adequado. Nos sistemas AI, uma estrutura gráfica de quadros é definida de acordo com princípios precisos que permitem ao sistema processá-lo e analisá-lo de forma automática (Figura \ref{fig:Frame}).
 
 \begin{figure}[H] 
 	\begin{center}
 		\caption{Representação de um \emph{Frame}}
 		\includegraphics[scale=0.5]{imagens/Frame.png}
 		\label{fig:Frame}
-		\centerline{Fonte: (Sistemas Híbridos Inteligentes, 1999)}
+		\centerline{Fonte: Sistemas Híbridos Inteligentes, 1999}
 	\end{center} 
 \end{figure}
 
 \subsection{Formatação dos dados}
 
-\subsection{Clássulas Horn}
+\subsection{Cláusulas Horn}
 
-As clássulas Horn servem como base para a criação da rede neural utilizando lógica, sendo assim, será introduzido uma breve explicação sobre elas.
+As cláusulas Horn (XXXX) servem como base para a criação da rede neural utilizando lógica, sendo assim, será introduzido uma breve explicação sobre elas.
 
 Na lógica, uma cláusula de Horn é uma cláusula (disjunção de literais) com no máximo um literal positivo. O nome "Cláusula de Horn" é uma homenagem ao lógico Alfred Horn, que foi quem primeiro chamou a atenção para o valor destas cláusulas, em 1951.
 
@@ -90,15 +90,15 @@ Uma cláusula de Horn pode ser de quatro tipos diferentes:
 
 O Prolog é uma linguagem de programação lógica de uso geral associada à inteligência artificial e à linguística computacional \cite{covington94}. Suas raízes são da lógica de primeira ordem, uma lógica formal, e ao contrário de muitas outras linguagens de programação. A linguagem foi concebida primeiramente por um grupo em Marselha, France, nos anos 70 e o primeiro sistema de Prolog desenvolvido foi em 1972 por Colmerauer e Philippe Roussel.
 
-O Prolog é uma linguagem declarativa, ou seja, ao invés de o programa estipular a maneira de chegar à solução passo-a-passo, como acontece nas linguagens procedimentais ou orientadas a objeto, ele fornece uma descrição do problema que se pretende computar utilizando uma coleção de fatos e regras (lógica) que indicam como deve ser resolvido o problema proposto. Como pode-se ver, o Prolog é mais direcionado ao conhecimento do que aos próprios algoritmos. 
+O Prolog é uma linguagem declarativa, ou seja, ao invés do programa estipular a maneira de chegar à solução passo a passo, como acontece nas linguagens procedimentais ou orientadas a objeto, ele fornece uma descrição do problema que se pretende computar utilizando uma coleção de fatos e regras (lógica) que indicam como deve ser resolvido o problema proposto. Como pode-se ver, o Prolog é mais direcionado ao conhecimento do que aos próprios algoritmos. 
 
-Além de ser uma linguagem declarativa, outro fato que o difere das outras linguagens é a questão de não possuir estruturas de controle (se-senão, faz-enquanto, para, escola) presentes na maioria das linguagens de programação. Para isso utilizamos métodos lógicos para declarar como o programa deverá atingir o seu objetivo. 
+Além de ser uma linguagem declarativa, outro fato que o difere das outras linguagens é a questão de não possuir estruturas de controle (se-senão, faz-enquanto, para, escola) presentes na maioria das linguagens de programação. Para isso utilizam-se métodos lógicos para declarar como o programa deverá atingir o seu objetivo. 
 
 Um programa em Prolog pode rodar em um modo interativo, o usuário poderá formular \emph{queries} utilizando os fatos e as regras para produzir a solução através do mecanismo de unificação. 
 
 O Prolog foi uma das primeiras linguagens de programação lógica, e continua a ser o mais popular na forma de representação lógica, com várias implementações livres e comerciais disponíveis. A linguagem tem sido utilizada para provas de teorema, sistemas especialistas, \cite{merrit89} e planejamento automatizado, \cite{schmid03}. Os ambientes Prolog modernos suportam a criação de interfaces gráficas de usuário, bem como aplicativos administrativos.
 
-Ele é adequado para tarefas específicas que se beneficiam de consultas lógicas baseadas em regras, como busca em bancos de dados, sistemas de controle de voz e modelos de preenchimento.
+O Prolog é adequado para tarefas específicas que se beneficiam de consultas lógicas baseadas em regras, como busca em bancos de dados, sistemas de controle de voz e modelos de preenchimento.
 
 \subsubsection{Tipos de Dados}
 
@@ -117,9 +117,9 @@ O tipo de dados único do Prolog é o termo. Os termos são átomos, números, variáv
 	
 \end{itemize}
 
-Os programas Prolog descrevem relações, definidas por meio de cláusulas. O Prolog puro está restrito às cláusulas de Horn. Existem dois tipos de cláusulas: fatos e regras. Uma regra é da forma:
-
-$Mestre: - AlunoMestrando$.
+Os programas Prolog descrevem relações, definidas por meio de cláusulas. O Prolog puro está restrito às cláusulas de Horn. Existem dois tipos de cláusulas: fatos e regras. 
+\\ \\
+Uma regra é da forma: $Mestre  :- AlunoMestrando$.
 
 E é lido como "O Mestre é verdadeiro se o AlunoMestrado for verdadeiro". 
 
