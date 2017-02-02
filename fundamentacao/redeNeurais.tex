@@ -16,11 +16,13 @@ Uma rede neural (Figura \ref{fig:MLP_cap2}) consiste em grande número de unidade
 \begin{figure}[H] 
 	\begin{center}
 		\caption{Representação de uma RNA.}
-		\includegraphics[scale=0.5]{imagens/MLP.png}
+		\includegraphics[scale=0.5]{imagens/MLP_2.png}
 		\label{fig:MLP_cap2}
-		\centerline{Fonte: (Sistemas Híbridos Inteligentes, 1999)}
+		\centerline{Fonte : Haykin, 2000}
 	\end{center} 
 \end{figure}
+
+\newpage
 
 As camadas em uma rede são normalmente segregadas em três classes: camada de entrada, que recebem informações a serem processadas, camada de saída onde os resultados do processamento são encontrados e as camadas ocultas que interligam a camada de entrada à saída da rede. 
 
@@ -34,8 +36,8 @@ Resumidamente, as "n" entradas $X_i$ do neurônio (sendo que, $1 < i < n$) são so
 	\begin{center}
 		\caption{Representação de um neurônio.}
 		\includegraphics[scale=0.5]{imagens/neuronioArtificial.png}
-		Fonte :
 		\label{fig:neuronio_cap2}
+		\centerline{Fonte : Haykin, 2000}
 	\end{center} 
 \end{figure}
 
@@ -65,13 +67,24 @@ Uma arquitetura ou topologia básica empregada nas RNAs é a do tipo MLP, na qual 
 
 \subsection{Redes MLP}
 
-Os perceptrons de multicamadas (MLP) são o tipo mais popular de redes neurais utilizadas em aplicações de RNAs. Essas redes têm sido utilizadas em uma variedade de aplicações, como reconhecimento de imagens, de vozes, de caracteres, entre muitas outras. Uma RNA do tipo MLP é constituída por um conjunto de neurônios fonte, os quais formam a camada de entrada da rede (\emph{input layer}), uma ou mais camadas ocultas (\emph{hidden layers}) e uma camada de saída (\emph{output layer}). A Figura \ref{fig:MLP_cap2} mostra a arquitetura de uma rede neural MLP com uma camada de entrada, duas camadas ocultas e uma camada de saída.
+Os perceptrons de multicamadas (MLP) são o tipo mais popular de redes neurais utilizadas em aplicações de RNAs. Essas redes têm sido utilizadas em uma variedade de aplicações, como reconhecimento de imagens, de vozes, de caracteres, entre muitas outras. Uma RNA do tipo MLP é constituída por um conjunto de neurônios fonte, os quais formam a camada de entrada da rede (\emph{input layer}), uma ou mais camadas ocultas (\emph{hidden layers}) e uma camada de saída (\emph{output layer}). A Figura \ref{fig:mlp_1} mostra a arquitetura de uma rede neural MLP com uma camada de entrada, duas camadas ocultas e uma camada de saída.
 
 Com relação as redes MLPs, pode-se citar duas características da estrutura que são imediatamente aparentes:
 
 1. A rede \emph{Multi-Layer Perceptron} é uma rede progressiva. Uma rede é dita progressiva (\emph{feedforward}) quando as saídas dos neurônios em qualquer camada se conectam unicamente às entradas dos neurônios da camada seguinte, sem a presença de laços de realimentação. Consequentemente, o sinal de entrada se propaga através da rede, camada a camada, em um sentido progressivo.
 
-2. A rede pode ser completamente conectada, caso em que cada neurônio (computacional ou não) em uma camada é conectado a todos os outras unidades de uma camada adjacente. De forma alternativa, uma rede MLP pode ser parcialmente conectada, nesse caso, algumas sinapses poderão estar faltando. Redes localmente conectadas representam um tipo importante de redes parcialmente conectadas. O termo "local" se refere à conectividade de um neurônio em uma camada da rede com relação a somente um sub-conjunto de todas as possíveis entradas. Na prática, a falta de uma determinada sinapse em um MLP é emulada fazendo-se sua transmitância constante e igual a zero. Nesse trabalho, no entanto, foi considerado apenas MLPs completamente conectadas.
+2. A rede pode ser completamente conectada, caso em que cada neurônio (computacional ou não) em uma camada é conectado a todos os outras unidades de uma camada adjacente. De forma alternativa, uma rede MLP pode ser parcialmente conectada, nesse caso, algumas sinapses poderão estar faltando. Redes localmente conectadas representam um tipo importante de redes parcialmente conectadas. O termo "local" se refere à conectividade de um neurônio em uma camada da rede com relação a somente um sub-conjunto de todas as possíveis entradas. 
+
+\begin{figure}[H] 
+	\begin{center}
+		\caption{Representação de uma MLP.}
+		\includegraphics[scale=0.5]{imagens/MLP.png}
+		\label{fig:mlp_1}
+		\centerline{Fonte : Haykin, 2000}
+	\end{center} 
+\end{figure}
+
+Na prática, a falta de uma determinada sinapse em um MLP é emulada fazendo-se sua transmitância constante e igual a zero. Nesse trabalho, no entanto, foi considerado apenas MLPs completamente conectadas.
 O número de unidades na camada de entrada da rede é determinado pela dimensionalidade do espaço de observação, que é responsável pela geração dos sinais de entrada. O número de neurônios na camada de saída é determinado pela dimensionalidade requerida da resposta desejada. Assim, o projeto de uma rede MLP requer a consideração de três aspectos:
 
 \begin{itemize}
@@ -104,8 +117,8 @@ Uma rede MLP apresenta algumas características distintas, cuja combinação com a 
 
 3. A rede MLP exibe um alto grau de conectividade, determinado pelas sinapses da rede. Uma mudança na conectividade da rede requer uma mudança na população de conexões sinápticas, ou pesos sinápticos.
 Essas mesmas características, entretanto, são também responsáveis pelas dificuldades encontradas na análise de tais redes. Por exemplo, a presença das não-linearidades distribuídas e a alta conectividade tornam difícil a análise teórica das redes MLPs. Em uma rede MLP, o conhecimento aprendido sobre o ambiente é representado pelos valores assumidos pelos pesos sinápticos da rede. A natureza distribuída desse conhecimento ao longo da rede a torna de difícil interpretação. Além disso, o uso de neurônios escondidos torna o processo de aprendizado mais difícil de ser "visualizado" na estrutura da rede.
-Observe, na Figura \ref{fig:MLP_cap2} que o sinal flui através da rede MLP no sentido direto, da esquerda para a direita e de camada a camada. A Figura \ref{fig:rede_Sinal_cap2} apresenta um detalhe parcial de uma rede MLP. 
-
+Observe, na Figura \ref{fig:mlp_1} que o sinal flui através da rede MLP no sentido direto, da esquerda para a direita e de camada a camada. A Figura \ref{fig:rede_Sinal_cap2} apresenta um detalhe parcial de uma rede MLP. 
+\\ \\
 Dois tipos de sinais são identificados nessa rede:
 
 1. Sinal funcional: São estímulos que chegam as unidades de entrada da rede, se propagam de forma direta (neurônio a neurônio) através da rede e emergem da camada de saída da rede como sinais de saída. 
@@ -215,7 +228,7 @@ Nesse trabalho, utilizou-se uma convenção, em que os neurônios da camada de entr
 
 \subsection{Algoritmo \emph{Backpropagation}}
 
-Encontrar o conjunto certo de pesos para realizar uma determinada tarefa é o objetivo central na pesquisa conexionista. Felizmente, algoritmos de aprendizagem foram concebidos que podem calcular os pesos certos para a realização de muitas tarefas \cite{rumelhart86}.  Estes se dividem em duas grandes categorias: aprendizagem supervisionada e não supervisionada. À medida que cada entrada é apresentada à rede, os pesos entre as unidades que estão ativas juntas são incrementadas, enquanto os pesos que conectam unidades que não estão ativas juntas são diminuídas. Essa forma de treinamento é especialmente útil para construir redes que podem classificar a entrada em categorias úteis. O algoritmo supervisionado mais amplamente utilizado é chamado \emph{backpropagation}. Para usar esse método, é necessário um conjunto de treinamento composto por muitos exemplos de entradas e suas saídas desejadas para uma determinada tarefa. Esse conjunto externo de exemplos "supervisiona" o processo de treinamento. Se, por exemplo, a tarefa for distinguir rostos masculinos e femininos, o conjunto de treinamento pode conter quadros de rostos, juntamente com uma indicação do sexo da pessoa representada em cada um. 
+Encontrar o conjunto certo de pesos para realizar uma determinada tarefa é o objetivo central na pesquisa conexionista. Felizmente, algoritmos de aprendizagem foram concebidos que podem calcular os pesos certos para a realização de muitas tarefas (Rumelhart \emph{et al.,} 1986).  Estes se dividem em duas grandes categorias: aprendizagem supervisionada e não supervisionada. À medida que cada entrada é apresentada à rede, os pesos entre as unidades que estão ativas juntas são incrementadas, enquanto os pesos que conectam unidades que não estão ativas juntas são diminuídas. Essa forma de treinamento é especialmente útil para construir redes que podem classificar a entrada em categorias úteis. O algoritmo supervisionado mais amplamente utilizado é chamado \emph{backpropagation}. Para usar esse método, é necessário um conjunto de treinamento composto por muitos exemplos de entradas e suas saídas desejadas para uma determinada tarefa. Esse conjunto externo de exemplos "supervisiona" o processo de treinamento. Se, por exemplo, a tarefa for distinguir rostos masculinos e femininos, o conjunto de treinamento pode conter quadros de rostos, juntamente com uma indicação do sexo da pessoa representada em cada um. 
 
 Uma rede que pode aprender essa tarefa pode ter duas unidades de saída (indicando as categorias masculino e feminino) e muitas unidades de entrada, uma delas, por exemplo, seria dedicada ao brilho de cada pixel da imagem. 
 
@@ -258,7 +271,7 @@ e_j  = d_j(n) - y_j(n)
 \end{align}
 
 Define-se o valor instantâneo do erro quadrático para o neurônio $j$ como $\dfrac{1}{2}e_j^2(n)$.  
-Correspondentemente, o valor instantâneo da soma dos erros quadráticos $\dfrac{1}{2}e_j^2(n)$ é obtido somando sobre todos os neurônios da camada de saída. Esses são os únicos neurônios visíveis para os quais os sinais de erro podem ser calculados de forma direta. A soma instantânea dos erros quadráticos na camada de saída do MLP é então escrita como: 
+Correspondentemente, o valor instantâneo da soma dos erros quadráticos é obtido somando sobre todos os neurônios da camada de saída. Esses são os únicos neurônios visíveis para os quais os sinais de erro podem ser calculados de forma direta. A soma instantânea dos erros quadráticos na camada de saída do MLP é então escrita como: 
 
 \begin{align}
 \epsilon(n) = \dfrac{1}{2} \sum_{j \in C}e_{j}^2(n)
@@ -270,7 +283,7 @@ onde o conjunto $C$ inclui todos os neurônios na camada de saída. Seja N o númer
 \epsilon_{av} = \dfrac{1}{N - 1} \sum_{n = 0}^{N - 1}\epsilon(n)
 \end{align}
 
-O valor instantâneo da soma dos erros quadráticos $\epsilon(n)$, e portanto, o MSE denotado por $\epsilon_{av}$, é função de todos os parâmetros livres (isto é, pesos sinápticos e bias) da MLP. Para um dado conjunto de treino, $\epsilon_{av}$  representa a função de custo do processo de minimização do erro de aprendizado, constituindo uma medida inversa do desempenho do processo de aprendizado a partir do conjunto de treino. Para minimizar $\epsilon_{av}$  os pesos sinápticos são atualizados a cada apresentação $n$ de um novo padrão ao MLP através do vetor de entrada até o término de uma época. Uma época consiste no intervalo correspondente à apresentação de todos os N vetores-exemplo do conjunto de treino à camada de entrada do MLP. O ajuste dos pesos é feito de acordo com os respectivos erros computados para cada padrão apresentado ao MLP. A média aritmética dessas alterações individuais nos pesos sobre o conjunto de treino é, portanto, uma estimativa da verdadeira alteração que resultaria a partir da alteração de pesos baseada na minimização da função custo $\epsilon_{av}$ sobre todo conjunto de treino.
+O valor instantâneo da soma dos erros quadráticos $\epsilon(n)$, e portanto, o MSE denotado por $\epsilon_{av}$, é função de todos os parâmetros livres (isto é, pesos sinápticos e bias) da MLP. Para um dado conjunto de treino, $\epsilon_{av}$  representa a função de custo do processo de minimização do erro de aprendizado, constituindo uma medida inversa do desempenho do processo de aprendizado a partir do conjunto de treino. Para minimizar $\epsilon_{av}$  os pesos sinápticos são atualizados a cada apresentação $n$ de um novo padrão ao MLP através do vetor de entrada até o término de uma época. Uma época consiste no intervalo correspondente à apresentação de todos os $N$ vetores-exemplo do conjunto de treino à camada de entrada do MLP. O ajuste dos pesos é feito de acordo com os respectivos erros computados para cada padrão apresentado ao MLP. A média aritmética dessas alterações individuais nos pesos sobre o conjunto de treino é, portanto, uma estimativa da verdadeira alteração que resultaria a partir da alteração de pesos baseada na minimização da função custo $\epsilon_{av}$ sobre todo conjunto de treino.
 
 Considere a Figura \ref{fig:sinalNeuronio}, a qual descreve o neurônio $j$ sendo alimentado por um conjunto de sinais produzidos na saída dos neurônios da camada à sua esquerda. 
 
@@ -279,6 +292,7 @@ Considere a Figura \ref{fig:sinalNeuronio}, a qual descreve o neurônio $j$ sendo
 		\caption{Grafo de fluxo de sinal no neurônio $j$.}
 		\includegraphics[scale=0.5]{imagens/sinalNeuronio.png}
 		\label{fig:sinalNeuronio}
+		\centerline{Fonte : Haykin, 2000}
 	\end{center} 
 \end{figure}
 
@@ -302,12 +316,12 @@ Por outro lado, se para uma dada variação no peso sináptico o algoritmo moviment
 diminuição do erro e, portanto, o movimento deve ser encorajado naquela direção. Esse método de correção dos pesos sinápticos é denominado de Regra Delta, e é definida pela expressão:
 
 \begin{align}
- \Delta \underline{w}(n) = -\eta \Delta J(w(n)) 
+ \Delta \underline{w}(n) = -\eta \underline{\nabla}  \underline{J}( \underline{w}(n)) 
 \end{align}
 
 onde,
 \begin{align}
-\Delta J(\underline{w}(n)) = \dfrac{\partial J(\underline{w}(n))}{\underline{w}(n)} = \dfrac{\partial \dfrac{1}{2}e^2(n)}{\partial \underline{w}(n)}
+\underline{\nabla} J(\underline{w}(n)) = \dfrac{\partial J(\underline{w}(n))}{\partial \underline{w}(n)} =  \frac{\partial \dfrac{1}{2}e^2(n)}{\partial \underline{w}(n)}
 \end{align}
  
  é o gradiente local da superfície de erro gerada pela função de custo:
@@ -352,18 +366,19 @@ A solução, dada pela equação (2.14b), é computar o sinal de erro recursivamente 
 		\caption{Grafo de fluxo de sinal mostrando os detalhes do neurônio de saída $k$ conectando ao neurônio escondido $j$.}
 		\includegraphics[scale=0.5]{imagens/sinalForward.png}
 		\label{fig:sinalForward}
+		\centerline{Fonte : Haykin, 2000}
 	\end{center} 
 \end{figure}
 
-O fator $\varphi_j'(v_j(n))$ envolvido na computação do gradiente local $\delta_j(n)$ na equação (2.14b) depende somente da função de ativação associada com o neurônio escondido $j$. Os demais fatores envolvidos no somatório sobre $k$ em (2.14b) dependem de dois conjuntos de termos. O primeiro, $\delta_k(n)$, requer conhecimento dos sinais de erro $e_k(n)$ recursivamente retro-propagados, conforme apresentado adiante, a partir de todos aqueles neurônios localizados na camada imediatamente à direita do neurônio escondido $j$ e que estão diretamente conectados a ele (Figura \ref{fig:sinalRetro}). O segundo conjunto de termos, $w_{kj}(n)$, consiste dos pesos sinápticos dos neurônios à direita do neurônio $j$ e que com ele estabelecem conexão. As equações foram baseadas do livro \cite{haykin2000} e \cite{castro2009}.
+O fator $\varphi_j'(v_j(n))$ envolvido na computação do gradiente local $\delta_j(n)$ na equação (2.14b) depende somente da função de ativação associada com o neurônio escondido $j$. Os demais fatores envolvidos no somatório sobre $k$ em (2.14b) dependem de dois conjuntos de termos. O primeiro, $\delta_k(n)$, requer conhecimento dos sinais de erro $e_k(n)$ recursivamente retro-propagados, conforme apresentado adiante, a partir de todos aqueles neurônios localizados na camada imediatamente à direita do neurônio escondido $j$ e que estão diretamente conectados a ele (Figura \ref{fig:sinalRetro}). O segundo conjunto de termos, $w_{kj}(n)$, consiste dos pesos sinápticos dos neurônios à direita do neurônio $j$ e que com ele estabelecem conexão. As equações foram baseadas do livro (HAYKIN, 2000) e (CASTRO, 2009).
 
 
 \begin{figure}[H] 
 	\begin{center}
 		\caption{Grafo de fluxo de sinal mostrando o processo de retro-propagação dos sinais de erro na camada de saída para um neurônio $j$ da camada escondida imediatamente a esquerda. $m_L$ e é o número de neurônios da camada de saída.}
 		\includegraphics[scale=0.5]{imagens/sinalRetropropagacao.png}
-		Fonte :
 		\label{fig:sinalRetro}
+		\centerline{Fonte : Haykin, 2000}
 	\end{center} 
 \end{figure}
 

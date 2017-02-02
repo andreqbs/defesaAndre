@@ -11,11 +11,11 @@ Diversos pesquisadores desses dois paradigmas tentam combinar as forças das duas
 \section{Knowledge-based Artificial Neural Networks (KBANN)}
 
 Esta sub-seção descreve a metodologia KBANN, que pode ser descrito como um sistema capaz de aprender a partir da teoria de domínio quanto por exemplos. O primeiro algoritmo, rotulado "Regras para Rede", está detalhado na Seção 2.4.1 o algoritmo insere regras simbólicas em uma rede neural. A redes criada nesse passo realiza a mesma classificação que as regras em que lhe deram origem.
-O segundo algoritmo do KBANN, denominado "\emph{Neural Learning}", refina as redes utilizando o algoritmo de aprendizagem \emph{backpropagation}. (Segundo \cite{towell90}, apesar de todos testes utilizarem retro-propagação, qualquer método aprendizado supervisionado funcionaria.) Embora o mecanismo de aprendizagem seja essencialmente uma retro-propagação padrão, a rede que está sendo treinada não segue o padrão de uma rede MLP com pesos aleatórios. Em vez disso, o primeiro algoritmo do KBANN constrói e inicializa a rede. Isso tem implicações diretas para o treinamento. Ao concluir esta etapa, a rede treinada pode ser utilizada como um classificador muito preciso. A próxima subseção apresenta como o conhecimentoorévio é inserido na RNA.
+O segundo algoritmo do KBANN, denominado "\emph{Neural Learning}", refina as redes utilizando o algoritmo de aprendizagem \emph{backpropagation}. (Segundo (Towell \textit{et al.,}, 1990), apesar de todos testes utilizarem retro-propagação, qualquer método aprendizado supervisionado funcionaria.) Embora o mecanismo de aprendizagem seja essencialmente uma retro-propagação padrão, a rede que está sendo treinada não segue o padrão de uma rede MLP com pesos aleatórios. Em vez disso, o primeiro algoritmo do KBANN constrói e inicializa a rede. Isso tem implicações diretas para o treinamento. Ao concluir esta etapa, a rede treinada pode ser utilizada como um classificador muito preciso. A próxima subseção apresenta como o conhecimento prévio é inserido na RNA.
 
 \subsection{Inserção de Conhecimento em uma RNA}
 
-O primeiro passo do KBANN é traduzir um conjunto de regras aproximadamente corretas em uma rede neural baseada no conhecimento. As regras a serem traduzidas em redes KBANN são expressas através de cláusulas Horn. Existem duas restrições no conjunto de regras. Primeiro, as regras devem ser proposicionais. Essa restrição resulta do uso de algoritmos de aprendizado neural que, no momento, são incapazes de manipular variáveis de cálculo de predicado. Em segundo lugar, as regras devem ser acíclicas. Essa restrição "sem ciclos" simplifica o treinamento das redes resultantes. No entanto, ele não representa uma limitação fundamental no KBANN, pois existem algoritmos baseados em \emph{backpropagation} que podem ser utilizados para treinar redes com ciclos \cite{towell90}.
+O primeiro passo do KBANN é traduzir um conjunto de regras aproximadamente corretas em uma rede neural baseada no conhecimento. As regras a serem traduzidas em redes KBANN são expressas através de cláusulas Horn. Existem duas restrições no conjunto de regras. Primeiro, as regras devem ser proposicionais. Essa restrição resulta do uso de algoritmos de aprendizado neural que, no momento, são incapazes de manipular variáveis de cálculo de predicado. Em segundo lugar, as regras devem ser acíclicas. Essa restrição "sem ciclos" simplifica o treinamento das redes resultantes. No entanto, ele não representa uma limitação fundamental no KBANN, pois existem algoritmos baseados em \emph{backpropagation} que podem ser utilizados para treinar redes com ciclos (Towell \textit{et al.,}, 1990).
 Além dessas restrições, os conjuntos de regras fornecidos ao KBANN são hierarquicamente estruturados. Ou seja, as regras geralmente não mapeiam diretamente as entradas para as saídas. Em vez disso, pelo menos algumas das regras fornecem conclusões intermediárias que descrevem conjunções úteis dos recursos de entrada. Essas conclusões intermediárias podem ser utilizadas por outras regras para determinar a conclusão final ou outras conclusões intermediárias. É a estrutura hierárquica de um conjunto de regras que cria características derivadas para uso pelo sistema de aprendizagem baseado em exemplo. Assim, se o conhecimento de domínio não é hierarquicamente estruturado, então as redes criadas pelo KBANN não terão recursos que indicam dependências contextuais ou outras conjunções úteis dentro das descrições do exemplo. Além disso, a uma rede KBANN que resulta da tradução de um conjunto de regras sem conclusões intermediárias não teria unidades ocultas. Como resultado, seria capaz de utilizar apenas o \emph{Perceptron} como aprendizagem. A Tabela \ref{tab:tabelaKBANN}, mostra um resumo de como é mapeado a teoria de domínio em uma rede neural de KBANN.
 
 \begin{table}[h]
@@ -40,13 +40,14 @@ Além dessas restrições, os conjuntos de regras fornecidos ao KBANN são hierarqui
 
 Nessa subseção, é descrito, em detalhes, cada uma das sete etapas desse algoritmo. 
 
-\textbf{Reescrever}. A primeira etapa do algoritmo transforma o conjunto de regras em um formato que esclarece sua estrutura hierárquica, e torna possível traduzir diretamente as regras em uma rede neural. Se houver mais de uma regra para um consequente, então cada regra para esse consequente com mais de um antecedente é re-escrita em duas regras. Uma dessas regras tem o consequente original e um único termo recém-criado como antecedente. A outra regra tem o termo recém-criado como seu consequente e os antecedentes da regra original como seus antecedentes. Por exemplo, a Figura \ref{fig:reescrita} mostra a transformação de duas regras no formato requerido pelas próximas etapas do KBANN. O trabalho de \cite{towell90} explica a necessidade de se aplicar essa reescrita.
+\textbf{Reescrever}. A primeira etapa do algoritmo transforma o conjunto de regras em um formato que esclarece sua estrutura hierárquica, e torna possível traduzir diretamente as regras em uma rede neural. Se houver mais de uma regra para um consequente, então cada regra para esse consequente com mais de um antecedente é re-escrita em duas regras. Uma dessas regras tem o consequente original e um único termo recém-criado como antecedente. A outra regra tem o termo recém-criado como seu consequente e os antecedentes da regra original como seus antecedentes. Por exemplo, a Figura \ref{fig:reescrita} mostra a transformação de duas regras no formato requerido pelas próximas etapas do KBANN. O trabalho de (Towell \textit{et al.,}, 1990) explica a necessidade de se aplicar essa reescrita.
 
 \begin{figure}[H] 
 	\begin{center}
 		\caption{Eliminação de disjunções com mais de um antecedente.}
 		\includegraphics[scale=0.5]{imagens/reescrita.png}
 		\label{fig:reescrita}
+		\centerline{Fonte : Towell, 1990}
 	\end{center} 
 \end{figure}
 
@@ -72,7 +73,7 @@ A Figura \ref{fig:algoritmoKbann} mostra uma tradução passo a passo de um conjun
 		\caption{Demonstração do algoritmo de KBANN.}
 		\includegraphics[scale=0.5]{imagens/algoritmoKbann.png}
 		\label{fig:algoritmoKbann}
-		Fonte :
+		\centerline{Fonte : Towell, 1990}
 	\end{center} 
 \end{figure}
 
@@ -106,18 +107,20 @@ Primeiramente o algoritmo (ver Figura \ref{fig:AlgoritmoTopGen}) deve encontrar 
 		\caption{Algoritmo TopGen}
 		\includegraphics[scale=0.5]{imagens/AlgoritmoTopGen.png}
 		\label{fig:AlgoritmoTopGen}
+		\centerline{Fonte : Shavlik, 1995}
 	\end{center} 
 \end{figure}
 
 \subsection{Como Novos Neurônios são Adicionados}
 
-Uma vez estimado onde se deve adicionar novos neurônios, é necessário saber como adicionar esses neurônios. TopGen faz a suposição de que, ao treinar uma de suas redes, o significado de um neurônio não mude significativamente. Fazer essa suposição permite alterar a rede de uma forma semelhante ao de refinar regras simbólicas. \cite{towell1992symbolic} mostrou que era válido fazer uma suposição semelhante sobre as redes de KBANN. A Figura \ref{fig:topGenNos} mostra as possíveis formas de como o TopGen adiciona neurônios a uma rede. Em uma base de regra simbólica que possui muitos falsos negativos, é possível diminuí-los descartando antecedentes de regras existentes ou adicionando novas regras para a base original.
+Uma vez estimado onde se deve adicionar novos neurônios, é necessário saber como adicionar esses neurônios. TopGen faz a suposição de que, ao treinar uma de suas redes, o significado de um neurônio não mude significativamente. Fazer essa suposição permite alterar a rede de uma forma semelhante ao de refinar regras simbólicas. (Towell \textit{et al.,}, 1990) mostrou que era válido fazer uma suposição semelhante sobre as redes de KBANN. A Figura \ref{fig:topGenNos} mostra as possíveis formas de como o TopGen adiciona neurônios a uma rede. Em uma base de regra simbólica que possui muitos falsos negativos, é possível diminuí-los descartando antecedentes de regras existentes ou adicionando novas regras para a base original.
 
 \begin{figure}[H] 
 	\begin{center}
 		\caption{Formas possíveis para adicionar novos neurônios. Arcos indicam conexões do tipo \emph{AND}}
 		\includegraphics[scale=0.5]{imagens/topGenNos.png}
 		\label{fig:topGenNos}
+	\centerline{Fonte : Shavlik, 1995}
 	\end{center} 
 \end{figure}
 
@@ -144,6 +147,7 @@ Embora se tenha treinado a rede KBANN mostrada na Figura \ref{fig:topGenNos}c co
 		\caption{Tradução das regras em uma rede KBANN}
 		\includegraphics[scale=0.5]{imagens/topGenExemplo.png}
 		\label{fig:topGenEx}
+		\centerline{Fonte : Shavlik, 1995}
 	\end{center} 
 \end{figure}
 
