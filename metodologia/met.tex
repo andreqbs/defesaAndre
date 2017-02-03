@@ -13,7 +13,7 @@ Para o desenvolvimento do \emph{software} foi adotada uma metodologia ágil e o q
 
 \subsection{Etapas do Desenvolvimento}
 
-Inicialmente, objetivou-se a implementação do algoritmo empregado pelo sistema desenvolvido por \cite{towell90} dividindo-a em duas sub-etapas distintas: A implementação relativa ao programa de extração de dados lógicos e a implementação da tradução em uma Rede Neural Artificial correspondente à teoria de domínio inicial.
+Inicialmente, objetivou-se a implementação do algoritmo empregado pelo sistema desenvolvido por (Towell \textit{et al.}, 1990) dividindo-a em duas sub-etapas distintas: A implementação relativa ao programa de extração de dados lógicos e a implementação da tradução em uma Rede Neural Artificial correspondente à teoria de domínio inicial.
 
 Os testes se iniciaram com o desenvolvimento de métodos para a conversão de Linguagens Lógicas, apresentadas sob a forma de cláusulas Horn. Em seguida, a construção da RNAs e aplicação em problemas simples e específicos, para, logo em seguida generalizá-los. Na sequência, ocorreu a integração entre as duas partes, o sistema foi a aplicado a um problema mais extenso e geral do que os anteriores.
 
@@ -50,7 +50,7 @@ Os estudos realizados juntamente com a implementação desse projeto se deram ao l
 	
 \end{itemize}
 
-As etapas iniciais (1 a 5) tiveram fundamental importância no trabalho, pois serviram para a fundamentação dos conceitos básicos de um sistema híbrido e a base para um bom desenvolvimento. A partir delas, pode-se destacar duas implementações preliminares importantes para a continuidade dos trabalhos, vistas na subseção X. Nas etapas 2 e 4 foram realizados estudos que definiu a forma mais apropriada de como a interface deveria ser implementada. As etapas 3, 6 e 9 relacionam as implementações aplicadas a exemplos específicos. As etapas 7, 8, 10, 11 e 12 focam o algoritmo KBANN, TopGen e suas aplicações. 
+As etapas iniciais (1 a 5) tiveram fundamental importância no trabalho, pois serviram para a fundamentação dos conceitos básicos de um sistema híbrido e a base para um bom desenvolvimento. Nas etapas 2 e 4 foram realizados estudos que definiu a forma mais apropriada de como a interface deveria ser implementada. As etapas 3, 6 e 9 relacionam as implementações aplicadas a exemplos específicos. As etapas 7, 8, 10, 11 e 12 focam o algoritmo KBANN, TopGen e suas aplicações. 
 
 \subsection{Implementações Preliminares}	
 
@@ -77,7 +77,7 @@ Cada instrução acima, representa uma regra do domínio da teoria, a união delas i
 		\caption{Representação de uma RNA a partir da base de regras.}
 		\includegraphics[scale=0.5]{imagens/visualizacaoGrafo.png}
 		\label{fig:visualizacaoGrafo}
-		\centerline{Fonte : Autor, 2017}
+		\centerline{Fonte: Autor, 2017}
 	\end{center} 
 \end{figure}
 
@@ -88,7 +88,7 @@ Os primeiros programas desenvolvidos nesse trabalho utilizavam a topologia básic
 
 Alguns exemplos simples foram utilizados, como o de reconhecimento e classificação de dados (padrões sensíveis à RNA). Na classificação de dados, como por exemplo, foi utilizado as regras determinadas logo acima para os testes inicias. Além disso, os mesmos testes foram validados no \emph{Matlab}, tanto usando o \emph{Neural Network ToolBox} de redes neurais que é disponibilizado no \emph{software}, como também, realizando passo a passo as operações matemáticas
 
-As cincos regras acima descrevem inicialmente o modelo daquele problema em específico. Assim como foi feito no TopGen, foram retiradas algumas regras do domínio teórico inicial, e em seguida realizando o treinamento e a validação. Foi possível notar que o KBANN ainda consegue classificar boa parte dos dados, mesmo não tendo um domínio completo do problema. Esse teste foi feito justamente para provar que \cite{towell90} comentou em seu trabalho, que não é necessário saber a fundo sobre problema. Apesar da sua boa classificação contendo 3 (três) regras das 5 (cinco) originais Variações desse modelo poderiam servir de exemplo para o treinamento da RNA.
+As cincos regras acima descrevem inicialmente o modelo daquele problema em específico. Assim como foi feito no TopGen, foram retiradas algumas regras do domínio teórico inicial, e em seguida realizando o treinamento e a validação. Foi possível notar que o KBANN ainda consegue classificar boa parte dos dados, mesmo não tendo um domínio completo do problema. Esse teste foi feito justamente para provar o que Towell \textit{et al.} (1990) comentou em seu trabalho, que não é necessário saber a fundo sobre problema. Apesar da sua boa classificação contendo 3 (três) regras das 5 (cinco) originais Variações desse modelo poderiam servir de exemplo para o treinamento da RNA.
 
 A criação de uma interface para entrada de dados fez-se necessária com a migração para programas mais genéricos. A solução mais imediata foi a adoção de arquivos formatados contendo um conjunto de definições, que são alteráveis no programa antes da sua execução.
 
@@ -108,7 +108,7 @@ Pensando em futuras expansões do projeto, foram criadas classes e módulos que po
 		\caption{Representação parcial do diagrama de classes do sistema.}
 		\includegraphics[scale=0.5]{imagens/diagramaClasses.png}
 		\label{fig:diagramaClasses}
-		\centerline{Fonte : Autor, 2017}
+		\centerline{Fonte: Autor, 2017}
 	\end{center} 
 \end{figure}
 
@@ -122,7 +122,7 @@ A Figura \ref{fig:diagramaCasosUso} contém alguns casos mais comuns de uso do am
 		\caption{Diagrama de Casos de Uso.}
 		\includegraphics[scale=0.5]{imagens/diagramaCasoUso.png}
 		\label{fig:diagramaCasosUso}
-		\centerline{Fonte : Autor, 2017}
+		\centerline{Fonte: Autor, 2017}
 	\end{center} 
 \end{figure}
 
@@ -135,7 +135,7 @@ O diagrama de classes da Figura \ref{fig:diagramaSequencia} aponta para a sequên
 		\caption{Diagrama de Sequência.}
 		\includegraphics[scale=0.5]{imagens/diagramaSequencia.png}
 		\label{fig:diagramaSequencia}
-		\centerline{Fonte : Autor, 2017}
+		\centerline{Fonte: Autor, 2017}
 	\end{center} 
 \end{figure}
 
@@ -145,13 +145,13 @@ Os passos à execução do programa podem ser resumidos dessa forma:
 
 1. Seleção dos algoritmos, das operações, dos arquivos de dados.
 
-2 A partir dos arquivos de informações inseridos, um conjunto de dados internos de trabalho é produzido pelo programa. Nesse conjunto de dados, podem ser lidos átomos, os mundos aos quais eles pertencem, as devidas posições e recursividades entre eles. 
+2. A partir dos arquivos de informações inseridos, um conjunto de dados internos de trabalho é produzido pelo programa. Nesse conjunto de dados, podem ser lidos átomos, os mundos aos quais eles pertencem, as devidas posições e recursividades entre eles. 
 
-3 Os cálculos são executados baseados nas informações do passo 2 e se estabelecem a topologia inicial da RNA e suas sub-RNAs, havendo o seu acompanhamento. 
+3. Os cálculos são executados baseados nas informações do passo 2 e se estabelecem a topologia inicial da RNA e suas sub-RNAs, havendo o seu acompanhamento. 
 
-4 Opcionalmente, novas informações podem ser obtidas a partir da leitura de exemplos, durante o aprendizado, alterando e preparando as RNAs aos processos de inferências. 
+4. Opcionalmente, novas informações podem ser obtidas a partir da leitura de exemplos, durante o aprendizado, alterando e preparando as RNAs aos processos de inferências. 
 
-5 Inicia-se a etapa de dedução lógica. Busca-se a computação convergente do programa, que se reflete na procura da estabilidade do sistema.
+5. Inicia-se a etapa de dedução lógica. Busca-se a computação convergente do programa, que se reflete na procura da estabilidade do sistema.
 
 \subsubsection{Processos do Sistema}
 
@@ -170,7 +170,7 @@ A interface também contém um menu para seleção do algoritmo a ser utilizado, ass
 		\caption{Tela principal do sistema.}
 		\includegraphics[scale=0.5]{imagens/telaPrincipal.png}
 		\label{fig:telaPrincipal}
-		\centerline{Fonte : Autor, 2017}
+		\centerline{Fonte: Autor, 2017}
 	\end{center} 
 \end{figure}
 
@@ -179,7 +179,7 @@ A interface também contém um menu para seleção do algoritmo a ser utilizado, ass
 
 Os arquivos carregados no programa pode ser visualizados na tela de edição, conforme a Figura \ref{fig:editorRegras}
 
-1. A planta inicial, que informa a teoria de domínio que deseja-se representar incialmente para um possível refinamento.
+1. A planta inicial, que informa a teoria de domínio que deseja-se representar inicialmente para um possível refinamento.
 
 2. A planta final, que possui o domínio completo e correto do problema.
 
@@ -190,7 +190,7 @@ Esses dois arquivos são abertos e acessados diretamente no painel interno da int
 		\caption{Tela de edição de regras.}
 		\includegraphics[scale=0.5]{imagens/editorRegras.png}
 		\label{fig:editorRegras}
-		\centerline{Fonte : Autor, 2017}
+		\centerline{Fonte: Autor, 2017}
 	\end{center} 
 \end{figure}
 
@@ -204,19 +204,19 @@ A interface também conta com menu \emph{according} localizada nas laterias da ja
 
 \subsection{Considerações sobre as implementações}	
 
-A maioria dos programas desenvolvidos empregaram as RNAs com o seu aprendizado executado por meio do algoritmo de retro-propagação. A escolha desse algoritmo deveu-se à sua utilização no sistema KBANN [Referencia], possibilitando a comparação de resultados. Os algoritmos que definiram as topologias de RNAs empregadas foram consequência da evolução natural das técnicas de programação.
+A maioria dos programas desenvolvidos empregaram as RNAs com o seu aprendizado executado por meio do algoritmo de retro-propagação. A escolha desse algoritmo deveu-se à sua utilização no sistema KBANN, possibilitando a comparação de resultados. Os algoritmos que definiram as topologias de RNAs empregadas foram consequência da evolução natural das técnicas de programação.
 Os valores de saída e as sinapses da RNA foram implementados por variáveis contidas nas classes Neurônio e Arestas. Quando se deseja acessar o valor contido em um neurônio específico, é utilizado um \emph{HashMap} que possui todos os objetos neurônios. Dentro de cada neurônio existe os campos que identifica se ele é da camada de entrada, saída ou de qual camada intermediária ele faz parte. Na Figura \ref{fig:diagramaClasses}, é possível ver a representação dessas estruturas com as quais pode-se acessar quaisquer valor desejado no grafo neural construído.
 
 \subsection{Testes do Sistema}
 
-Para validação do sistema desenvolvido, foi utilizado o \emph{software} \emph{Matlab} como referência, devido as suas diversas ferramentas amplamente testadas pela comunidade científica. Para realização do teste, foi necessário criar um exemplo de rede MLP de acordo com o que podia ser modelado no \emph{Matlab}. Na Figura \ref{fig:RedeMatlabEstrutura} a sua estrutura da rede MLP pode ser vista após a definição do problema. Esse teste teve como intenção apenas que os resultados encontrados no programa fossem relativamente parecidos ou próximos do que o  \emph{Matlab} gerou. 
+Para validação do sistema desenvolvido, foi utilizado o \emph{software} \emph{Matlab} como referência, devido as suas diversas ferramentas amplamente testadas pela comunidade científica. Para realização do teste, foi necessário criar um exemplo de rede MLP de acordo com o que podia ser modelado no \emph{Matlab}. Na Figura \ref{fig:RedeMatlabEstrutura}, a sua estrutura da rede MLP pode ser vista após a definição do problema. Esse teste teve como intenção apenas que os resultados encontrados no programa fossem relativamente parecidos ou próximos do que o \emph{Matlab} gerou. 
 
 \begin{figure}[H] 
 	\begin{center}
 		\caption{Topologia da rede MLP no \emph{Matlab}.}
 		\includegraphics[scale=0.5]{imagens/RedeMatlabEstrutura.png}
 		\label{fig:RedeMatlabEstrutura}
-		\centerline{Fonte : Autor, 2017}
+		\centerline{Fonte: Autor, 2017}
 	\end{center} 
 \end{figure}
 
@@ -227,29 +227,29 @@ Como pode ser vista na Figura \ref{fig:RedeMatlabEstrutura}, a rede ser treinada
 		\caption{Parâmetros após treinamento da Rede MLP no \emph{Matlab}.}
 		\includegraphics[scale=0.5]{imagens/RedeMatlabTreinada.png}
 		\label{fig:RedeMatlabTreinada}
-		\centerline{Fonte : Autor, 2017}
+		\centerline{Fonte: Autor, 2017}
 	\end{center} 
 \end{figure}
 
-Pelo o que foi apresentado na Figura \ref{fig:RedeMatlabTreinada}, pode-se observar que o \emph{Neural Network ToolBox}  do \emph{Matlab} levou 10.000 épocas para finalizar o problema, ou seja, o erro de treinamento ou o erro de validação aceitável não foi obtido, sendo necessário utilizar a quantidade de épocas totais para finalizar o treinamento. Nesse exemplo, foi utilizado o algoritmo de \emph{backpropagation} e a função de ativação dos neurônios escolhida foi a sigmóide. Outros parâmetros como taxa de aprendizagem, erro aceitável (goal) e o tempo para simulação podem ser verificados na \ref{fig:redeMatlabParametros}.
+Pelo o que foi apresentado na Figura \ref{fig:RedeMatlabTreinada}, pode-se observar que o \emph{Neural Network ToolBox}  do \emph{Matlab} levou 10.000 épocas para finalizar o problema, ou seja, o erro de treinamento ou o erro de validação aceitável não foi obtido, sendo necessário utilizar a quantidade de épocas totais para finalizar o treinamento. Nesse exemplo, foi utilizado o algoritmo de \emph{backpropagation} e a função de ativação dos neurônios escolhida foi a sigmoide Outros parâmetros como taxa de aprendizagem, erro aceitável (goal) e o tempo para simulação podem ser verificados na Figura \ref{fig:redeMatlabParametros}.
 
 \begin{figure}[H] 
 	\begin{center}
 		\caption{Parâmetros da rede MLP treinada.}
 		\includegraphics[scale=0.5]{imagens/redeMatlabParametros.png}
 		\label{fig:redeMatlabParametros}
-		\centerline{Fonte : Autor, 2017}
+		\centerline{Fonte: Autor, 2017}
 	\end{center} 
 \end{figure}
 
-As duas últimas Figuras (\ref{fig:GraficoErroMatlab} e \ref{fig:errosMatlab}) servem para afirmar o baixo aprendizado pela rede MLP para o exemplo fornecido. O erro aceitável ficou longe de ser alcançado e as saídas finais da rede tiveram valores sempre mantidos acima de 0.5, o que é um erro bastante grande. Para um melhor entedimento sobre o resultado gerados pela Figura \ref{fig:errosMatlab}, será discutido um passo dos vários que foram feitos para o treinamento. Essa figura possui as 16 saídas para as 16 amostradas que foram apresentadas a rede neural. A primeira amostra foi a entrada 0 0 0 0 e sua saída deveria ser 0, mas nesse caso a rede considerou que o "certo" para esse treinamento é 0.73587, sendo necessário um ajuste de de -0.73587 para corresponder com a realidade. Todos os demais dados apresentados para treinamento e validação, podem ser vistos na \ref{fig:resultado1SemTopgen}. 
+As duas últimas Figuras (\ref{fig:GraficoErroMatlab} e \ref{fig:errosMatlab}) servem para afirmar o baixo aprendizado pela rede MLP para o exemplo fornecido. O erro aceitável ficou longe de ser alcançado e as saídas finais da rede tiveram valores sempre mantidos acima de 0.5, o que é um erro bastante grande. Para um melhor entendimento sobre o resultado gerados pela Figura \ref{fig:errosMatlab}, será discutido um passo dos vários que foram feitos para o treinamento. A Figura \ref{fig:errosMatlab} possui as 16 saídas para as 16 amostradas que foram apresentadas a rede neural. A primeira amostra foi a entrada 0 0 0 0 e sua saída deveria ser 0, mas nesse caso a rede considerou que o "certo" para esse treinamento é 0.73587, sendo necessário um ajuste de de -0.73587 para corresponder com a realidade. Todos os demais dados apresentados para treinamento e validação, podem ser vistos na \ref{fig:resultado1SemTopgen}. 
 
 \begin{figure}[H] 
 	\begin{center}
 		\caption{Gráfico do erro de treinamento, validação e teste.}
 		\includegraphics[scale=0.5]{imagens/GraficoErroMatlab.png}
 		\label{fig:GraficoErroMatlab}
-		\centerline{Fonte : Autor, 2017}
+		\centerline{Fonte: Autor, 2017}
 	\end{center} 
 \end{figure}
 
@@ -258,29 +258,29 @@ As duas últimas Figuras (\ref{fig:GraficoErroMatlab} e \ref{fig:errosMatlab}) se
 		\caption{Resultados gerados na saída da rede.}
 		\includegraphics[scale=0.5]{imagens/errosMatlab.png}
 		\label{fig:errosMatlab}
-		\centerline{Fonte : Autor, 2017}
+		\centerline{Fonte: Autor, 2017}
 	\end{center} 
 \end{figure}
 
-O mesmo teste considerando as mesmas configurações da rede (taxa de aprendizado, função de ativação) e o conjunto de dados foram realizados pelo sistema desenvolvido utilizando apenas o KBANN e em seguinda o KBANN com o TopGen. Na Figura (\ref{fig:resultado1SemTopgen} a rede KBANN conseguiu classificar corretamente todos os dados apresentados em sua saída (A), mas obteve dois erros em uma saída intermediária (B), onde obteve dois falsos negativos. Esses erros já eram esperados devido a retirada de duas regras do domínio que rege esse problema.
+O mesmo teste considerando as mesmas configurações da rede (taxa de aprendizado, função de ativação) e o conjunto de dados foram realizados pelo sistema desenvolvido utilizando apenas o KBANN e em seguida o KBANN com o TopGen. Na Figura \ref{fig:resultado1SemTopgen} a rede KBANN conseguiu classificar corretamente todos os dados apresentados em sua saída (A), mas obteve dois erros em uma saída intermediária (B), onde obteve dois falsos negativos. Esses erros já eram esperados devido a retirada de duas regras do domínio que rege esse problema.
 
 \begin{figure}[H] 
 	\begin{center}
 		\caption{Resultados gerados na saída da rede apenas com KBANN.}
 		\includegraphics[scale=0.5]{imagens/resultado1_semTopGen.png}
 		\label{fig:resultado1SemTopgen}
-		\centerline{Fonte : Autor, 2017}
+		\centerline{Fonte: Autor, 2017}
 	\end{center} 
 \end{figure}
 
-Na Figura \ref{fig:resultado1ComTopgen}, pode-se observar que o erro em todas as saídas intermediárias (B e C), assim como a saída principal da rede (A) tiveram erro zero, ou seja, para todos os dados apresentados, foram classificados corretamente sem nenhuma execção, mostrando assim, uma boa eficácia do sistema. Para se conseguir esse feito, foram necessários adicionar a rede original de KBANN, dois neurônios, o TG1B e TG2B (ver Figura \ref{fig:resultado1RedeComTopgen}),  o motivo dessa adição pode ser vista na seção (2.X). Esse neurônios fizeram com que os erros da saída intermediária (B) fossem zerados sem modificar o aprendizado obtido em outros pontos da rede.
+Na Figura \ref{fig:resultado1ComTopgen}, pode-se observar que o erro em todas as saídas intermediárias (B e C), assim como a saída principal da rede (A) tiveram erro zero, ou seja, para todos os dados apresentados, foram classificados corretamente sem nenhuma execção, mostrando assim, uma boa eficácia do sistema. Para se conseguir esse feito, foram necessários adicionar a rede original de KBANN, dois neurônios, o TG1B e TG2B (ver Figura \ref{fig:resultado1RedeComTopgen}),  o motivo dessa adição pode ser vista na seção (2.3). Esse neurônios fizeram com que os erros da saída intermediária (B) fossem zerados sem modificar o aprendizado obtido em outros pontos da rede.
 
 \begin{figure}[H] 
 	\begin{center}
 		\caption{Resultados gerados na saída da rede com KBANN e TopGen.}
 		\includegraphics[scale=0.5]{imagens/resultado1_comTopGen.png}
 		\label{fig:resultado1ComTopgen}
-		\centerline{Fonte : Autor, 2017}
+		\centerline{Fonte: Autor, 2017}
 	\end{center} 
 \end{figure}
 
@@ -289,7 +289,7 @@ Na Figura \ref{fig:resultado1ComTopgen}, pode-se observar que o erro em todas as
 		\caption{Rede gerada com os novos neurônios a partir do TopGen.}
 		\includegraphics[scale=0.5]{imagens/resultado1_RedeComToGen.png}
 		\label{fig:resultado1RedeComTopgen}
-		\centerline{Fonte : Autor, 2017}
+		\centerline{Fonte: Autor, 2017}
 	\end{center} 
 \end{figure}
 

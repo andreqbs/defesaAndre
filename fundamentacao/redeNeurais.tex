@@ -193,7 +193,7 @@ Exibida na Figura \ref{fig:grafArcoTan} e dada por:
 	\end{center} 
 \end{figure}
 
-e a função tangente-hiperbólica mostrada na Figura \ref{fig:funcaoTanHip} e dada por:
+A função tangente-hiperbólica mostrada na Figura \ref{fig:funcaoTanHip} e dada por:
 
 \begin{align}
 \sigma(\gamma)  = \frac{(e^\gamma - e^{-\gamma})}{(e^\gamma + e^{-\gamma})}
@@ -342,7 +342,7 @@ A correção $\Delta w_{ji}(n)$ aplicada a $w_{ji}(n)$, ditada pela Regra Delta, é
 \Delta w_{ji}(n) = w_{ji}(n + 1) - w_{ji}(n) = - \eta \frac{\partial \epsilon(n)}{\partial  w_{ji}(n)}
 \end{align}
 
-Onde $\eta$ é a constante que determina a razão de aprendizado do algoritmo \emph{backpropagation}. O uso do sinal negativo em (X.X) impõe a movimentação contrária à direção apontada pelo gradiente na superfície de erro definida no espaço de pesos sinápticos. 
+Onde $\eta$ é a constante que determina a razão de aprendizado do algoritmo \emph{backpropagation}. O uso do sinal negativo em (2.12) impõe a movimentação contrária à direção apontada pelo gradiente na superfície de erro definida no espaço de pesos sinápticos. 
 
 O algoritmo \emph{backpropagation} estabelece o aprendizado de um MLP através da Regra Delta como sendo a
 correção efetuada em suas sinapses através de:
@@ -351,7 +351,7 @@ correção efetuada em suas sinapses através de:
 \Delta w_{ji}(n) = \eta \delta_j(n)y_i(n)
 \end{align}
 
-onde $\Delta w_{ji}(n)$ é a correção aplicada à $i$-ésima sinapse do neurônio $j$, $y_i(n)$ é o sinal de entrada no $i$-ésimo nó de entrada do neurônio $j$ (= sinal na saída do neurônio $i$, pertencente à camada à esquerda da que pertence o neurônio $j$, se esse não estiver na primeira camada escondida, se o neurônio $j$ estiver na primeira camada escondida então $y_i(n)$ corresponde ao $i$-ésimo nó de entrada $x_i(n)$ do MLP) e $\delta_j(n)$ é o gradiente local do neurônio $j$, definido por:
+Onde $\Delta w_{ji}(n)$ é a correção aplicada à $i$-ésima sinapse do neurônio $j$, $y_i(n)$ é o sinal de entrada no $i$-ésimo nó de entrada do neurônio $j$ (= sinal na saída do neurônio $i$, pertencente à camada à esquerda da que pertence o neurônio $j$, se esse não estiver na primeira camada escondida, se o neurônio $j$ estiver na primeira camada escondida então $y_i(n)$ corresponde ao $i$-ésimo nó de entrada $x_i(n)$ do MLP) e $\delta_j(n)$ é o gradiente local do neurônio $j$, definido por:
 
 \begin{align}
 \delta_j(n) = \left \{ \begin{matrix} \varphi_j'(v_j(n))e_j(n), & \mbox{neurônio }j\mbox{ é de saída} \\ \varphi_j'(v_j(n))\sum_k\delta_k(n)w_{kj}(n), & \mbox{neurônio }j\mbox{ é de escondido} \end{matrix} \right.
@@ -377,7 +377,7 @@ O fator $\varphi_j'(v_j(n))$ envolvido na computação do gradiente local $\delta_
 
 \begin{figure}[H] 
 	\begin{center}
-		\caption{Grafo de fluxo de sinal mostrando o processo de retro-propagação dos sinais de erro na camada de saída para um neurônio $j$ da camada escondida imediatamente a esquerda. $m_L$ e é o número de neurônios da camada de saída.}
+		\caption{Grafo de fluxo de sinal mostrando o processo de retro-propagação dos sinais de erro na camada de saída para um neurônio $j$ da camada escondida.}
 		\includegraphics[scale=0.5]{imagens/sinalRetropropagacao.png}
 		\label{fig:sinalRetro}
 		\centerline{Fonte : Haykin, 2000}
