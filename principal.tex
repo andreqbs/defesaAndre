@@ -44,7 +44,7 @@
 % Para poder fazer glossário ou lista de símbolos
 % Use a segunda opção se quiser incluir na definição do símbolo a
 % página e/ou a equação onde ela foi definida
-%\usepackage[portuguese,noprefix]{nomencl}
+\usepackage[portuguese,noprefix]{nomencl}
 % Glossário --------------------------------------------------------------------
 \usepackage{makeglo}
 %\usepackage[portuguese,noprefix,refeq,refpage]{nomencl}
@@ -234,7 +234,7 @@
 \cleardoublepage
 %\renewcommand{\nomname}{Lista de Símbolos e Abreviaturas}
 %\markboth{\MakeUppercase{\nomname}}{\MakeUppercase{\nomname}}
-\addcontentsline{toc}{chapter}{Lista de Símbolos e Abreviaturas}
+%\addcontentsline{toc}{chapter}{Lista de Símbolos e Abreviaturas}
 % O argumento opcional do comando \printglossary é a largura deixada
 % para os símbolos no glossário. Se seus símbolos são "largos", como
 % neste exemplo,  é melhor por mais espaço do que o 1cm que é reservado
@@ -249,6 +249,8 @@
 \mainmatter
 \pagestyle{headings}
 
+\include{listas/siglas}
+
 % Cap. 1 - Introdução
 \include{introducao/introducao}
 % Cap. 2- Conceitos e Definições Preliminares
@@ -262,6 +264,8 @@
 %Cap. 5 - Conclusões
 \include{conclusao/conclusao}
 \include{referencias/ref}
+
+
 
 % Referências bibliogáficas (geradas automaticamente)
 
