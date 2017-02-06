@@ -8,14 +8,14 @@ Esses modelos, no entanto, são frequentemente reduzidos a mecanismos de caixa pr
 
 Diversos pesquisadores desses dois paradigmas tentam combinar as forças das duas direções e ao mesmo tempo livrar-se de suas fragilidades eventualmente, visando sistemas artificiais que poderiam ser competitivos às capacidades humanas de processamento de dados e inferência. 
 
-\section{Knowledge-based Artificial Neural Networks (KBANN)}
+\subsection{Knowledge-based Artificial Neural Networks (KBANN)}
 
-Esta sub-seção descreve a metodologia KBANN, que pode ser descrito como um sistema capaz de aprender a partir da teoria de domínio quanto por exemplos. O primeiro algoritmo, rotulado "Regras para Rede", está detalhado na Seção 2.4.1 o algoritmo insere regras simbólicas em uma rede neural. A redes criada nesse passo realiza a mesma classificação que as regras em que lhe deram origem.
-O segundo algoritmo do KBANN, denominado "\emph{Neural Learning}", refina as redes utilizando o algoritmo de aprendizagem \emph{backpropagation}. Segundo Towell \textit{et al.}, (1990), apesar de todos testes utilizarem retro-propagação, qualquer método aprendizado supervisionado funcionaria.) Embora o mecanismo de aprendizagem seja essencialmente uma retro-propagação padrão, a rede que está sendo treinada não segue o padrão de uma rede MLP com pesos aleatórios. Em vez disso, o primeiro algoritmo do KBANN constrói e inicializa a rede. Isso tem implicações diretas para o treinamento. Ao concluir esta etapa, a rede treinada pode ser utilizada como um classificador muito preciso. A próxima subseção apresenta como o conhecimento prévio é inserido na RNA.
+Esta sub-seção descreve a metodologia KBANN, que pode ser descrito como um sistema capaz de aprender a partir da teoria de domínio quanto por exemplos. O primeiro algoritmo, rotulado $Regras para Rede$, está detalhado na Seção 2.4.1 o algoritmo insere regras simbólicas em uma rede neural. A redes criada nesse passo realiza a mesma classificação que as regras em que lhe deram origem.
+O segundo algoritmo do KBANN, denominado \emph{Neural Learning}, refina as redes utilizando o algoritmo de aprendizagem \emph{backpropagation}. Segundo Towell \textit{et al.}, (1990), apesar de todos testes utilizarem retro-propagação, qualquer método aprendizado supervisionado funcionaria.) Embora o mecanismo de aprendizagem seja essencialmente uma retro-propagação padrão, a rede que está sendo treinada não segue o padrão de uma rede MLP com pesos aleatórios. Em vez disso, o primeiro algoritmo do KBANN constrói e inicializa a rede. Isso tem implicações diretas para o treinamento. Ao concluir esta etapa, a rede treinada pode ser utilizada como um classificador muito preciso. A próxima subseção apresenta como o conhecimento prévio é inserido na RNA.
 
-\subsection{Inserção de Conhecimento em uma RNA}
+\subsubsection{Inserção de Conhecimento em uma RNA}
 
-O primeiro passo do KBANN é traduzir um conjunto de regras aproximadamente corretas em uma rede neural baseada no conhecimento. As regras a serem traduzidas em redes KBANN são expressas através de cláusulas Horn. Existem duas restrições no conjunto de regras. Primeiro, as regras devem ser proposicionais. Essa restrição resulta do uso de algoritmos de aprendizado neural que, no momento, são incapazes de manipular variáveis de cálculo de predicado. Em segundo lugar, as regras devem ser acíclicas. Essa restrição "sem ciclos" simplifica o treinamento das redes resultantes. No entanto, ele não representa uma limitação fundamental no KBANN, pois existem algoritmos baseados em \emph{backpropagation} que podem ser utilizados para treinar redes com ciclos (Towell \textit{et al.}, 1990).
+O primeiro passo do KBANN é traduzir um conjunto de regras aproximadamente corretas em uma rede neural baseada no conhecimento. As regras a serem traduzidas em redes KBANN são expressas através de cláusulas Horn. Existem duas restrições no conjunto de regras. Primeiro, as regras devem ser proposicionais. Essa restrição resulta do uso de algoritmos de aprendizado neural que, no momento, são incapazes de manipular variáveis de cálculo de predicado. Em segundo lugar, as regras devem ser acíclicas. Essa restrição sem ciclos simplifica o treinamento das redes resultantes. No entanto, ele não representa uma limitação fundamental no KBANN, pois existem algoritmos baseados em \emph{backpropagation} que podem ser utilizados para treinar redes com ciclos (Towell \textit{et al.}, 1990).
 Além dessas restrições, os conjuntos de regras fornecidos ao KBANN são hierarquicamente estruturados. Ou seja, as regras geralmente não mapeiam diretamente as entradas para as saídas. Em vez disso, pelo menos algumas das regras fornecem conclusões intermediárias que descrevem conjunções úteis dos recursos de entrada. Essas conclusões intermediárias podem ser utilizadas por outras regras para determinar a conclusão final ou outras conclusões intermediárias. É a estrutura hierárquica de um conjunto de regras que cria características derivadas para uso pelo sistema de aprendizagem baseado em exemplo. Assim, se o conhecimento de domínio não é hierarquicamente estruturado, então as redes criadas pelo KBANN não terão recursos que indicam dependências contextuais ou outras conjunções úteis dentro das descrições do exemplo. Além disso, a uma rede KBANN que resulta da tradução de um conjunto de regras sem conclusões intermediárias não teria unidades ocultas. Como resultado, seria capaz de utilizar apenas o \emph{Perceptron} como aprendizagem. A Tabela \ref{tab:tabelaKBANN}, mostra um resumo de como é mapeado a teoria de domínio em uma rede neural de KBANN.
 
 \begin{table}[h]
@@ -36,7 +36,7 @@ Além dessas restrições, os conjuntos de regras fornecidos ao KBANN são hierarqui
 \end{table}
 
 
-\subsection{Algoritmo de Tradução de Regras}
+\subsubsection{Algoritmo de Tradução de Regras}
 
 Nessa subseção, é descrito, em detalhes, cada uma das sete etapas desse algoritmo. 
 
@@ -56,15 +56,15 @@ Nessa subseção, é descrito, em detalhes, cada uma das sete etapas desse algoritm
 
 \textbf{Numeração}-  Nessa etapa, KBANN enumera as unidades nas redes KBANN por nível. Esse número influência diretamente nas etapas seguintes. O KBANN define o nível de cada unidade como sendo o comprimento do caminho mais longo para a unidade de saída.
 
-\textbf{Adicionando unidades ocultas}. Esse passo adiciona unidades ocultas a rede KBANN, dando assim, a rede a capacidade de aprender características derivadas não especificadas no conjunto de regras inicial. A etapa é opcional, pois as regras iniciais geralmente fornecem um vocabulário suficiente para evitar a necessidade de adicionar unidades ocultas. Assim, as unidades ocultas são adicionadas somente a instruções específicas de um usuário. Essa instrução deve especificar o número e a distribuição entre os níveis estabelecidos na etapa anterior das unidades adicionadas. Essa etapa não foi implementada no trabalho devido a falta de clareza do autor em como proceder com a mesma.
+\textbf{Adicionando unidades ocultas} - Esse passo adiciona unidades ocultas a rede KBANN, dando assim, a rede a capacidade de aprender características derivadas não especificadas no conjunto de regras inicial. A etapa é opcional, pois as regras iniciais geralmente fornecem um vocabulário suficiente para evitar a necessidade de adicionar unidades ocultas. Assim, as unidades ocultas são adicionadas somente a instruções específicas de um usuário. Essa instrução deve especificar o número e a distribuição entre os níveis estabelecidos na etapa anterior das unidades adicionadas. Essa etapa não foi implementada no trabalho devido a falta de clareza do autor em como proceder com a mesma.
 
 \textbf{Adicionando unidades de entrada} - Nessa etapa, o KBANN aumenta sua rede com unidades de entrada não mencionados pelo conjunto de regras, mas que um especialista do domínio acredita serem relevantes. Essa adição é necessária porque um conjunto de regras que não é perfeitamente correto pode não identificar cada recurso de entrada necessário para aprender corretamente um conceito.
 
-\textbf{Adicionando links} - No penúltimo passo, o algoritmo adiciona links com peso próximo a zero na rede utilizando a numeração das unidades estabelecidas na etapa 4. Conexões são adicionados para conectar cada unidade de uma camada "n" a uma camada imediatamente seguinte, $n + 1$. 
+\textbf{Adicionando links} - No penúltimo passo, o algoritmo adiciona links com peso próximo a zero na rede utilizando a numeração das unidades estabelecidas na etapa 4. Conexões são adicionados para conectar cada unidade de uma camada $n$ a uma camada imediatamente seguinte, $n + 1$. 
 
 \textbf{Perturbação}. O passo final na tradução de rede para regras é perturbar todos os pesos na rede adicionando um pequeno número aleatório a cada peso. Essa perturbação é muito pequena para ter um efeito nos cálculos da rede KBANN antes do treinamento. No entanto, é suficiente para evitar problemas causados pela simetria.
 
-\subsection{Exemplo do algoritmo}
+\subsubsection{Exemplo do algoritmo}
 
 A Figura \ref{fig:algoritmoKbann} mostra uma tradução passo a passo de um conjunto simples de regras para uma rede KBANN. O painel $a$ mostra um conjunto de regras na notação Prolog. O painel \emph{b} é o mesmo conjunto de regras depois de terem sido re-escritos na etapa 1 do algoritmo de tradução. As únicas regras afetadas pela reescrita são duas que, juntas, formam uma definição disjuntiva do consequente $B$.
 
@@ -93,14 +93,14 @@ Não há ilustração do passo final do algoritmo de tradução de regras para rede po
 
 %Simbólica segue a tradição lógica e teve em McCarthy e Newell seus principais defensores. Os princípios dessa linha de pesquisa são apresentados no artigo Physical symbol systems de Newell [New80]. O sucesso dos sistemas especialistas (SE) (do inglês, ?expert system''), a partir da década de setenta, estabeleceu a manipulação simbólica de um grande número de fatos especializados sobre um domínio restrito como o paradigma corrente para a construção de sistemas inteligentes do tipo simbólico. Para facilitar a apresentação, vamos dividir a história da IA simbólica em ?épocas'', conforme proposto em relatórios internos do MIT (Massachusetts Institute of Technology)
 
-\section{Top-Gen}
+\subsection{Top-Gen}
 
-O algoritmo do TopGen pesquisa heuristicamente as possíveis maneiras de adicionar um neurônio à rede, tentando encontrar a melhor topologia que refine a teoria do domínio inicial. Resumidamente, o TopGen procura neurônios na rede com altas taxas de erro e, em seguida, adiciona novos" nós" a essas partes da rede.
+O algoritmo do TopGen pesquisa heuristicamente as possíveis maneiras de adicionar um neurônio à rede, tentando encontrar a melhor topologia que refine a teoria do domínio inicial. Resumidamente, o TopGen procura neurônios na rede com altas taxas de erro e, em seguida, adiciona novos neurônios a essas partes da rede.
 A Figura \ref{fig:AlgoritmoTopGen} resume o algoritmo TopGen. O algoritmo utiliza dois conjuntos de validação, um para avaliar as diferentes topologias de rede e, um segundo para ajudar a decidir onde novos neurônios devem ser adicionados (o segundo conjunto de validação também é utilizado para decidir quando parar de treinar as novas redes encontradas). O TopGen utiliza o algoritmo de tradução de regra-para-rede do KBANN (discutido na seção anterior) para definir uma topologia inicial de rede neural. Essa rede é treinada utilizando \emph{backpropagation} e é colocada em uma lista, chamada de \emph{Open}. Em cada ciclo, o TopGen busca a melhor rede da lista \emph{Open} (conforme medido pelo segundo conjunto de validação), e decide as possíveis maneiras de adicionar novos neurônios, em seguida treina essas novas redes e as coloca na lista \emph{Open}. Esse processo é repetido até atingir um dos seguintes critérios: (a) uma precisão de 100\% em relação ao segundo conjunto de validação ou (b) um limite de épocas previamente estabelecido.
 
-\subsection{Localização de Novos Neurônios}
+\subsubsection{Localização de Novos Neurônios}
 
-Primeiramente o algoritmo (Figura \ref{fig:AlgoritmoTopGen}) deve encontrar neurônios na rede com altas taxas de erros. Isso é feito marcando cada neurônio (que corresponde a uma regra em uma teoria do domínio simbólico) sendo exemplos do primeiro conjunto de validação. Utilizando esse conjunto de validação, o TopGen adiciona neurônios com base onde a rede não conseguiu generalizar o resultado. O TopGen mantém dois contadores para cada neurônio da rede, um para falsos negativos e outro para falsos positivos. Esse contadores são modificados de acordo com a saída individual de cada neurônio e não apenas em relação a saída final da rede. Para uma melhor compreensão, um exemplo é considerado falso negativo se for incorretamente classificado como exemplo negativo, enquanto um falso positivo é um classificado incorretamente como um exemplo positivo. O TopGen incrementa os contadores de acordo com a quantidade de vezes que foi alterando o valor "booleano" de saída de um neurônio, levando a um exemplo mal classificado a ser classificado corretamente. Ou seja, se um neurônio estiver ativo para um exemplo errado, e alterar sua saída para ser inativo, e assim classificando de maneira correta o exemplo apresentado, isso fará que o contador de falsos positivos do neurônio seja incrementado. O contador de falsos negativos de um neurônio é incrementado seguindo o mesmo raciocínio. As novas redes serão geradas para tentar diminuir ou até mesmo eliminar o problema de cada neurônio, sendo que esse novo neurônio poderá também ajudar na redução de falsos negativos e positivos dos demais neurônios. A próxima subseção detalha como os neurônios são adicionados com base no tipo de contador (isto é, um contador falso negativo ou falso positivo) e o tipo de neurônio (isto é, um \emph{AND} ou \emph{OR}).
+Primeiramente o algoritmo (Figura \ref{fig:AlgoritmoTopGen}) deve encontrar neurônios na rede com altas taxas de erros. Isso é feito marcando cada neurônio (que corresponde a uma regra em uma teoria do domínio simbólico) sendo exemplos do primeiro conjunto de validação. Utilizando esse conjunto de validação, o TopGen adiciona neurônios com base onde a rede não conseguiu generalizar o resultado. O TopGen mantém dois contadores para cada neurônio da rede, um para falsos negativos e outro para falsos positivos. Esse contadores são modificados de acordo com a saída individual de cada neurônio e não apenas em relação a saída final da rede. Para uma melhor compreensão, um exemplo é considerado falso negativo se for incorretamente classificado como exemplo negativo, enquanto um falso positivo é um classificado incorretamente como um exemplo positivo. O TopGen incrementa os contadores de acordo com a quantidade de vezes que foi alterando o valor lógico de saída de um neurônio, levando a um exemplo mal classificado a ser classificado corretamente. Ou seja, se um neurônio estiver ativo para um exemplo errado, e alterar sua saída para ser inativo, e assim classificando de maneira correta o exemplo apresentado, isso fará que o contador de falsos positivos do neurônio seja incrementado. O contador de falsos negativos de um neurônio é incrementado seguindo o mesmo raciocínio. As novas redes serão geradas para tentar diminuir ou até mesmo eliminar o problema de cada neurônio, sendo que esse novo neurônio poderá também ajudar na redução de falsos negativos e positivos dos demais neurônios. A próxima subseção detalha como os neurônios são adicionados com base no tipo de contador (isto é, um contador falso negativo ou falso positivo) e o tipo de neurônio (isto é, um \emph{AND} ou \emph{OR}).
 
 \begin{figure}[H] 
 	\begin{center}
@@ -111,7 +111,7 @@ Primeiramente o algoritmo (Figura \ref{fig:AlgoritmoTopGen}) deve encontrar neur
 	\end{center} 
 \end{figure}
 
-\subsection{Como Novos Neurônios são Adicionados}
+\subsubsection{Como Novos Neurônios são Adicionados}
 
 Uma vez estimado onde se deve adicionar novos neurônios, é necessário saber como adicionar esses neurônios. TopGen faz a suposição de que, ao treinar uma de suas redes, o significado de um neurônio não mude significativamente. Fazer essa suposição permite alterar a rede de uma forma semelhante ao de refinar regras simbólicas. (Towell \textit{et al.}, 1990) mostrou que era válido fazer uma suposição semelhante sobre as redes de KBANN. A Figura \ref{fig:topGenNos} mostra as possíveis formas de como o TopGen adiciona neurônios a uma rede. Em uma base de regra simbólica que possui muitos falsos negativos, é possível diminuí-los descartando antecedentes de regras existentes ou adicionando novas regras para a base original.
 
@@ -132,9 +132,9 @@ Depois que os novos neurônios são adicionados, o TopGen realiza o treinamento da
 Custo = \sum_{k \in T}{(SaídaDesejada_k - SaídaRede_k)}^2 + \lambda \sum_{i \in C} \frac{{(w_i - w_{inicial})}^2}{1 + {(w_i - w_{inicial})}^2}
 \end{align}
 
-O primeiro termo soma todos os exemplos de treino \emph{T}, enquanto o segundo termo soma todas as conexões \emph{C}. O regulador entre o desempenho ea distância dos valores iniciais é ponderado por $\lambda$.
+O primeiro termo da equação 2.15 soma todos os exemplos de treino \emph{T}, enquanto o segundo termo soma todas as conexões \emph{C}. O regulador entre o desempenho ea distância dos valores iniciais é ponderado por $\lambda$.
 
-\subsection{Exemplo do TopGen}
+\subsubsection{Exemplo do TopGen}
 
 Suponha que a teoria do domínio da Figura \ref{fig:topGenEx} também deveria incluir a seguinte regra:
 %$B: -: \no F, G, H$.
@@ -150,9 +150,9 @@ Embora se tenha treinado a rede KBANN mostrada na Figura \ref{fig:topGenNos}c co
 \end{figure}
 
 O TopGen começa treinando a rede na \ref{fig:topGenEx}c, obtendo nenhuma melhora na base de regra original. Em seguida, prossegue tomando exemplos mal classificados do conjunto de validação-1 para encontrar lugares onde pode ser benéfico adicionar neurônios. O exemplo a seguir da categoria A é classificado incorretamente pela teoria de domínio:
-
-\centerline{$F G  H I J K L M$}
-
+\newline \newline
+\centerline{$not D \wedge E \wedge F \wedge  G \wedge not H \wedge not I \wedge J \wedge K$}
+\newline \newline
 Enquanto o neurônio \emph{C} (da Figura \ref{fig:topGenEx}c está corretamente falso nesse exemplo, o neurônio \emph{B} é incorretamente falso, \emph{B} é falso, uma vez que \emph{B1} e \emph{B2} são falsos. Se \emph{B} tivesse sido verdadeiro, esse exemplo teria sido classificado corretamente (já que \emph{C} é correto), então TopGen incrementa o contador corrigível-falso-negativo para B. O TopGen também incrementa os contadores de \emph{B1}, \emph{B2} e \emph{A}, utilizando argumentos semelhantes.
 Os neurônios \emph{B1}, \emph{B2}, \emph{B} e \emph{A} terão todos os contadores de correção-falso-negativo com alta taxas de erro após todos os exemplos serem processados. Dadas essas contagens elevadas, o TopGen considera a adição de neurônios \emph{OR} aos neurônios \emph{A}, \emph{B1} e \emph{B2}, como feito na Figura \ref{fig:topGenEx}, e também considera a adição de outra disjunção, análogo à Figura \ref{fig:topGenEx}a, ao neurônio B. Qualquer um desses para correções permite que a rede aprenda o conceito desejado. Como o TopGen prefere os neurônios mais distantes do neurônio de saída, então será adicionado em \emph{B1} ou \emph{B2}.
 

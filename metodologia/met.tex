@@ -23,7 +23,7 @@ Os estudos realizados juntamente com a implementação desse projeto se deram ao l
 
 \begin{itemize}
 	
-	\item \textbf{Etapa 1 (Padrões):} Estudo de Padrões de Projetos de \emph{software} para serem aplicados a sistema esse tipo de desenvolvimento.
+	\item \textbf{Etapa 1 (Padrões de Software):} Estudo de Padrões de Projetos de \emph{software} para serem aplicados a sistema esse tipo de desenvolvimento.
 	
 	\item \textbf{Etapa 2 (RNA específica):} Implementações de RNAs simples, permitindo a primeira definição das técnicas de implementação de RNA a serem empregadas;  
 	
@@ -35,7 +35,7 @@ Os estudos realizados juntamente com a implementação desse projeto se deram ao l
    
 	\item \textbf{Etapa 6 (Algoritmo KBANN):} Estruturação das classes do sistema KBANN e desenvolvimento do método que engloba rotinas para o processamento da sintaxe de textos;
 
-	\item \textbf{Etapa 7 (Conversão de dados):} Formatação dos dados a serem aplicados em uma RNA específica, definição dos formatos dos arquivos;
+	\item \textbf{Etapa 7 (Conversão de dados):} Formatação dos dados a serem aplicados em uma RNA específica e definição dos formatos dos arquivos para serem lidos;
 
 	\item \textbf{Etapa 8 (Algoritmo KBANN):} Aprimoramento dos programas anteriores permitindo a inserção das regras aplicáveis de forma genérica, segundo o algoritmo KBANN;
 
@@ -43,9 +43,11 @@ Os estudos realizados juntamente com a implementação desse projeto se deram ao l
 
 	\item \textbf{Etapa 10 (Algoritmo TopGen):} Implementação do algoritmo TopGen para gerar novas redes;
 	
-	\item \textbf{Etapa 11 (Algoritmo TopGen):} Comparação entre RNAs com e sem o emprego do algoritmo TopGen;
+	\item \textbf{Etapa 11 (Tabuleiro de xadrez):} Implementação do tabuleiro de Xadrez e seus respectivos métodos para extração de informações que serviram de entrada para a rede neural;
+	
+	\item \textbf{Etapa 12 (Algoritmo TopGen):} Comparação entre RNAs com e sem o emprego do algoritmo TopGen;
 		
-	\item \textbf{Etapa 12 (Algoritmo KBANN e TopGen):} Testes das RNAs com utilização do algoritmo KBANN;
+
 			
 	
 \end{itemize}
@@ -64,13 +66,14 @@ Algumas implementações básicas foram necessárias para se adquirir experiência. O
 
 A leitura de dados simbólicos serviu de base para a implementação do algoritmo de conversão KBANN. A execução, o acompanhamento e os testes dessa implementação permitiram verificar a tradução de uma base de regras iniciais em uma rede neural de KBANN.
 A Figura \ref{fig:visualizacaoGrafo} é a representação final das regras lógicas contidas nas cláusulas lógicas mostradas abaixo na forma de cláusulas de Horn. A partir desse conjunto de símbolos, foram obtidas as estruturas das RNAs similares às da Figura \ref{fig:visualizacaoGrafo}, aplicando-se a elas os cálculos requeridos pelo algoritmo, tais como a determinação dos pesos inciais, bias, taxa de aprendizado da rede e o erro aceitável.
-
+\newline \newline
 \centerline{$A$ :- $B$,  $¬C$} 
 \centerline{$B$ :- $D$, $¬F$, $G$} 
 \centerline{$B$ :- $D$, $F$, $I$} 
 \centerline{$C$ :- $H$, $J$, $K$} 
+\newline
 
-Cada instrução acima, representa uma regra do domínio da teoria, a união delas implica nas regras que definem um problema. Para melhor entendimento, as cláusulas no formato de Prolog podem ser lidas da seguinte maneira: ao lado esquerdo ficam os consequentes, ou seja, as implicações que são geradas pelos seus antecedentes (lado direito). Os antecedentes são as condições necessárias para ativar um consequente, esses, são separados por vírgulas (,) quando se quer definir que ambos os consequentes precisam ser ativados para sair uma determinada resposta do seu respectivo consequente da regra.
+Cada instrução acima, representa uma regra do domínio da teoria, a união delas implica nas regras que definem um problema. Para melhor entendimento, as cláusulas no formato de Prolog podem ser lidas da seguinte maneira: ao lado esquerdo ficam os consequentes, ou seja, as implicações que são geradas pelos seus antecedentes (lado direito). Os antecedentes são as condições necessárias para ativar um consequente, esses, são separados por vírgulas (,) quando se quer definir que ambos os antecedentes precisam estar ativados para sair uma determinada resposta do seu respectivo consequente da regra. Quando um antecedente sofre uma negação ($\neg$), o peso sináptico da ligação entre os neurônios será negativo.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -143,15 +146,13 @@ Como ilustra a Figura \ref{fig:diagramaSequencia}, o \emph{software} interno atu
 
 Os passos à execução do programa podem ser resumidos dessa forma:
 
-1. Seleção dos algoritmos, das operações, dos arquivos de dados.
+1. Seleção dos algoritmos, das configurações da RNA e dos arquivos de dados;
 
-2. A partir dos arquivos de informações inseridos, um conjunto de dados internos de trabalho é produzido pelo programa. Nesse conjunto de dados, podem ser lidos átomos, os mundos aos quais eles pertencem, as devidas posições e recursividades entre eles. 
+2. A partir dos arquivos de informações inseridos, um conjunto de dados internos (regras de aplicação) de trabalho é produzido pelo programa; 
 
-3. Os cálculos são executados baseados nas informações do passo 2 e se estabelecem a topologia inicial da RNA e suas sub-RNAs, havendo o seu acompanhamento. 
+3. Os cálculos são executados baseados nas informações do passo 2 e se estabelecem a topologia inicial da RNA;
 
-4. Opcionalmente, novas informações podem ser obtidas a partir da leitura de exemplos, durante o aprendizado, alterando e preparando as RNAs aos processos de inferências. 
-
-5. Inicia-se a etapa de dedução lógica. Busca-se a computação convergente do programa, que se reflete na procura da estabilidade do sistema.
+4. Aplica-se o teste de Falsos Positivos e Negativos na rede gerada e caso seja necessário, novas redes serão criadas.
 
 \subsubsection{Processos do Sistema}
 
