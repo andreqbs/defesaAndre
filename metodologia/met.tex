@@ -1,7 +1,7 @@
 \mychapter{Metodologia}
 \label{Cap_3}
 
-Este capítulo apresenta os materiais, métodos utilizados e desenvolvidos nessa pesquisa. O Sistema Computacional abordado está esquematizado na Seção 3.2, onde são mostradas a sua divisão em blocos e as inter-relações existentes entre eles. A Seção 3.3 contém algumas peculiaridades relevantes das implementações.
+Este capítulo apresenta os materiais, métodos utilizados e desenvolvidos nessa pesquisa. O Sistema Computacional abordado está esquematizado na Seção 3.2, na qual são mostradas a sua divisão em blocos e as inter-relações existentes entre eles. A Seção 3.3 contém algumas peculiaridades relevantes das implementações.
 
 \section{Estudo e Desenvolvimento Inicial}
 	
@@ -13,9 +13,9 @@ Para o desenvolvimento do \emph{software} foi adotada uma metodologia ágil e o q
 
 \subsection{Etapas do Desenvolvimento}
 
-Inicialmente, objetivou-se a implementação do algoritmo empregado pelo sistema desenvolvido por (Towell \textit{et al.}, 1990) dividindo-a em duas sub-etapas distintas: A implementação relativa ao programa de extração de dados lógicos e a implementação da tradução em uma Rede Neural Artificial correspondente à teoria de domínio inicial.
+Inicialmente, objetivou-se a implementação do algoritmo empregado pelo sistema desenvolvido por (Towell \textit{et al.}, 1990) dividindo-a em duas subetapas distintas: A implementação relativa ao programa de extração de dados lógicos e a implementação da tradução em uma Rede Neural Artificial correspondente à teoria de domínio inicial.
 
-Os testes se iniciaram com o desenvolvimento de métodos para a conversão de Linguagens Lógicas, apresentadas sob a forma de cláusulas Horn. Em seguida, a construção da RNAs e aplicação em problemas simples e específicos, para, logo em seguida generalizá-los. Na sequência, ocorreu a integração entre as duas partes, o sistema foi a aplicado a um problema mais extenso e geral do que os anteriores.
+Os testes iniciaram com o desenvolvimento de métodos para a conversão de Linguagens Lógicas, apresentadas sob a forma de cláusulas Horn. Em seguida, a construção da RNAs e aplicação em problemas simples e específicos, para, logo em seguida generalizá-los. Na sequência, ocorreu a integração entre as duas partes, o sistema foi a aplicado a um problema mais extenso e geral do que os anteriores.
 
 Na fase final do desenvolvimento, foi criado um sistema genérico de para gerar padrões de entradas e saídas de acordo com o as necessidades do usuário.
 
@@ -29,7 +29,7 @@ Os estudos realizados juntamente com a implementação desse projeto se deram ao l
 	
 	\item \textbf{Etapa 3 (\emph{Backpropagation}):} Estudo dos algoritmos de aprendizagem neural.
 	
-	\item \textbf{Etapa 4 (RNA genérica):} Versões mais aprimorada do programas de RNAs específicas, com refinamento das técnicas.
+	\item \textbf{Etapa 4 (RNA genérica):} Versões mais aprimoradas do programas de RNAs específicas, com refinamento das técnicas.
 		
 	\item \textbf{Etapa 5 (Interface gráfica):} Estudo preliminar para integrar todos os módulos para o gerenciamento do sistema KBANN em um ambiente computacional;
    
@@ -73,7 +73,7 @@ A Figura \ref{fig:visualizacaoGrafo} é a representação final das regras lógicas 
 \centerline{$C$ :- $H$, $J$, $K$} 
 \newline
 
-Cada instrução acima, representa uma regra do domínio da teoria, a união delas implica nas regras que definem um problema. Para melhor entendimento, as cláusulas no formato de Prolog podem ser lidas da seguinte maneira: ao lado esquerdo ficam os consequentes, ou seja, as implicações que são geradas pelos seus antecedentes (lado direito). Os antecedentes são as condições necessárias para ativar um consequente, esses, são separados por vírgulas (,) quando se quer definir que ambos os antecedentes precisam estar ativados para sair uma determinada resposta do seu respectivo consequente da regra. Quando um antecedente sofre uma negação ($\neg$), o peso sináptico da ligação entre os neurônios será negativo.
+Cada instrução acima representa uma regra do domínio da teoria, a união delas implica nas regras que definem um problema. Para melhor entendimento, as cláusulas no formato de Prolog podem ser lidas da seguinte maneira: ao lado esquerdo ficam os consequentes, ou seja, as implicações que são geradas pelos seus antecedentes (lado direito). Os antecedentes são as condições necessárias para ativar um consequente e esses são separados por vírgulas (,) quando se quer definir que ambos os antecedentes precisam estar ativados para sair uma determinada resposta do seu respectivo consequente da regra. Quando um antecedente sofre uma negação ($\neg$), o peso sináptico da ligação entre os neurônios será negativo.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -201,11 +201,11 @@ A barra de menu da interface facilita algumas operações de edição e execução dos
 
 \subsubsection{Menu Lateral}
 
-A interface também conta com menu \emph{according} localizada nas laterias da janela principal que serve para o acompanhamento do andamento das operações. Esse menu extra possibilita ao usuário identificar o que foi lido do arquivo que contém as regras, saber o resultado final após o treinamento e o TopGen e identificar os níveis (camadas) por cor, as quais os neurônios fazem parte.
+A interface também conta com menu \emph{according} localizada nas laterais da janela principal que serve para o acompanhamento do andamento das operações. Esse menu extra possibilita ao usuário identificar o que foi lido do arquivo que contém as regras, saber o resultado final após o treinamento e o TopGen e identificar os níveis (camadas) por cor, as quais os neurônios fazem parte.
 
 \subsection{Considerações sobre as implementações}	
 
-A maioria dos programas desenvolvidos empregaram as RNAs com o seu aprendizado executado por meio do algoritmo de retro-propagação. A escolha desse algoritmo deveu-se à sua utilização no sistema KBANN, possibilitando a comparação de resultados. Os algoritmos que definiram as topologias de RNAs empregadas foram consequência da evolução natural das técnicas de programação.
+A maioria dos programas desenvolvidos empregaram as RNAs com o seu aprendizado, executado por meio do algoritmo de retro-propagação. A escolha desse algoritmo deveu-se à sua utilização no sistema KBANN, possibilitando a comparação de resultados. Os algoritmos que definiram as topologias de RNAs empregadas foram consequência da evolução natural das técnicas de programação.
 Os valores de saída e as sinapses da RNA foram implementados por variáveis contidas nas classes Neurônio e Arestas. Quando se deseja acessar o valor contido em um neurônio específico, é utilizado um \emph{HashMap} que possui todos os objetos neurônios. Dentro de cada neurônio existe os campos que identifica se ele é da camada de entrada, saída ou de qual camada intermediária ele faz parte. Na Figura \ref{fig:diagramaClasses}, é possível ver a representação dessas estruturas com as quais pode-se acessar quaisquer valor desejado no grafo neural construído.
 
 \subsection{Testes do Sistema}
@@ -221,7 +221,7 @@ Para validação do sistema desenvolvido, foi utilizado o \emph{software} \emph{Ma
 	\end{center} 
 \end{figure}
 
-Como pode ser vista na Figura \ref{fig:RedeMatlabEstrutura}, a rede ser treinada é uma MLP que possui 4 neurônios na sua camada de entrada, 2 neurônios em sua única camada oculta e uma única classe de representação na camada de saída. O problema apresentado a essa rede é de padrão lógico, ou seja, informações binárias. Os dados contidos nesse padrão correspondem ao domínio completo, ou seja, como realmente funciona o sistema. Nesse teste foi considerado que a MLP não iria possuir em sua topologia todas as regras que definem o problema, sendo assim, foram retiradas 2 regras do domínio apresentado, o que de fato, se espera que gerasse alguns erros na rede ou até mesmo não convergir.
+A Figura \ref{fig:RedeMatlabEstrutura}, representa a estrutura da rede a ser treinada. A possui 4 neurônios na sua camada de entrada ($input$), 2 neurônios em sua única camada oculta e uma única classe de representação na camada de saída ($output$). O problema apresentado a essa rede é de padrão lógico, ou seja, informações binárias. Os dados contidos nesse padrão correspondem ao domínio completo, ou seja, como realmente funciona o sistema. Nesse teste foi considerado que a MLP não iria possuir em sua topologia todas as regras que definem o problema, sendo assim, foram retiradas 2 regras do domínio apresentado, o que de fato, se espera que gerasse alguns erros na rede ou até mesmo não convergir.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -232,7 +232,7 @@ Como pode ser vista na Figura \ref{fig:RedeMatlabEstrutura}, a rede ser treinada
 	\end{center} 
 \end{figure}
 
-Pelo o que foi apresentado na Figura \ref{fig:RedeMatlabTreinada}, pode-se observar que o \emph{Neural Network ToolBox}  do \emph{Matlab} levou 10.000 épocas para finalizar o problema, ou seja, o erro de treinamento ou o erro de validação aceitável não foi obtido, sendo necessário utilizar a quantidade de épocas totais para finalizar o treinamento. Nesse exemplo, foi utilizado o algoritmo de \emph{backpropagation} e a função de ativação dos neurônios escolhida foi a sigmoide Outros parâmetros como taxa de aprendizagem, erro aceitável (goal) e o tempo para simulação podem ser verificados na Figura \ref{fig:redeMatlabParametros}.
+Pelo o que foi apresentado na Figura \ref{fig:RedeMatlabTreinada}, pode-se observar que o \emph{Neural Network ToolBox}  do \emph{Matlab} levou 10.000 épocas para finalizar o problema, ou seja, o erro de treinamento ou o erro de validação aceitável não foi obtido, sendo necessário utilizar a quantidade de épocas máxima para finalizar o treinamento. Nesse exemplo, foi utilizado o algoritmo de \emph{backpropagation} e a função de ativação dos neurônios escolhida foi a sigmoide Outros parâmetros como taxa de aprendizagem, erro aceitável ($goal$) e o tempo para simulação podem ser verificados na Figura \ref{fig:redeMatlabParametros}.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -243,7 +243,7 @@ Pelo o que foi apresentado na Figura \ref{fig:RedeMatlabTreinada}, pode-se obser
 	\end{center} 
 \end{figure}
 
-As duas últimas Figuras (\ref{fig:GraficoErroMatlab} e \ref{fig:errosMatlab}) servem para afirmar o baixo aprendizado pela rede MLP para o exemplo fornecido. O erro aceitável ficou longe de ser alcançado e as saídas finais da rede tiveram valores sempre mantidos acima de 0.5, o que é um erro bastante grande. Para um melhor entendimento sobre o resultado gerados pela Figura \ref{fig:errosMatlab}, será discutido um passo dos vários que foram feitos para o treinamento. A Figura \ref{fig:errosMatlab} possui as 16 saídas para as 16 amostradas que foram apresentadas a rede neural. A primeira amostra foi a entrada 0 0 0 0 e sua saída deveria ser 0, mas nesse caso a rede considerou que o "certo" para esse treinamento é 0.73587, sendo necessário um ajuste de de -0.73587 para corresponder com a realidade. Todos os demais dados apresentados para treinamento e validação, podem ser vistos na \ref{fig:resultado1SemTopgen}. 
+As duas últimas Figuras (\ref{fig:GraficoErroMatlab} e \ref{fig:errosMatlab}) servem para afirmar o baixo aprendizado pela rede MLP para o exemplo fornecido. O erro aceitável ficou longe de ser alcançado e as saídas finais da rede tiveram valores sempre mantidos acima de 0.5, o que é um erro bastante grande. Para um melhor entendimento sobre o resultado gerados pela Figura \ref{fig:errosMatlab}, será discutido um passo dos vários que foram realizados no treinamento. A Figura \ref{fig:errosMatlab} possui as 16 saídas para as 16 amostradas que foram apresentadas a rede neural. A primeira amostra foi a entrada 0 0 0 0 e sua saída deveria ser 0, mas nesse caso a rede considerou que o correto para esse treinamento é o valor 0.73587, sendo necessário um ajuste de de -0.73587 para corresponder com a realidade. Todos os demais dados apresentados para treinamento e validação, podem ser vistos na \ref{fig:resultado1SemTopgen}. 
 
 \begin{figure}[H] 
 	\begin{center}
@@ -263,7 +263,7 @@ As duas últimas Figuras (\ref{fig:GraficoErroMatlab} e \ref{fig:errosMatlab}) se
 	\end{center} 
 \end{figure}
 
-O mesmo teste considerando as mesmas configurações da rede (taxa de aprendizado, função de ativação) e o conjunto de dados foram realizados pelo sistema desenvolvido utilizando apenas o KBANN e em seguida o KBANN com o TopGen. Na Figura \ref{fig:resultado1SemTopgen} a rede KBANN conseguiu classificar corretamente todos os dados apresentados em sua saída (A), mas obteve dois erros em uma saída intermediária (B), onde obteve dois falsos negativos. Esses erros já eram esperados devido a retirada de duas regras do domínio que rege esse problema.
+O mesmo teste considerando as mesmas configurações da rede (taxa de aprendizado, função de ativação) e o conjunto de dados foram realizados pelo sistema desenvolvido utilizando apenas o KBANN e em seguida o KBANN com o TopGen. Na Figura \ref{fig:resultado1SemTopgen} a rede KBANN conseguiu classificar corretamente todos os dados apresentados em sua saída (A), mas obteve dois erros em uma saída intermediária (B), em que obteve dois falsos negativos. Esses erros já eram esperados devido a retirada de duas regras do domínio que rege esse problema.
 
 \begin{figure}[H] 
 	\begin{center}

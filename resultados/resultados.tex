@@ -3,7 +3,7 @@
 
 \section{Contextualização  do Problema}
 
-Para a realização desse trabalho, um dos grande objetivos foi ter um problema onde houvesse um especialista no assunto que pudesse conceber um conjunto inicial de regras para servir de base de aprendizado para a rede neural KBANN. Devido a dificuldade em encontrar um especialista que solucionasse essa condição inicial e essencial do trabalho, a forma encontrada para contornar esse problema, foi utilizar um jogo de tabuleiro, pois é conhecido como as regras são definidas.
+Para a realização desse trabalho, um dos grandes objetivos foi ter um problema onde houvesse um especialista no assunto que pudesse conceber um conjunto inicial de regras para servir de base de aprendizado para a rede neural KBANN. Devido a dificuldade em encontrar um especialista que solucionasse essa condição inicial e essencial do trabalho, a forma encontrada para contornar esse problema foi utilizar um jogo de tabuleiro, devido ao conhecimento sobre suas regras.
 
 O xadrez é um jogo de tabuleiro com 64 casas brancas e pretas intercaladas e com diversas peças que representavam tropas do exército: infantaria, cavalaria, bispos, torres, rainha, e o principal de todos, o Rei. O problema em questão foi tratado da seguinte maneira: dado um tabuleiro 5x4 (Figura \ref{fig:xadrez}) considerando que o Rei (branco) está sempre na posição ($c1$), acompanhado de outras peças (Rainha, Bispo, Cavalo e Torre), tanto da cor oposta ao Rei, como da mesma cor e espalhadas aleatoriamente no tabuleiro. A rede neural construída tenta resolver o seguinte questionamento: se é possível realizar o movimento do Rei para a casa $c2$. O movimento será considerado legal, se ao fim dele, o Rei permanecer vivo e assim esperar um nova rodada, e é considerado ilegal caso exista alguma peça que possa finalizar o jogo, se o Rei tentar ir para a posição desejada. Utilizando como base o problema acima, serão feitos alguns testes com um domínio teórico possuindo erros para investigar os tipos de correções em que o KBANN é eficaz.
 
@@ -13,7 +13,7 @@ O objetivo desses testes é mostrar que a rede com conhecimento incompleto pode s
 
 \begin{figure}[H] 
 	\begin{center}
-		\caption{Sub-conjunto 4x5 de um tabuleiro de xadrez considerado para o domínio.}
+		\caption{Subconjunto 4x5 de um tabuleiro de xadrez considerado para o domínio.}
 		\includegraphics[scale=0.5]{imagens/xadrez.png}
 		\label{fig:xadrez}
 		\centerline{Fonte : Autor, 2017}
@@ -82,7 +82,7 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 \textbf{Descrição:}  Iniciou-se pela definição de novas regras e devido a isso há uma mudança na topologia da RNA. As novas regras adicionadas a base inicial foram: a Rainha da mesma cor do Rei dependendo da sua posição é considerado um cheque paralelo, um bispo pode atacar o Rei mesmo tendo outra peça a sua frente, e por último, Torre da mesma cor do Rei e com peça a sua frente podendo realizar um ataque.  Devido as adições de regras, a rede ficou com um quantidade de nerônios (53 x 30 x 3 x 1) por camada. 
 \newline
 \newline
-\textbf{Resultados:} As tabelas abaixo e a Figura \ref{fig:regrasAdicionadas} resumem os resultados obtidos no primeiro teste.
+\textbf{Resultados:}  As tabelas a seguir(\ref{tab:teste1Falsos10} à \ref{tab:teste1Falsos50}) e a Figura \ref{fig:regrasAdicionadas} resumem os resultados obtidos no primeiro teste.
 
 \begin{table}[H]
 	\centering
@@ -187,13 +187,13 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 \subsection{Antecedentes Adicionadas ao Domínio Teórico}
 
 \noindent
-\textbf{Objetivo :}  Na segunda forma de avaliação do programa desenvolvido, foram atribuídos de forma aleatória antecedentes a regras já estabelecidas no domínio completo, verificando se a rede KBANN precisa de algum tipo de ajuste e compará-lo com o domínio teórico.
+\textbf{Objetivo :}  Na segunda forma de avaliação do programa desenvolvido, foram atribuídos de forma aleatória antecedentes à regras já estabelecidas no domínio completo, verificando se a rede KBANN precisa de algum tipo de ajuste e compará-lo com o domínio teórico.
 \newline
 \newline
 \textbf{Descrição:} Para esse teste as entradas já conhecidas foram conectadas a outras conclusões intermediárias de forma proporcional. Exemplificando, 5\% das entradas ou, 3 entradas já existentes foram conectadas a outras conclusões intermediárias de forma a perturbar o domínio original. Os outros testes com, 15\% e 25\% também foram realizados.
 \newline 
 \newline
-\textbf{Resultados:}  As tabelas abaixo e a Figura \ref{fig:retiradaAntecedentes} resumem os resultados obtidos no segundo teste.
+\textbf{Resultados:}  As tabelas a seguir(\ref{tab:teste2Falsos10} à \ref{tab:teste2Falsos50}) abaixo e a Figura \ref{fig:retiradaAntecedentes} resumem os resultados obtidos no segundo teste.
 
 \begin{table}[H]
 	\centering
@@ -304,7 +304,7 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 \textbf{Descrição:} A retirada das regras para esse teste, foi feita de forma aleatória, obedecendo apenas a condição de não remover uma conclusão intermediária ou final do problema. Sendo assim, pelo menos uma regra deve existir para os neurônios CD, CP, CC e MI. O terceiro teste foi executado apenas uma vez.
 \newline 
 \newline
-\textbf{Resultados:} As tabelas abaixo e a Figura \ref{fig:regrasDeletadas} resumem os resultados obtidos no terceiro teste.
+\textbf{Resultados:} As tabelas a seguir(\ref{tab:teste3Falsos10} à \ref{tab:teste3Falsos50}) e a Figura \ref{fig:regrasDeletadas} resumem os resultados obtidos no terceiro teste.
 
 \begin{table}[H]
 	\centering
@@ -399,7 +399,7 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 
 \begin{figure}[H] 
 	\begin{center}
-		\caption{Porcetagem de erros x retirada de regras}
+		\caption{Porcentagem de erros x retirada de regras}
 		\includegraphics[scale=0.5]{imagens/regrasDeletadas.png}
 		\label{fig:regrasDeletadas}
 	\end{center} 
@@ -412,7 +412,7 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 \textbf{Descrição:} A retirada dos antecedentes para esse teste, foi feita de forma aleatória, mas obedecendo a condição que um nerônio intermediário não pode ficar sem nenhuma ligação ativa com neurônios da camada anterior. Como as regras normalmente tinham entre 2 a 4 antecedentes, foi mantido pelo menos metade dos antecedentes que a aquela regra possuía originalmente.
 \newline 
 \newline
-\textbf{Resultados:} As tabelas abaixo e Figura \ref{fig:antecedenteDeletados} resumem os resultados obtidos no último teste.
+\textbf{Resultados:}  As tabelas a seguir(\ref{tab:teste4Falsos10} à \ref{tab:teste4Falsos50}) e Figura \ref{fig:antecedenteDeletados} resumem os resultados obtidos no último teste.
 
 \begin{table}[H]
 	\centering

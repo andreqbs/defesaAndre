@@ -75,7 +75,7 @@ Com relação as redes MLPs, pode-se citar duas características da estrutura que s
 
 1. A rede \emph{Multi-Layer Perceptron} é uma rede progressiva. Uma rede é dita progressiva (\emph{feedforward}) quando as saídas dos neurônios em qualquer camada se conectam unicamente às entradas dos neurônios da camada seguinte, sem a presença de laços de realimentação. Consequentemente, o sinal de entrada se propaga através da rede, camada a camada, em um sentido progressivo.
 
-2. A rede pode ser completamente conectada, caso em que cada neurônio (computacional ou não) em uma camada é conectado a todos os outras unidades de uma camada adjacente. De forma alternativa, uma rede MLP pode ser parcialmente conectada, nesse caso, algumas sinapses poderão estar faltando. Redes localmente conectadas representam um tipo importante de redes parcialmente conectadas. O termo "local" se refere à conectividade de um neurônio em uma camada da rede com relação a somente um sub-conjunto de todas as possíveis entradas. 
+2. A rede pode ser completamente conectada, caso em que cada neurônio (computacional ou não) em uma camada é conectado a todos os outras unidades de uma camada adjacente. De forma alternativa, uma rede MLP pode ser parcialmente conectada, nesse caso, algumas sinapses poderão estar faltando. Redes localmente conectadas representam um tipo importante de redes parcialmente conectadas. O termo local se refere à conectividade de um neurônio em uma camada da rede com relação a somente um sub-conjunto de todas as possíveis entradas. 
 
 \begin{figure}[H] 
 	\begin{center}
@@ -97,7 +97,7 @@ O número de unidades na camada de entrada da rede é determinado pela dimensional
 	\item A especificação dos pesos sinápticos que interconectam os neurônios nas diferentes camadas da rede.
 \end{itemize}
 
-Os dois primeiros itens acima determinam a complexidade do modelo de RNA escolhido e, não há regras determinadas para tal especificação. A função das camadas escondidas em uma RNA é a de influir na relação entrada-saída da rede de uma forma ampla. Uma rede com uma ou mais camadas escondidas é apta a extrair as estatísticas de ordem superior de algum desconhecido processo aleatório subjacente, responsável pelo "comportamento" dos dados de entrada, processo sobre o qual a rede está tentando adquirir conhecimento. A RNA adquire uma perspectiva global do processo aleatório, apesar de sua conectividade local, em virtude do conjunto adicional de pesos sinápticos e da dimensão adicional de interações neurais proporcionada pelas camadas escondidas.
+Os dois primeiros itens acima determinam a complexidade do modelo de RNA escolhido e, não há regras determinadas para tal especificação. A função das camadas escondidas em uma RNA é a de influir na relação entrada-saída da rede de uma forma ampla. Uma rede com uma ou mais camadas escondidas é apta a extrair as estatísticas de ordem superior de algum desconhecido processo aleatório subjacente, responsável pelo comportamento dos dados de entrada, processo sobre o qual a rede está tentando adquirir conhecimento. A RNA adquire uma perspectiva global do processo aleatório, apesar de sua conectividade local, em virtude do conjunto adicional de pesos sinápticos e da dimensão adicional de interações neurais proporcionada pelas camadas escondidas.
 O último item envolve a utilização de algoritmos de treinamento supervisionados. As MLPs têm sido aplicadas na solução de diversos e difíceis problemas através da utilização de tais algoritmos. O algoritmo de treinamento quase universalmente utilizado para tanto é o algoritmo de retro-propagação do erro, conhecido na literatura como \emph{Backpropagation Algorithm} e que será discutido mais adiante. 
 
 \subsection{Características de uma MLP}
@@ -118,7 +118,7 @@ Uma rede MLP apresenta algumas características distintas, cuja combinação com a 
 2. O MLP contém uma ou mais camadas de neurônios escondidos que não são parte da camada de entrada ou da camada de saída da rede. Esses neurônios escondidos possibilitam que a rede aprenda tarefas complexas, extraindo progressivamente mais características significativas dos padrões de entrada (vetores de entrada).
 
 3. A rede MLP exibe um alto grau de conectividade, determinado pelas sinapses da rede. Uma mudança na conectividade da rede requer uma mudança na população de conexões sinápticas, ou pesos sinápticos.
-Essas mesmas características, entretanto, são também responsáveis pelas dificuldades encontradas na análise de tais redes. Por exemplo, a presença das não-linearidades distribuídas e a alta conectividade tornam difícil a análise teórica das redes MLPs. Em uma rede MLP, o conhecimento aprendido sobre o ambiente é representado pelos valores assumidos pelos pesos sinápticos da rede. A natureza distribuída desse conhecimento ao longo da rede a torna de difícil interpretação. Além disso, o uso de neurônios escondidos torna o processo de aprendizado mais difícil de ser "visualizado" na estrutura da rede.
+Essas mesmas características, entretanto, são também responsáveis pelas dificuldades encontradas na análise de tais redes. Por exemplo, a presença das não-linearidades distribuídas e a alta conectividade tornam difícil a análise teórica das redes MLPs. Em uma rede MLP, o conhecimento aprendido sobre o ambiente é representado pelos valores assumidos pelos pesos sinápticos da rede. A natureza distribuída desse conhecimento ao longo da rede a torna de difícil interpretação. Além disso, o uso de neurônios escondidos torna o processo de aprendizado mais difícil de ser visualizado na estrutura da rede.
 Observe, na Figura \ref{fig:mlp_1} que o sinal flui através da rede MLP no sentido direto, da esquerda para a direita e de camada a camada. A Figura \ref{fig:rede_Sinal_cap2} apresenta um detalhe parcial de uma rede MLP. 
 \\ \\
 Dois tipos de sinais são identificados nessa rede:
@@ -132,7 +132,7 @@ Dois tipos de sinais são identificados nessa rede:
 		\caption{Ilustração da propagação direta dos sinais e retro-propagação dos sinais de erro.}
 		\includegraphics[scale=0.5]{imagens/rede_Sinal.png}
 		\label{fig:rede_Sinal_cap2}
-		\centerline{Fonte: Autor, 2017}
+		\centerline{Fonte: Haykin, 2001}
 	\end{center} 
 \end{figure}
 
@@ -230,7 +230,7 @@ Nesse trabalho, utilizou-se uma convenção, em que os neurônios da camada de entr
 
 \subsection{Algoritmo \emph{Backpropagation}}
 
-Encontrar o conjunto certo de pesos para realizar uma determinada tarefa é o objetivo central na pesquisa conexionista. Felizmente, algoritmos de aprendizagem foram concebidos que podem calcular os pesos certos para a realização de muitas tarefas (Rumelhart \emph{et al.}, 1986).  Estes se dividem em duas grandes categorias: aprendizagem supervisionada e não supervisionada. À medida que cada entrada é apresentada à rede, os pesos entre as unidades que estão ativas juntas são incrementadas, enquanto os pesos que conectam unidades que não estão ativas juntas são diminuídas. Essa forma de treinamento é especialmente útil para construir redes que podem classificar a entrada em categorias úteis. O algoritmo supervisionado mais amplamente utilizado é chamado \emph{backpropagation}. Para usar esse método, é necessário um conjunto de treinamento composto por muitos exemplos de entradas e suas saídas desejadas para uma determinada tarefa. Esse conjunto externo de exemplos "supervisiona" o processo de treinamento. Se, por exemplo, a tarefa for distinguir rostos masculinos e femininos, o conjunto de treinamento pode conter quadros de rostos, juntamente com uma indicação do sexo da pessoa representada em cada um. 
+Encontrar o conjunto certo de pesos para realizar uma determinada tarefa é o objetivo central na pesquisa conexionista. Felizmente, algoritmos de aprendizagem foram concebidos que podem calcular os pesos certos para a realização de muitas tarefas (Rumelhart \emph{et al.}, 1986).  Estes se dividem em duas grandes categorias: aprendizagem supervisionada e não supervisionada. À medida que cada entrada é apresentada à rede, os pesos entre as unidades que estão ativas juntas são incrementadas, enquanto os pesos que conectam unidades que não estão ativas juntas são diminuídas. Essa forma de treinamento é especialmente útil para construir redes que podem classificar a entrada em categorias úteis. O algoritmo supervisionado mais amplamente utilizado é chamado \emph{backpropagation}. Para usar esse método, é necessário um conjunto de treinamento composto por muitos exemplos de entradas e suas saídas desejadas para uma determinada tarefa. Esse conjunto externo de exemplos supervisiona o processo de treinamento. Se, por exemplo, a tarefa for distinguir rostos masculinos e femininos, o conjunto de treinamento pode conter quadros de rostos, juntamente com uma indicação do sexo da pessoa representada em cada um. 
 
 Uma rede que pode aprender essa tarefa pode ter duas unidades de saída (indicando as categorias masculino e feminino) e muitas unidades de entrada, uma delas, por exemplo, seria dedicada ao brilho de cada pixel da imagem. 
 
@@ -304,7 +304,7 @@ O potencial de ativação $v_j(n)$ aplicado na entrada da não-linearidade associad
 v_j(n) = \sum_{i = 0}^{m}w_{ji}(n)y_i(n) 
 \end{align}
 
-Onde $m$ é o número total de entradas (excluindo o bias) aplicado ao neurônio $j$. O peso sináptico $w_{j0}$ é o peso sináptico conetando a saída do neurônio $i$ ao neurônio $j$ e $y_i(n)$ é o sinal no $i$-ésimo "nó" de entrada do neurônio $j$, ou equivalentemente, o sinal na saída do neurônio $i$. Portanto, o sinal $y_j(n)$ resultante na saída do neurônio $j$ na iteração $n$ é:
+Onde $m$ é o número total de entradas (excluindo o bias) aplicado ao neurônio $j$. O $w_{j0}$ é o peso sináptico que conecta a saída do neurônio $i$ ao neurônio $j$ e $y_i(n)$ é o sinal no $i$-ésimo neurônio de entrada do neurônio $j$, ou equivalentemente, ao sinal na saída do neurônio $i$. Portanto, o sinal $y_j(n)$ resultante na saída do neurônio $j$ na iteração $n$ é:
 
 \begin{align}
 y_j(n) = \varphi_j(v_j(n)) 
