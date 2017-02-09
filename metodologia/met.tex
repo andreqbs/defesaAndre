@@ -1,7 +1,7 @@
 \mychapter{Metodologia}
 \label{Cap_3}
 
-Este capítulo apresenta os materiais, métodos utilizados e desenvolvidos nessa pesquisa. O Sistema Computacional abordado está esquematizado na Seção 3.2, na qual são mostradas a sua divisão em blocos e as inter-relações existentes entre eles. A Seção 3.3 contém algumas peculiaridades relevantes das implementações.
+Este capítulo apresenta os materiais, métodos utilizados e desenvolvidos nessa pesquisa. O sistema computacional abordado está esquematizado na Seção 3.2, na qual são mostradas a sua divisão em blocos e as inter-relações existentes entre eles. A Seção 3.3 contém algumas peculiaridades relevantes das implementações.
 
 \section{Estudo e Desenvolvimento Inicial}
 	
@@ -154,14 +154,6 @@ Os passos à execução do programa podem ser resumidos dessa forma:
 
 4. Aplica-se o teste de Falsos Positivos e Negativos na rede gerada e caso seja necessário, novas redes serão criadas.
 
-\subsubsection{Processos do Sistema}
-
-Na Figura XX, pode-se acompanhar, de outra forma, as etapas apresentadas nos casos de uso do sistema (Figura \ref{fig:diagramaCasosUso}). Também tem-se a visão interna da sequência de processos e a atividade de inter-relação entre as classes (Figura \ref{fig:diagramaClasses}). Primeiramente, um programa em linguagem lógica será inserido e, conforme a configuração, ocorre o seu processamento inicial.
-
-Existem dois processos relativos à estrutura que entram em operação após a leitura dos dados iniciais: as RNAs são instanciadas e as suas topologias iniciais são fixadas. Logo após, iniciam-se os processos de aprendizagem das RNAs, que podem alterar a forma original da estrutura da rede geral.
-
-Após o processamento da programação, instanciam-se as RNAs correspondentes, assim como os cálculos relativos ao algoritmo em operação. A etapa de aprendizagem das RNAs é executada logo em seguida, finalizando pela obtenção de resultados. Os resultados gerados pelo programa são as RNAs após o processos de aprendizagem e o percentual de acerto obtido individualmente pelas RNAs.
-
 \subsection{Descrição da Interface}
 
 A interface também contém um menu para seleção do algoritmo a ser utilizado, assim como as suas opções de operação dos algoritmos. A aparência da interface está ilustrada pela Figura \ref{fig:telaPrincipal}. A descrição da interface segue nessa seção.
@@ -210,7 +202,7 @@ Os valores de saída e as sinapses da RNA foram implementados por variáveis conti
 
 \subsection{Testes do Sistema}
 
-Para validação do sistema desenvolvido, foi utilizado o \emph{software} \emph{Matlab} como referência, devido as suas diversas ferramentas amplamente testadas pela comunidade científica. Para realização do teste, foi necessário criar um exemplo de rede MLP de acordo com o que podia ser modelado no \emph{Matlab}. Na Figura \ref{fig:RedeMatlabEstrutura}, a sua estrutura da rede MLP pode ser vista após a definição do problema. Esse teste teve como intenção apenas que os resultados encontrados no programa fossem relativamente parecidos ou próximos do que o \emph{Matlab} gerou. 
+Para validação do sistema desenvolvido, foi utilizado o \emph{software} \emph{Matlab\textregistered} como referência, devido as suas diversas ferramentas amplamente testadas pela comunidade científica. Para realização do teste, foi necessário criar um exemplo de rede MLP de acordo com o que podia ser modelado no \emph{Matlab\textregistered}. Na Figura \ref{fig:RedeMatlabEstrutura}, a sua estrutura da rede MLP pode ser vista após a definição do problema. Esse teste teve como intenção apenas que os resultados encontrados no programa fossem relativamente parecidos ou próximos do que o \emph{Matlab} gerou. 
 
 \begin{figure}[H] 
 	\begin{center}
@@ -221,7 +213,7 @@ Para validação do sistema desenvolvido, foi utilizado o \emph{software} \emph{Ma
 	\end{center} 
 \end{figure}
 
-A Figura \ref{fig:RedeMatlabEstrutura}, representa a estrutura da rede a ser treinada. A possui 4 neurônios na sua camada de entrada ($input$), 2 neurônios em sua única camada oculta e uma única classe de representação na camada de saída ($output$). O problema apresentado a essa rede é de padrão lógico, ou seja, informações binárias. Os dados contidos nesse padrão correspondem ao domínio completo, ou seja, como realmente funciona o sistema. Nesse teste foi considerado que a MLP não iria possuir em sua topologia todas as regras que definem o problema, sendo assim, foram retiradas 2 regras do domínio apresentado, o que de fato, se espera que gerasse alguns erros na rede ou até mesmo não convergir.
+A Figura \ref{fig:RedeMatlabEstrutura}, representa a estrutura da rede a ser treinada. A rede possui 4 neurônios na sua camada de entrada ($input$), 2 neurônios em sua única camada oculta e uma única classe de representação na camada de saída ($output$). O problema apresentado a essa rede é de padrão lógico, ou seja, informações binárias. Os dados contidos nesse padrão correspondem ao domínio completo, ou seja, como realmente funciona o sistema. Nesse teste foi considerado que a MLP não iria possuir em sua topologia todas as regras que definem o problema, sendo assim, foram retiradas 2 regras do domínio apresentado, o que de fato, se espera que gerasse alguns erros na rede ou até mesmo não convergir.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -232,7 +224,7 @@ A Figura \ref{fig:RedeMatlabEstrutura}, representa a estrutura da rede a ser tre
 	\end{center} 
 \end{figure}
 
-Pelo o que foi apresentado na Figura \ref{fig:RedeMatlabTreinada}, pode-se observar que o \emph{Neural Network ToolBox}  do \emph{Matlab} levou 10.000 épocas para finalizar o problema, ou seja, o erro de treinamento ou o erro de validação aceitável não foi obtido, sendo necessário utilizar a quantidade de épocas máxima para finalizar o treinamento. Nesse exemplo, foi utilizado o algoritmo de \emph{backpropagation} e a função de ativação dos neurônios escolhida foi a sigmoide Outros parâmetros como taxa de aprendizagem, erro aceitável ($goal$) e o tempo para simulação podem ser verificados na Figura \ref{fig:redeMatlabParametros}.
+Pelo o que foi apresentado na Figura \ref{fig:RedeMatlabTreinada}, pode-se observar que o \emph{Neural Network ToolBox}  do \emph{Matlab\textregistered} levou 10.000 épocas para finalizar o problema, ou seja, o erro de treinamento ou o erro de validação aceitável não foi alcançado, sendo necessário utilizar a quantidade de épocas máxima para finalizar o treinamento. Nesse exemplo, foi utilizado o algoritmo de \emph{backpropagation} e a função de ativação dos neurônios escolhida foi a sigmoide. Outros parâmetros, como taxa de aprendizagem, erro aceitável ($goal$) e o tempo para simulação podem ser verificados na Figura \ref{fig:redeMatlabParametros}.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -243,7 +235,7 @@ Pelo o que foi apresentado na Figura \ref{fig:RedeMatlabTreinada}, pode-se obser
 	\end{center} 
 \end{figure}
 
-As duas últimas Figuras (\ref{fig:GraficoErroMatlab} e \ref{fig:errosMatlab}) servem para afirmar o baixo aprendizado pela rede MLP para o exemplo fornecido. O erro aceitável ficou longe de ser alcançado e as saídas finais da rede tiveram valores sempre mantidos acima de 0.5, o que é um erro bastante grande. Para um melhor entendimento sobre o resultado gerados pela Figura \ref{fig:errosMatlab}, será discutido um passo dos vários que foram realizados no treinamento. A Figura \ref{fig:errosMatlab} possui as 16 saídas para as 16 amostradas que foram apresentadas a rede neural. A primeira amostra foi a entrada 0 0 0 0 e sua saída deveria ser 0, mas nesse caso a rede considerou que o correto para esse treinamento é o valor 0.73587, sendo necessário um ajuste de de -0.73587 para corresponder com a realidade. Todos os demais dados apresentados para treinamento e validação, podem ser vistos na \ref{fig:resultado1SemTopgen}. 
+As duas últimas Figuras (\ref{fig:GraficoErroMatlab} e \ref{fig:errosMatlab}) servem para afirmar o baixo aprendizado pela rede MLP para o exemplo fornecido. O erro aceitável ficou longe de ser alcançado e as saídas finais da rede tiveram valores sempre mantidos acima de 0.5, o que é um erro considerável. Para um melhor entendimento sobre o resultado gerados pela Figura \ref{fig:errosMatlab}, é comentado um dos passos realizados no treinamento. Nela foram exibos os resultados das 16 saídas calculadas, provinientes das 16 amostras exibidas na rede neural. A primeira amostra apresentada foi a entrada 0 0 0 0 e com uma saída que deveria ser 0, embora a rede tenha calculado que o correto para esse treinamento é o valor 0.73587. O erro apresentado para a primeira entrada, segundo o \emph{Matlab\textregistered} sendo necessário um ajuste de de -0.73587 para corresponder com a realidade. Todos os demais dados apresentados para treinamento e validação, podem ser vistos na \ref{fig:resultado1SemTopgen}. 
 
 \begin{figure}[H] 
 	\begin{center}
@@ -274,7 +266,7 @@ O mesmo teste considerando as mesmas configurações da rede (taxa de aprendizado,
 	\end{center} 
 \end{figure}
 
-Na Figura \ref{fig:resultado1ComTopgen}, pode-se observar que o erro em todas as saídas intermediárias (B e C), assim como a saída principal da rede (A) tiveram erro zero, ou seja, para todos os dados apresentados, foram classificados corretamente sem nenhuma execção, mostrando assim, uma boa eficácia do sistema. Para se conseguir esse feito, foram necessários adicionar a rede original de KBANN, dois neurônios, o TG1B e TG2B (ver Figura \ref{fig:resultado1RedeComTopgen}),  o motivo dessa adição pode ser vista na seção (2.3). Esse neurônios fizeram com que os erros da saída intermediária (B) fossem zerados sem modificar o aprendizado obtido em outros pontos da rede.
+Na Figura \ref{fig:resultado1ComTopgen}, pode-se observar que o erro em todas as saídas intermediárias (B e C), assim como a saída principal da rede (A) foram zeradas, ou seja, para todos os dados apresentados, foram classificados corretamente sem nenhuma execção, mostrando assim, uma boa eficácia do sistema. Para se conseguir esse feito, foram necessários adicionar a rede original de KBANN, dois neurônios, o TG1B e TG2B (Figura \ref{fig:resultado1RedeComTopgen}), o motivo dessa adição pode ser vista na seção (2.3). Esse neurônios fizeram com que os erros da saída intermediária (B) fossem zerados sem modificar o aprendizado obtido em outras regiões da rede.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -293,5 +285,7 @@ Na Figura \ref{fig:resultado1ComTopgen}, pode-se observar que o erro em todas as
 		\centerline{Fonte: Autor, 2017}
 	\end{center} 
 \end{figure}
+
+Assim, após ter demonstrado que o KBANN, juntamente com o TopGen conseguem obter bons resultados quando aplicados em cojunto, outros testes considerando um problema com uma quantidade maior de regras e de maior complexidade serão realizados no próximo capítulo.
 
 
