@@ -9,9 +9,7 @@
 
 \section{Redes Neurais Artificiais (RNA)}
 
-O conexionismo é um movimento da ciência cognitiva que espera explicar habilidades intelectuais utilizando RNAs. As redes neurais são modelos simplificados do cérebro humano compostas por um grande número de unidades (neurônios), juntamente com pesos que medem a força das conexões entre as unidades. Esses pesos modelam os efeitos das sinapses que ligam um neurônio a outro.  Diferentemente do paradigma simbólico, no modelo conexionista o estado dos neurônios representam um conceito ou um objeto e a dinâmica que leva à representação desse conceito ou objeto é que estabelece as regras sobre eles. Experimentos em modelos desse tipo demonstraram habilidades para aprender tarefas como: reconhecimento facial, leitura de textos, detecção de estrutura gramatical simples, entre tantas outras. Esse capítulo foi dividido em quatro seções: 
-
-A Seção 2.2.1 introduz brevemente a rede neural \emph{Multi-Layer Percepetron} (MLP), a Seção 2.2.2 destaca as características da rede MLP, a Seção 2.2.3 a principais funções de ativação utilizadas nas RNAs e as duas últimas Seções 2.2.4 e 2.2.5 descrevem o algoritmo \emph{backpropagation} e o processo de treinamento.
+O conexionismo é um movimento da ciência cognitiva que espera explicar habilidades intelectuais utilizando RNAs. As redes neurais são modelos simplificados do cérebro humano compostas por um grande número de unidades (neurônios), juntamente com pesos que medem a força das conexões entre as unidades. Esses pesos modelam os efeitos das sinapses que ligam um neurônio a outro.  Diferentemente do paradigma simbólico, no modelo conexionista o estado dos neurônios representam um conceito ou um objeto e a dinâmica que leva à representação desse conceito ou objeto é que estabelece as regras sobre eles. Experimentos em modelos desse tipo demonstraram habilidades para aprender tarefas como: reconhecimento facial, leitura de textos, detecção de estrutura gramatical simples, entre tantas outras. Esse capítulo foi dividido em quatro seções: a Seção 2.2.1 introduz brevemente a rede neural \emph{Multi-Layer Percepetron} (MLP), a Seção 2.2.2 destaca as características da rede MLP, a Seção 2.2.3 a principais funções de ativação utilizadas nas RNAs e as duas últimas Seções 2.2.4 e 2.2.5 descrevem o algoritmo \emph{backpropagation} e o processo de treinamento.
 
 Uma rede neural (Figura \ref{fig:MLP_cap2}) consiste em grande número de unidades separadas por camadas e unidas através de conexões. 
 
@@ -32,11 +30,11 @@ Se uma rede neural fosse modelar todo o sistema nervoso humano, as unidades de e
 
 A função que uma RNA irá desempenhar depende da soma do conjunto de funções de cada neurônio. Os neurônios podem estar agrupados em RNAs do tipo MLP, que é a mais conhecida no meio acadêmico, devido a sua simplicidade.  
 
-Resumidamente, as "n" entradas $X_i$ do neurônio (sendo que, $1 < i < n$) são somadas, o resultado é processado no corpo do neurônio para produzir a saída $y_k$.
+Resumidamente, as $n$ entradas $X_i$ do neurônio (sendo que, $1 < i < n$) são somadas, o resultado é processado no corpo do neurônio para produzir a saída $y_k$ (Figura \ref{fig:neuronio_cap2}).
 
 \begin{figure}[H] 
 	\begin{center}
-		\caption{Representação de um neurônio.}
+		\caption{Representação de um Neurônio.}
 		\includegraphics[scale=0.5]{imagens/neuronioArtificial.png}
 		\label{fig:neuronio_cap2}
 		\centerline{Fonte: Haykin, 2000}
@@ -147,7 +145,7 @@ O último item envolve a utilização de algoritmos de treinamento supervisionados.
 %\sum(X_i(t) * w_i(t))
 %\end{align}
 
-%O resultado desse somatório é mapeado não-linearmente por uma função de ativação $U_i(t)$, que usualmente é do tipo sigmoide (ver Figura X.2). Para esse somatório, existe um viés (?bias?), que auxilia no estabelecimento do limite de aceitação de uma entrada à função ativação; normalmente possui o valor "1". Obtemos o limiar de entrada da função-somatório através da multiplicação do viés pelo peso da conexão correspondente ($w_{bias}(t)$), como é mostrado na Figura X.1. O resultado dessa multiplicação é representado por $\theta_i$ ("\emph{threshold}"), conforme equação X.3. 
+%O resultado desse somatório é mapeado não-linearmente por uma função de ativação $U_i(t)$, que usualmente é do tipo sigmóide (ver Figura X.2). Para esse somatório, existe um viés (?bias?), que auxilia no estabelecimento do limite de aceitação de uma entrada à função ativação; normalmente possui o valor "1". Obtemos o limiar de entrada da função-somatório através da multiplicação do viés pelo peso da conexão correspondente ($w_{bias}(t)$), como é mostrado na Figura X.1. O resultado dessa multiplicação é representado por $\theta_i$ ("\emph{threshold}"), conforme equação X.3. 
 
 %\begin{align}
 %U_i(\sum(X_i(t)* w_i(t) - \theta_i)
@@ -157,7 +155,7 @@ O último item envolve a utilização de algoritmos de treinamento supervisionados.
 
 \subsection{Algoritmo \emph{Backpropagation}}
 
-Encontrar o conjunto certo de pesos para realizar uma determinada tarefa é o objetivo central na pesquisa conexionista. Felizmente, algoritmos de aprendizagem foram concebidos para calcular os pesos corretos na realização de diversas tarefas (Rumelhart \emph{et al.}, 1986).  Estes se dividem em duas grandes categorias: aprendizagem supervisionada e não supervisionada. À medida que cada entrada é apresentada à rede, os pesos entre as unidades que estão ativas são incrementadas, enquanto os pesos que conectam unidades que não estão ativas são enfraquecidas. Essa forma de treinamento é especialmente útil para construir redes que podem classificar a entrada em categorias úteis. O algoritmo supervisionado mais amplamente utilizado é chamado \emph{backpropagation}. Para usar esse método, é necessário um conjunto de treinamento composto por muitos exemplos de entradas e suas saídas desejadas para uma determinada tarefa. Esse conjunto externo de exemplos supervisiona o processo de treinamento. Se, por exemplo, a tarefa for distinguir rostos masculinos e femininos, o conjunto de treinamento pode conter quadros de rostos, juntamente com uma indicação do sexo da pessoa representada em cada um. 
+O algoritmo usado para ajuste dos pesos é um aspecto relevante para o bom desempenho das redes neurais (Prechelt 1994). Encontrar o conjunto certo de pesos para realizar uma determinada tarefa é o objetivo central na pesquisa conexionista. Felizmente, algoritmos de aprendizagem foram concebidos para calcular os pesos corretos na realização de diversas tarefas (Rumelhart \emph{et al.}, 1986).  Estes se dividem em duas grandes categorias: aprendizagem supervisionada e não supervisionada. À medida que cada entrada é apresentada à rede, os pesos entre as unidades que estão ativas são incrementadas, enquanto os pesos que conectam unidades que não estão ativas são enfraquecidas. Essa forma de treinamento é especialmente útil para construir redes que podem classificar a entrada em categorias úteis. O algoritmo supervisionado mais amplamente utilizado é chamado \emph{backpropagation}. Para usar esse método, é necessário um conjunto de treinamento composto por muitos exemplos de entradas e suas saídas desejadas para uma determinada tarefa. Esse conjunto externo de exemplos supervisiona o processo de treinamento. Se, por exemplo, a tarefa for distinguir rostos masculinos e femininos, o conjunto de treinamento pode conter quadros de rostos, juntamente com uma indicação do sexo da pessoa representada em cada um. 
 
 Uma rede que pode aprender essa tarefa pode ter duas unidades de saída (indicando as categorias masculino e feminino) e muitas unidades de entrada, uma delas, por exemplo, seria dedicada ao brilho de cada pixel da imagem. 
 
@@ -237,48 +235,38 @@ Onde $m$ é o número total de entradas (excluindo o bias) aplicado ao neurônio $j
 y_j(n) = \varphi_j(v_j(n)) 
 \end{align}
 
-De maneira similar ao algoritmo LMS, o algoritmo \emph{backpropagation} aplica a correção $\Delta w_{ji}(n)$ ao peso sináptico $w_{ji}(n)$, tendo como base a direção contrária do gradiente local da superfície de erro $\epsilon$ relativo ao peso sináptico.
+De maneira similar ao algoritmo \emph{Least Mean Squares} (LMS), o algoritmo \emph{backpropagation} aplica a correção $\Delta w_{ji}(n)$ ao peso sináptico $w_{ji}(n)$, tendo como base a direção contrária do gradiente local da superfície de erro $\epsilon$ relativo ao peso sináptico.
 
 Se, para uma dada variação no peso sináptico, o algoritmo movimenta-se em uma trajetória ascendente na superfície $\epsilon$, então significa que essa variação deve ser aplicada com o sinal invertido sobre o peso sináptico, já que houve um aumento do erro, e objetiva-se uma diminuição do erro.
 
 Por outro lado, se para uma dada variação no peso sináptico o algoritmo movimenta-se em uma trajetória descendente na superfície $\epsilon$, então significa que esta variação deve ser aplicada com o sinal positivo sobre o peso sináptico, já que houve uma
-diminuição do erro e, portanto, o movimento deve ser encorajado naquela direção. Esse método de correção dos pesos sinápticos é denominado de Regra Delta, e é definida pela expressão:
+diminuição do erro e, portanto, o movimento deve ser encorajado naquela direção. Esse método de correção dos pesos sinápticos é denominado de regra delta, e é definida pela expressão:
 
 \begin{align}
-\Delta \underline{w}(n) = -\eta \underline{\nabla}  \underline{J}( \underline{w}(n)) 
-\end{align}
-
-onde,
-\begin{align}
-\underline{\nabla} J(\underline{w}(n)) = \dfrac{\partial J(\underline{w}(n))}{\partial \underline{w}(n)} =  \frac{\partial \dfrac{1}{2}e^2(n)}{\partial \underline{w}(n)}
-\end{align}
-
-é o gradiente local da superfície de erro gerada pela função de custo:
-
-\begin{align}
-J = J(\underline{w}(n)) = \dfrac{1}{2}e^2(n)
-\end{align}
-
-a ser minimizada no instante $n$.
-
-No caso do MLP, o gradiente local da superfície de erro $\epsilon$ relativo ao peso sináptico $w_{ji}$ representa, portanto, um fator de sensibilidade, determinando a direção de movimento no espaço de pesos sinápticos para o valor do peso sináptico  $w_{ji}$ que minimiza $\epsilon$.
-
-A correção $\Delta w_{ji}(n)$ aplicada a $w_{ji}(n)$, ditada pela Regra Delta, é definida por:
-
-\begin{align}
-\Delta w_{ji}(n) = w_{ji}(n + 1) - w_{ji}(n) = - \eta \frac{\partial \epsilon(n)}{\partial  w_{ji}(n)}
+\Delta w_{ji}(n) =  - \eta \frac{\partial \epsilon(n)}{\partial w_{ji}(n)}
 \end{align}
 
 Onde $\eta$ é a constante que determina a razão de aprendizado do algoritmo \emph{backpropagation}. O uso do sinal negativo em (2.12) impõe a movimentação contrária à direção apontada pelo gradiente na superfície de erro definida no espaço de pesos sinápticos. 
 
-O algoritmo \emph{backpropagation} estabelece o aprendizado de um MLP através da Regra Delta como sendo a
-correção efetuada em suas sinapses através de:
+Correspondentemente, o uso da Eq. (2.6) produz
 
 \begin{align}
 \Delta w_{ji}(n) = \eta \delta_j(n)y_i(n)
 \end{align}
 
-Onde $\Delta w_{ji}(n)$ é a correção aplicada à $i$-ésima sinapse do neurônio $j$, $y_i(n)$ é o sinal de entrada no $i$-ésimo nó de entrada do neurônio $j$ (= sinal na saída do neurônio $i$, pertencente à camada à esquerda da que pertence o neurônio $j$, se esse não estiver na primeira camada escondida, se o neurônio $j$ estiver na primeira camada escondida então $y_i(n)$ corresponde ao $i$-ésimo nó de entrada $x_i(n)$ do MLP) e $\delta_j(n)$ é o gradiente local do neurônio $j$, definido por:
+Onde o gradiente local ($\delta_j$) é definido por
+
+\begin{align}
+\delta_j(n) = e_j(n)\varphi_j'(v_j(n))
+\end{align}
+
+O grandiente local aponta para as modificações necessárias nos pesos sinápticos. De acordo com Eq. (2.8), o grandiente local $\delta_j(n)$ para o neurônio de saída $j$ é igual ao produto do sinal de erro $e_j(n)$ correspondente para aquele neurônio pela derivada $\varphi_j'(v_j(n))$ da função de ativação associada.
+
+Das equações (2.7 e 2.8) nota-se que um fator-chave envolvido no cálculo do ajuste de peso $\Delta_{ji}(n)$ é o sinal de erro $e_j(n)$ na saída do neurônio $j$. Neste, contexto, pode-se identificar dois casos distintos, dependendo de onde na rede o neurônio $j$ está localizado.
+
+No caso 1, o neurônio $j$ é um nó de saída. Este caso é simples de se tratar, pois cada nó de saída da rede é suprido com uma resposta desejada particular. No caso 2, o neurônio $j$ é um nó oculto. Apesar de os neurônios ocultos nãp serem acessíveis diretamente, eles compartilham a reponsabilidade por qualquer erro cometido na saída da rede.
+
+Os cálculos dos gradientes locais para os dois casos acima citados são definidos por:
 
 \begin{align}
 \delta_j(n) = \left \{ \begin{matrix} \varphi_j'(v_j(n))e_j(n), & \mbox{neurônio }j\mbox{ é de saída} \\ \varphi_j'(v_j(n))\sum_k\delta_k(n)w_{kj}(n), & \mbox{neurônio }j\mbox{ é de escondido} \end{matrix} \right.
@@ -286,7 +274,7 @@ Onde $\Delta w_{ji}(n)$ é a correção aplicada à $i$-ésima sinapse do neurônio $j
 
 De acordo com (2.14a) o gradiente local $\delta_j(n)$ para o neurônio de saída $j$ é igual ao produto do correspondente sinal de erro $e_j(n)$ pela derivada $\varphi_j'(v_j(n))$ da função de ativação associada. Nesse caso o fator chave necessário envolvido no cálculo do ajuste dos pesos $\Delta w_{ji}(n)$ é o sinal de erro $e_j(n)$ na saída do neurônio $j$.
 
-Quando o neurônio $j$ está localizado em uma camada escondida, conforme mostra a Figura \ref{fig:sinalForward}, mesmo não sendo diretamente acessíveis, tais neurônios dividem a responsabilidade pelo erro resultante na camada de saída. A questão, no entanto, é saber como penalizar ou recompensar os pesos sinápticos de tais neurônios pela sua parcela de responsabilidade, já que não existe resposta desejada especificada neste local do MLP e, portanto, não há como calcular o sinal de erro.
+Quando o neurônio $j$ está localizado em uma camada oculta, conforme mostra a Figura \ref{fig:sinalForward}, mesmo não sendo diretamente acessíveis, tais neurônios dividem a responsabilidade pelo erro resultante na camada de saída. A questão, no entanto, é saber como penalizar ou recompensar os pesos sinápticos de tais neurônios pela sua parcela de responsabilidade, já que não existe resposta desejada especificada neste local da rede e, portanto, não há como calcular o sinal de erro.
 
 A solução, dada pela equação (2.14b), é computar o sinal de erro recursivamente para o neurônio escondido $j$ retro-propagando os sinais de erro de todos os neurônios à direita do neurônio $j$ aos quais a saída deste encontra-se conectado.
 
@@ -322,7 +310,7 @@ Conforme mostrado na Figura \ref{fig:funcaoSigmoide}, a função sigmóide é uma fu
 
 \begin{figure}[H] 
 	\begin{center}
-		\caption{Função de ativação - Sigmóide}
+		\caption{Função de Ativação - Sigmoide}
 		\includegraphics[scale=0.5]{imagens/funcaoSigmoide.png}
 		\label{fig:funcaoSigmoide}
 		\centerline{Fonte: Autor, 2017}
@@ -337,7 +325,7 @@ Conforme mostrado na Figura \ref{fig:funcaoSigmoide}, a função sigmóide é uma fu
 
 \begin{figure}[H] 
 	\begin{center}
-		\caption{Função de ativação - Tangente Hiperbólica}
+		\caption{Função de Ativação - Tangente Hiperbólica}
 		\includegraphics[scale=0.5]{imagens/funcaoTanHip.png}
 		\label{fig:grafArcoTan}
 		\centerline{Fonte: Autor, 2017}
@@ -352,7 +340,7 @@ A função tangente-hiperbólica mostrada na Figura \ref{fig:funcaoTanHip} e dada p
 
 \begin{figure}[H] 
 	\begin{center}
-		\caption{Função de ativação - Tangente Hiperbólica}
+		\caption{Função de Ativação - Tangente Hiperbólica}
 		\includegraphics[scale=0.5]{imagens/funcaoTanHip.png}
 		\label{fig:funcaoTanHip}
 		\centerline{Fonte: Autor, 2017}
@@ -362,7 +350,7 @@ A função tangente-hiperbólica mostrada na Figura \ref{fig:funcaoTanHip} e dada p
 
 Todas essas funções logísticas são delimitadas, contínuas, monotônicas e continuamente diferenciáveis.
 
-Nesse trabalho, utilizou-se uma convenção, em que os neurônios da camada de entrada também são considerados como parte da estrutura geral e utilizou-se a função sigmoide em todas as camadas.  
+Nesse trabalho, utilizou-se uma convenção, em que os neurônios da camada de entrada também são considerados como parte da estrutura geral e utilizou-se a função sigmóide em todas as camadas.  
 
 %\subsection{Efeito do Bias}
 

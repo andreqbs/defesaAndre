@@ -1,29 +1,29 @@
 \mychapter{Metodologia}
 \label{Cap_3}
 
-Este capítulo apresenta os materiais, métodos utilizados e desenvolvidos nessa pesquisa. O sistema computacional abordado está esquematizado na Seção 3.2, na qual são mostradas a sua divisão em blocos e as inter-relações existentes entre eles. A Seção 3.3 contém algumas peculiaridades relevantes das implementações.
+Esse capítulo apresenta os materiais, métodos utilizados e desenvolvidos nessa pesquisa. O sistema computacional abordado está esquematizado na Seção 3.2, na qual são mostradas a sua divisão em blocos e as inter-relações existentes entre eles. A Seção 3.3 contém algumas peculiaridades relevantes das implementações.
 
 \section{Estudo e Desenvolvimento Inicial}
 	
 \subsection{Recursos e Estratégias Utilizadas no Desenvolvimento}
 
-A plataforma adotada para a implementação do \emph{software} foi o Java, por ser um sistema bastante difundido e familiar, no entanto, nada impede que haja portabilidade do \emph{software} para outros sistemas operacionais, pois o Java consegue ser instalado rapidamente em todos os sistemas operacionais que estão no mercado. A versão utilizada foi a 8.21 para desenvolver a parte de negócios enquanto a interface gráfica foi utilizada o Java FX. A \emph{Integrated Development Environment} (IDE) de desenvolvimento do \emph{software} foi o NetBeans 8.2 da \emph{Oracle}. A linguagem de programação Java foi a escolhida para esse tipo de sistema, devido à facilidade na orientação a objeto, à capacidade de reuso do código, e a experiência de desenvolvimento nessa linguagem. 
+A plataforma adotada para a implementação do \emph{software} foi o Java, por ser um sistema bastante difundido e familiar, no entanto, nada impede que haja portabilidade do \emph{software} para outros sistemas operacionais, pois o Java consegue ser instalado rapidamente em todos os sistemas operacionais que estão no mercado. Foi utilizada a versão 8.21 para desenvolver o modelo de negócios enquanto a interface gráfica foi utilizada o Java FX. A \emph{Integrated Development Environment} (IDE) de desenvolvimento do \emph{software} foi o NetBeans 8.2 da \emph{Oracle}. A linguagem de programação Java foi a escolhida para esse tipo de sistema, devido à facilidade na orientação a objeto, à capacidade de reuso do código, e a experiência de desenvolvimento nessa linguagem. 
 
-Para o desenvolvimento do \emph{software} foi adotada uma metodologia ágil e o quadro de acompanhamento do desenvolvimento pode ser visualizado no GitHub. A implementação se deu através em testes, primeiramente focando em problemas menores e específicos, para, então, desenvolver soluções que satisfaçam os requisitos das novas \emph{sprints} em questão. O último passo foi estender o sistema para o atender outros tipos de problemas.
+Para o desenvolvimento do \emph{software} foi adotada uma metodologia ágil e o quadro de acompanhamento do desenvolvimento pode ser visualizado no repositório criado \emph{GitHub}. A implementação se deu através em testes, primeiramente focando em problemas menores e específicos, para, então, desenvolver soluções que satisfaçam os requisitos das novas \emph{sprints} em questão. O último passo foi estender o sistema para o atender outros tipos de problemas.
 
 \subsection{Etapas do Desenvolvimento}
 
-Inicialmente, objetivou-se a implementação do algoritmo empregado pelo sistema desenvolvido por (Towell \textit{et al.}, 1990) dividindo-a em duas subetapas distintas: A implementação relativa ao programa de extração de dados lógicos e a implementação da tradução em uma Rede Neural Artificial correspondente à teoria de domínio inicial.
+Inicialmente, objetivou-se a implementação do algoritmo empregado pelo sistema desenvolvido por (Towell \textit{et al.}, 1990) dividindo-a em duas subetapas distintas: A implementação relativa ao programa de extração de dados lógicos e a implementação da tradução em uma RNA correspondente à teoria de domínio inicial.
 
-Os testes iniciaram com o desenvolvimento de métodos para a conversão de Linguagens Lógicas, apresentadas sob a forma de cláusulas Horn. Em seguida, a construção da RNAs e aplicação em problemas simples e específicos, para, logo em seguida generalizá-los. Na sequência, ocorreu a integração entre as duas partes, o sistema foi a aplicado a um problema mais extenso e geral do que os anteriores.
+Os testes iniciaram com o desenvolvimento de métodos para a conversão de Linguagens Lógicas, apresentadas sob a forma de cláusulas Horn. Em seguida, a construção da RNAs e aplicação em problemas simples e específicos, para, logo em seguida generalizá-los. Na sequência, ocorreu a integração entre as duas partes, o sistema foi a aplicado a um problema mais extenso e geral que os anteriores.
 
 Na fase final do desenvolvimento, foi criado um sistema genérico de para gerar padrões de entradas e saídas de acordo com o as necessidades do usuário.
 
-Os estudos realizados juntamente com a implementação desse projeto se deram ao longo de um ano e meio. Todo o processo que o sistema passou pode ser listado em 12 etapas que facilitaram o entendimento de todo o desenvolvimento. As etapas estão listadas pela sua ordem cronológica, nas quais se destacaram os respectivos enfoques e descrição, conforme segue:
+Os estudos realizados juntamente com a implementação desse projeto se deram ao longo de um ano e meio. O processo de produção do sistema pode ser listado em 12 etapas que facilitaram o entendimento de todo o desenvolvimento. As etapas estão listadas pela sua ordem cronológica, nas quais se destacaram os respectivos enfoques e descrição, conforme segue:
 
 \begin{itemize}
 	
-	\item \textbf{Etapa 1 (Padrões de Software):} Estudo de Padrões de Projetos de \emph{software} para serem aplicados a sistema esse tipo de desenvolvimento.
+	\item \textbf{Etapa 1 (Padrões de Software):} Estudo de padrões de projetos de \emph{software} para serem aplicados a sistema esse tipo de desenvolvimento.
 	
 	\item \textbf{Etapa 2 (RNA específica):} Implementações de RNAs simples, permitindo a primeira definição das técnicas de implementação de RNA a serem empregadas;  
 	
@@ -43,7 +43,7 @@ Os estudos realizados juntamente com a implementação desse projeto se deram ao l
 
 	\item \textbf{Etapa 10 (Algoritmo TopGen):} Implementação do algoritmo TopGen para gerar novas redes;
 	
-	\item \textbf{Etapa 11 (Tabuleiro de xadrez):} Implementação do tabuleiro de Xadrez e seus respectivos métodos para extração de informações que serviram de entrada para a rede neural;
+	\item \textbf{Etapa 11 (Tabuleiro de xadrez):} Implementação do tabuleiro de xadrez e seus respectivos métodos para extração de informações que serviram de entrada para a rede neural;
 	
 	\item \textbf{Etapa 12 (Algoritmo TopGen):} Comparação entre RNAs com e sem o emprego do algoritmo TopGen;
 		
@@ -52,7 +52,7 @@ Os estudos realizados juntamente com a implementação desse projeto se deram ao l
 	
 \end{itemize}
 
-As etapas iniciais (1 a 5) tiveram fundamental importância no trabalho, pois serviram para a fundamentação dos conceitos básicos de um sistema híbrido e a base para um bom desenvolvimento. Nas etapas 2 e 4 foram realizados estudos que definiu a forma mais apropriada de como a interface deveria ser implementada. As etapas 3, 6 e 9 relacionam as implementações aplicadas a exemplos específicos. As etapas 7, 8, 10, 11 e 12 focam o algoritmo KBANN, TopGen e suas aplicações. 
+As etapas iniciais (1 a 5) foram fundamentais no trabalho, pois foi a base para a fundamentação dos conceitos básicos de um sistema híbrido e a base para um bom desenvolvimento do \emph{software}. Nas etapas 2 e 4 foram realizados estudos que definiram a forma mais apropriada de como a interface deveria ser implementada. As etapas 3, 6 e 9 relacionam as implementações aplicadas a exemplos específicos. As etapas 7, 8, 10, 11 e 12 foram destinadas aos algoritmos, KBANN e TopGen, além de suas aplicações. 
 
 \subsection{Implementações Preliminares}	
 
@@ -64,16 +64,13 @@ Algumas implementações básicas foram necessárias para se adquirir experiência. O
 
 \subsubsection{Leitura de Dados Simbólicos}
 
-A leitura de dados simbólicos serviu de base para a implementação do algoritmo de conversão KBANN. A execução, o acompanhamento e os testes dessa implementação permitiram verificar a tradução de uma base de regras iniciais em uma rede neural de KBANN.
-A Figura \ref{fig:visualizacaoGrafo} é a representação final das regras lógicas contidas nas cláusulas lógicas mostradas abaixo na forma de cláusulas de Horn. A partir desse conjunto de símbolos, foram obtidas as estruturas das RNAs similares às da Figura \ref{fig:visualizacaoGrafo}, aplicando-se a elas os cálculos requeridos pelo algoritmo, tais como a determinação dos pesos inciais, bias, taxa de aprendizado da rede e o erro aceitável.
-\newline \newline
+A interpretação dos dados simbólicos é a base para implementação do algoritmo de conversão do KBANN. A execução, o acompanhamento e os testes dessa implementação permitiram verificar a tradução de uma base de regras iniciais em uma rede neural de KBANN.
+A Figura \ref{fig:visualizacaoGrafo} é a representação final das regras lógicas contidas nas cláusulas lógicas mostradas abaixo na forma de cláusulas de Horn. A partir desse conjunto de símbolos, foram obtidas as estruturas das RNAs similares às da Figura \ref{fig:visualizacaoGrafo}, aplicando-se a elas os cálculos requeridos pelo algoritmo, tais como a determinação dos pesos inciais, bias, taxa de aprendizado da rede e o erro aceitável. A seguir será apresentado um exemplo de um conjunto de regras iniciais e sua tradução em uma rede neural.
+
 \centerline{$A$ :- $B$,  $¬C$} 
 \centerline{$B$ :- $D$, $¬F$, $G$} 
 \centerline{$B$ :- $D$, $F$, $I$} 
 \centerline{$C$ :- $H$, $J$, $K$} 
-\newline
-
-Cada instrução acima representa uma regra do domínio da teoria, a união delas implica nas regras que definem um problema. Para melhor entendimento, as cláusulas no formato de Prolog podem ser lidas da seguinte maneira: ao lado esquerdo ficam os consequentes, ou seja, as implicações que são geradas pelos seus antecedentes (lado direito). Os antecedentes são as condições necessárias para ativar um consequente e esses são separados por vírgulas (,) quando se quer definir que ambos os antecedentes precisam estar ativados para sair uma determinada resposta do seu respectivo consequente da regra. Quando um antecedente sofre uma negação ($\neg$), o peso sináptico da ligação entre os neurônios será negativo.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -84,14 +81,15 @@ Cada instrução acima representa uma regra do domínio da teoria, a união delas im
 	\end{center} 
 \end{figure}
 
+Cada instrução acima representa uma regra do domínio da teoria, a união delas implica nas regras que definem um problema. Para melhor entendimento, as cláusulas no formato de Prolog podem ser lidas da seguinte maneira: ao lado esquerdo ficam os consequentes, ou seja, as implicações que são geradas pelos seus antecedentes (lado direito). Os antecedentes são as condições necessárias para ativar um consequente e esses são separados por vírgulas (,) quando se quer definir que ambos os antecedentes precisam estar ativados para sair uma determinada resposta do seu respectivo consequente da regra. Quando um antecedente sofre uma negação ($\neg$), o peso sináptico da ligação entre os neurônios será negativo.
 
-\subsubsection{Redes Neurais Artificiais simples}	
+\subsubsection{Redes Neurais Artificiais Simples}	
 
-Os primeiros programas desenvolvidos nesse trabalho utilizavam a topologia básica da RNA com três camadas e com poucos neurônios por camada (por exemplo: 5 x 3 x 1 ou 2 x 2 x 1). Nesse caso, pretendia-se fazer somente o treinamento da RNA, verificação de cálculos e teste estrutural da arquitetura e do algoritmo de treinamento.
+Os primeiros programas desenvolvidos nesse trabalho utilizavam a topologia básica da RNA com três camadas e com poucos neurônios por camada (por exemplo: 5 x 3 x 1 ou 2 x 2 x 1). Nesse caso, foi realizado somente o treinamento da RNA, verificação de cálculos e teste estrutural da arquitetura e do algoritmo de treinamento.
 
-Alguns exemplos simples foram utilizados, como o de reconhecimento e classificação de dados (padrões sensíveis à RNA). Na classificação de dados, como por exemplo, foi utilizado as regras determinadas logo acima para os testes inicias. Além disso, os mesmos testes foram validados no \emph{Matlab}, tanto usando o \emph{Neural Network ToolBox} de redes neurais que é disponibilizado no \emph{software}, como também, realizando passo a passo as operações matemáticas
+Alguns exemplos simples foram utilizados, como: o reconhecimento e a classificação de dados (padrões sensíveis à RNA). Além disso, os mesmos testes foram validados no \emph{Matlab}, tanto utilizando o \emph{Neural Network ToolBox} de redes neurais que é disponibilizado no \emph{software}, como também, realizando passo a passo as operações matemáticas
 
-As cincos regras acima descrevem inicialmente o modelo daquele problema em específico. Assim como foi feito no TopGen, foram retiradas algumas regras do domínio teórico inicial, e em seguida realizando o treinamento e a validação. Foi possível notar que o KBANN ainda consegue classificar boa parte dos dados, mesmo não tendo um domínio completo do problema. Esse teste foi feito justamente para provar o que Towell \textit{et al.} (1990) comentou em seu trabalho, que não é necessário saber a fundo sobre problema. Apesar da sua boa classificação contendo 3 (três) regras das 5 (cinco) originais Variações desse modelo poderiam servir de exemplo para o treinamento da RNA.
+O cojunto de regras iniciais citadas no item 3.1.3.1 descrevem inicialmente o modelo do problema estudado. Da mesma forma como foi feito no TopGen, foram retiradas algumas regras do domínio teórico inicial, e em seguida foi realizado o treinamento e a validação. Foi possível observar que o KBANN consegue classificar boa parte dos dados, mesmo não possuindo um domínio completo do problema. O teste foi realizado para comprovar o que foi discutido no trabalho de Towell \textit{et al.} (1990). 
 
 A criação de uma interface para entrada de dados fez-se necessária com a migração para programas mais genéricos. A solução mais imediata foi a adoção de arquivos formatados contendo um conjunto de definições, que são alteráveis no programa antes da sua execução.
 
@@ -103,8 +101,8 @@ O enfoque principal do sistema desenvolvido foi a implementação do algoritmo de 
 
 \subsubsection{Classes que Compõem o Programa}
 
-A Figura \ref{fig:diagramaClasses} apresenta um esquema das classes nas quais o ambiente computacional teve o seu desenvolvimento baseado. A classe que controla toda a aplicação é a ControllerGrafo. Ela recebe todas as requisições oriundas da interface gráfica e delega para outras classes algumas ações necessárias. Por exemplo, a classe  ControllerRegras realiza o tratamento da programação em linguagem lógica, conforme as opções que lhe são passadas.
-Pensando em futuras expansões do projeto, foram criadas classes e módulos que poderão se acoplar facilmente a novas classes. A classe ModelGrafo que representa a rede neural, por exemplo pode receber novos tipos de neurônios ou conexões de forma bastante simples.
+A Figura \ref{fig:diagramaClasses} apresenta um esquema das classes nas quais o ambiente computacional teve o seu desenvolvimento baseado. A classe que controla toda a aplicação é a \emph{ControllerGrafo}. Ela recebe todas as requisições oriundas da interface gráfica e delega para outras classes algumas ações necessárias. Por exemplo, a classe \emph{ControllerRegras} realiza o tratamento da programação em linguagem lógica, conforme as opções que lhe são passadas.
+Pensando em futuras expansões do projeto, foram criadas classes e módulos que poderão se acoplar facilmente a novas classes. A classe \emph{ModelGrafo} que representa a rede neural, por exemplo pode receber novos tipos de neurônios ou conexões de forma bastante simples.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -118,7 +116,7 @@ Pensando em futuras expansões do projeto, foram criadas classes e módulos que po
 
 \subsubsection{Casos de Uso Previstos}
 
-A Figura \ref{fig:diagramaCasosUso} contém alguns casos mais comuns de uso do ambiente computacional. Um especialista do conhecimento pode valer-se desse ambiente para aplicá-lo a um problema específico. O objetivo de aplicação pode ser: o aumento na abrangência de regras associadas ao conhecimento inicial do especialista. Cada um dos casos de uso se refere a uma etapa existente neste ciclo, proposto para o aprimoramento das regras provenientes do conhecimento.
+A Figura \ref{fig:diagramaCasosUso} contém alguns casos mais comuns de uso do ambiente computacional. Um especialista do conhecimento pode valer-se desse ambiente para aplicá-lo a um problema específico. O objetivo de aplicação pode ser: o aumento na abrangência de regras associadas ao conhecimento inicial do especialista. Cada um dos casos de uso se refere a uma etapa existente nesse ciclo, proposto para o aprimoramento das regras provenientes do conhecimento.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -131,7 +129,7 @@ A Figura \ref{fig:diagramaCasosUso} contém alguns casos mais comuns de uso do am
 
 \subsubsection{Sequência de Eventos}
 
-O diagrama de classes da Figura \ref{fig:diagramaSequencia} aponta para a sequência de operações iniciadas pelo usuário, que basicamente, interage através da configuração contida nos arquivos e na interface. O \emph{software} realiza uma varredura do arquivo que contém as informações necessárias ao desenvolvimento de seus processos.
+O diagrama de classes da (Figura \ref{fig:diagramaSequencia}) aponta para a sequência de operações iniciadas pelo usuário, que basicamente, interage através da configuração contida nos arquivos e na interface. O \emph{software} realiza uma varredura do arquivo que contém as informações necessárias ao desenvolvimento de seus processos.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -144,7 +142,7 @@ O diagrama de classes da Figura \ref{fig:diagramaSequencia} aponta para a sequên
 
 Como ilustra a Figura \ref{fig:diagramaSequencia}, o \emph{software} interno atua na modificação da estrutura da RNA geral, quer seja pelo estabelecimento da sua topologia, quer na alteração dessa em consequência da aprendizagem. Uma vez que as operações estejam encerradas, o usuário pode consultar os arquivos produzidos e verificar os resultados.
 
-Os passos à execução do programa podem ser resumidos dessa forma:
+Os passos para a execução do programa podem ser resumidos dessa forma:
 
 1. Seleção dos algoritmos, das configurações da RNA e dos arquivos de dados;
 
@@ -170,13 +168,7 @@ A interface também contém um menu para seleção do algoritmo a ser utilizado, ass
 
 \subsubsection{Painel de Edição}
 
-Os arquivos carregados no programa pode ser visualizados na tela de edição, conforme a Figura \ref{fig:editorRegras}
-
-1. A planta inicial, que informa a teoria de domínio que deseja-se representar inicialmente para um possível refinamento.
-
-2. A planta final, que possui o domínio completo e correto do problema.
-
-Esses dois arquivos são abertos e acessados diretamente no painel interno da interface. Não existe restrição quanto ao tipo de arquivo a ser editado. 
+Os arquivos carregados no programa pode ser visualizados na tela de edição, conforme a Figura \ref{fig:editorRegras}.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -187,22 +179,30 @@ Esses dois arquivos são abertos e acessados diretamente no painel interno da int
 	\end{center} 
 \end{figure}
 
+As entradas de dados podem ser realizadas de duas maneiras:
+
+1. A planta inicial, que informa a teoria de domínio que deseja-se representar inicialmente para um possível refinamento.
+
+2. A planta final, que possui o domínio completo e correto do problema.
+
+Esses dois arquivos são abertos e acessados diretamente no painel interno da interface. Não existe restrição quanto ao tipo de arquivo a ser editado. 
+
 \subsubsection{Barra do Menu}
 
 A barra de menu da interface facilita algumas operações de edição e execução dos programas. 
 
 \subsubsection{Menu Lateral}
 
-A interface também conta com menu \emph{according} localizada nas laterais da janela principal que serve para o acompanhamento do andamento das operações. Esse menu extra possibilita ao usuário identificar o que foi lido do arquivo que contém as regras, saber o resultado final após o treinamento e o TopGen e identificar os níveis (camadas) por cor, as quais os neurônios fazem parte.
+A interface também possui menu \emph{according} localizada nas laterais da janela principal que serve para o acompanhamento do andamento das operações. Esse menu extra possibilita ao usuário identificar o que foi lido do arquivo que contém as regras, saber o resultado final após o treinamento e o TopGen e identificar os níveis (camadas) por cor, as quais os neurônios fazem parte.
 
-\subsection{Considerações sobre as implementações}	
+\subsection{Considerações sobre as Implementações}	
 
-A maioria dos programas desenvolvidos empregaram as RNAs com o seu aprendizado, executado por meio do algoritmo de retro-propagação. A escolha desse algoritmo deveu-se à sua utilização no sistema KBANN, possibilitando a comparação de resultados. Os algoritmos que definiram as topologias de RNAs empregadas foram consequência da evolução natural das técnicas de programação.
-Os valores de saída e as sinapses da RNA foram implementados por variáveis contidas nas classes Neurônio e Arestas. Quando se deseja acessar o valor contido em um neurônio específico, é utilizado um \emph{HashMap} que possui todos os objetos neurônios. Dentro de cada neurônio existe os campos que identifica se ele é da camada de entrada, saída ou de qual camada intermediária ele faz parte. Na Figura \ref{fig:diagramaClasses}, é possível ver a representação dessas estruturas com as quais pode-se acessar quaisquer valor desejado no grafo neural construído.
+A maioria dos programas desenvolvidos empregaram as RNAs com o seu aprendizado, executado por meio do algoritmo de retro-propagação. A escolha desse algoritmo deve-se à sua utilização no sistema KBANN, possibilitando a comparação de resultados. Os algoritmos que definiram as topologias de RNAs empregadas foram consequência da evolução natural das técnicas de programação.
+Os valores de saída e as sinapses da RNA foram implementados por variáveis contidas nas classes Neurônio e Arestas. Quando se deseja acessar o valor contido em um neurônio específico, é utilizado uma estrutura de dados \emph{HashMap} que possui todos os objetos neurônios. Dentro de cada neurônio existe os campos que identifica se ele é da camada de entrada, saída ou de qual camada intermediária ele faz parte. 
 
 \subsection{Testes do Sistema}
 
-Para validação do sistema desenvolvido, foi utilizado o \emph{software} \emph{Matlab\textregistered} como referência, devido as suas diversas ferramentas amplamente testadas pela comunidade científica. Para realização do teste, foi necessário criar um exemplo de rede MLP de acordo com o que podia ser modelado no \emph{Matlab\textregistered}. Na Figura \ref{fig:RedeMatlabEstrutura}, a sua estrutura da rede MLP pode ser vista após a definição do problema. Esse teste teve como intenção apenas que os resultados encontrados no programa fossem relativamente parecidos ou próximos do que o \emph{Matlab} gerou. 
+Para validação do sistema desenvolvido, foi utilizado o \emph{software} \emph{Matlab\textregistered} como referência, devido as suas diversas ferramentas amplamente testadas pela comunidade científica. Para realização do teste, foi necessário criar um exemplo de rede MLP de acordo com o que podia ser modelado no \emph{Matlab\textregistered}. Na Figura \ref{fig:RedeMatlabEstrutura}, a sua estrutura da rede MLP pode ser vista após a definição do problema. Esse teste objetivou apenas que os resultados encontrados no programa fossem relativamente parecidos ou próximos do que o \emph{Matlab} gerou. 
 
 \begin{figure}[H] 
 	\begin{center}
@@ -224,7 +224,7 @@ A Figura \ref{fig:RedeMatlabEstrutura}, representa a estrutura da rede a ser tre
 	\end{center} 
 \end{figure}
 
-Pelo o que foi apresentado na Figura \ref{fig:RedeMatlabTreinada}, pode-se observar que o \emph{Neural Network ToolBox}  do \emph{Matlab\textregistered} levou 10.000 épocas para finalizar o problema, ou seja, o erro de treinamento ou o erro de validação aceitável não foi alcançado, sendo necessário utilizar a quantidade de épocas máxima para finalizar o treinamento. Nesse exemplo, foi utilizado o algoritmo de \emph{backpropagation} e a função de ativação dos neurônios escolhida foi a sigmoide. Outros parâmetros, como taxa de aprendizagem, erro aceitável ($goal$) e o tempo para simulação podem ser verificados na Figura \ref{fig:redeMatlabParametros}.
+Pelo o que foi apresentado na Figura \ref{fig:RedeMatlabTreinada}, pode-se observar que o \emph{Neural Network ToolBox}  do \emph{Matlab\textregistered} levou 10.000 épocas para finalizar o problema, ou seja, o erro de treinamento ou o erro de validação aceitável não foi alcançado, sendo necessário utilizar a quantidade de épocas máxima para finalizar o treinamento. Nesse exemplo, foi utilizado o algoritmo de \emph{backpropagation} e a função de ativação dos neurônios escolhida foi a sigmóide. Outros parâmetros, como taxa de aprendizagem, erro aceitável ($goal$) e o tempo para simulação podem ser verificados na Figura \ref{fig:redeMatlabParametros}.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -255,7 +255,7 @@ As duas últimas Figuras (\ref{fig:GraficoErroMatlab} e \ref{fig:errosMatlab}) se
 	\end{center} 
 \end{figure}
 
-O mesmo teste considerando as mesmas configurações da rede (taxa de aprendizado, função de ativação) e o conjunto de dados foram realizados pelo sistema desenvolvido utilizando apenas o KBANN e em seguida o KBANN com o TopGen. Na Figura \ref{fig:resultado1SemTopgen} a rede KBANN conseguiu classificar corretamente todos os dados apresentados em sua saída (A), mas obteve dois erros em uma saída intermediária (B), em que obteve dois falsos negativos. Esses erros já eram esperados devido a retirada de duas regras do domínio que rege esse problema.
+O mesmo teste considerando as mesmas configurações da rede (taxa de aprendizado, função de ativação) e o conjunto de dados foram realizados pelo sistema desenvolvido utilizando apenas o KBANN, e em seguida, o KBANN com o TopGen. Na Figura \ref{fig:resultado1SemTopgen} a rede KBANN conseguiu classificar corretamente todos os dados apresentados em sua saída (A), mas obteve dois erros em uma saída intermediária (B), em que obteve dois falsos negativos. Esses erros já eram esperados devido a retirada de duas regras do domínio que rege esse problema.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -266,7 +266,7 @@ O mesmo teste considerando as mesmas configurações da rede (taxa de aprendizado,
 	\end{center} 
 \end{figure}
 
-Na Figura \ref{fig:resultado1ComTopgen}, pode-se observar que o erro em todas as saídas intermediárias (B e C), assim como a saída principal da rede (A) foram zeradas, ou seja, para todos os dados apresentados, foram classificados corretamente sem nenhuma execção, mostrando assim, uma boa eficácia do sistema. Para se conseguir esse feito, foram necessários adicionar a rede original de KBANN, dois neurônios, o TG1B e TG2B (Figura \ref{fig:resultado1RedeComTopgen}), o motivo dessa adição pode ser vista na seção (2.3). Esse neurônios fizeram com que os erros da saída intermediária (B) fossem zerados sem modificar o aprendizado obtido em outras regiões da rede.
+Na Figura \ref{fig:resultado1ComTopgen}, pode-se observar que o erro em todas as saídas intermediárias (B e C), assim como a saída principal da rede (A) foram zeradas, ou seja, para todos os dados apresentados, foram classificados corretamente sem nenhuma exceção, mostrando assim, uma boa eficácia do sistema. Para se conseguir esse resultado, foram necessários adicionar a rede original de KBANN, dois neurônios, o TG1B e TG2B (Figura \ref{fig:resultado1RedeComTopgen}), o motivo dessa adição pode ser vista na seção (2.3). Esse neurônios fizeram com que os erros da saída intermediária (B) fossem zerados sem modificar o aprendizado obtido em outras regiões da rede.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -286,6 +286,6 @@ Na Figura \ref{fig:resultado1ComTopgen}, pode-se observar que o erro em todas as
 	\end{center} 
 \end{figure}
 
-Assim, após ter demonstrado que o KBANN, juntamente com o TopGen conseguem obter bons resultados quando aplicados em cojunto, outros testes considerando um problema com uma quantidade maior de regras e de maior complexidade serão realizados no próximo capítulo.
+Assim, após comprovar que o KBANN, juntamente com o TopGen, obtêm bons resultados quando aplicados em conjunto, foi possível realizar outros testes considerando um problema com uma quantidade maior de regras, e maior complexidade que serão apresentados no próximo capítulo.
 
 
