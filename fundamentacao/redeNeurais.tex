@@ -75,7 +75,7 @@ Com relação as redes MLPs, pode-se citar duas características da estrutura que s
 
 \begin{figure}[H] 
 	\begin{center}
-		\caption{Representação de uma MLP.}
+		\caption{Representação de uma MLP}
 		\includegraphics[scale=0.5]{imagens/MLP.png}
 		\label{fig:mlp_1}
 		\centerline{Fonte: Haykin, 2000}
@@ -204,7 +204,7 @@ Correspondentemente, o valor instantâneo $\epsilon_n$ é obtido somando sobre tod
 \epsilon(n) = \dfrac{1}{2} \sum_{j \in C}e_{j}^2(n)
 \end{align}
 
-onde o conjunto $C$ inclui todos os neurônios na camada de saída. Seja $N$ o número total de padrões contidos no conjunto de treino. O erro médio quadrático é obtido somando $\epsilon(n)$ sobre todo $n$ e então normalizando com respeito ao tamanho $N$ do conjunto de treino, conforme: 
+Onde o conjunto $C$ inclui todos os neurônios na camada de saída. Seja $N$ o número total de padrões contidos no conjunto de treino. O erro médio quadrático é obtido somando $\epsilon(n)$ sobre todo $n$ e então normalizando com respeito ao tamanho $N$ do conjunto de treino, conforme: 
 
 \begin{align}
 \epsilon_{av} = \dfrac{1}{N - 1} \sum_{n = 0}^{N - 1}\epsilon(n)
@@ -223,7 +223,7 @@ Considere a Figura \ref{fig:sinalNeuronio}, a qual descreve o neurônio $j$ sendo
 	\end{center} 
 \end{figure}
 
-O potencial de ativação $v_j(n)$ aplicado na entrada da não-linearidade associada ao neurônio $j$ é, portanto
+O potencial de ativação $v_j(n)$ aplicado na entrada da não-linearidade associada ao neurônio $j$ é, portanto:
 
 \begin{align}
 v_j(n) = \sum_{i = 0}^{m}w_{ji}(n)y_i(n) 
@@ -248,19 +248,19 @@ diminuição do erro e, portanto, o movimento deve ser encorajado naquela direção.
 
 Onde $\eta$ é a constante que determina a razão de aprendizado do algoritmo \emph{backpropagation}. O uso do sinal negativo em (2.12) impõe a movimentação contrária à direção apontada pelo gradiente na superfície de erro definida no espaço de pesos sinápticos. 
 
-Correspondentemente, o uso da Eq. (2.6) produz
+Correspondentemente, o uso da Eq. (2.6) produz:
 
 \begin{align}
 \Delta w_{ji}(n) = \eta \delta_j(n)y_i(n)
 \end{align}
 
-Onde o gradiente local ($\delta_j$) é definido por
+Onde o gradiente local ($\delta_j$) é definido por:
 
 \begin{align}
 \delta_j(n) = e_j(n)\varphi_j'(v_j(n))
 \end{align}
 
-O grandiente local aponta para as modificações necessárias nos pesos sinápticos. De acordo com Eq. (2.8), o grandiente local $\delta_j(n)$ para o neurônio de saída $j$ é igual ao produto do sinal de erro $e_j(n)$ correspondente para aquele neurônio pela derivada $\varphi_j'(v_j(n))$ da função de ativação associada.
+O grandiente local aponta para as modificações necessárias nos pesos sinápticos. De acordo com Eq. (2.8), o gradiente local $\delta_j(n)$ para o neurônio de saída $j$ é igual ao produto do sinal de erro $e_j(n)$ correspondente para aquele neurônio pela derivada $\varphi_j'(v_j(n))$ da função de ativação associada.
 
 Das equações (2.7 e 2.8) nota-se que um fator-chave envolvido no cálculo do ajuste de peso $\Delta_{ji}(n)$ é o sinal de erro $e_j(n)$ na saída do neurônio $j$. Neste, contexto, pode-se identificar dois casos distintos, dependendo de onde na rede o neurônio $j$ está localizado.
 
@@ -317,7 +317,7 @@ Conforme mostrado na Figura \ref{fig:funcaoSigmoide}, a função sigmóide é uma fu
 	\end{center} 
 \end{figure}
 
- As funções de ativação variam em detalhes, mas todas estão em conformidade com o mesmo plano básico. A função resume as contribuições de todas as unidades emissoras, onde a contribuição de uma unidade é definida como o peso da conexão entre as unidades de envio e de recebimento, multiplicado pelo valor de ativação da unidade emissora. Essa soma é normalmente modificada, por exemplo, ajustando a soma de ativação para um valor entre 0 e 1 ou definindo a ativação para zero. Outra conhecida função de ativação é a tangente-hiperbólica, exibida na Figura \ref{fig:funcaoTanHip} e dada por:
+Outra conhecida função de ativação é a tangente-hiperbólica, exibida na Figura \ref{fig:funcaoTanHip} e dada por:
 
 \begin{align}
 \sigma(\gamma)  = \frac{(e^\gamma - e^{-\gamma})}{(e^\gamma + e^{-\gamma})}
@@ -331,6 +331,8 @@ Conforme mostrado na Figura \ref{fig:funcaoSigmoide}, a função sigmóide é uma fu
 		\centerline{Fonte: Autor, 2017}
 	\end{center} 
 \end{figure}
+\newpage
+As funções de ativação variam em detalhes, mas todas estão em conformidade com o mesmo plano básico. A função resume as contribuições de todas as unidades emissoras, onde a contribuição de uma unidade é definida como o peso da conexão entre as unidades de envio e de recebimento, multiplicado pelo valor de ativação da unidade emissora. Essa soma é normalmente modificada, por exemplo, ajustando a soma de ativação para um valor entre 0 e 1 ou definindo a ativação para zero.
 
 Todas essas funções logísticas são delimitadas, contínuas, monotônicas e continuamente diferenciáveis.
 
