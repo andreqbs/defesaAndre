@@ -15,7 +15,7 @@ O segundo algoritmo do KBANN, denominado \emph{Neural Learning}, refina a rede u
 
 \subsubsection{Inserção de Conhecimento em uma RNA}
 
-Segundo (Towell, 1990), o primeiro passo do KBANN é traduzir um conjunto de regras aproximadamente corretas em uma rede neural baseada no conhecimento. As regras a serem traduzidas em redes KBANN são expressas através de cláusulas Horn. Existem duas restrições no conjunto de regras. Primeiro, as regras devem ser proposicionais. Essa restrição resulta do uso de algoritmos de aprendizado neural que, no momento, são incapazes de manipular variáveis de cálculo de predicado. Em segundo lugar, as regras devem ser acíclicas. Essa restrição sem ciclos simplifica o treinamento das redes resultantes. No entanto, ele não representa uma limitação fundamental no KBANN, pois existem algoritmos baseados em \emph{backpropagation} que podem ser utilizados para treinar redes com ciclos (TOWELL \textit{et al.}, 1990).
+Segundo Towell (1990), o primeiro passo do KBANN é traduzir um conjunto de regras aproximadamente corretas em uma rede neural baseada no conhecimento. As regras a serem traduzidas em redes KBANN são expressas através de cláusulas Horn. Existem duas restrições no conjunto de regras. Primeiro, as regras devem ser proposicionais. Essa restrição resulta do uso de algoritmos de aprendizado neural que, no momento, são incapazes de manipular variáveis de cálculo de predicado. Em segundo lugar, as regras devem ser acíclicas. Essa restrição sem ciclos simplifica o treinamento das redes resultantes. No entanto, ele não representa uma limitação fundamental no KBANN, pois existem algoritmos baseados em \emph{backpropagation} que podem ser utilizados para treinar redes com ciclos (TOWELL \textit{et al.}, 1990).
 Além dessas restrições, os conjuntos de regras fornecidos ao KBANN são hierarquicamente estruturados. Ou seja, as regras geralmente não mapeiam diretamente as entradas para as saídas. Em vez disso, pelo menos algumas das regras fornecem conclusões intermediárias que descrevem informações utéis ao usuário. Essas conclusões intermediárias podem ser utilizadas por outras regras para determinar a conclusão final ou outras conclusões intermediárias. É a estrutura hierárquica de um conjunto de regras que cria características derivadas para uso pelo sistema de aprendizagem baseado em exemplo. Assim, se o conhecimento de domínio não é hierarquicamente estruturado, então as redes criadas pelo KBANN não terão recursos que indicam dependências contextuais ou outras conjunções úteis dentro das descrições do exemplo. Além disso, uma rede KBANN que resulta da tradução de um conjunto de regras sem conclusões intermediárias poderia utilizar apenas uma rede \emph{Perceptron} para resolução do problema. A Tabela \ref{tab:tabelaKBANN}, mostra um resumo de como é mapeado a teoria de domínio em uma rede neural de KBANN.
 
 \begin{table}[h]
@@ -31,10 +31,10 @@ Além dessas restrições, os conjuntos de regras fornecidos ao KBANN são hierarqui
 		Suporte aos fatos & $\Longleftrightarrow$  & Unidades de entrada \\
 		Conclusões intermediárias &   $\Longleftrightarrow $   & Unidades ocultas \\
 		Dependências &   $\Longleftrightarrow$   & Conexões dos pesos
-		
 	\end{tabular}
 \end{table}
-
+ \vspace{-1.2em}
+\centerline{Fonte: Towell, 1990}
 
 \subsubsection{Algoritmo de Tradução de Regras}
 
@@ -100,33 +100,28 @@ A Figura \ref{fig:AlgoritmoTopGen} resume o algoritmo TopGen. O algoritmo utiliz
 
 \subsubsection{Localização de Novos Neurônios}
 
-Primeiramente o algoritmo (Figura \ref{fig:AlgoritmoTopGen}) deve encontrar neurônios na rede com altas taxas de erros. Isso é feito marcando cada neurônio (que corresponde a uma regra em uma teoria do domínio simbólico) sendo exemplos do primeiro conjunto de validação. Utilizando esse conjunto de validação, o TopGen adiciona neurônios com base onde a rede não conseguiu generalizar o resultado. O TopGen mantém dois contadores para cada neurônio da rede, um para falsos negativos e outro para falsos positivos. Esse contadores são modificados de acordo com a saída individual de cada neurônio e não apenas em relação a saída final da rede. Para uma melhor compreensão, um exemplo é considerado falso negativo se for incorretamente classificado como exemplo negativo, enquanto um falso positivo é um classificado incorretamente como um exemplo positivo. O TopGen incrementa os contadores de acordo com a quantidade de vezes que foi alterando o valor lógico de saída de um neurônio, levando a um exemplo mal classificado a ser classificado corretamente. Ou seja, se um neurônio estiver ativo para um exemplo errado, e alterar sua saída para ser inativo, e assim classificando de maneira correta o exemplo apresentado, isso fará que o contador de falsos positivos do neurônio seja incrementado. O contador de falsos negativos de um neurônio é incrementado seguindo o mesmo raciocínio. As novas redes serão geradas para tentar diminuir ou até mesmo eliminar o problema de cada neurônio, sendo que esse novo neurônio poderá também ajudar na redução de falsos negativos e positivos dos demais neurônios. A próxima subseção detalha como os neurônios são adicionados com base no tipo de contador (isto é, um contador falso negativo ou falso positivo) e o tipo de neurônio (isto é, um \emph{AND} ou \emph{OR}).
-
-\begin{figure}[H] 
-	\begin{center}
-		\caption{Algoritmo TopGen}
-		\includegraphics[scale=0.5]{imagens/AlgoritmoTopGen.png}
-		\label{fig:AlgoritmoTopGen}
-		\centerline{Fonte: Shavlik, 1995}
-	\end{center} 
-\end{figure}
+Primeiramente o algoritmo (ver Apêndice A) deve encontrar neurônios na rede com altas taxas de erros. Isso é feito marcando cada neurônio (que corresponde a uma regra em uma teoria do domínio simbólico) sendo exemplos do primeiro conjunto de validação. Utilizando esse conjunto de validação, o TopGen adiciona neurônios com base onde a rede não conseguiu generalizar o resultado. O TopGen mantém dois contadores para cada neurônio da rede, um para falsos negativos e outro para falsos positivos. Esse contadores são modificados de acordo com a saída individual de cada neurônio e não apenas em relação a saída final da rede. Para uma melhor compreensão, um exemplo é considerado falso negativo se for incorretamente classificado como exemplo negativo, enquanto um falso positivo é um classificado incorretamente como um exemplo positivo. O TopGen incrementa os contadores de acordo com a quantidade de vezes que foi alterando o valor lógico de saída de um neurônio, levando a um exemplo mal classificado a ser classificado corretamente. Ou seja, se um neurônio estiver ativo para um exemplo errado, e alterar sua saída para ser inativo, e assim classificando de maneira correta o exemplo apresentado, isso fará que o contador de falsos positivos do neurônio seja incrementado. O contador de falsos negativos de um neurônio é incrementado seguindo o mesmo raciocínio. As novas redes serão geradas para tentar diminuir ou até mesmo eliminar o problema de cada neurônio, sendo que esse novo neurônio poderá também ajudar na redução de falsos negativos e positivos dos demais neurônios. A próxima subseção detalha como os neurônios são adicionados com base no tipo de contador (isto é, um contador falso negativo ou falso positivo) e o tipo de neurônio (isto é, um \emph{AND} ou \emph{OR}).
 
 \subsubsection{Como Novos Neurônios são Adicionados}
 
-Uma vez estimado onde se deve adicionar novos neurônios, é necessário saber como adicionar esses neurônios. TopGen faz a suposição de que, ao treinar uma de suas redes, o significado de um neurônio não mude significativamente. Fazer essa suposição permite alterar a rede de uma forma semelhante ao de refinar regras simbólicas. (Towell \textit{et al.}, 1990) mostrou que era válido fazer uma suposição semelhante sobre as redes de KBANN. A Figura \ref{fig:topGenNos} mostra as possíveis formas de como o TopGen adiciona neurônios a uma rede. Em uma base de regra simbólica que possui muitos falsos negativos, é possível diminuí-los descartando antecedentes de regras existentes ou adicionando novas regras para a base original.
-
-\begin{figure}[H] 
-	\begin{center}
-		\caption{Formas possíveis para adicionar novos neurônios. Arcos indicam conexões do tipo \emph{AND}}
-		\includegraphics[scale=0.5]{imagens/topGenNos.png}
-		\label{fig:topGenNos}
-	\centerline{Fonte: Shavlik, 1995}
-	\end{center} 
-\end{figure}
+Uma vez estimado onde se deve adicionar novos neurônios, é necessário saber como adicionar esses neurônios. TopGen faz a suposição de que, ao treinar uma de suas redes, o significado de um neurônio não mude significativamente. Fazer essa suposição permite alterar a rede de uma forma semelhante ao de refinar regras simbólicas. Towell \textit{et al.} (1990) mostrou que era válido fazer uma suposição semelhante sobre as redes de KBANN. A Figura \ref{fig:topGenNos} mostra as possíveis formas de como o TopGen adiciona neurônios a uma rede. Em uma base de regra simbólica que possui muitos falsos negativos, é possível diminuí-los descartando antecedentes de regras existentes ou adicionando novas regras para a base original.
 
  Como o KBANN é eficiente quando se remove antecedentes das regras existentes, o TopGen adiciona neurônios, destinados a diminuir falsos negativos, de uma forma que é análoga à adição de uma nova regra à base de regras (SHAVLIK, 1995). Se o neurônio existente for um neurônio do tipo \emph{OR}, o TopGen adicionará um novo neurônio como seu filho (Figura \ref{fig:topGenNos}a) e conectará totalmente esse novo neurônio com as unidades de entrada. Se o neurônio existente for um neurônio do tipo \emph{AND}, o TopGen cria um novo neurônio \emph{OR} que é o pai do neurônio \emph{AND} original e outro novo neurônio que é conectado totalmente às entradas (Figura \ref{fig:topGenNos}c). O TopGen move as conexões de saída do neurônio original (Figura \ref{fig:topGenNos}c) para se tornar as conexões de saída do novo neurônio \emph{OR}. Em uma base de regras simbólica, pode-se diminuir falsos positivos adicionando antecedentes a regras existentes ou removendo regras da base de regra (SHAVLIK, 1995). As Figuras \ref{fig:topGenNos}b e \ref{fig:topGenNos}d mostram os modos (analogamente às Figuras \ref{fig:topGenNos}a e \ref{fig:topGenNos}c explicadas acima) de adicionar antecedentes. Ao permitir essas adições, o TopGen é capaz de adicionar regras cujos consequentes não foram previamente definidos na base de regra. O TopGen manipula neurônios que não são \emph{AND} nem \emph{OR}, decidindo se esse neurônio está mais próximo de um neurônio \emph{AND} ou de um neurônio \emph{OR} (observando o bias do neurônio e os pesos de entrada).
+ 
+ \begin{figure}[H] 
+ 	\begin{center}
+ 		\caption{Formas possíveis para adicionar novos neurônios. Arcos indicam conexões do tipo \emph{AND}}
+ 		\includegraphics[scale=0.5]{imagens/topGenNos.png}
+ 		\label{fig:topGenNos}
+ 		\centerline{Fonte: Shavlik, 1995}
+ 	\end{center} 
+ \end{figure}
 
-Depois que os novos neurônios são adicionados, o TopGen realiza o treinamento da rede pelo algoritmo do \emph{backpropagation}. Embora é desejado que os novos pesos representem a maior parte do erro, também se espera que os pesos antigos sejam alterados, se necessário. Ou seja, é necessário que os pesos antigos retenham o que aprenderam anteriormente, enquanto ao mesmo tempo se movem de acordo com a mudança de erro causada pela adição do novo neurônio. Segundo (Shavlik, 1995), p]ara resolver esse problema, o TopGen multiplica as taxas de aprendizagem de pesos existentes por uma quantidade constante ($<= 1$) cada vez que novos neurônios são adicionados, produzindo um declínio exponencial das taxas de aprendizagem. Não é desejável mudar a teoria do domínio, a menos que haja considerável evidência de que ela está incorreta. Ou seja, há um termo entre a mudança da teoria do domínio e desconsiderando os exemplos de treinamento não classificados com ruído. Para ajudar a resolver isso, o TopGen utiliza um regulador de decaimento de peso (Hinton, 1986). Pesos que fazem parte do domínio original da teoria, tem uma decadência em direção ao seu valor inicial, enquanto outros pesos decaem em direção a zero. O termo de decaimento foi proposto por (RUMELHART \textit{et. al.}, 1986) . A ideia do decréscimo de peso é adicionar, à função de custo usual, um termo que mede a distância de cada peso de seu valor inicial:
+Depois que os novos neurônios são adicionados, o TopGen realiza o treinamento da rede pelo algoritmo do \emph{backpropagation}. Embora é desejado que os novos pesos representem a maior parte do erro, também se espera que os pesos antigos sejam alterados, se necessário. Ou seja, é necessário que os pesos antigos retenham o que aprenderam anteriormente, enquanto ao mesmo tempo se movem de acordo com a mudança de erro causada pela adição do novo neurônio. 
+
+Segundo (Shavlik, 1995), para resolver esse problema, o TopGen multiplica as taxas de aprendizagem de pesos existentes por uma quantidade constante ($<= 1$) cada vez que novos neurônios são adicionados, produzindo um declínio exponencial das taxas de aprendizagem. Não é desejável mudar a teoria do domínio, a menos que haja considerável evidência de que ela está incorreta. Ou seja, há um termo entre a mudança da teoria do domínio e desconsiderando os exemplos de treinamento não classificados com ruído. Para ajudar a resolver isso, o TopGen utiliza um regulador de decaimento de peso (Hinton, 1986). Pesos que fazem parte do domínio original da teoria, tem uma decadência em direção ao seu valor inicial, enquanto outros pesos decaem em direção a zero. 
+
+O termo de decaimento foi proposto por Rumelhart \textit{et al.}, (1986). A ideia do decréscimo de peso é adicionar, à função de custo usual, um termo que mede a distância de cada peso de seu valor inicia, e pode ser encontrado da seguinte forma:
 
 \begin{align}
 Custo = \sum_{k \in T}{(SaidaAlvo_k - SaidaRede_k)}^2 + \lambda \sum_{i \in C} \frac{{(w_i - w_{inicial})}^2}{1 + {(w_i - w_{inicial})}^2}
@@ -154,7 +149,7 @@ O TopGen começa treinando a rede na \ref{fig:topGenEx}c, obtendo nenhuma melhori
 \centerline{$not D \wedge E \wedge F \wedge  G \wedge not H \wedge not I \wedge J \wedge K$}
 \newline
 
-Enquanto o neurônio \emph{C} (da Figura \ref{fig:topGenEx}c está corretamente falso nesse exemplo, o neurônio \emph{B} é incorretamente falso, \emph{B} é falso, uma vez que \emph{B1} e \emph{B2} são falsos. Se \emph{B} tivesse sido verdadeiro, esse exemplo teria sido classificado corretamente (já que \emph{C} é correto), então TopGen incrementa o contador corrigível-falso-negativo para B. O TopGen também incrementa os contadores de \emph{B1}, \emph{B2} e \emph{A}, utilizando argumentos semelhantes.
+Enquanto o neurônio \emph{C} (Figura \ref{fig:topGenEx}c) está corretamente falso nesse exemplo, o neurônio \emph{B} é incorretamente falso, \emph{B} é falso, uma vez que \emph{B1} e \emph{B2} são falsos. Se \emph{B} tivesse sido verdadeiro, esse exemplo teria sido classificado corretamente (já que \emph{C} é correto), então TopGen incrementa o contador corrigível-falso-negativo para B. O TopGen também incrementa os contadores de \emph{B1}, \emph{B2} e \emph{A}, utilizando argumentos semelhantes.
 Os neurônios \emph{B1}, \emph{B2}, \emph{B} e \emph{A} terão todos os contadores de correção-falso-negativo com alta taxas de erro após todos os exemplos serem processados. Dadas essas contagens elevadas, o TopGen considera a adição de neurônios \emph{OR} aos neurônios \emph{A}, \emph{B1} e \emph{B2}, como feito na Figura \ref{fig:topGenEx}, e também considera a adição de outra disjunção, análogo à Figura \ref{fig:topGenEx}a, ao neurônio B. Qualquer um desses para correções permite que a rede aprenda o conceito desejado. Como o TopGen prefere os neurônios mais distantes do neurônio de saída, então será adicionado em \emph{B1} ou \emph{B2}.
 
 

@@ -72,6 +72,8 @@
 \harvardyearparenthesis{round}	% Parêntesis nos anos das referências
 \renewcommand{\harvardand}{e}	% Substituir "&" por "e" nas referências
 \renewcommand{\harvardurl}{URL: \url}
+
+
 % PACOTES OPCIONAIS
 % Para poder incluir arquivos Postscript com cores (do Xfig, por exemplo)
 \usepackage{color}
@@ -152,12 +154,13 @@
 %
 \bibliographystyle{ppgee}
 
-%\bibliographystyle{abnt-alf}
+\bibliographystyle{abnt-alf}
 %\usepackage[alf]{abntcite}
 
 %
 % O espaçamento entre linhas
 %
+\makenomenclature
 
 % As páginas iniciais são sempre em espaçamento simples
 \singlespacing
@@ -219,6 +222,7 @@
 \addcontentsline{toc}{chapter}{Sumário}
 \tableofcontents
 
+
 % Lista de figuras (gerada automaticamente)
 \cleardoublepage
 \addcontentsline{toc}{chapter}{Lista de Figuras}
@@ -229,16 +233,11 @@
 \addcontentsline{toc}{chapter}{Lista de Tabelas}
 \listoftables
 
-% Glossário (gerado automaticamente - veja entradas em
-% introducao/introducao.tex e em estilo/estilo.tex)
-\cleardoublepage
-%\renewcommand{\nomname}{Lista de Símbolos e Abreviaturas}
-%\markboth{\MakeUppercase{\nomname}}{\MakeUppercase{\nomname}}
-%\addcontentsline{toc}{chapter}{Lista de Símbolos e Abreviaturas}
-% O argumento opcional do comando \printglossary é a largura deixada
+% O argumento opcional do comando \printnomenclature é a largura deixada
 % para os símbolos no glossário. Se seus símbolos são "largos", como
 % neste exemplo,  é melhor por mais espaço do que o 1cm que é reservado
 % por default
+\printnomenclature[1.5cm]
 
 %\renewcommand{\glossaryname}{Lista de Abreviaturas e Siglas}
 %\printglossary
@@ -266,10 +265,15 @@
 \include{referencias/ref}
 
 
-
+\addcontentsline{toc}{chapter}{Referências bibliográficas}
 % Referências bibliogáficas (geradas automaticamente)
 
 \bibliography{bibliografia}
+
+\appendix
+
+%Apêndice A
+\include{apendice/apendice}
 
 
 \end{document}

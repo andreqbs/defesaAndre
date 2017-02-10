@@ -13,7 +13,7 @@ Para o desenvolvimento do \emph{software} foi adotada uma metodologia ágil e o q
 
 \subsection{Etapas do Desenvolvimento}
 
-Inicialmente, objetivou-se a implementação do algoritmo empregado pelo sistema desenvolvido por (Towell \textit{et al.}, 1990) dividindo-a em duas subetapas distintas: A implementação relativa ao programa de extração de dados lógicos e a implementação da tradução em uma RNA correspondente à teoria de domínio inicial.
+Inicialmente, objetivou-se a implementação do algoritmo empregado pelo sistema desenvolvido por Towell \textit{et al.} (1990) dividindo-a em duas subetapas distintas: A implementação relativa ao programa de extração de dados lógicos e a implementação da tradução em uma RNA correspondente à teoria de domínio inicial.
 
 Os testes iniciaram com o desenvolvimento de métodos para a conversão de Linguagens Lógicas, apresentadas sob a forma de cláusulas Horn. Em seguida, a construção da RNAs e aplicação em problemas simples e específicos, para, logo em seguida generalizá-los. Na sequência, ocorreu a integração entre as duas partes, o sistema foi a aplicado a um problema mais extenso e geral que os anteriores.
 
@@ -235,7 +235,7 @@ Pelo o que foi apresentado na Figura \ref{fig:RedeMatlabTreinada}, pode-se obser
 	\end{center} 
 \end{figure}
 
-As duas últimas Figuras (\ref{fig:GraficoErroMatlab} e \ref{fig:errosMatlab}) servem para afirmar o baixo aprendizado pela rede MLP para o exemplo fornecido. O erro aceitável ficou longe de ser alcançado e as saídas finais da rede tiveram valores sempre mantidos acima de 0.5, o que é um erro considerável. Para um melhor entendimento sobre o resultado gerados pela Figura \ref{fig:errosMatlab}, é comentado um dos passos realizados no treinamento. Nela foram exibos os resultados das 16 saídas calculadas, provinientes das 16 amostras exibidas na rede neural. A primeira amostra apresentada foi a entrada 0 0 0 0 e com uma saída que deveria ser 0, embora a rede tenha calculado que o correto para esse treinamento é o valor 0.73587. O erro apresentado para a primeira entrada, segundo o \emph{Matlab\textregistered} sendo necessário um ajuste de de -0.73587 para corresponder com a realidade. Todos os demais dados apresentados para treinamento e validação, podem ser vistos na \ref{fig:resultado1SemTopgen}. 
+As duas últimas Figuras (\ref{fig:GraficoErroMatlab} e \ref{fig:errosMatlab}) servem para afirmar o baixo aprendizado pela rede MLP para o exemplo fornecido. O erro aceitável ficou longe de ser alcançado e as saídas finais da rede tiveram valores sempre mantidos acima de 0.5, o que é um erro considerável. Para um melhor entendimento sobre o resultado gerados pela Figura \ref{fig:errosMatlab}, é comentado um dos passos realizados no treinamento. Nela foram exibos os resultados das 16 saídas calculadas, provinientes das 16 amostras exibidas na rede neural. A primeira amostra apresentada foi a entrada 0 0 0 0 e com uma saída que deveria ser 0, embora a rede tenha calculado que o correto para esse treinamento é o valor 0.73587. O erro apresentado para a primeira entrada, segundo o \emph{Matlab\textregistered} sendo necessário um ajuste de de -0.73587 para corresponder com a realidade. Todos os demais dados apresentados para treinamento e validação, podem ser vistos na Figura \ref{fig:resultado1SemTopgen}. 
 
 \begin{figure}[H] 
 	\begin{center}

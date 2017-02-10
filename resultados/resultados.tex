@@ -97,7 +97,7 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 		& \multicolumn{8}{c|}{10\%}                                                                             \\ \hline
 		& FP         & FN         & FP         & FN         & FP         & FN         & FP         & FN         \\ \hline
 		KBANN                                                                          & 0          & 1          & 0          & 0          & 0          & 0          & 0          & 0          \\ \hline
-		Domínio Teórico                                                                         & 59          & 65          & 45          & 38          & 25          & 80          & 50          & 57          \\ \hline
+		Domínio Teórico                                                                         & 59          & 65          & 22          & 38          & 18          & 80          & 19          & 57          \\ \hline
 	\end{tabular}
 \end{table}
   \vspace{-1.2em}
@@ -174,14 +174,14 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 \end{table}
   \vspace{-1.2em}
 \centerline{Fonte: Autor, 2017}
-
+ \vspace{0.5em}
 \noindent
 \textbf{Avaliação:} Nesse teste, pode-ser observar que a rede KBANN já possui uma boa habilidade de classificação de dados, mesmo acrescentando regras iniciais incorretas ao seu domínio teórico. Por outro lado, pode-se um já esperado aumento no erro na classificação dos dados pelo domínio teórico.
 
 \begin{figure}[H] 
 	\begin{center}
-		\caption{Porcentagem de acerto x }
-		\includegraphics[scale=0.5]{imagens/antecentesRetirados.png}
+		\caption{Erro de Classificação entre KBANN x Domínio Teórico com Regras Adicionadas}
+		\includegraphics[scale=0.5]{imagens/regrasAdicionadas.png}
 		\label{fig:regrasAdicionadas}
 	\end{center} 
 \end{figure}
@@ -190,7 +190,9 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 
 \subsection{Antecedentes Adicionadas ao Domínio Teórico}
 
-\noindent
+Para o caso de antecedentes seram adicionados a regras já existentes, foram escolhidos aleatóriamente e adicionados a regras já existentes, desde que, não ultrapassse 4 antecedentes por regra.
+\newline
+\newline
 \textbf{Objetivo:}  Na segunda forma de avaliação do programa desenvolvido, foram atribuídos de forma aleatória antecedentes à regras já estabelecidas no domínio completo, verificando se a rede KBANN precisa de algum tipo de ajuste e compará-lo com o domínio teórico.
 \newline
 \newline
@@ -287,24 +289,26 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 \end{table}
   \vspace{-1.2em}
 \centerline{Fonte: Autor, 2017}
-
+\vspace{0.5em}
 \noindent
 \textbf{Avaliação:} Para o caso de antecedentes adicionados a regras corretas, percebe-se uma pequena taxa de erro em relação a adição de novas regras. Isso se deve ao fato que alguns antecedentes a mais, pode gerar certas implicações que não deveriam ocorrer.
 
 \begin{figure}[H] 
 	\begin{center}
-		\caption{Porcentagem de acerto x }
-		\includegraphics[scale=0.5]{imagens/antecentesRetirados.png}
+		\caption{Erro de Classificação entre KBANN x Domínio Teórico com Antecedentes Adicionados}
+		\includegraphics[scale=0.5]{imagens/antecentesAdicionados.png}
 		\label{fig:retiradaAntecedentes}
 	\end{center} 
 \end{figure} 
-  \vspace{-1.2em}
+  \vspace{-1.5em}
 \centerline{Fonte: Autor, 2017}
 
-\subsection{Regras Deletadas do Domínio Teórico}
+\subsection{Regras Removidas do Domínio Teórico}
 
-\noindent
-\textbf{Objetivo:} Realizar uma comparação entre uma rede neural padrão, a rede KBANN e o TopGen quando o domínio teórico sofre a pertubação de perda de regras.
+Para esse teste, todas as regras removidas seguiram a condição de não excluir permanentemente uma conclusão intermediária ou final da rede.
+\newline
+\newline
+\textbf{Objetivo:} Realizar uma comparação entre uma rede neural padrão, a rede KBANN e o TopGen quando o domínio teórico sofre a pertubação com a exclusão de regras.
 \newline 
 \newline
 \textbf{Descrição:} A retirada das regras para esse teste, foi feita de forma aleatória, obedecendo apenas a condição de não remover uma conclusão intermediária ou final do problema. Sendo assim, pelo menos uma regra deve existir para os neurônios CD, CP, CC e MI. O terceiro teste foi executado apenas uma vez.
@@ -383,7 +387,6 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
   \vspace{-1.2em}
 \centerline{Fonte: Autor, 2017}
 
-
 \begin{table}[H]
 	\centering
 	\caption{Falsos positivos e negativos dos neurônios, quando retirado 50\% da regras.}
@@ -400,20 +403,28 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 \end{table}
   \vspace{-1.2em}
 \centerline{Fonte: Autor, 2017}
-\noindent
-\textbf{Avaliação:} Pode-se observar que a rede KBANN já não consegue desempenhar um bom papel quando são retiradas regras do seu domínio. Em todos seus neurônios de conclusões intermediárias e conclusão final tiveram erros de falsos positivos e negativos, sendo assim, teve que ser necessário utilizar o TopGen para realizar um possível aprendizado e adicioná-lo a rede neural. Como pode ser visto, o TopGen, gerou resultados bastante interessantes diminuindo consideravelmente o erro. Enquanto isso, a rede MLP gerou erros bem altos, com uma na média de 17\% de erro.
+\vspace{0.5em}
 
 \begin{figure}[H] 
 	\begin{center}
-		\caption{Porcentagem de erros x retirada de regras}
+		\caption{Erro de Classificação entre KBANN e TopGen com a Exclusão de Regras}
+		\vspace{0.5em}
 		\includegraphics[scale=0.5]{imagens/regrasDeletadas.png}
 		\label{fig:regrasDeletadas}
 	\end{center} 
 \end{figure}
+\vspace{-1.2em}
+\centerline{Fonte: Autor, 2017}
+\vspace{0.5em}
+\noindent
+\textbf{Avaliação:} Pode-se observar que a rede KBANN já não consegue desempenhar um bom papel quando são retiradas regras do seu domínio. Em todos seus neurônios de conclusões intermediárias e conclusão final tiveram erros de falsos positivos e negativos, sendo assim, teve que ser necessário utilizar o TopGen para realizar um possível aprendizado e adicioná-lo a rede neural. Como pode ser visto, o TopGen, gerou resultados bastante interessantes diminuindo consideravelmente o erro. Enquanto isso, a rede MLP gerou erros bem altos, com uma na média de 17\% de erro.
 
 \subsection{Antecedentes Deletados do Domínio Teórico}
-\noindent
-\textbf{Objetivo:} Realizar uma comparação entre uma rede neural padrão, a rede KBANN e o TopGen quando o domínio teórico sofre a pertubação de perda de antecedentes nas regras.
+
+No último teste, os antecedentes das regras também foram retirados de forma aleatória. Mesmo não possuindo nenhuma ligação com algum consequente no domínio teórico a ser testado, todos os neurônios iram permanecer na topologia inicial da rede.
+\newline
+\newline
+\textbf{Objetivo:} Realizar uma comparação entre uma rede neural padrão, a rede KBANN e o TopGen quando o domínio teórico sofre a pertubação com a exclusão de antecedentes nas regras.
 \newline \newline
 \textbf{Descrição:} A retirada dos antecedentes para esse teste, foi feita de forma aleatória, mas obedecendo a condição que um nerônio intermediário não pode ficar sem nenhuma ligação ativa com neurônios da camada anterior. Como as regras normalmente tinham entre 2 a 4 antecedentes, foi mantido pelo menos metade dos antecedentes que a aquela regra possuía originalmente.
 \newline 
@@ -434,7 +445,7 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
 	TopGen                                                                          & 5          & 7          & 12          & 3          & 26          & 19          & 4          & 17          \\ \hline
 \end{tabular}
 \end{table}
-  \vspace{-1.2em}
+  \vspace{-1.6em}
 \centerline{Fonte: Autor, 2017}
 
 
@@ -509,15 +520,17 @@ Para o caso de uma nova regra no domínio teórico, primeiro foi definido que o co
   \vspace{-1.2em}
 \centerline{Fonte: Autor, 2017}
 
-\noindent
-\textbf{Avaliação:}  Da mesma forma que aconteceu no caso anterior, a rede MLP obteve um erro médio de 17\% nas classificações dos dados de entrada. Para o KBANN, a remoção de antecedentes se mostrou pior do que a remoção de uma regra completa, isso acontece porque, no caso anterior as demais regras conseguem ajustar os pesos de uma forma que a falta de uma ou mais, ainda não gera tantos erros em saídas intermediárias ou finais. De acordo com o gráfico gerado, KBANN, em seu pior caso, obteve 14\% erro, enquanto o TopGen se mostrou novamente mais eficaz, e gerou uma rede capaz de classificar melhor os dados do que seus concorrentes.
-
 \begin{figure}[H] 
 	\begin{center}
-		\caption{Porcentagem de erros x retirada de antecedentes}
+		\caption{Erro de Classificação entre KBANN e TopGen com a Exclusão de Antecedentes}
 		\includegraphics[scale=0.5]{imagens/antecedenteDeletados.png}
 		\label{fig:antecedenteDeletados}
 	\end{center} 
 \end{figure}
-  \vspace{-1.2em}
+\vspace{-1.2em}
 \centerline{Fonte: Autor, 2017}
+\vspace{0.5em}
+\noindent
+\textbf{Avaliação:}  Da mesma forma que aconteceu no caso anterior, a rede MLP obteve um erro médio de 17\% nas classificações dos dados de entrada. Para o KBANN, a remoção de antecedentes se mostrou pior que a remoção de uma regra completa, isso acontece porque, no caso anterior as demais regras conseguem ajustar os pesos de uma forma que a falta de uma ou mais, ainda não gera tantos erros em saídas intermediárias ou finais. De acordo com o gráfico gerado, KBANN, em seu pior caso, obteve 14\% erro, enquanto o TopGen se mostrou novamente mais eficaz, e gerou uma rede capaz de classificar melhor os dados do que seus concorrentes.
+
+

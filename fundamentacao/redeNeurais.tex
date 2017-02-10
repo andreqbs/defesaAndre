@@ -155,13 +155,13 @@ O último item envolve a utilização de algoritmos de treinamento supervisionados.
 
 \subsection{Algoritmo \emph{Backpropagation}}
 
-O algoritmo usado para ajuste dos pesos é um aspecto relevante para o bom desempenho das redes neurais (Prechelt 1994). Encontrar o conjunto certo de pesos para realizar uma determinada tarefa é o objetivo central na pesquisa conexionista. Felizmente, algoritmos de aprendizagem foram concebidos para calcular os pesos corretos na realização de diversas tarefas (Rumelhart \emph{et al.}, 1986).  Estes se dividem em duas grandes categorias: aprendizagem supervisionada e não supervisionada. À medida que cada entrada é apresentada à rede, os pesos entre as unidades que estão ativas são incrementadas, enquanto os pesos que conectam unidades que não estão ativas são enfraquecidas. Essa forma de treinamento é especialmente útil para construir redes que podem classificar a entrada em categorias úteis. O algoritmo supervisionado mais amplamente utilizado é chamado \emph{backpropagation}. Para usar esse método, é necessário um conjunto de treinamento composto por muitos exemplos de entradas e suas saídas desejadas para uma determinada tarefa. Esse conjunto externo de exemplos supervisiona o processo de treinamento. Se, por exemplo, a tarefa for distinguir rostos masculinos e femininos, o conjunto de treinamento pode conter quadros de rostos, juntamente com uma indicação do sexo da pessoa representada em cada um. 
+O algoritmo usado para ajuste dos pesos é um aspecto relevante para o bom desempenho das redes neurais (Prechelt, 1994). Encontrar o conjunto certo de pesos para realizar uma determinada tarefa é o objetivo central na pesquisa conexionista. Felizmente, algoritmos de aprendizagem foram concebidos para calcular os pesos corretos na realização de diversas tarefas (Rumelhart \emph{et al.}, 1986).  Estes se dividem em duas grandes categorias: aprendizagem supervisionada e não supervisionada. À medida que cada entrada é apresentada à rede, os pesos entre as unidades que estão ativas são incrementadas, enquanto os pesos que conectam unidades que não estão ativas são enfraquecidas. Essa forma de treinamento é especialmente útil para construir redes que podem classificar a entrada em categorias úteis. O algoritmo supervisionado mais amplamente utilizado é chamado \emph{backpropagation}. Para usar esse método, é necessário um conjunto de treinamento composto por muitos exemplos de entradas e suas saídas desejadas para uma determinada tarefa. Esse conjunto externo de exemplos supervisiona o processo de treinamento. Se, por exemplo, a tarefa for distinguir rostos masculinos e femininos, o conjunto de treinamento pode conter quadros de rostos, juntamente com uma indicação do sexo da pessoa representada em cada um. 
 
 Uma rede que pode aprender essa tarefa pode ter duas unidades de saída (indicando as categorias masculino e feminino) e muitas unidades de entrada, uma delas, por exemplo, seria dedicada ao brilho de cada pixel da imagem. 
 
 \subsubsection{Processo de Treinamento}
 
-Antes de demonstrar o passo a passo do algoritmo de treinamento \emph{backpropagation}, serão feitas algumas considerações quanto à notação utilizada por (HAYKIN, 2000).
+Antes de demonstrar o passo a passo do algoritmo de treinamento \emph{backpropagation}, serão feitas algumas considerações quanto à notação utilizada por (Haykin, 2000).
 
 Os neurônios na rede MLP serão referenciados pelos índices $i$, $j$ e $k$. Os sinais funcionais se propagam através da rede, da esquerda para a direita, sendo que o neurônio $j$ está na camada à direita do neurônio $i$, e o neurônio $k$ está na camada à direita do neurônio $j$, quando o neurônio $j$ é uma unidade escondida. 
 
@@ -219,7 +219,7 @@ Considere a Figura \ref{fig:sinalNeuronio}, a qual descreve o neurônio $j$ sendo
 		\caption{Grafo de fluxo de sinal no neurônio $j$.}
 		\includegraphics[scale=0.5]{imagens/sinalNeuronio.png}
 		\label{fig:sinalNeuronio}
-		\centerline{Fonte: Haykin, 2000}
+		\centerline{Fonte: Adaptada de Haykin, 2000}
 	\end{center} 
 \end{figure}
 
@@ -283,7 +283,7 @@ A solução, dada pela equação (2.14b), é computar o sinal de erro recursivamente 
 		\caption{Grafo de fluxo de sinal mostrando os detalhes do neurônio de saída $k$ conectando ao neurônio escondido $j$.}
 		\includegraphics[scale=0.5]{imagens/sinalForward.png}
 		\label{fig:sinalForward}
-		\centerline{Fonte: Haykin, 2000}
+		\centerline{Fonte: Adaptada de Haykin, 2000}
 	\end{center} 
 \end{figure}
 
@@ -294,11 +294,11 @@ O fator $\varphi_j'(v_j(n))$ envolvido na computação do gradiente local $\delta_
 		\caption{Grafo de fluxo de sinal mostrando o processo de retro-propagação dos sinais de erro na camada de saída para um neurônio $j$ da camada escondida.}
 		\includegraphics[scale=0.5]{imagens/sinalRetropropagacao.png}
 		\label{fig:sinalRetro}
-		\centerline{Fonte: Haykin, 2000}
+		\centerline{Fonte: Adaptada de Haykin, 2000}
 	\end{center} 
 \end{figure}
 
-\subsubsection{Funções de ativação}
+\subsubsection{Funções de Ativação}
 
 Em uma rede neural, cada neurônio - com exceção dos neurônios na camada de entrada - recebe e processa estímulos (\emph{inputs}) de outros neurônios. As informações processadas estão disponíveis na extremidade de saída do neurônio. Como pode ser visto na Figura \ref{fig:neuronio_cap2}, a cada saída de um nerônio, é aplicado uma função de ativação. A função de ativação mais comumente utilizada é a função sigmóide dada por:
 
@@ -310,29 +310,14 @@ Conforme mostrado na Figura \ref{fig:funcaoSigmoide}, a função sigmóide é uma fu
 
 \begin{figure}[H] 
 	\begin{center}
-		\caption{Função de Ativação - Sigmoide}
+		\caption{Função de Ativação - Sigmóide}
 		\includegraphics[scale=0.5]{imagens/funcaoSigmoide.png}
 		\label{fig:funcaoSigmoide}
 		\centerline{Fonte: Autor, 2017}
 	\end{center} 
 \end{figure}
 
- As funções de ativação variam em detalhes, mas todas estão em conformidade com o mesmo plano básico. A função resume as contribuições de todas as unidades emissoras, onde a contribuição de uma unidade é definida como o peso da conexão entre as unidades de envio e de recebimento, multiplicado pelo valor de ativação da unidade emissora. Essa soma é normalmente modificada, por exemplo, ajustando a soma de ativação para um valor entre 0 e 1 ou definindo a ativação para zero. Outra conhecida função de ativação é o arco-tangente, exibida na Figura \ref{fig:grafArcoTan} e dada por:
-
-\begin{align}
-\sigma(\gamma)  = (\frac{1}{\pi})arctan(\gamma)
-\end{align}
-
-\begin{figure}[H] 
-	\begin{center}
-		\caption{Função de Ativação - Tangente Hiperbólica}
-		\includegraphics[scale=0.5]{imagens/funcaoTanHip.png}
-		\label{fig:grafArcoTan}
-		\centerline{Fonte: Autor, 2017}
-	\end{center} 
-\end{figure}
-
-A função tangente-hiperbólica mostrada na Figura \ref{fig:funcaoTanHip} e dada por:
+ As funções de ativação variam em detalhes, mas todas estão em conformidade com o mesmo plano básico. A função resume as contribuições de todas as unidades emissoras, onde a contribuição de uma unidade é definida como o peso da conexão entre as unidades de envio e de recebimento, multiplicado pelo valor de ativação da unidade emissora. Essa soma é normalmente modificada, por exemplo, ajustando a soma de ativação para um valor entre 0 e 1 ou definindo a ativação para zero. Outra conhecida função de ativação é a tangente-hiperbólica, exibida na Figura \ref{fig:funcaoTanHip} e dada por:
 
 \begin{align}
 \sigma(\gamma)  = \frac{(e^\gamma - e^{-\gamma})}{(e^\gamma + e^{-\gamma})}
@@ -346,7 +331,6 @@ A função tangente-hiperbólica mostrada na Figura \ref{fig:funcaoTanHip} e dada p
 		\centerline{Fonte: Autor, 2017}
 	\end{center} 
 \end{figure}
-
 
 Todas essas funções logísticas são delimitadas, contínuas, monotônicas e continuamente diferenciáveis.
 
