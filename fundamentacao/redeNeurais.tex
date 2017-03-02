@@ -43,7 +43,7 @@ Resumidamente, as $n$ entradas $X_i$ do neurônio (sendo que, $1 < i < n$) são so
 
 Cada unidade de entrada tem um valor de ativação que representa alguma característica externa à rede. Uma unidade de entrada envia o seu valor de ativação para cada uma das unidades ocultas às quais está ligado. Cada uma dessas unidades ocultas calcula seu próprio valor de ativação dependendo dos valores de saída que recebe das unidades de entrada. Esse sinal é então passado para a camada de saída ou para uma outra camada oculta. 
 
-Essas unidades ocultas calculam seus valores de ativação da mesma maneira, e propagam sua sáida ao longo de seus vizinhos. Eventualmente, o sinal das unidades de entrada se propaga completamente pela rede para determinar os valores de ativação em todas as unidades de saída da rede. Um exemplo de como um neurônio é representado nas redes neurais, pode ser visto na Figura \ref{fig:neuronio_cap2}. Os estímulos gerados pelos neurônios fluem diretamente das entradas para as unidades ocultas e depois para as unidades de saída. O padrão de ativação estabelecido por uma rede é determinado pelos pesos ou força das conexões entre as unidades. Os pesos podem ser positivos ou negativos. Um peso negativo representa a inibição da unidade receptora pela atividade de uma unidade emissora.
+Essas unidades ocultas calculam seus valores de ativação da mesma maneira, e propagam sua saída ao longo de seus vizinhos. Eventualmente, o sinal das unidades de entrada se propaga completamente pela rede para determinar os valores de ativação em todas as unidades de saída da rede. Um exemplo de como um neurônio é representado nas redes neurais, pode ser visto na Figura \ref{fig:neuronio_cap2}. Os estímulos gerados pelos neurônios fluem diretamente das entradas para as unidades ocultas e depois para as unidades de saída. O padrão de ativação estabelecido por uma rede é determinado pelos pesos ou força das conexões entre as unidades. Os pesos podem ser positivos ou negativos. Um peso negativo representa a inibição da unidade receptora pela atividade de uma unidade emissora.
 
 A maioria das RNAs são projetadas para aprender as informações que são passadas a elas, deixando-as aptas à interpretação apropriada de novas informações, conforme o objetivo desejado na sua aplicação. Se uma RNA aprendesse todas as informações, ela atingiria 100\% de acertos, mas esse é um fato raro. Quando, por ventura, se atinge um percentual alto de acertos em uma RNA (100\% ou valor próximo), pode-se formular duas hipóteses: ou o problema foi completamente solucionado, ou a RNA decorou as informações passadas a ela. Na primeira hipótese, a RNA está aberta para soluções de outros problemas pertencentes à mesma classe para a qual foi treinada. Na segunda, que não é desejável em muitas aplicações, o universo de soluções apresentado pela RNA fica restrito.  O aprendizado em uma RNA é realizado pelo processamento de um conjunto de informações. A cada novo processamento, as informações são classificadas. Ao final de todo o processamento, a RNA estará cada vez mais sensível a novos processamentos ao mesmo conjunto de informações. 
 
@@ -161,7 +161,7 @@ Uma rede que pode aprender essa tarefa pode ter duas unidades de saída (indicand
 
 \subsubsection{Processo de Treinamento}
 
-Antes de demonstrar o passo a passo do algoritmo de treinamento \emph{backpropagation}, serão feitas algumas considerações quanto à notação utilizada por (Haykin, 2000).
+Antes de demonstrar o passo a passo do algoritmo de treinamento \emph{backpropagation}, serão feitas algumas considerações quanto à notação utilizada por (HAYKIN, 2000).
 
 Os neurônios na rede MLP serão referenciados pelos índices $i$, $j$ e $k$. Os sinais funcionais se propagam através da rede, da esquerda para a direita, sendo que o neurônio $j$ está na camada à direita do neurônio $i$, e o neurônio $k$ está na camada à direita do neurônio $j$, quando o neurônio $j$ é uma unidade escondida. 
 
@@ -260,11 +260,11 @@ Onde o gradiente local ($\delta_j$) é definido por:
 \delta_j(n) = e_j(n)\varphi_j'(v_j(n))
 \end{align}
 
-O grandiente local aponta para as modificações necessárias nos pesos sinápticos. De acordo com Eq. (2.8), o gradiente local $\delta_j(n)$ para o neurônio de saída $j$ é igual ao produto do sinal de erro $e_j(n)$ correspondente para aquele neurônio pela derivada $\varphi_j'(v_j(n))$ da função de ativação associada.
+O gradiente local aponta para as modificações necessárias nos pesos sinápticos. De acordo com Eq. (2.8), o gradiente local $\delta_j(n)$ para o neurônio de saída $j$ é igual ao produto do sinal de erro $e_j(n)$ correspondente para aquele neurônio pela derivada $\varphi_j'(v_j(n))$ da função de ativação associada.
 
 Das equações (2.7 e 2.8) nota-se que um fator-chave envolvido no cálculo do ajuste de peso $\Delta_{ji}(n)$ é o sinal de erro $e_j(n)$ na saída do neurônio $j$. Neste, contexto, pode-se identificar dois casos distintos, dependendo de onde na rede o neurônio $j$ está localizado.
 
-No caso 1, o neurônio $j$ é um nó de saída. Este caso é simples de se tratar, pois cada nó de saída da rede é suprido com uma resposta desejada particular. No caso 2, o neurônio $j$ é um nó oculto. Apesar de os neurônios ocultos nãp serem acessíveis diretamente, eles compartilham a reponsabilidade por qualquer erro cometido na saída da rede.
+No caso 1, o neurônio $j$ é um nó de saída. Este caso é simples de se tratar, pois cada nó de saída da rede é suprido com uma resposta desejada particular. No caso 2, o neurônio $j$ é um nó oculto. Apesar de os neurônios ocultos não serem acessíveis diretamente, eles compartilham a responsabilidade por qualquer erro cometido na saída da rede.
 
 Os cálculos dos gradientes locais para os dois casos acima citados são definidos por:
 
@@ -272,11 +272,11 @@ Os cálculos dos gradientes locais para os dois casos acima citados são definidos
 \delta_j(n) = \left \{ \begin{matrix} \varphi_j'(v_j(n))e_j(n), & \mbox{neurônio }j\mbox{ é de saída} \\ \varphi_j'(v_j(n))\sum_k\delta_k(n)w_{kj}(n), & \mbox{neurônio }j\mbox{ é de escondido} \end{matrix} \right.
 \end{align}
 
-De acordo com (2.14a) o gradiente local $\delta_j(n)$ para o neurônio de saída $j$ é igual ao produto do correspondente sinal de erro $e_j(n)$ pela derivada $\varphi_j'(v_j(n))$ da função de ativação associada. Nesse caso o fator chave necessário envolvido no cálculo do ajuste dos pesos $\Delta w_{ji}(n)$ é o sinal de erro $e_j(n)$ na saída do neurônio $j$.
+De acordo com (2.9) o gradiente local $\delta_j(n)$ para o neurônio de saída $j$ é igual ao produto do correspondente sinal de erro $e_j(n)$ pela derivada $\varphi_j'(v_j(n))$ da função de ativação associada. Nesse caso o fator chave necessário envolvido no cálculo do ajuste dos pesos $\Delta w_{ji}(n)$ é o sinal de erro $e_j(n)$ na saída do neurônio $j$.
 
 Quando o neurônio $j$ está localizado em uma camada oculta, conforme mostra a Figura \ref{fig:sinalForward}, mesmo não sendo diretamente acessíveis, tais neurônios dividem a responsabilidade pelo erro resultante na camada de saída. A questão, no entanto, é saber como penalizar ou recompensar os pesos sinápticos de tais neurônios pela sua parcela de responsabilidade, já que não existe resposta desejada especificada neste local da rede e, portanto, não há como calcular o sinal de erro.
 
-A solução, dada pela equação (2.14b), é computar o sinal de erro recursivamente para o neurônio escondido $j$ retro-propagando os sinais de erro de todos os neurônios à direita do neurônio $j$ aos quais a saída deste encontra-se conectado.
+A solução, dada pela equação (2.9), é computar o sinal de erro recursivamente para o neurônio escondido $j$ retro-propagando os sinais de erro de todos os neurônios à direita do neurônio $j$ aos quais a saída deste encontra-se conectado.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -287,7 +287,7 @@ A solução, dada pela equação (2.14b), é computar o sinal de erro recursivamente 
 	\end{center} 
 \end{figure}
 
-O fator $\varphi_j'(v_j(n))$ envolvido na computação do gradiente local $\delta_j(n)$ na equação (2.14b) depende somente da função de ativação associada com o neurônio escondido $j$. Os demais fatores envolvidos no somatório sobre $k$ em (2.14b) dependem de dois conjuntos de termos. O primeiro, $\delta_k(n)$, requer conhecimento dos sinais de erro $e_k(n)$ recursivamente retro-propagados, conforme apresentado adiante, a partir de todos aqueles neurônios localizados na camada imediatamente à direita do neurônio escondido $j$ e que estão diretamente conectados a ele (Figura \ref{fig:sinalRetro}). O segundo conjunto de termos, $w_{kj}(n)$, consiste dos pesos sinápticos dos neurônios à direita do neurônio $j$ e que com ele estabelecem conexão. 
+O fator $\varphi_j'(v_j(n))$ envolvido na computação do gradiente local $\delta_j(n)$ na equação (2.9) depende somente da função de ativação associada com o neurônio escondido $j$. Os demais fatores envolvidos no somatório sobre $k$ em (2.9) dependem de dois conjuntos de termos. O primeiro, $\delta_k(n)$, requer conhecimento dos sinais de erro $e_k(n)$ recursivamente retro-propagados, conforme apresentado adiante, a partir de todos aqueles neurônios localizados na camada imediatamente à direita do neurônio escondido $j$ e que estão diretamente conectados a ele (Figura \ref{fig:sinalRetro}). O segundo conjunto de termos, $w_{kj}(n)$, consiste dos pesos sinápticos dos neurônios à direita do neurônio $j$ e que com ele estabelecem conexão. 
 
 \begin{figure}[H] 
 	\begin{center}

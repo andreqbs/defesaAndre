@@ -7,7 +7,7 @@ Para a realização desse trabalho, um dos grandes objetivos foi ter um problema o
 
 O xadrez é um jogo de tabuleiro com 64 casas brancas e pretas intercaladas e com diversas peças que representavam tropas do exército: Infantaria, Cavalaria, Bispos, Torres, Tainha, e o principal de todos, o Rei. O problema em questão foi tratado da seguinte maneira: dado um tabuleiro 5x4 (Figura \ref{fig:xadrez}) considerando que o Rei (branco) está sempre na posição ($c1$), acompanhado de outras peças (Rainha, Bispo, Cavalo e Torre), tanto da cor oposta ao Rei, como da mesma cor e espalhadas aleatoriamente no tabuleiro. A rede neural construída tenta resolver o seguinte questionamento: se é possível realizar o movimento do Rei para a casa $c2$. O movimento será considerado legal, se ao fim dele, o Rei permanecer vivo e assim esperar um nova rodada, e é considerado ilegal caso exista alguma peça que possa finalizar o jogo, se o Rei tentar ir para a posição desejada. Utilizando como base o problema acima, serão feitos alguns testes com um domínio teórico possuindo erros para investigar os tipos de correções em que o KBANN é eficaz.
 
-As pertubações na teoria do domínio foram feitas de 4 (quatro) maneiras diferentes: (a) adicionando um antecedente a uma regra, (b) removendo um antecedente de uma regra, (c) adicionando uma regra, ou (d) removendo uma regra. Essas pertubações foram feitas de forma aleatória, desde que não implicasse na retirada de alguma conclusão final. 
+As perturbações na teoria do domínio foram feitas de 4 (quatro) maneiras diferentes: (a) adicionando um antecedente a uma regra, (b) removendo um antecedente de uma regra, (c) adicionando uma regra, ou (d) removendo uma regra. Essas perturbações foram feitas de forma aleatória, desde que não implicasse na retirada de alguma conclusão final. 
 
 O objetivo desses testes foi mostrar que a rede com conhecimento incompleto pode sofrer modificações na sua topologia para se ajustar aos novos aprendizados adquiridos no seu domínio inicial.
 
@@ -71,7 +71,7 @@ A Tabela \ref{tab:nomeclatura} descreve os neurônios que serão monitorados duran
 
 Os quatros testes executados no trabalho inicial e detalhados no texto desta Subseção são: (1) Teste de Regras Adicionadas ao Domínio Teórico. (2) Antecedentes Adicionadas ao Domínio Teórico. (3) Regras Deletadas do Domínio Teórico. (4) Antecedentes Deletados do Domínio Teórico. Conforme essa sequência de testes, serão informados o objetivo, a descrição, os parâmetros utilizados, os resultados obtidos, assim como a avaliação, referente a cada teste. Na Tabela \ref{tab:nomeclatura} estão os principais neurônios que terão suas saídas monitoradas para os testes realizados acima.
 
-Para todos os testes desmonstrados abaixo, foi considerado um conjunto de dados com 10.000 amostras, sendo, 60\% para o treinamento, 20\% para validação e 20\% para teste. A taxa de aprendizagem considerada foi de 0.01 e com um número máximo de épocas de 10.000.
+Para todos os testes demonstrados abaixo, foi considerado um conjunto de dados com 10.000 amostras, sendo, 60\% para o treinamento, 20\% para validação e 20\% para teste. A taxa de aprendizagem considerada foi de 0.01 e com um número máximo de épocas de 10.000.
 
 \subsection{Regras Adicionadas ao Domínio Teórico}
 
@@ -308,10 +308,10 @@ O teste de adição de antecedentes existentes no domínio teórico a outras conclus
 Para esse teste, todas as regras removidas seguiram a condição de não excluir permanentemente uma conclusão intermediária ou final da rede. A exclusão se deu de forma aleatória.
 \newline
 \newline
-\textbf{Objetivo:} Realizar uma comparação entre uma rede neural padrão, a rede KBANN e o TopGen quando o domínio teórico sofre a pertubação com a exclusão de regras.
+\textbf{Objetivo:} Realizar uma comparação entre uma rede neural padrão, a rede KBANN e o TopGen quando o domínio teórico sofre a perturbação com a exclusão de regras.
 \newline 
 \newline
-\textbf{Descrição:} A retirada das regras para esse teste, foi feita de forma aleatória, obedecendo apenas a condição de não remover uma conclusão intermediária ou final do problema. Sendo assim, pelo menos uma regra deve existir para os neurônios CD, CP, CC e MI. Esse teste foi executado apenas uma vez devido a quantidade de redes geradas.
+\textbf{Descrição:} A retirada das regras para esse teste foi realizada de forma aleatória, obedecendo apenas a condição de não remover uma conclusão intermediária ou final do problema. Sendo assim, pelo menos uma regra deve existir para os neurônios CD, CP, CC e MI. Esse teste foi executado apenas uma vez devido a quantidade de redes geradas.
 \newline 
 \newline
 \textbf{Resultados:} A sequência de Tabelas (\ref{tab:teste3Falsos10} à \ref{tab:teste3Falsos50}) e a Figura \ref{fig:regrasDeletadas} resumem os resultados obtidos no terceiro teste.
@@ -417,16 +417,16 @@ Para esse teste, todas as regras removidas seguiram a condição de não excluir pe
 \centerline{Fonte: Autor, 2017}
 \vspace{0.5em}
 \noindent
-\textbf{Avaliação:} Pode-se observar que a rede KBANN já não consegue desempenhar um bom papel quando retiradas regras do domínio inicial. Nesse teste, a quantidade de erros nos neurônios de conclusões intermediárias e conclusão final ficaram taxas elevadas de falsos positivos e negativos, sendo assim, existiu a necessidade de aplicar o TopGen a fim de adicionar novos neurônios a rede com intuito de diminuir tais erros. Como pode ser visto, o TopGen, gerou resultados interessantes diminuindo consideravelmente o erro em cada neurônio. No neurônio MI, o TopGen obteve uma melhora de 43\% nas classificações de falsos positivos, em contra partida, o neurônio CD teve um leve aumento na sua taxa de erro de falsos positivos.
+\textbf{Avaliação:} Pode-se observar que a rede KBANN já não consegue desempenhar um bom papel quando retiradas regras do domínio inicial. Nesse teste, a quantidade de erros nos neurônios de conclusões intermediárias e conclusão final apresentaram taxas elevadas de falsos positivos e negativos, portanto houve a necessidade de aplicar o TopGen com intuito de adicionar novos neurônios a rede e diminuir tais erros. Como pode ser observado, o TopGen, gerou resultados interessantes diminuindo consideravelmente o erro em cada neurônio. No neurônio MI, o TopGen obteve uma diminuição de 43\% nas classificações de falsos positivos, em contra partida, o neurônio CD obteve um leve aumento na sua taxa de erro de falsos positivos.
 
 \subsection{Antecedentes Deletados do Domínio Teórico}
 
-No último teste, os antecedentes das regras também foram retirados de forma aleatória. Mesmo não possuindo nenhuma ligação com algum consequente no domínio teórico a ser testado, todos os neurônios iram permanecer na topologia inicial da rede.
+No último teste, os antecedentes das regras também foram retirados de forma aleatória. Mesmo não possuindo nenhuma ligação com algum consequente no domínio teórico a ser testado, todos os neurônios permaneceram na topologia inicial da rede.
 \newline
 \newline
-\textbf{Objetivo:} Realizar uma comparação entre uma rede neural padrão, a rede KBANN e o TopGen quando o domínio teórico sofre a pertubação com a exclusão de antecedentes nas regras.
+\textbf{Objetivo:} Realizar uma comparação entre uma rede neural padrão, a rede KBANN e o TopGen quando o domínio teórico sofre a perturbação com a exclusão de antecedentes nas regras.
 \newline \newline
-\textbf{Descrição:} A retirada dos antecedentes para esse teste, foi feita de forma aleatória, mas obedecendo a condição que um nerônio intermediário não pode ficar sem nenhuma ligação ativa com neurônios da camada anterior. Como as regras normalmente tinham entre 2 a 4 antecedentes, foi mantido pelo menos metade dos antecedentes que a aquela regra possuía originalmente.
+\textbf{Descrição:} A retirada dos antecedentes para esse teste, foi realizada de forma aleatória, mas obedecendo a condição que um nerônio intermediário não pode ficar sem nenhuma ligação ativa com neurônios da camada anterior. Como as regras normalmente tem entre 2 a 4 antecedentes, foi mantido pelo menos metade dos antecedentes que a regra possuía originalmente.
 \newline 
 \newline
 \textbf{Resultados:}  A sequência de Tabelas (\ref{tab:teste4Falsos10} à \ref{tab:teste4Falsos50}) e Figura \ref{fig:antecedenteDeletados} resumem os resultados obtidos no último teste.
@@ -531,6 +531,4 @@ No último teste, os antecedentes das regras também foram retirados de forma alea
 \centerline{Fonte: Autor, 2017}
 \vspace{0.5em}
 \noindent
-\textbf{Avaliação:}  Da mesma forma que aconteceu no caso anterior, o KBANN teve um crescente erro em sua classificação de movimento ilegal. A remoção de antecedentes teve uma influência maior do que a remoção de uma regra completa em ambos os algoritmos. A retirada de antecedentes permite que neurônios sejam ativados devido a um pequeno conjunto de conjunções existentes nas regras, ou seja, enquanto anteriormente eram necessários ter até 4 condições verdadeiras para ativar um neurônio, nesse momento, com apenas um o neurônio de uma conclusão intermediária pode ser ativado de forma errada.
-
-
+\textbf{Avaliação:}  Da mesma forma que aconteceu no caso anterior, o KBANN obteve um crescente erro em sua classificação de um movimento ilegal no xadrez. A remoção de antecedentes apresentou uma influência maior que a remoção de uma regra completa em ambos os algoritmos. A retirada de antecedentes permitiu que neurônios sejam ativados devido a um pequeno conjunto de conjunções existentes nas regras, ou seja, enquanto anteriormente eram necessários ter até 4 condições verdadeiras para ativar um neurônio, nesse momento, a ativação de apenas um neurônio de uma conclusão intermediária promoveu uma classificação errada.
