@@ -11,11 +11,11 @@
 
 O conexionismo é um movimento da ciência cognitiva que espera explicar habilidades intelectuais utilizando RNAs. As redes neurais são modelos simplificados do cérebro humano compostas por um grande número de unidades (neurônios), juntamente com pesos que medem a força das conexões entre as unidades. Esses pesos modelam os efeitos das sinapses que ligam um neurônio a outro.  Diferentemente do paradigma simbólico, no modelo conexionista o estado dos neurônios representam um conceito ou um objeto e a dinâmica que leva à representação desse conceito ou objeto é que estabelece as regras sobre eles. Experimentos em modelos desse tipo demonstraram habilidades para aprender tarefas como: reconhecimento facial, leitura de textos, detecção de estrutura gramatical simples, entre tantas outras. Esse capítulo foi dividido em quatro seções: a Seção 2.2.1 introduz brevemente a rede neural \emph{Multi-Layer Percepetron} (MLP), a Seção 2.2.2 destaca as características da rede MLP, a Seção 2.2.3 a principais funções de ativação utilizadas nas RNAs e as duas últimas Seções 2.2.4 e 2.2.5 descrevem o algoritmo \emph{backpropagation} e o processo de treinamento.
 
-Uma rede neural (Figura \ref{fig:MLP_cap2}) consiste em grande número de unidades separadas por camadas e unidas através de conexões. 
+Uma rede neural MLP (Figura \ref{fig:MLP_cap2}) consiste em grande número de unidades separadas por camadas e unidas através de conexões. 
 
 \begin{figure}[H] 
 	\begin{center}
-		\caption{Representação de uma RNA.}
+		\caption{Representação de uma RNA MLP.}
 		\includegraphics[scale=0.5]{imagens/MLP_2.png}
 		\label{fig:MLP_cap2}
 		\centerline{Fonte: Haykin, 2000}
@@ -62,6 +62,42 @@ A maioria das RNAs são projetadas para aprender as informações que são passadas 
 %Cada neurônio da camada de entrada tem duas particularidades: Nele existe apenas uma entrada, e o valor lido por ele é repassado inalterado à saída. Nos neurônios das demais camadas da RNA, os círculos com múltiplas entradas, existentes na Figura \ref{fig:MLP_cap2}, equivalem-se ao neurônio representado pela Figura \ref{fig:neuronio_cap2}. 
 
 %As conexões sinápticas entre as camadas podem ser totalmente conectadas ou, no caso da existência de algum conhecimento prévio, parcialmente conectadas. As conexões neurais se modificam durante o aprendizado da RNA. O conjunto de neurônios, as conexões sinápticas e as funções de ativação constituem o que se chama de \emph{topologia} da RNA. 
+
+\subsection{Tipos de aprendizagem}
+
+O algoritmo de aprendizagem de uma rede neural pode ser supervisionado ou não supervisionado. Boa parte dos exemplos de aprendizado de máquina usam a aprendizagem supervisionada para o treinamento. Essa forma de aprendizado possui a seguinte característica: dado um conjunto de entradas (x) e suas respectivas saídas (y), realizar o mapeamento dessas informações em um algoritmo de aprendizado.
+
+O objetivo é aproximar a função que representa o problema de uma forma que ela possa classificar informações que não foram aprensetadas durante o treinamento da rede neural. Essa é uma das vantagens da rede neural, a sua capacidade de generalizar um informação a partir de dados prevaimente apresentados.
+
+O método é chamado de aprendizagem supervisionada, porque o processo de aprendizagem de um algoritmo é realizado a partir de um conjunto de dados de treinamento que pode ser pensado como um professor de supervisão do processo de aprendizagem. Sabendo as respostas corretas, o algoritmo iterativamente faz previsões sobre os dados de treinamento e quando erra em um determiando ponto, é corrigido pelo professor. O processo de aprendizagem para quando o algoritmo atinge um nível de desempenho aceitável.
+
+Problemas de aprendizagem supervisionados podem ser agrupados em problemas de regressão e classificação:
+
+\begin{itemize}
+	\item Classificação: O problema de classificação é quando a variável de saída é uma categoria, como vermelho ou azul ou doente e saudável;
+	
+	\item Regressão: Um problema de regressão é quando a variável de saída é um valor real, como pressão, temperatura, etc.
+
+\end{itemize}
+
+Alguns tipos comuns de problemas construídos em cima da classificação e regressão incluem recomendação e previsão de séries temporais, respectivamente. Alguns exemplos populares de algoritmos supervisionados de aprendizagem de máquina são: regressão linear e máquinas de suporte vetorial para problemas de classificação.
+
+Por outro lado, a aprendizagem não supervisionada de máquinas é realizada quando não há supervisão, isto é, quando se possui apenas os dados de entrada (x) e nenhuma informação de saída correspondente.
+
+A meta para a aprendizagem não supervisionada é modelar a estrutura subjacente ou a distribuição nos dados a fim de aprender mais sobre os dados. Esses são chamados de aprendizagem sem supervisão, porque ao contrário da aprendizagem supervisionada não há respostas corretas e não há um professor. É dado o algoritmo a chance de descobrir e apresentar a melhor estrutura para os dados apresentados. Problemas de aprendizagem não supervisionados podem ser agrupados em problemas de agrupamento e associação.
+
+\begin{itemize}
+	\item Agrupamento: Um problema de cluster é quando se  deseja descobrir os agrupamentos inerentes dos dados, como agrupar clientes por meio do comportamento de compra.
+	
+	\item Associação: Um problema de aprendizagem de regra de associação é quando se quer descobrir regras que descrevem grandes porções de seus dados, como pessoas que compram X também tendem a comprar Y.
+	
+\end{itemize}
+
+Alguns exemplos populares de algoritmos de aprendizagem não supervisionados são: K-means para problemas de cluster e o algoritmo Apriori para problemas de aprendizagem de regra de associação.
+
+Para os problemas onde se possui uma grande quantidade de dados de entrada e apenas alguns dos dados de saída, nsse caso, é chamado de problems de aprendizagem semi-supervisionado.
+
+Esses problemas situam-se entre as abordagens citadas anteriormente. Um bom exemplo é um arquivo fotográfico onde apenas algumas das imagens são rotuladas (por exemplo, cão, gato, pessoa) e a maioria não está marcada. Muitos problemas de aprendizagem da máquina do mundo se situam nessa área. Isso ocorre porque ele pode ser caro ou demorado rotular os dados, pois pode exigir acesso a especialistas de domínio. Enquanto os dados não marcados são mais fáceis de se coletar e armazenar.
 
 \subsection{Redes MLP}
 

@@ -9,7 +9,7 @@ Esse capítulo apresenta os materiais, métodos utilizados e desenvolvidos nessa p
 
 A plataforma adotada para a implementação do \emph{software} foi o Java, por ser um sistema bastante difundido e familiar, no entanto, nada impede que haja portabilidade do \emph{software} para outros sistemas operacionais, pois o Java consegue ser instalado rapidamente em todos os sistemas operacionais que estão no mercado. Foi utilizada a versão 8.21 para desenvolver o modelo de negócios enquanto a interface gráfica foi utilizada o Java FX. A \emph{Integrated Development Environment} (IDE) de desenvolvimento do \emph{software} foi o NetBeans 8.2 da \emph{Oracle}. A linguagem de programação Java foi a escolhida para esse tipo de sistema, devido à facilidade na orientação a objeto, à capacidade de reuso do código, e a experiência de desenvolvimento nessa linguagem. 
 
-Para o desenvolvimento do \emph{software} foi adotada uma metodologia ágil e o quadro de acompanhamento do desenvolvimento pode ser visualizado no repositório criado \emph{GitHub}. A implementação se deu através em testes, primeiramente focando em problemas menores e específicos, para, então, desenvolver soluções que satisfaçam os requisitos das novas \emph{sprints} em questão. O último passo foi estender o sistema para o atender outros tipos de problemas.
+Para o desenvolvimento do \emph{software} foi adotada uma metodologia ágil e o quadro de acompanhamento do desenvolvimento pode ser visualizado no repositório criado \emph{GitHub}. A implementação se deu através de testes, primeiramente focando em problemas menores e específicos, para, então, desenvolver soluções que satisfaçam os requisitos das novas \emph{sprints} em questão. O último passo foi estender o sistema para o atender outros tipos de problemas.
 
 \subsection{Etapas do Desenvolvimento}
 
@@ -19,11 +19,11 @@ Os testes iniciaram com o desenvolvimento de métodos para a conversão de Linguag
 
 Na fase final do desenvolvimento, foi criado um sistema genérico de para gerar padrões de entradas e saídas de acordo com o as necessidades do usuário.
 
-Os estudos realizados juntamente com a implementação desse projeto se deram ao longo de um ano e meio. O processo de produção do sistema pode ser listado em 12 etapas que facilitaram o entendimento de todo o desenvolvimento. As etapas estão listadas pela sua ordem cronológica, nas quais se destacaram os respectivos enfoques e descrição, conforme segue:
+O processo de produção do sistema pode ser listado em 12 etapas que facilitaram o entendimento de todo o desenvolvimento. As etapas estão listadas pela sua ordem cronológica, nas quais se destacaram os respectivos enfoques e descrição, conforme segue:
 
 \begin{itemize}
 	
-	\item \textbf{Etapa 1 (Padrões de Software):} Estudo de padrões de projetos de \emph{software} para serem aplicados a sistema esse tipo de desenvolvimento.
+	\item \textbf{Etapa 1 (Padrões de Software):} Estudo de padrões de projetos de \emph{software} para serem aplicados a esse tipo de sistema.
 	
 	\item \textbf{Etapa 2 (RNA específica):} Implementações de RNAs simples, permitindo a primeira definição das técnicas de implementação de RNA a serem empregadas;  
 	
@@ -46,9 +46,6 @@ Os estudos realizados juntamente com a implementação desse projeto se deram ao l
 	\item \textbf{Etapa 11 (Tabuleiro de xadrez):} Implementação do tabuleiro de xadrez e seus respectivos métodos para extração de informações que serviram de entrada para a rede neural;
 	
 	\item \textbf{Etapa 12 (Algoritmo TopGen):} Comparação entre RNAs com e sem o emprego do algoritmo TopGen.
-		
-
-			
 	
 \end{itemize}
 
@@ -64,8 +61,8 @@ Algumas implementações básicas foram necessárias para se adquirir experiência. O
 
 \subsubsection{Leitura de Dados Simbólicos}
 
-A interpretação dos dados simbólicos é a base para implementação do algoritmo de conversão do KBANN. A execução, o acompanhamento e os testes dessa implementação permitiram verificar a tradução de uma base de regras iniciais em uma rede neural de KBANN.
-A Figura \ref{fig:visualizacaoGrafo} é a representação final das regras lógicas contidas nas cláusulas lógicas mostradas abaixo na forma de cláusulas de Horn. A partir desse conjunto de símbolos, foram obtidas as estruturas das RNAs similares às da Figura \ref{fig:visualizacaoGrafo}, aplicando-se a elas os cálculos requeridos pelo algoritmo, tais como a determinação dos pesos inciais, bias, taxa de aprendizado da rede e o erro aceitável. A seguir será apresentado um exemplo de um conjunto de regras iniciais e sua tradução em uma rede neural.
+A interpretação dos dados simbólicos é a base para implementação do algoritmo de conversão do KBANN. As informações são extraídas do arquivo base e então é gerado uma rede neural.
+A Figura \ref{fig:visualizacaoGrafo} é a representação final das regras lógicas contidas nas cláusulas lógicas mostradas abaixo na forma de cláusulas de \emph{Horn}. A partir desse conjunto de símbolos, foram obtidas as estruturas das RNAs similares às da Figura \ref{fig:visualizacaoGrafo}, aplicando-se a elas os cálculos requeridos pelo algoritmo, tais como a determinação dos pesos iniciais, bias, taxa de aprendizado da rede e o erro aceitável. A seguir será apresentado um exemplo de um conjunto de regras iniciais e sua tradução em uma rede neural.
 
 \centerline{$A$ :- $B$,  $¬C$} 
 \centerline{$B$ :- $D$, $¬F$, $G$} 
@@ -81,7 +78,7 @@ A Figura \ref{fig:visualizacaoGrafo} é a representação final das regras lógicas 
 	\end{center} 
 \end{figure}
 
-Cada instrução acima representa uma regra do domínio da teoria, a união delas implica nas regras que definem um problema. Para melhor entendimento, as cláusulas no formato de Prolog podem ser lidas da seguinte maneira: ao lado esquerdo ficam os consequentes, ou seja, as implicações que são geradas pelos seus antecedentes (lado direito). Os antecedentes são as condições necessárias para ativar um consequente e esses são separados por vírgulas (,) quando se quer definir que ambos os antecedentes precisam estar ativados para sair uma determinada resposta do seu respectivo consequente da regra. Quando um antecedente sofre uma negação ($\neg$), o peso sináptico da ligação entre os neurônios será negativo.
+Cada instrução acima representa uma regra do domínio da teoria, a união delas implica nas regras que definem um problema. Para melhor entendimento, as cláusulas no formato de Prolog podem ser lidas da seguinte maneira: ao lado esquerdo ficam os consequentes, ou seja, as implicações que são geradas pelos seus antecedentes (lado direito). Os antecedentes são as condições necessárias para ativar um consequente e esses são separados por vírgulas (,) quando se quer definir que ambos os antecedentes precisam estar ativados para sair uma determinada resposta do seu respectivo consequente da regra. Quando um antecedente um é negado ($\neg$), o peso sináptico da ligação entre os neurônios será negativo. Essa foi uma maneira encontrada por Towell (1990) para representar ligações contrárias entre neurônios.
 
 \subsubsection{Redes Neurais Artificiais Simples}	
 
@@ -95,18 +92,18 @@ A criação de uma interface para entrada de dados fez-se necessária com a migraçã
 
 \subsection{O Sistema Desenvolvido}	
 
-O enfoque principal do sistema desenvolvido foi a implementação do algoritmo de conversão unidirecional do sistema KBANN estendido por modalidades. A modelagem da interface utilizada iniciou-se a partir do desenvolvimento de um editor de arquivos, com o objetivo de edição e salvamento de arquivos utilizados pelo programa. Essa interface também permite que se criem novos arquivos de informações.
+O enfoque principal do trabalho desenvolvido foi a implementação de \emph{framework} capaz de agregar as principais características de dois algoritmos importantes do meio neuro-simbólico, o KBANN e o TopGen. O primeiro realiza a conversão unidirecional de regras no formato de cláusulas Horn em uma rede neural com conhecimento prévio, enquanto o segundo permite a adição de novos conhecimentos na rede gerada a partir de KBANN, sem causar danos aos conhecimentos já adquiridos. Para gerar uma nova rede , o sistema é capaz de ler um arquivo TXT com regras já estabelicidas por um especialista ou é possível criá-las dentro do \emph{software}. O \emph{framework} também permite exibir de forma gráfica a rede inicial e final de duas formas: em círculo ou por hierarquia de nível. Cada camada da rede é identificada por uma cor e essa pode ser visualizada pelo usuário na aba legendas dentro do sistema. Para realizar o treinamento da rede neural, o sistema possui em sua interface campos configuráveis, como: taxa de aprendizagem, taxa de momento, número de épocas e erro aceitável. Quando os campos são preenchidos, o usuário poderá realizar quantos treinamentos desejar. Por fim, é possível exportar em um arquivo TXT uma lista contendo a quantidade de erros (falsos positivos e negativos) de cada neurônio contido na rede, permitindo assim avaliar a necessidade de adicionar novos conhecimentos a rede neural.
 
 \subsection{Aspectos Internos do Sistema}
 
 \subsubsection{Classes que Compõem o Programa}
 
-A Figura \ref{fig:diagramaClasses} apresenta um esquema das classes nas quais o ambiente computacional teve o seu desenvolvimento baseado. A classe que controla toda a aplicação é a \emph{ControllerGrafo}. Ela recebe todas as requisições oriundas da interface gráfica e delega para outras classes algumas ações necessárias. Por exemplo, a classe \emph{ControllerRegras} realiza o tratamento da programação em linguagem lógica, conforme as opções que lhe são passadas.
-Pensando em futuras expansões do projeto, foram criadas classes e módulos que poderão se acoplar facilmente a novas classes. A classe \emph{ModelGrafo} que representa a rede neural, por exemplo pode receber novos tipos de neurônios ou conexões de forma bastante simples.
+A Figura \ref{fig:diagramaClasses} apresenta um esquema das classes nas quais o ambiente computacional teve o seu desenvolvimento baseado. A classe que controla toda a aplicação é a \emph{ControllerGrafo}. Ela recebe todas as requisições oriundas da interface gráfica e delega para outras classes as ações necessárias. Por exemplo, a classe \emph{ControllerRegras} realiza o tratamento das regras iniciais, conforme as opções que lhe são passadas. 
+Pensando em futuras expansões do projeto, foram criadas classes que poderão se acoplar facilmente a novos módulos que podem ser implementados. A classe \emph{ModelGrafo} representa a rede neural. Essa é composta por outras duas classes que ajudam na representação de uma rede, no caso, as classes \emph{ModelNeuronio} e \emph{ModelAresta}. A classe \emph{Treinamento} foi criada separadamente para permitir a adição de novos treinamentos ao sistema, por enquanto, apenas o algoritmo \emph{backpropagation} foi implementado. Por fim, a última classe, a \emph{TopGen} contém o algoritmo que permite a adição de novos conhecimentos na rede neural, além de calcular e exportar os erros contidos em cada neurônio da rede.
 
 \begin{figure}[H] 
 	\begin{center}
-		\caption{Representação parcial do diagrama de classes do sistema}
+		\caption{Diagrama de classes do sistema}
 		\includegraphics[scale=0.5]{imagens/diagramaClasses.png}
 		\label{fig:diagramaClasses}
 		\centerline{Fonte: Autor, 2017}
@@ -129,7 +126,7 @@ A Figura \ref{fig:diagramaCasosUso} contém alguns casos mais comuns de uso do am
 
 \subsubsection{Sequência de Eventos}
 
-O diagrama de classes da (Figura \ref{fig:diagramaSequencia}) aponta para a sequência de operações iniciadas pelo usuário, que basicamente, interage através da configuração contida nos arquivos e na interface. O \emph{software} realiza uma varredura do arquivo que contém as informações necessárias ao desenvolvimento de seus processos.
+O diagrama de sequência da (Figura \ref{fig:diagramaSequencia}) aponta para a sequência de operações iniciadas pelo usuário, que basicamente, interage através da configuração contida nos arquivos e na interface. O \emph{software} realiza uma varredura do arquivo que contém as informações necessárias ao desenvolvimento de seus processos.
 
 \begin{figure}[H] 
 	\begin{center}

@@ -33,11 +33,11 @@ De acordo com a teoria de Ryle (1949), a taxonomia do conhecimento inclui o conh
 
 Embora originalmente eles foram utilizados para Processamento de Linguagem Natural (PLN), descobriu-se que eles poderiam ser utilizados em outras áreas da IA. A teoria da dependência conceitual, desenvolvida por Schank no final dos anos 60, foi um dos primeiros modelos desse tipo. Schank alegou, ao contrário da teoria da gramática generativa de Chomsky (1957), que uma sintaxe de linguagem era mais um conjunto de ponteiros para informações semânticas que poderiam ser utilizadas como ponto de partida para uma análise semântica direta. A teoria da dependência conceitual foi formulada apenas para fornecer formalismos convenientes (estruturais) para realizar automaticamente uma análise semântica. Como as frases de uma linguagem (natural) não podiam ser utilizadas para realizar uma análise semântica de maneira direta, Schank introduziu uma representação canônica e normalizada de dependências semânticas entre construções de linguagem (frases, sentenças).
 
-Essa representação canônica é definida com a ajuda de grafos de dependência. Os "nós" rotulados de tais grafos correspondem às primitivas conceituais, que podem ser utilizadas para definir representações semânticas. Grafos de dependência são definidos de forma inequívoca de acordo com precisos princípios. Esses grafos podem ser analisados de forma automática, o que permite ao sistema realizar uma análise semântica das construções correspondentes de uma linguagem natural. Em suma, Schank verificou uma hipótese afirmando que se pode tentar realizar a análise semântica automaticamente se forem definidas as representações de linguagem baseadas em conceitos de maneira explícita e precisa.
+Essa representação canônica é definida com a ajuda de grafos de dependência. Os "nós" rotulados de tais grafos correspondem às primitivas conceituais, que podem ser utilizadas para definir representações semânticas. Grafos de dependência são definidos de forma inequívoca de acordo com princípios precisos. Esses grafos podem ser analisados de forma automática, o que permite ao sistema realizar uma análise semântica das construções correspondentes de uma linguagem natural. Em suma, Schank verificou uma hipótese afirmando que se pode tentar realizar a análise semântica automaticamente se forem definidas as representações de linguagem baseadas em conceitos de maneira explícita e precisa.
 
 \subsubsection{\emph{Scripts}}
 
-Os \emph{scripts} foram propostos por Schank e Abelson (1977) como um método para processamento de linguagem natural. Os \emph{scripts} podem ser definidos com a ajuda de grafos de dependência introduzidos acima. O modelo também é baseado em uma certa observação em psicologia. Se alguém quer entender uma mensagem sobre um determinado evento, então pode-se referir a um padrão generalizado relacionado ao tipo desse evento. O padrão é construído com base em eventos semelhantes que se conheceu anteriormente. Em seguida, ele é armazenado na memória. Pode-se facilmente notar que o conceito de \emph{scripts} é conceitualmente semelhante ao modelo do quadro (Figura \ref{fig:Script}).
+Os \emph{scripts} foram propostos por Schank e Abelson (1977) como um método para processamento de linguagem natural. Os \emph{scripts} podem ser definidos com a ajuda de grafos de dependência introduzidos acima. Se alguém quer entender uma mensagem sobre um determinado evento, então pode-se referir a um padrão generalizado relacionado ao tipo desse evento. O padrão é construído com base em eventos semelhantes que se conheceu anteriormente. Em seguida, ele é armazenado na memória. Pode-se facilmente notar que o conceito de \emph{scripts} é conceitualmente semelhante ao modelo do quadro (Figura \ref{fig:Script}).
 
 \begin{figure}[H] 
 	\begin{center}
@@ -76,58 +76,58 @@ As redes semânticas, introduzidas por Collins e Quillian (1969), são um dos prim
 
 Os quadros (sistemas baseados em \emph{frames}), introduzidos por Minsky (1974), podem ser tratados como uma extensão substancial de redes semânticas. Um nó da rede é chamado quadro e tem uma estrutura interna complexa. Permite caracterizar objetos e classes de forma detalhada. A teoria do quadro tem a seguinte observação psicológica como uma suposição básica: se alguém encontrar uma nova situação desconhecida, então ele / ela tenta obter uma estrutura chamada quadro fora de sua memória. Essa estrutura, que representa uma situação estereotipada semelhante à situação atual, pode então ser utilizada para gerar um comportamento adequado. Nos sistemas AI, uma estrutura gráfica de quadros é definida de acordo com princípios precisos que permitem ao sistema processá-lo e analisá-lo de forma automática (Figura \ref{fig:Frame}).
 
-%
-%\subsection{Formatação dos dados}
-%
-%\subsubsection{Cláusulas Horn}
-%
-%As cláusulas Horn (Horn, 1951) servem como base para a criação da rede neural utilizando lógica, sendo assim, será apresentada uma breve explicação sobre elas.
-%
-%Na lógica, uma cláusula de Horn é uma cláusula (disjunção de literais) com no máximo um literal positivo. O nome "Cláusula de Horn" é uma homenagem ao lógico Alfred Horn, que foi quem primeiro chamou a atenção para o valor destas cláusulas, em 1951.
-%
-%Uma cláusula de Horn pode ser de quatro tipos diferentes:
-%
-%\begin{itemize}
-%	\item Uma regra tem um literal positivo, e pelo menos um literal negativo. Sua forma é  $\neg P_{1}\lor \neg P_{2}\lor \cdots \neg P_{k}\lor Q$, que é logicamente equivalente a  $(P_{1}\land P_{2}\land \cdots P_{k})\rightarrow Q$. Exemplo: todo homem é mortal, ou seja, X não é um homem ou X é mortal;
-%	
-%	\item Um fato ou unidade é um literal positivo sem nenhum literal negativo. Por exemplo, Sócrates é um homem, todo mundo é parente de si mesmo;
-%	
-%	\item Um objetivo negado não tem nenhum literal positivo, e pelo menos um literal negativo. Em programação, a base de dados consiste de regras e fatos, e um objetivo negado corresponde à negação do fato que se deseja provar, por exemplo, para se encontrar um descendente masculino de Isabel, o objetivo a ser provado é X é homem e Isabel é ancestral de X, então o objetivo negado será X não é homem ou Isabel não é ancestral de X;
-%	
-%	\item A cláusula nula não tem nenhum literal positivo e nenhum literal negativo. Na programação, ela aparece no final de uma demonstração.
-%	
-%\end{itemize}
-%
-%\subsubsection{Prolog}
-%
-%O Prolog é uma linguagem de programação lógica de uso geral associada à inteligência artificial e à linguística computacional (Covington, 1994). Suas raízes são da lógica de primeira ordem, uma lógica formal, e ao contrário de muitas outras linguagens de programação. A linguagem foi concebida primeiramente por um grupo em Marselha, França, nos anos 70 e o primeiro sistema de Prolog desenvolvido foi em 1972 por Colmerauer e Philippe Roussel.
-%
-%O Prolog é uma linguagem declarativa, ou seja, ao invés do programa estipular a maneira de chegar à solução passo a passo, como acontece nas linguagens procedimentais ou orientadas a objeto, ele fornece uma descrição do problema que se pretende computar utilizando uma coleção de fatos e regras (lógica) que indicam como deve ser resolvido o problema proposto. Como pode-se ver, o Prolog é mais direcionado ao conhecimento do que aos próprios algoritmos. 
-%
-%Além de ser uma linguagem declarativa, outro fato que a difere das outras linguagens é a questão de não possuir estruturas de controle (se-senão, faz-enquanto, para) presentes na maioria das linguagens de programação. Para isso utilizam-se métodos lógicos para declarar como o programa deverá atingir o seu objetivo. 
-%
-%Um programa em Prolog pode rodar em um modo interativo, o usuário poderá formular \emph{queries} utilizando os fatos e as regras para produzir a solução através do mecanismo de unificação. 
-%
-%O Prolog foi uma das primeiras linguagens de programação lógica, e continua a ser o mais popular na forma de representação lógica, com várias implementações livres e comerciais disponíveis. A linguagem tem sido utilizada para provas de teoremas, sistemas especialistas, (Merrit, 1989) e planejamento automatizado, (Schmid, 2003). Os ambientes Prolog modernos suportam a criação de interfaces gráficas de usuário, bem como aplicativos administrativos.
-%
-%O Prolog é adequado para tarefas específicas que se beneficiam de consultas lógicas baseadas em regras, como busca em bancos de dados, sistemas de controle de voz e modelos de preenchimento.
-%
-%\subsubsection{Tipos de Dados}
-%
-%O tipo de dados único do Prolog é o termo. Os termos são átomos, números, variáveis ou termos compostos.
-%
-%\subsubsection{Regras e Fatos}
-%
-%\begin{itemize}
-%	\item Um \textbf{átomo} é um nome de propósito geral sem significado inerente. Exemplos de átomos incluem : y, azul, 'João' e 'algum átomo';
-%	
-%	\item Os \textbf{números} podem ser flutuantes ou inteiros;
-%	
-%	\item As \textbf{variáveis} são denotadas por uma string composta por letras, números e caracteres de sublinhado, e começando com uma letra maiúscula ou sublinhado. As variáveis se assemelham bastante às variáveis na lógica, na medida em que são espaços reservados para termos arbitrários;
-%	
-%	\item Um \textbf{termo composto} é composto de um átomo chamado "funtor"  e um número de argumentos, que são termos. Os termos compostos são normalmente escritos como um "funtor"  seguido de uma lista de termos de argumentos separados por vírgulas, que está contida entre parênteses. O número de argumentos é chamado aridade do termo. Um átomo pode ser considerado como um termo composto com aridade zero.
-%	
-%\end{itemize}
+
+\subsection{Formatação dos dados}
+
+\subsubsection{Cláusulas Horn}
+
+As cláusulas Horn (Horn, 1951) servem como base para a criação da rede neural utilizando lógica, sendo assim, será apresentada uma breve explicação sobre elas.
+
+Na lógica, uma cláusula de Horn é uma cláusula (disjunção de literais) com no máximo um literal positivo. O nome "Cláusula de Horn" é uma homenagem ao lógico Alfred Horn, que foi quem primeiro chamou a atenção para o valor destas cláusulas, em 1951.
+
+Uma cláusula de Horn pode ser de quatro tipos diferentes:
+
+\begin{itemize}
+	\item Uma regra tem um literal positivo, e pelo menos um literal negativo. Sua forma é  $\neg P_{1}\lor \neg P_{2}\lor \cdots \neg P_{k}\lor Q$, que é logicamente equivalente a  $(P_{1}\land P_{2}\land \cdots P_{k})\rightarrow Q$. Exemplo: todo homem é mortal, ou seja, X não é um homem ou X é mortal;
+	
+	\item Um fato ou unidade é um literal positivo sem nenhum literal negativo. Por exemplo, Sócrates é um homem, todo mundo é parente de si mesmo;
+	
+	\item Um objetivo negado não tem nenhum literal positivo, e pelo menos um literal negativo. Em programação, a base de dados consiste de regras e fatos, e um objetivo negado corresponde à negação do fato que se deseja provar, por exemplo, para se encontrar um descendente masculino de Isabel, o objetivo a ser provado é X é homem e Isabel é ancestral de X, então o objetivo negado será X não é homem ou Isabel não é ancestral de X;
+	
+	\item A cláusula nula não tem nenhum literal positivo e nenhum literal negativo. Na programação, ela aparece no final de uma demonstração.
+	
+\end{itemize}
+
+\subsubsection{Prolog}
+
+O Prolog é uma linguagem de programação lógica de uso geral associada à inteligência artificial e à linguística computacional (Covington, 1994). Suas raízes são da lógica de primeira ordem, uma lógica formal, e ao contrário de muitas outras linguagens de programação. A linguagem foi concebida primeiramente por um grupo em Marselha, França, nos anos 70 e o primeiro sistema de Prolog desenvolvido foi em 1972 por Colmerauer e Philippe Roussel.
+
+O Prolog é uma linguagem declarativa, ou seja, ao invés do programa estipular a maneira de chegar à solução passo a passo, como acontece nas linguagens procedimentais ou orientadas a objeto, ele fornece uma descrição do problema que se pretende computar utilizando uma coleção de fatos e regras (lógica) que indicam como deve ser resolvido o problema proposto. Como pode-se ver, o Prolog é mais direcionado ao conhecimento do que aos próprios algoritmos. 
+
+Além de ser uma linguagem declarativa, outro fato que a difere das outras linguagens é a questão de não possuir estruturas de controle (se-senão, faz-enquanto, para) presentes na maioria das linguagens de programação. Para isso utilizam-se métodos lógicos para declarar como o programa deverá atingir o seu objetivo. 
+
+Um programa em Prolog pode rodar em um modo interativo, o usuário poderá formular \emph{queries} utilizando os fatos e as regras para produzir a solução através do mecanismo de unificação. 
+
+O Prolog foi uma das primeiras linguagens de programação lógica, e continua a ser o mais popular na forma de representação lógica, com várias implementações livres e comerciais disponíveis. A linguagem tem sido utilizada para provas de teoremas, sistemas especialistas, (Merrit, 1989) e planejamento automatizado, (Schmid, 2003). Os ambientes Prolog modernos suportam a criação de interfaces gráficas de usuário, bem como aplicativos administrativos.
+
+O Prolog é adequado para tarefas específicas que se beneficiam de consultas lógicas baseadas em regras, como busca em bancos de dados, sistemas de controle de voz e modelos de preenchimento.
+
+\subsubsection{Tipos de Dados}
+
+O tipo de dados único do Prolog é o termo. Os termos são átomos, números, variáveis ou termos compostos.
+
+\subsubsection{Regras e Fatos}
+
+\begin{itemize}
+	\item Um \textbf{átomo} é um nome de propósito geral sem significado inerente. Exemplos de átomos incluem : y, azul, 'João' e 'algum átomo';
+	
+	\item Os \textbf{números} podem ser flutuantes ou inteiros;
+	
+	\item As \textbf{variáveis} são denotadas por uma string composta por letras, números e caracteres de sublinhado, e começando com uma letra maiúscula ou sublinhado. As variáveis se assemelham bastante às variáveis na lógica, na medida em que são espaços reservados para termos arbitrários;
+	
+	\item Um \textbf{termo composto} é composto de um átomo chamado "funtor"  e um número de argumentos, que são termos. Os termos compostos são normalmente escritos como um "funtor"  seguido de uma lista de termos de argumentos separados por vírgulas, que está contida entre parênteses. O número de argumentos é chamado aridade do termo. Um átomo pode ser considerado como um termo composto com aridade zero.
+	
+\end{itemize}
 
 \subsection{Problemas da Inteligência Artificial Simbólica}
 
