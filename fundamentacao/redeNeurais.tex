@@ -107,7 +107,7 @@ Com relação as redes MLPs, pode-se citar duas características da estrutura que s
 
 1. A MLP é uma rede progressiva. Uma rede é dita progressiva (\emph{feedforward}) quando as saídas dos neurônios em qualquer camada se conectam unicamente às entradas dos neurônios da camada seguinte, sem a presença de laços de realimentação. Consequentemente, o sinal de entrada se propaga através da rede, camada a camada, em um sentido progressivo.
 
-2. A rede pode ser completamente conectada, caso em que cada neurônio (computacional ou não) em uma camada é conectado a todos os outras unidades de uma camada adjacente. De forma alternativa, uma rede MLP pode ser parcialmente conectada, nesse caso, algumas sinapses poderão estar faltando. O termo parcialmente se refere à conectividade de um neurônio em uma camada da rede com relação a somente um subconjunto de todas as possíveis entradas. Nesse trabalho, no entanto, foi considerado apenas MLPs completamente conectadas.
+2. A rede pode ser completamente conectada, caso em que cada neurônio (computacional ou não) em uma camada é conectado a todos as outras unidades de uma camada adjacente. De forma alternativa, uma rede MLP pode ser parcialmente conectada, nesse caso, algumas sinapses poderão estar faltando. O termo parcialmente se refere à conectividade de um neurônio em uma camada da rede com relação a somente um subconjunto de todas as possíveis entradas. Nesse trabalho, no entanto, foi considerado apenas MLPs completamente conectadas.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -282,7 +282,7 @@ diminuição do erro e, portanto, o movimento deve ser encorajado naquela direção.
 \Delta w_{ji}(n) =  - \eta \frac{\partial \epsilon(n)}{\partial w_{ji}(n)}
 \end{align}
 
-Onde $\eta$ é a constante que determina a razão de aprendizado do algoritmo \emph{backpropagation}. O uso do sinal negativo em (2.12) impõe a movimentação contrária à direção apontada pelo gradiente na superfície de erro definida no espaço de pesos sinápticos. 
+Onde $\eta$ é a constante que determina a razão de aprendizado do algoritmo \emph{backpropagation}. O uso do sinal negativo em (2.6) impõe a movimentação contrária à direção apontada pelo gradiente na superfície de erro definida no espaço de pesos sinápticos. 
 
 Correspondentemente, o uso da Eq. (2.6) produz:
 
@@ -308,7 +308,7 @@ Os cálculos dos gradientes locais para os dois casos acima citados são definidos
 \delta_j(n) = \left \{ \begin{matrix} \varphi_j'(v_j(n))e_j(n), & \mbox{neurônio }j\mbox{ é de saída} \\ \varphi_j'(v_j(n))\sum_k\delta_k(n)w_{kj}(n), & \mbox{neurônio }j\mbox{ é de escondido} \end{matrix} \right.
 \end{align}
 
-De acordo com (2.9) o gradiente local $\delta_j(n)$ para o neurônio de saída $j$ é igual ao produto do correspondente sinal de erro $e_j(n)$ pela derivada $\varphi_j'(v_j(n))$ da função de ativação associada. Nesse caso o fator chave necessário envolvido no cálculo do ajuste dos pesos $\Delta w_{ji}(n)$ é o sinal de erro $e_j(n)$ na saída do neurônio $j$.
+De acordo com (2.9) o gradiente local $\delta_j(n)$ para o neurônio de saída $j$ é igual ao produto do correspondente sinal de erro $e_j(n)$ pela derivada $\varphi_j'(v_j(n))$ da função de ativação associada. Nesse caso, o fator chave necessário envolvido no cálculo do ajuste dos pesos $\Delta w_{ji}(n)$ é o sinal de erro $e_j(n)$ na saída do neurônio $j$.
 
 Quando o neurônio $j$ está localizado em uma camada oculta, conforme mostra a Figura \ref{fig:sinalForward}, mesmo não sendo diretamente acessíveis, tais neurônios dividem a responsabilidade pelo erro resultante na camada de saída. A questão, no entanto, é saber como penalizar ou recompensar os pesos sinápticos de tais neurônios pela sua parcela de responsabilidade, já que não existe resposta desejada especificada neste local da rede e, portanto, não há como calcular o sinal de erro.
 

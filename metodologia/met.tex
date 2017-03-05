@@ -35,7 +35,7 @@ O processo de produção do sistema pode ser listado em 12 etapas que facilitaram 
    
 	\item \textbf{Etapa 6 (Algoritmo KBANN):} Estruturação das classes do sistema KBANN e desenvolvimento do método que engloba rotinas para o processamento da sintaxe de textos;
 
-	\item \textbf{Etapa 7 (Conversão de dados):} Formatação dos dados a serem aplicados em uma RNA específica e definição dos formatos dos arquivos para serem lidos;
+	\item \textbf{Etapa 7 (Conversão de dados):} Formatação dos dados a serem aplicados em uma RNA específica e formatação dos arquivos a serem lidos;
 
 	\item \textbf{Etapa 8 (Algoritmo KBANN):} Aprimoramento dos programas anteriores permitindo a inserção das regras aplicáveis de forma genérica, segundo o algoritmo KBANN;
 
@@ -78,7 +78,7 @@ A Figura \ref{fig:visualizacaoGrafo} é a representação final das regras lógicas 
 	\end{center} 
 \end{figure}
 
-Cada instrução acima representa uma regra do domínio da teoria, a união delas implica nas regras que definem um problema. Para melhor entendimento, as cláusulas no formato de Prolog podem ser lidas da seguinte maneira: ao lado esquerdo ficam os consequentes, ou seja, as implicações que são geradas pelos seus antecedentes (lado direito). Os antecedentes são as condições necessárias para ativar um consequente e esses são separados por vírgulas (,) quando se quer definir que ambos os antecedentes precisam estar ativados para sair uma determinada resposta do seu respectivo consequente da regra. Quando um antecedente um é negado ($\neg$), o peso sináptico da ligação entre os neurônios será negativo. Essa foi uma maneira encontrada por Towell (1990) para representar ligações contrárias entre neurônios.
+Cada instrução acima representa uma regra do domínio da teoria, a união delas implica nas regras que definem um problema. Para melhor entendimento, as cláusulas no formato de Prolog podem ser lidas da seguinte maneira: ao lado esquerdo ficam os consequentes, ou seja, as implicações que são geradas pelos seus antecedentes (lado direito). Os antecedentes são as condições necessárias para ativar um consequente e esses são separados por vírgulas (,) quando se quer definir que ambos os antecedentes precisam estar ativados para sair uma determinada resposta do seu respectivo consequente da regra. Quando um antecedente um é negado ($\neg$), o peso sináptico da ligação entre os neurônios será negativo. Essa foi uma maneira encontrada por Towell (1990) para que a rede neural possa receber entradas contrárias à aquelas que ativam os neurônios permitindo que eles sejam ativados quando houver um antecedente negado.
 
 \subsubsection{Redes Neurais Artificiais Simples}	
 
@@ -92,34 +92,20 @@ A criação de uma interface para entrada de dados fez-se necessária com a migraçã
 
 \subsection{O Sistema Desenvolvido}	
 
-O enfoque principal do trabalho desenvolvido foi a implementação de \emph{framework} capaz de agregar as principais características de dois algoritmos importantes do meio neuro-simbólico, o KBANN e o TopGen. O primeiro realiza a conversão unidirecional de regras no formato de cláusulas Horn em uma rede neural com conhecimento prévio, enquanto o segundo permite a adição de novos conhecimentos na rede gerada a partir de KBANN, sem causar danos aos conhecimentos já adquiridos. Para gerar uma nova rede , o sistema é capaz de ler um arquivo TXT com regras já estabelicidas por um especialista ou é possível criá-las dentro do \emph{software}. O \emph{framework} também permite exibir de forma gráfica a rede inicial e final de duas formas: em círculo ou por hierarquia de nível. Cada camada da rede é identificada por uma cor e essa pode ser visualizada pelo usuário na aba legendas dentro do sistema. Para realizar o treinamento da rede neural, o sistema possui em sua interface campos configuráveis, como: taxa de aprendizagem, taxa de momento, número de épocas e erro aceitável. Quando os campos são preenchidos, o usuário poderá realizar quantos treinamentos desejar. Por fim, é possível exportar em um arquivo TXT uma lista contendo a quantidade de erros (falsos positivos e negativos) de cada neurônio contido na rede, permitindo assim avaliar a necessidade de adicionar novos conhecimentos a rede neural.
+O enfoque principal do trabalho desenvolvido foi a implementação de \emph{framework} capaz de agregar as principais características de dois algoritmos importantes do meio neuro-simbólico, o KBANN e o TopGen. O primeiro realiza a conversão unidirecional de regras no formato de cláusulas Horn em uma rede neural com conhecimento prévio, enquanto o segundo permite a adição de novos conhecimentos na rede gerada a partir de KBANN, sem causar danos aos conhecimentos já adquiridos. Para gerar uma nova rede , o sistema é capaz de ler um arquivo TXT com regras já estabelicidas por um especialista ou é possível criá-las dentro do \emph{software}. O \emph{framework} também permite exibir de forma gráfica a rede inicial e final de duas formas: em círculo ou por hierarquia de nível. Cada camada da rede é identificada por uma cor e essa pode ser visualizada pelo usuário na aba legendas dentro do sistema. Para realizar o treinamento da rede neural utilizando o algoritmo do \emph{bakcpropagation}, o sistema possui em sua interface campos configuráveis, como: taxa de aprendizagem, taxa de momento, número de épocas e erro aceitável. Quando os campos são preenchidos, o usuário poderá realizar quantos treinamentos desejar. Por fim, é possível exportar em um arquivo TXT uma lista contendo a quantidade de erros (falsos positivos e negativos) de cada neurônio contido na rede, permitindo assim avaliar a necessidade de adicionar novos neurônios para ajustar a rede neural.
 
 \subsection{Aspectos Internos do Sistema}
 
 \subsubsection{Classes que Compõem o Programa}
 
-A Figura \ref{fig:diagramaClasses} apresenta um esquema das classes nas quais o ambiente computacional teve o seu desenvolvimento baseado. A classe que controla toda a aplicação é a \emph{ControllerGrafo}. Ela recebe todas as requisições oriundas da interface gráfica e delega para outras classes as ações necessárias. Por exemplo, a classe \emph{ControllerRegras} realiza o tratamento das regras iniciais, conforme as opções que lhe são passadas. 
-Pensando em futuras expansões do projeto, foram criadas classes que poderão se acoplar facilmente a novos módulos que podem ser implementados. A classe \emph{ModelGrafo} representa a rede neural. Essa é composta por outras duas classes que ajudam na representação de uma rede, no caso, as classes \emph{ModelNeuronio} e \emph{ModelAresta}. A classe \emph{Treinamento} foi criada separadamente para permitir a adição de novos treinamentos ao sistema, por enquanto, apenas o algoritmo \emph{backpropagation} foi implementado. Por fim, a última classe, a \emph{TopGen} contém o algoritmo que permite a adição de novos conhecimentos na rede neural, além de calcular e exportar os erros contidos em cada neurônio da rede.
+A Figura \ref{fig:diagramaClasses} apresenta um esquema das classes nas quais o ambiente computacional teve o seu desenvolvimento. A principal classe, a que controla todos os processos da aplicação é a \emph{ControllerGrafo}. Essa recebe todas as requisições oriundas da interface gráfica e delega para outras classes as ações necessárias. Por exemplo, a classe \emph{ControllerRegras} realiza o tratamento das regras iniciais gerando objetos do tipo \emph{ModelRegra} que serão utilizados para construir a rede neural.
+Para modelar e representar a estrutura de uma rede neural, foi implementada a classe \emph{ModelGrafo}. Essa é composta por outras duas classes que ajudam na representação da rede, no caso, as classes \emph{ModelNeuronio} e \emph{ModelAresta}. A classe \emph{Treinamento} foi criada separadamente para permitir a adição de novos treinamentos ao sistema, por enquanto, apenas o algoritmo \emph{backpropagation} foi implementado. A classe \emph{TopGen} contém o algoritmo que permite a adição de novos conhecimentos na rede neural, além disso, ela possui a capacidade de calcular e exportar os erros contidos em cada neurônio da rede. Por fim, a classe Xadrez representa o modelo do problema em questão, além de gerar as entradas e respectivas saídas para realizar o treinamento.
 
 \begin{figure}[H] 
 	\begin{center}
 		\caption{Diagrama de classes do sistema}
 		\includegraphics[scale=0.5]{imagens/diagramaClasses.png}
 		\label{fig:diagramaClasses}
-		\centerline{Fonte: Autor, 2017}
-	\end{center} 
-\end{figure}
-
-
-\subsubsection{Casos de Uso Previstos}
-
-A Figura \ref{fig:diagramaCasosUso} contém alguns casos mais comuns de uso do ambiente computacional. Um especialista do conhecimento pode valer-se desse ambiente para aplicá-lo a um problema específico. O objetivo de aplicação pode ser: o aumento na abrangência de regras associadas ao conhecimento inicial do especialista. Cada um dos casos de uso se refere a uma etapa existente nesse ciclo, proposto para o aprimoramento das regras provenientes do conhecimento.
-
-\begin{figure}[H] 
-	\begin{center}
-		\caption{Diagrama de Casos de Uso}
-		\includegraphics[scale=0.5]{imagens/diagramaCasoUso.png}
-		\label{fig:diagramaCasosUso}
 		\centerline{Fonte: Autor, 2017}
 	\end{center} 
 \end{figure}
@@ -141,13 +127,17 @@ Como ilustra a Figura \ref{fig:diagramaSequencia}, o \emph{software} interno atu
 
 Os passos para a execução do programa podem ser resumidos dessa forma:
 
-1. Seleção dos algoritmos, das configurações da RNA e dos arquivos de dados;
+1. Importação do arquivo contendo as regras iniciais;
 
-2. A partir dos arquivos de informações inseridos, um conjunto de dados internos (regras de aplicação) de trabalho é produzido pelo programa; 
+2. Extração de regras pelo programa para gerar a rede neural inicial;
 
-3. Os cálculos são executados baseados nas informações do passo 2 e se estabelecem a topologia inicial da RNA;
+3. Configuração do sistema para realizar o treinamento;
 
-4. Aplica-se o teste de Falsos Positivos e Negativos na rede gerada e caso seja necessário, novas redes serão criadas.
+4. Realizar o treinamento e verificar se o erro aceitável foi alcançado;
+
+5. Aplicar o teste de Falsos Positivos e Negativos na rede gerada.
+
+6. Gerar novas redes para correção de erros da saída da rede neural.
 
 \subsection{Descrição da Interface}
 
@@ -165,7 +155,7 @@ A interface também contém um menu para seleção do algoritmo a ser utilizado, ass
 
 \subsubsection{Painel de Edição}
 
-Os arquivos carregados no programa pode ser visualizados na tela de edição, conforme a Figura \ref{fig:editorRegras}.
+Os arquivos carregados no programa podem ser visualizados na tela de edição, conforme a Figura \ref{fig:editorRegras}.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -194,7 +184,7 @@ A interface também possui menu \emph{according} localizada nas laterais da janel
 
 \subsection{Considerações sobre as Implementações}	
 
-A maioria dos programas desenvolvidos empregaram as RNAs com o seu aprendizado, executado por meio do algoritmo de retro-propagação. A escolha desse algoritmo deve-se à sua utilização no sistema KBANN, possibilitando a comparação de resultados. Os algoritmos que definiram as topologias de RNAs empregadas foram consequência da evolução natural das técnicas de programação.
+Boa parte dos programas desenvolvidos empregaram as RNAs com o seu aprendizado, executado por meio do algoritmo de retro-propagação. A escolha desse algoritmo deve-se à sua utilização no sistema KBANN, possibilitando a comparação de resultados. Os algoritmos que definiram as topologias de RNAs empregadas foram consequência da evolução natural das técnicas de programação.
 Os valores de saída e as sinapses da RNA foram implementados por variáveis contidas nas classes Neurônio e Arestas. Quando se deseja acessar o valor contido em um neurônio específico, é utilizado uma estrutura de dados \emph{HashMap} que possui todos os objetos neurônios. Dentro de cada neurônio existe os campos que identifica se ele é da camada de entrada, saída ou de qual camada intermediária ele faz parte. 
 
 \subsection{Testes do Sistema}
@@ -210,7 +200,7 @@ Para validação do sistema desenvolvido, foi utilizado o \emph{software} \emph{Ma
 	\end{center} 
 \end{figure}
 
-A Figura \ref{fig:RedeMatlabEstrutura}, representa a estrutura da rede a ser treinada. A rede possui 4 neurônios na sua camada de entrada ($input$), 2 neurônios em sua única camada oculta e uma única classe de representação na camada de saída ($output$). O problema apresentado a essa rede é de padrão lógico, ou seja, informações binárias. Os dados contidos nesse padrão correspondem ao domínio completo, ou seja, como realmente funciona o sistema. Nesse teste foi considerado que a MLP não iria possuir em sua topologia todas as regras que definem o problema, sendo assim, foram retiradas 2 regras do domínio apresentado, o que de fato, se espera que gerasse alguns erros na rede ou até mesmo não convergir.
+A Figura \ref{fig:RedeMatlabEstrutura}, representa a estrutura da rede a ser treinada. A rede possui 4 neurônios na sua camada de entrada ($input$), 2 neurônios em sua única camada oculta e uma única classe de representação na camada de saída ($output$). O problema apresentado a essa rede é de padrão lógico, ou seja, informações binárias e foram gerados 16 saídas para as 16 possíveis entradas. Os dados contidos nesse padrão para serem apresentados a rede, correspondem ao domínio completo, ou seja, como realmente funciona o sistema. Nesse teste foi considerado que a MLP não iria possuir em sua topologia todas as regras que definem o problema, sendo assim, foram retiradas 2 regras do domínio apresentado, o que de fato, se espera que gerasse alguns erros na rede ou até mesmo não convergir.
 
 \begin{figure}[H] 
 	\begin{center}
@@ -232,7 +222,7 @@ Pelo o que foi apresentado na Figura \ref{fig:RedeMatlabTreinada}, pode-se obser
 	\end{center} 
 \end{figure}
 
-As duas últimas Figuras (\ref{fig:GraficoErroMatlab} e \ref{fig:errosMatlab}) servem para afirmar o baixo aprendizado pela rede MLP para o exemplo fornecido. O erro aceitável ficou longe de ser alcançado e as saídas finais da rede tiveram valores sempre mantidos acima de 0.5, o que é um erro considerável. Para um melhor entendimento sobre o resultado gerados pela Figura \ref{fig:errosMatlab}, é comentado um dos passos realizados no treinamento. Nela foram exibidos os resultados das 16 saídas calculadas, provenientes das 16 amostras de teste da rede neural. A primeira amostra apresentada foi a entrada 0 0 0 0 e com uma saída que deveria ser 0, embora a rede tenha calculado que o correto para esse treinamento é o valor 0.73587. O erro apresentado para a primeira entrada, segundo o \emph{Matlab\textregistered} sendo necessário um ajuste de de -0.73587 para corresponder com a realidade. Todos os demais dados apresentados para treinamento e validação, podem ser vistos na Figura \ref{fig:resultado1SemTopgen}. 
+As duas últimas Figuras (\ref{fig:GraficoErroMatlab} e \ref{fig:errosMatlab}) mostram a baixa capacidade de uma rede MLP em classificar dados sem possuir conhecimento prévio. Nesse caso, a estrutura da rede é idêntica a que foi aplicada no KBANN, mas os pesos iniciais foram gerados de forma aleatória. Dessa forma, o algoritmo \emph{backpropagation} irá tentar ajustar os pesos para que a rede consiga gerar respostas corretas. Para todas as 16 amostras apresentadas a rede, a mesma não obteve um resultado próximo a resposta desejada, em todas as saídas tiveram erros acima de 39\%, o que é um erro considerável.  Para um melhor entendimento sobre o resultado gerados na Figura \ref{fig:errosMatlab}, é comentado um dos resultados. A primeira saída gerada pela rede para a entrada (0, 0, 0, 0) foi 0.73587. Nesse caso, a resposta deseja é 0, ou seja, um erro aproximado de 73\% para essa entrada. O ajuste necessário a ser aplicado para corrigir esse erro é de -0.73587, conforme é apresentado na Figura \ref{fig:resultado1SemTopgen}. 
 
 \begin{figure}[H] 
 	\begin{center}

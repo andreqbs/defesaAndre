@@ -2,7 +2,7 @@
 
 \section{Sistemas Híbridos}
 
-O cérebro humano possui a notável capacidade de compreender, interpretar e produzir a linguagem humana. A inteligência artificial conexionista se desenvolveu ao ponto de atingir algo parecido com a inteligência humana. As redes neurais artificiais e a lógica não possuem uma ligação tão próxima. Os mecanismos de inferência simbólicos e a aprendizagem estatística de máquina constituem dois dos principais paradigmas da inteligência artificial, embora sejam muito diferentes. Ambos possuem pontos fortes e fracos: Os métodos estatísticos oferecem ferramentas flexíveis e altamente eficazes, ideais para dados possivelmente corrompidos. 
+O cérebro humano possui a notável capacidade de compreender, interpretar e produzir a linguagem humana. A inteligência artificial conexionista se desenvolveu para tentar simular algo parecido com a inteligência humana. As redes neurais artificiais e a lógica não possuem uma ligação tão próxima. Os mecanismos de inferência simbólicos e a aprendizagem estatística de máquina constituem dois dos principais paradigmas da inteligência artificial, embora sejam muito diferentes. Ambos possuem pontos fortes e fracos: Os métodos estatísticos oferecem ferramentas flexíveis e altamente eficazes, ideais para dados possivelmente corrompidos. 
 
 Esses modelos, no entanto, são frequentemente reduzidos a mecanismos de caixa preta que dificultam a integração de conhecimentos de nível superior ou entendimento humano. Os modelos simbólicos, por outro lado, são perfeitamente intuitivos e facilmente aplicados para a interação homem-máquina. No entanto, sua capacidade de lidar com a incerteza, o ruído e com conjuntos de dados corrompidos é bastante limitada. Assim, as forças e fragilidades inerentes desses dois métodos complementam-se idealmente entre si.
 
@@ -60,7 +60,7 @@ Nessa subseção, é descrito, em detalhes, cada uma das sete etapas desse algoritm
 
 \textbf{5. Adicionando unidades de entrada} - Nessa etapa, o KBANN aumenta sua rede com unidades de entrada não mencionados pelo conjunto de regras, mas que um especialista do domínio acredita serem relevantes. Essa adição é necessária porque um conjunto de regras que não é perfeitamente correto pode não identificar cada recurso de entrada necessário para aprender corretamente um conceito.
 
-\textbf{6. Adicionando links} - No penúltimo passo, o algoritmo adiciona links com peso próximo a zero na rede utilizando a numeração das unidades estabelecidas na etapa 4. Conexões são adicionados para conectar cada unidade de uma camada $n$ a uma camada imediatamente seguinte, $n + 1$. 
+\textbf{6. Adicionando links} - No penúltimo passo, o algoritmo adiciona links com peso próximo a zero na rede utilizando a numeração das unidades estabelecidas na etapa 4. Conexões são adicionadas para conectar cada unidade de uma camada $n$ a uma camada imediatamente seguinte, $n + 1$. 
 
 \textbf{7. Perturbação}. O passo final na tradução de rede para regras é perturbar todos os pesos na rede adicionando um pequeno número aleatório a cada peso. Essa perturbação é muito pequena para ter um efeito nos cálculos da rede KBANN antes do treinamento. No entanto, é suficiente para evitar problemas causados pela simetria.
 
@@ -82,7 +82,7 @@ O painel \emph{c} é uma representação gráfica das regras no painel \emph{b} que 
 
 A próxima etapa do algoritmo de tradução é criar uma rede neural mapeando a estrutura hierárquica das regras. Como resultado, há pouca diferença visual entre as representações da inicial rede KBANN no painel \emph{d} e a estrutura hierárquica das regras no painel \emph{c}.
 Os painéis \emph{e} e \emph{f} ilustram o processo pelo qual as ligações, unidades de entrada e unidades ocultas não especificadas no conjunto de regras são adicionadas à rede. O painel \emph{e} mostra unidades na rede numeradas pelo seu nível. Além disso, o painel \emph{e} mostra uma unidade oculta (sombreada) adicionada à rede no nível 1 (um). 
-O painel \emph{f} mostra a rede depois de novas ligações sinápticas entre os neurônios já pertencentes a rede à aqueles que foram adicionados posteriomente (passo 3), novas unidades de entrada e oculta. Essas novas ligações entre os neurônios é realizada de forma fraca, ou seja, com pesos próximos a zero. 
+O painel \emph{f} mostra a rede depois das novas ligações sinápticas entre os neurônios já pertencentes a rede à aqueles que foram adicionados posteriomente (passo 3), as novas unidades de entrada e intermediária. Essas novas ligações entre os neurônios é realizada de forma fraca, ou seja, com pesos próximos a zero. 
 O último passo não foi demonstrado através de uma ilustração do algoritmo de tradução de regras para rede, porque a perturbação dos pesos de ligação resulta apenas em alterações dos valores dos pesos.
 
 %As correntes de pensamento que se cristalizaram em torno da IA já estavam em gestação desde os anos 30 [BF81]. No entanto, oficialmente, a IA nasceu em 1956 com uma conferência de verão em Dartmouth College, NH, USA. Na proposta dessa conferência, escrita por John McCarthy (Dartmouth), Marvin Minsky (Hardward), Nathaniel Rochester (IBM) e Claude Shannon (Bell Laboratories) e submetida à fundação Rockfeller, consta a intenção dos autores de realizar ?um estudo durante dois meses, por dez homens, sobre o tópico inteligência artificial''. Ao que tudo indica, esta parece ser a primeira menção oficial à expressão ?Inteligência Artificial'' [McC79]. Desde seus primórdios, a IA gerou polêmica, a começar pelo seu próprio nome, considerado presunçoso por alguns, até a definição de seus objetivos e metodologias. O desconhecimento dos princípios que fundamentam a inteligência, por um lado, e dos limites práticos da capacidade de processamento dos computadores, por outro, levou periodicamente a promessas exageradas e às correspondentes decepções.
@@ -127,7 +127,7 @@ O termo de decaimento foi proposto por Rumelhart \textit{et al.} (1986). A ideia
 Custo = \sum_{k \in T}{(SaidaAlvo_k - SaidaRede_k)}^2 + \lambda \sum_{i \in C} \frac{{(w_i - w_{inicial})}^2}{1 + {(w_i - w_{inicial})}^2}
 \end{align}
 
-O primeiro termo da equação 2.15 soma todos os exemplos de treino \emph{T}, enquanto o segundo termo soma todas as conexões \emph{C}. O regulador entre o desempenho ea distância dos valores iniciais é ponderado por $\lambda$.
+O primeiro termo da equação 2.12 soma todos os exemplos de treino \emph{T}, enquanto o segundo termo soma todas as conexões \emph{C}. O regulador entre o desempenho e a distância dos valores iniciais é ponderado por $\lambda$.
 
 \subsubsection{Exemplo do TopGen}
 
